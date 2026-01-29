@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Blog Yazısı</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0f172a;
+    color:#e5e7eb;
+}
+
+.container{
+    max-width:800px;
+    margin:60px auto;
+    padding:30px;
+}
+
+img{
+    width:100%;
+    border-radius:16px;
+    margin-bottom:30px;
+}
+
+h1{
+    margin-top:0;
+}
+
+.meta{
+    color:#9ca3af;
+    font-size:14px;
+    margin-bottom:30px;
+}
+
+a{
+    color:#60a5fa;
+    text-decoration:none;
+    display:inline-block;
+    margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="post"></div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+const posts = JSON.parse(localStorage.getItem("blogPosts")) || [];
+const post = posts.find(p => String(p.id) === String(id));
+
+const container = document.getElementById("post");
+
+if(!post){
+    container.innerHTML = "<h2>Yazı bulunamadı</h2>";
+}else{
+    container.innerHTML = `
+        <h1>${post.title}</h1>
+        <div class="meta">${post.date}</div>
+        ${post.image ? `<img src="${post.image}">` : ""}
+        <div>${post.content}</div>
+        <a href="index.html">← Bloga geri dön</a>
+    `;
+}
+</script>
+
+</body>
+</html>
