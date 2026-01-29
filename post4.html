@@ -1,480 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blog #4 | Yavaşlamak Neden Güçlüdür?</title>
-  <meta name="description" content="Hızlı olmak her zaman verimlilik değildir. Yavaşlamak, karar kalitesini ve sürdürülebilirliği nasıl artırır? Pratik bir yaklaşım."/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Yakında</title>
+
   <style>
     :root{
-      --bg:#0b1220;
-      --panel:#0f1a2e;
-      --card:#0f1a2e;
-      --text:#e8eefc;
-      --muted:#a7b4d6;
-      --line:rgba(255,255,255,.10);
-      --accent:#6aa3ff;
-      --accent2:#7ef0d0;
-      --shadow: 0 18px 45px rgba(0,0,0,.45);
-      --radius:18px;
-    }
-    body.light{
-      --bg:#f7f8fc;
-      --panel:#ffffff;
-      --card:#ffffff;
-      --text:#0f172a;
-      --muted:#475569;
-      --line:rgba(15,23,42,.10);
-      --accent:#2563eb;
-      --accent2:#0ea5e9;
-      --shadow: 0 14px 30px rgba(2,6,23,.08);
+      --bg:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
     }
 
-    *{box-sizing:border-box}
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; padding:0; height:100%; background:var(--bg); color:var(--text); }
+
     body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 10% 0%, rgba(106,163,255,.18), transparent 55%),
-                  radial-gradient(900px 450px at 90% 10%, rgba(126,240,208,.14), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.75;
-    }
-
-    a{color:inherit}
-    .wrap{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 28px 18px 64px;
-    }
-
-    /* Topbar */
-    .topbar{
+      font-family: Georgia, "Times New Roman", Times, serif;
       display:flex;
       align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding: 14px 16px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 14px;
-      z-index: 10;
-    }
-    body.light .topbar{
-      background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.80));
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width: 220px;
-    }
-    .logo{
-      width:38px;height:38px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 10px 25px rgba(106,163,255,.25);
-      flex: 0 0 auto;
-    }
-    .brand strong{
-      display:block;
-      font-size: 14px;
-      letter-spacing:.2px;
-    }
-    .brand span{
-      display:block;
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: -2px;
-    }
-
-    .actions{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .btn{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      padding: 10px 12px;
-      border-radius: 14px;
-      cursor:pointer;
-      font-weight: 600;
-      font-size: 13px;
-      transition: transform .15s ease, background .15s ease;
-      user-select:none;
-    }
-    body.light .btn{ background: rgba(15,23,42,.03); }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.07); }
-    body.light .btn:hover{ background: rgba(15,23,42,.06); }
-
-    .pill{
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 12px;
-      background: rgba(255,255,255,.03);
-    }
-    body.light .pill{ background: rgba(15,23,42,.03); }
-
-    /* Hero */
-    .hero{
-      margin-top: 18px;
-      padding: 28px 18px;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      box-shadow: var(--shadow);
-    }
-    body.light .hero{
-      background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,255,255,.90));
-    }
-    .hero h1{
-      margin: 0 0 10px;
-      font-size: clamp(24px, 3.3vw, 40px);
-      line-height: 1.15;
-      letter-spacing: -.6px;
-    }
-    .sub{
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-      max-width: 70ch;
-    }
-    .meta{
-      margin-top: 16px;
-      display:flex;
-      flex-wrap: wrap;
-      gap:10px;
-      align-items:center;
-      justify-content: space-between;
-    }
-    .meta-left{
-      display:flex;
-      flex-wrap: wrap;
-      gap:10px;
-      align-items:center;
-    }
-
-    /* Layout */
-    .grid{
-      display:grid;
-      grid-template-columns: 1.6fr .8fr;
-      gap: 18px;
-      margin-top: 18px;
-      align-items:start;
-    }
-    @media (max-width: 900px){
-      .grid{ grid-template-columns: 1fr; }
-      .brand{ min-width: unset; }
-      .topbar{ position: static; }
-    }
-
-    .card{
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.03);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    body.light .card{ background: rgba(255,255,255,.95); }
-
-    .content{
-      padding: 22px 20px;
-    }
-
-    /* Typography */
-    .content h2{
-      margin: 22px 0 10px;
-      font-size: 20px;
-      letter-spacing: -.2px;
-    }
-    .content h3{
-      margin: 18px 0 8px;
-      font-size: 16px;
-      color: var(--text);
-    }
-    .content p{ margin: 10px 0; color: var(--text); }
-    .content p.muted{ color: var(--muted); }
-
-    .quote{
-      margin: 16px 0;
-      padding: 14px 14px;
-      border-left: 3px solid var(--accent);
-      background: rgba(106,163,255,.08);
-      border-radius: 12px;
-      color: var(--text);
-    }
-    body.light .quote{ background: rgba(37,99,235,.08); }
-
-    .list{
-      margin: 10px 0 14px;
-      padding-left: 18px;
-      color: var(--text);
-    }
-    .list li{ margin: 6px 0; color: var(--text); }
-    .list li span{ color: var(--muted); }
-
-    .divider{
-      height:1px;
-      background: var(--line);
-      margin: 18px 0;
-    }
-
-    /* Aside */
-    .aside{
-      position: sticky;
-      top: 86px;
-    }
-    @media (max-width: 900px){
-      .aside{ position: static; }
-    }
-    .aside .content{ padding: 18px; }
-    .aside h3{ margin: 0 0 10px; }
-    .mini{
-      display:grid;
-      gap:10px;
-    }
-    .tip{
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px 12px;
-      background: rgba(255,255,255,.02);
-    }
-    body.light .tip{ background: rgba(15,23,42,.03); }
-    .tip strong{ display:block; font-size: 13px; margin-bottom: 6px; }
-    .tip span{ display:block; font-size: 13px; color: var(--muted); }
-
-    /* Footer */
-    footer{
-      margin-top: 18px;
+      justify-content:center;
       text-align:center;
-      color: var(--muted);
-      font-size: 12px;
+      padding:20px;
     }
-    .toc a{
-      text-decoration:none;
-      display:block;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      color: var(--text);
-      background: rgba(255,255,255,.02);
-    }
-    body.light .toc a{ background: rgba(15,23,42,.03); }
-    .toc a:hover{ background: rgba(255,255,255,.05); }
-    body.light .toc a:hover{ background: rgba(15,23,42,.06); }
 
-    @media print{
-      .topbar, .aside, footer { display:none !important; }
-      body{ background:#fff; color:#111; }
-      .card{ box-shadow:none; }
+    .box{
+      max-width:600px;
+    }
+
+    h1{
+      font-size:48px;
+      margin:0 0 12px;
+      font-weight:700;
+      letter-spacing:-0.5px;
+    }
+
+    p{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--muted);
+      font-size:16px;
+      margin:0;
+    }
+
+    .line{
+      width:60px;
+      height:2px;
+      background:var(--line);
+      margin:20px auto;
+    }
+
+    @media (max-width:520px){
+      h1{ font-size:36px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-
-    <div class="topbar">
-      <div class="brand" aria-label="Site başlığı">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <strong>Berke’nin Blogu</strong>
-          <span>4 yazılık seri · aynı tasarım</span>
-        </div>
-      </div>
-
-      <div class="actions">
-        <span class="pill" id="readTime">⏱️ Okuma: ~6 dk</span>
-        <button class="btn" id="themeBtn" type="button" aria-label="Tema değiştir">🌙 Koyu</button>
-      </div>
-    </div>
-
-    <section class="hero">
-      <h1>Yavaşlamak Neden Güçlüdür? Hızın Tuzakları ve Netlik</h1>
-      <p class="sub">
-        Hızlı olmak bazen yetenek, bazen paniktir. Bazı insanlar “hızlıyım” diye övünür,
-        aslında sadece nefes almadan koşuyordur. Yavaşlamak ise çoğu zaman daha doğru karar,
-        daha az hata ve daha sürdürülebilir bir tempo demektir.
-      </p>
-      <div class="meta">
-        <div class="meta-left">
-          <span class="pill">📅 13 Ocak 2026</span>
-          <span class="pill">🏷️ Odak · Verimlilik</span>
-          <span class="pill">🧘 Sürdürülebilir tempo</span>
-        </div>
-        <span class="pill">#4 / 4</span>
-      </div>
-    </section>
-
-    <div class="grid">
-      <article class="card">
-        <div class="content">
-          <p class="muted">
-            “Hızlı yaşa, hızlı üret” kültürü kulağa havalı gelir. Sonra bir bakarsın sürekli yetişmeye çalışırken
-            aslında hiçbir şeyi düzgün bitiremiyorsun. Çünkü hız, kaliteyi otomatik getirmez.
-          </p>
-
-          <div class="divider"></div>
-
-          <h2 id="bolum1">Hız her zaman verimlilik değildir</h2>
-          <p>
-            Bir şeyi hızlı yapmak, onu iyi yapmak demek değil. Hız çoğu zaman iki şeye neden olur:
-            <strong>yüzeysellik</strong> ve <strong>hata maliyeti</strong>. Hataları düzeltmek de süreyi uzatır.
-            Yani “hızlıyım” diye başladığın şey, toplamda daha uzun sürer.
-          </p>
-          <ul class="list">
-            <li><strong>Yüzeysel kararlar:</strong> <span>Detayları kaçırırsın, sonra geri dönersin.</span></li>
-            <li><strong>Sürekli yeniden başlama:</strong> <span>Bitirmeden yenisine atlamak rahatlatır ama sonuç üretmez.</span></li>
-            <li><strong>Zihinsel yorgunluk:</strong> <span>Hız, beyne sürekli alarm modu yaşatır.</span></li>
-          </ul>
-
-          <div class="quote">
-            Hızın en büyük bedeli zaman değildir. Kalite, sakinlik ve tutarlılıktır.
-          </div>
-
-          <h2 id="bolum2">Yavaşlamak “durmak” değil, yön seçmektir</h2>
-          <p>
-            Yavaşlamak, tembellik değil. Yavaşlamak; <strong>neye evet, neye hayır</strong> dediğini bilmek demek.
-            Çünkü çoğu insanın sorunu zaman yönetimi değil, <strong>öncelik yönetimi</strong>.
-          </p>
-
-          <h3>Öncelik yönetimi için 3 soru</h3>
-          <ul class="list">
-            <li><strong>Bu iş gerçekten gerekli mi?</strong> <span>Yoksa sadece “acil” mi görünüyor?</span></li>
-            <li><strong>Benim hedefime hizmet ediyor mu?</strong> <span>Yoksa başkasının gündemi mi?</span></li>
-            <li><strong>Yapmazsam ne olur?</strong> <span>Bazı şeyler abartıldığı kadar “felaket” değildir.</span></li>
-          </ul>
-
-          <h2 id="bolum3">Netlik yavaşlamanın ödülüdür</h2>
-          <p>
-            Zihin sürekli koştururken “net” düşünmez. Çünkü beyin sadece hayatta kalmaya odaklanır:
-            bir sonraki bildirim, bir sonraki iş, bir sonraki sorun.
-            Yavaşladığında ise beyin nihayet “düşünme moduna” geçer.
-          </p>
-
-          <div class="quote">
-            Netlik, hızın değil sakinliğin ürünüdür.
-          </div>
-
-          <h2 id="bolum4">Pratik: Yavaşlamayı günlük rutine koymak</h2>
-          <p>
-            Yavaşlamak soyut bir öneri gibi durur. O yüzden ölçülebilir hale getirelim.
-            Bunlar küçük ama etkili “tempo freni” adımlarıdır:
-          </p>
-
-          <h3>1) Gün başı 5 dakikalık plan</h3>
-          <ul class="list">
-            <li><strong>Tek büyük hedef:</strong> <span>Bugün bitse “tamam” diyeceğin 1 iş seç.</span></li>
-            <li><strong>İki küçük destek:</strong> <span>Büyük hedefi besleyen 2 mini iş.</span></li>
-            <li><strong>Gereksizi sil:</strong> <span>Listeye ekleme, listeden çıkar.</span></li>
-          </ul>
-
-          <h3>2) 90 dakika kuralı</h3>
-          <p>
-            Eğer mümkünse işleri 90 dakikalık bloklara böl. Bu blokta tek iş yap.
-            Sonra 10 dakika mola. Bu, “hızlı hızlı her şeye dokunma” alışkanlığını kırar.
-          </p>
-
-          <h3>3) Tepki verme gecikmesi</h3>
-          <p>
-            Mesajlara, bildirimlere, ani isteklere anında cevap verme.
-            10 dakika bekle. Bu basit gecikme bile “başkasının gündeminde yaşama” alışkanlığını azaltır.
-          </p>
-
-          <div class="divider"></div>
-
-          <h2 id="bolum5">Sonuç: Sürdürülebilir olan kazanır</h2>
-          <p>
-            Hızlı olmak kısa vadede etkileyici görünebilir. Ama uzun vadede kazanan,
-            temposunu koruyabilen ve sürekli tekrar edebilen kişidir.
-            Yavaşlamak, enerjiyi akıllıca kullanmaktır. Bu yüzden güçtür.
-          </p>
-
-          <p class="muted">
-            Seri bitti (4/4). İstersen aynı şablonla farklı bir konu seti de üretiriz.
-          </p>
-        </div>
-      </article>
-
-      <aside class="card aside">
-        <div class="content">
-          <h3>İçindekiler</h3>
-          <div class="mini toc" style="margin-top:10px">
-            <a href="#bolum1">Hız tuzakları</a>
-            <a href="#bolum2">Yavaşlamak yön seçmektir</a>
-            <a href="#bolum3">Netlik nasıl gelir?</a>
-            <a href="#bolum4">Günlük pratikler</a>
-            <a href="#bolum5">Sonuç</a>
-          </div>
-
-          <div class="divider"></div>
-
-          <h3>Hızlı Uygulama</h3>
-          <div class="mini">
-            <div class="tip">
-              <strong>Bugün tek büyük iş</strong>
-              <span>Bir tane seç. Bitir. Dünya yıkılmıyor.</span>
-            </div>
-            <div class="tip">
-              <strong>10 dk gecikme</strong>
-              <span>Mesajlara anında koşma. Sen robot değilsin.</span>
-            </div>
-            <div class="tip">
-              <strong>Blok çalışma</strong>
-              <span>90 dk tek iş + 10 dk mola.</span>
-            </div>
-          </div>
-        </div>
-      </aside>
-    </div>
-
-    <footer>
-      © 2026 · Blog serisi (4/4) · Aynı tasarım şablonu korunur
-    </footer>
+  <div class="box">
+    <h1>Yakında</h1>
+    <div class="line"></div>
+    <p>Yeni içerikler ve güncellemeler için hazırlık yapıyoruz.</p>
   </div>
-
-  <script>
-    const body = document.body;
-    const btn = document.getElementById("themeBtn");
-
-    function setTheme(mode){
-      if(mode === "light"){
-        body.classList.add("light");
-        btn.textContent = "☀️ Açık";
-        localStorage.setItem("theme","light");
-      }else{
-        body.classList.remove("light");
-        btn.textContent = "🌙 Koyu";
-        localStorage.setItem("theme","dark");
-      }
-    }
-
-    const saved = localStorage.getItem("theme");
-    if(saved === "light") setTheme("light");
-    else setTheme("dark");
-
-    btn.addEventListener("click", () => {
-      const isLight = body.classList.contains("light");
-      setTheme(isLight ? "dark" : "light");
-    });
-
-    // Read time estimate
-    const text = document.querySelector("article").innerText || "";
-    const words = text.trim().split(/\s+/).filter(Boolean).length;
-    const mins = Math.max(1, Math.round(words / 190));
-    document.getElementById("readTime").textContent = `⏱️ Okuma: ~${mins} dk`;
-  </script>
 </body>
 </html>
