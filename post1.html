@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mutluluk Tek Bir Kurala Sığmaz</title>
-  <meta name="description" content="Mutluluk tek bir kurala bağlı değildir. Merkezini doğru yere koymak, iç sesini korumak ve gerçeklikle güçlenmek üzerine sade bir blog yazısı." />
+  <title>Yakında</title>
 
   <style>
     :root{
@@ -12,235 +11,56 @@
       --text:#111827;
       --muted:#6b7280;
       --line:#e5e7eb;
-      --link:#1d4ed8;
     }
 
     *{ box-sizing:border-box; }
-    html,body{ margin:0; padding:0; background:var(--bg); color:var(--text); }
+    html,body{ margin:0; padding:0; height:100%; background:var(--bg); color:var(--text); }
 
     body{
       font-family: Georgia, "Times New Roman", Times, serif;
-      line-height:1.8;
-      font-size:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px;
     }
 
-    .wrap{
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 44px 20px 70px;
-    }
-
-    header{
-      margin-bottom: 26px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .site{
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-size: 14px;
-      color: var(--muted);
-      letter-spacing: .2px;
-      margin-bottom: 8px;
+    .box{
+      max-width:600px;
     }
 
     h1{
-      font-size: 34px;
-      line-height:1.2;
-      margin: 0 0 10px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
+      font-size:48px;
+      margin:0 0 12px;
+      font-weight:700;
+      letter-spacing:-0.5px;
     }
 
-    .meta{
+    p{
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-size: 14px;
-      color: var(--muted);
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
+      color:var(--muted);
+      font-size:16px;
+      margin:0;
     }
 
-    .meta span{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-    }
-
-    .dot{
-      width:4px;height:4px;border-radius:50%;
+    .line{
+      width:60px;
+      height:2px;
       background:var(--line);
-      display:inline-block;
+      margin:20px auto;
     }
 
-    main p{ margin: 0 0 16px; }
-    main h2{
-      font-size: 22px;
-      margin: 28px 0 10px;
-      line-height:1.35;
-      font-weight: 700;
-    }
-
-    blockquote{
-      margin: 22px 0;
-      padding: 10px 16px;
-      border-left: 3px solid var(--line);
-      color: #111827;
-      background: #fafafa;
-    }
-
-    blockquote p{ margin: 0; }
-
-    .lead{
-      font-size: 20px;
-      color: #111827;
-      margin-top: 6px;
-    }
-
-    a{ color: var(--link); text-decoration: underline; }
-    a:hover{ text-decoration-thickness: 2px; }
-
-    .hr{
-      margin: 30px 0 0;
-      border-top: 1px solid var(--line);
-      padding-top: 24px;
-    }
-
-    .takeaways{
-      margin-top: 10px;
-      padding-left: 18px;
-    }
-    .takeaways li{ margin: 8px 0; }
-
-    footer{
-      margin-top: 34px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-size: 14px;
-    }
-
-    @media (max-width: 520px){
-      body{ font-size: 17px; }
-      h1{ font-size: 28px; }
-      .lead{ font-size: 18px; }
-      .wrap{ padding-top: 34px; }
+    @media (max-width:520px){
+      h1{ font-size:36px; }
     }
   </style>
 </head>
 
 <body>
-  <article class="wrap">
-    <header>
-      <div class="site">Kişisel Blog</div>
-      <h1>Mutluluk Tek Bir Kurala Sığmaz</h1>
-      <div class="meta">
-        <span>Yazan: <strong>Berke</strong></span>
-        <span class="dot" aria-hidden="true"></span>
-        <span>Okuma süresi: 4–6 dk</span>
-        <span class="dot" aria-hidden="true"></span>
-        <span>Tarih: <time datetime="2026-01-13">13 Ocak 2026</time></span>
-      </div>
-    </header>
-
-    <main>
-      <p class="lead">
-        Benim için mutluluk, tek bir kurala bağlı değildir. Çünkü insan dediğimiz şey de tek bir kuralla oluşmaz.
-        Nasıl ki bir insan atom parçacıklarının bir araya gelmesiyle var oluyorsa, mutluluk da tek bir kaynaktan gelmez.
-        Parça parçadır. Küçüktür. Çoğu zaman fark edilmez. Ama birleştiğinde insanın iç dünyasını ya sağlamlaştırır ya da çökertir.
-      </p>
-
-      <p>
-        Bu yüzden “şunu yap mutlu ol”, “bunu bırak huzur gelir” gibi cümleler bana hep eksik gelmiştir.
-        Hayat düz bir denklem değildir. Aynı şey bir insanı iyileştirirken başka bir insanı yorabilir.
-        Üstelik zaman da işin içine girer: Bugün iyi gelen şey, yarın aynı etkiyi yaratmayabilir.
-      </p>
-
-      <h2>Mutluluğun gizli şartı: Merkezini doğru yere koymak</h2>
-      <p>
-        Yine de net söyleyebileceğim bir nokta var: İnsanın mutlu olabilmesi için önce merkezini doğru yere koyması gerekir.
-        Çünkü çoğu insan farkında olmadan merkezini başka insanlara teslim eder.
-        Ve bu teslim, genelde “sevgi” gibi masum bir kılıkla gelir.
-      </p>
-
-      <blockquote>
-        <p>
-          Birini hayatının merkezine aldığında sadece onu sevmiş olmazsın. Aynı zamanda kendi iç sesini geri plana itmiş olursun.
-        </p>
-      </blockquote>
-
-      <p>
-        Bu değişim yavaş olur. Önce “O ne der?” sorusu gelir. Sonra “O olmazsa ben ne yaparım?” düşüncesi yerleşir.
-        Ardından kişi kendi düşünceleriyle konuşmamaya başlar.
-        Ne istediğini, ne hissettiğini, neye tahammül edip neye edemediğini unutmaya başlar.
-        Fark etmeden kendi sınırlarını da, kendi rotasını da başkasına emanet eder.
-      </p>
-
-      <h2>Boşluk neden bu kadar tehlikeli?</h2>
-      <p>
-        İşin en tehlikeli kısmı şudur: Merkezdeki kişi gittiğinde, ortada kalan boşlukla baş başa kalırsın.
-        O boşluk, bir insanın en savunmasız hâlidir.
-        Çünkü artık neye tutunacağını bilemez.
-      </p>
-
-      <p>
-        Kendi sesi sustuğu için dışarıdan gelen her sesi “gerçek” zanneder.
-        Bu da insanı daha çok insana, daha çok gürültüye, daha çok yanlış şeye iter.
-        Çünkü boşluk rahatsız eder; insan da rahatsızlığı hızla kapatmak ister.
-        Ama hızlı kapatılan boşlukların çoğu, aceleyle seçilmiş yanlış taşlarla doldurulur.
-      </p>
-
-      <h2>“Kimse kalıcı değil” cümlesi karamsar değil, koruyucudur</h2>
-      <p>
-        Oysa mutluluk önce şunu kabul etmekle başlar: Hiçbir insan kalıcı değildir.
-        Bu bir karamsarlık değil. Bu bir gerçekliktir.
-        Ve gerçeklik, insanı acıtmaktan çok korur.
-      </p>
-
-      <p>
-        Çünkü bu kabul, ilişkileri değersizleştirmez; tersine, onları daha gerçek yapar.
-        Birini sevdiğinde onu bir “dayanak” olarak değil, bir “yol arkadaşı” olarak görmeyi öğretir.
-        Böylece sevgi, bağımlılığa dönüşmez.
-      </p>
-
-      <h2>Peki merkez nereye konmalı?</h2>
-      <p>
-        Merkezde olan tek kişi sensin demek, “kimseyi umursama” demek değildir.
-        Bu, “kendi iç sesini asla terk etme” demektir.
-        Kendi değerlerini, sınırlarını ve ihtiyaçlarını bilmek demektir.
-        Birine yer açarken kendini evden çıkarmamak demektir.
-      </p>
-
-      <p>
-        Merkezini kendinde tutmak şunları sağlar:
-        Bir ilişki bittiğinde yıkılmazsın; üzülürsün ama dağılmazsın.
-        Yanlış birine tutunmak yerine, doğru olana yer açarsın.
-        En önemlisi de, hayatın kontrolünü tekrar eline alırsın.
-      </p>
-
-      <div class="hr">
-        <h2>Bu yazıdan çıkarılacak 5 net düşünce</h2>
-        <ul class="takeaways">
-          <li>Mutluluk tek kaynaktan gelmez; küçük parçalar birikir ve sonuç yaratır.</li>
-          <li>Merkezini bir insana koymak, zamanla kendi iç sesini susturur.</li>
-          <li>Merkezdeki kişi gidince oluşan boşluk, insanı gürültüye ve yanlış seçimlere iter.</li>
-          <li>“Kimse kalıcı değil” cümlesi karamsar değil; sınır koyduran bir gerçekliktir.</li>
-          <li>Merkezini kendinde tutmak; sevgiye değil, bağımlılığa karşı koruma sağlar.</li>
-        </ul>
-      </div>
-
-      <p>
-        Mutluluk, “tamamlandım” hissi değildir. Mutluluk, kendini kaybetmeden sevebilme becerisidir.
-        Kendi iç sesini duyabildiğin sürece, hayatın içindeki değişimler seni kırmaz; eğitir.
-        Ve insan en çok da burada güçlenir: Gerçeği inkâr etmeyip onunla yaşamayı öğrendiğinde.
-      </p>
-    </main>
-
-    <footer>
-      <div>Not: Bu yazı kişisel bir bakış açısıdır; dilediğin gibi kısaltıp çoğaltabilirsin.</div>
-    </footer>
-  </article>
+  <div class="box">
+    <h1>Yakında</h1>
+    <div class="line"></div>
+    <p>Yeni içerikler ve güncellemeler için hazırlık yapıyoruz.</p>
+  </div>
 </body>
 </html>
