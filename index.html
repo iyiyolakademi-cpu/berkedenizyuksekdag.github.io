@@ -819,7 +819,7 @@ body.dark .projects-cta-btn{
 <body>
 
 <header class="hero-header">
-    <span class="hero-kicker">Kişisel Blog</span>
+    <span class="hero-kicker">Resmî Web Sitesi</span>
 
     <h1 class="hero-title">
         Berke Deniz Yüksekdağ
@@ -1050,41 +1050,35 @@ Kitaplarımı okuyan okurlardan gelen paylaşımlar  </p>
 
 <script>
 /* ---------------------------
-   TEMA (localStorage + sistem)
+   TEMA (localStorage + varsayılan light)
 ---------------------------- */
 function applyTheme(theme){
-    const body = document.body;
-    const btn = document.getElementById("themeBtn");
+  const btn = document.getElementById("themeBtn");
 
-    if(theme === "dark"){
-        body.classList.add("dark");
-        btn.textContent = "☀️ Açık Mod";
-    } else {
-        body.classList.remove("dark");
-        btn.textContent = "🌑 Koyu Mod";
-    }
+  if(theme === "dark"){
+    document.body.classList.add("dark");
+    if(btn) btn.textContent = "☀️ Açık Mod";
+  } else {
+    document.body.classList.remove("dark");
+    if(btn) btn.textContent = "🌑 Koyu Mod";
+  }
 }
 
 function toggleTheme(){
- function toggleTheme(){
-    const isDark = !document.body.classList.contains("dark");
-    const newTheme = isDark ? "dark" : "light";
-    localStorage.setItem("theme", newTheme);
-    applyTheme(newTheme);
-}
-
+  const isDark = document.body.classList.contains("dark");
+  const newTheme = isDark ? "light" : "dark";
+  localStorage.setItem("theme", newTheme);
+  applyTheme(newTheme);
 }
 
 (function initTheme(){
-    const savedTheme = localStorage.getItem("theme");
-    if(savedTheme){
-        applyTheme(savedTheme);
-        return;
-    }
-
-    // ✅ İlk açılışta her zaman açık mod
-    applyTheme("light");
-    localStorage.setItem("theme", "light"); // istersen bunu kaldırabilirsin
+  const savedTheme = localStorage.getItem("theme");
+  if(savedTheme){
+    applyTheme(savedTheme);
+  } else {
+    applyTheme("light"); // ilk açılış açık mod
+    localStorage.setItem("theme", "light");
+  }
 })();
 
 
@@ -1162,6 +1156,7 @@ video.addEventListener("click", toggleVideo);
 
 </body>
 </html>
+
 
 
 
