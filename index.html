@@ -1079,10 +1079,12 @@ function toggleTheme(){
         applyTheme(savedTheme);
         return;
     }
-    // Kaydedilmiş tema yoksa sistem temasını oku
-    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    applyTheme(prefersDark ? "dark" : "light");
+
+    // ✅ İlk açılışta her zaman açık mod
+    applyTheme("light");
+    localStorage.setItem("theme", "light"); // istersen bunu kaldırabilirsin
 })();
+
 
 /* ---------------------------
    VIDEO (ses + buton davranışı)
@@ -1158,5 +1160,6 @@ video.addEventListener("click", toggleVideo);
 
 </body>
 </html>
+
 
 
