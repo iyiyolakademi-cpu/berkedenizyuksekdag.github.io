@@ -586,8 +586,7 @@
   <header class="header">
     <span class="kicker">Portföy • Öncelik ve Durum Bazlı Görünüm</span>
     <h1 class="title">Proje Portföyü</h1>
-    <p class="subtitle">
-    </p>
+    <p class="subtitle"></p>
 
     <div class="actions">
       <a class="btn" href="index.html">← Ana Sayfaya Dön</a>
@@ -687,12 +686,12 @@
         </div>
       </article>
 
-      <!-- 3) HAZIRLIK: SEN2 ROBOT -->
+      <!-- 3) SEN2 ROBOT (✅ PLANLAMA OLARAK DÜZELTİLDİ) -->
       <article class="project-card"
         data-id="sen2"
         data-title="Sen2 Robot Projesi"
-        data-status="building"
-        data-statuslabel="Hazırlık"
+        data-status="planned"
+        data-statuslabel="Planlama"
         data-priority="3"
         data-short="Donanım + yazılım bütünleşik Ar-Ge çalışması. Özellikler şu aşamada gizli olarak geliştirilmektedir."
         data-long="Sen2; donanım ve yazılımın birlikte ilerlediği, sensör/otomasyon temelli bir Ar-Ge projesidir. Özellik ve mimari detaylar bu aşamada gizli tutulmaktadır. Proje iki aşamada tamamlanacaktır: 1) Temel ve başlangıç sürümü 2) Kapsamlı sürüm (final)."
@@ -707,7 +706,7 @@
           <h3 class="project-title">Sen2 Robot Projesi</h3>
           <div class="meta-row">
             <span class="priority-pill"><span class="prio-dot"></span> Öncelik 3</span>
-            <span class="status-pill status-building"><span class="status-dot"></span> Hazırlık</span>
+            <span class="status-pill status-planned"><span class="status-dot"></span> Planlama</span>
           </div>
         </div>
 
@@ -720,7 +719,7 @@
         </div>
 
         <div class="card-actions">
-          <span class="mini">Aşamalı geliştirme • Gizli kapsam</span>
+          <span class="mini">Planlama • Aşamalı geliştirme</span>
           <button class="read-btn" type="button" data-open="sen2">Detayları Görüntüle →</button>
         </div>
       </article>
@@ -810,10 +809,10 @@
       const btn = document.getElementById("themeBtn");
       if(theme === "dark"){
         body.classList.add("dark");
-        btn.textContent = "☀️ Açık Mod";
+        if(btn) btn.textContent = "☀️ Açık Mod";
       }else{
         body.classList.remove("dark");
-        btn.textContent = "🌑 Koyu Mod";
+        if(btn) btn.textContent = "🌑 Koyu Mod";
       }
     }
 
@@ -967,5 +966,3 @@
   </script>
 </body>
 </html>
-
-
