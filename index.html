@@ -1179,25 +1179,23 @@ video.addEventListener("ended", () => {
     setPlayingUI(false);
 });
 
-// 📲 İndirme sayısını çek
-fetch("https://script.google.com/macros/s/AKfycbw3WtAC-muKTKzg_v93sdTTRwpHlJGyADfm8-Hvf_Z1AiVHAh78WVffywGCHT5OzP2aaA/exec", {
-  cache: "no-store"
-})
-  .then(r => r.json())
+<script>
+fetch("BURAYA_WEB_APP_URL_YAPISTIR")
+  .then(res => res.json())
   .then(data => {
     document.getElementById("installCount").innerText =
       "📲 İyi Yol Akademi toplam indirme: " + data.installs;
   })
-  .catch(err => {
-    console.log("Install fetch error:", err);
+  .catch((err) => {
+    console.log("Fetch hata:", err);
     document.getElementById("installCount").innerText =
       "İndirme sayısı alınamadı";
   });
-
 </script>
 
 </body>
 </html>
+
 
 
 
