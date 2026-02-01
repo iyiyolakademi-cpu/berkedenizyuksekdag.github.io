@@ -1180,24 +1180,22 @@ video.addEventListener("ended", () => {
 });
 
 // Videoya tıklayınca da oynat/durdur (kullanıcı deneyimi)
-video.addEventListener("click", toggleVideo);
-  const SPREADSHEET_ID = "AKfycbz89j63ozXsVXcEhvuMqB_rGko1rgbj9Arl30bEcsib4i1RQ1XscfGU7TKJDbu5n0JC6w"; // 2. adımda kopyaladığın
-
-function doGet() {
-  const ss = SpreadsheetApp.openById(https://script.google.com/macros/s/AKfycbz89j63ozXsVXcEhvuMqB_rGko1rgbj9Arl30bEcsib4i1RQ1XscfGU7TKJDbu5n0JC6w/exec);
-  const sheet = ss.getSheetByName("Sayfa1");
-  const value = sheet.getRange("B2").getValue();
-
-  return ContentService
-    .createTextOutput(JSON.stringify({ installs: value }))
-    .setMimeType(ContentService.MimeType.JSON);
-}
-;
+fetch("https://script.google.com/macros/s/AKfycbzw6pZMFklOxu1aRFk45VqOL7gLzbyQE0SVAwnOxThG79OP3bnRZxtOEOrLTX9rX6S0/exec")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("installCount").innerText =
+      "📲 İyi Yol Akademi toplam indirme: " + data.installs;
+  })
+  .catch(() => {
+    document.getElementById("installCount").innerText =
+      "İndirme sayısı alınamadı";
+  });
 
 </script>
 
 </body>
 </html>
+
 
 
 
