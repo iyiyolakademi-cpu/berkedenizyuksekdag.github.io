@@ -991,6 +991,9 @@ Aşağıda, İyi Yol Akademi’nin arayüzüne ait örnek ekran görüntüleri y
         App Store
       </a>
     </div>
+<p id="installCount" style="margin-top:14px;font-weight:700;color:var(--accent);">
+Uygulama indirme sayısı yükleniyor...
+</p>
 
 
 
@@ -1178,10 +1181,23 @@ video.addEventListener("ended", () => {
 
 // Videoya tıklayınca da oynat/durdur (kullanıcı deneyimi)
 video.addEventListener("click", toggleVideo);
+  // 📲 İndirme sayısını çek
+fetch("BURAYA_WEB_APP_URL")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("installCount").innerText =
+      "📲 İyi Yol Akademi toplam indirme: " + data.installs;
+  })
+  .catch(() => {
+    document.getElementById("installCount").innerText =
+      "İndirme sayısı alınamadı";
+  });
+
 </script>
 
 </body>
 </html>
+
 
 
 
