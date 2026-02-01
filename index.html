@@ -1181,22 +1181,24 @@ video.addEventListener("ended", () => {
 
 // Videoya tıklayınca da oynat/durdur (kullanıcı deneyimi)
 video.addEventListener("click", toggleVideo);
-  // 📲 İndirme sayısını çek
-fetch("https://docs.google.com/spreadsheets/d/BU_ARADAKI_UZUN_YAZI/edit#gid=0")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("installCount").innerText =
-      "📲 İyi Yol Akademi toplam indirme: " + data.installs;
-  })
-  .catch(() => {
-    document.getElementById("installCount").innerText =
-      "İndirme sayısı alınamadı";
-  });
+  const SPREADSHEET_ID = "AKfycbxXXuUqlFwvc5dX_Et9x7MRAlntUXy5XeW-zxZTlat59nukjq3fbiC8XN5gFxzh0tW8tA"; // 2. adımda kopyaladığın
+
+function doGet() {
+  const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+  const sheet = ss.getSheetByName("Sayfa1");
+  const value = sheet.getRange("B2").getValue();
+
+  return ContentService
+    .createTextOutput(JSON.stringify({ installs: value }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+;
 
 </script>
 
 </body>
 </html>
+
 
 
 
