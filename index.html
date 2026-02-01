@@ -1179,22 +1179,11 @@ video.addEventListener("ended", () => {
     setPlayingUI(false);
 });
 
-<script>
-fetch("BURAYA_WEB_APP_URL_YAPISTIR")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("installCount").innerText =
-      "📲 İyi Yol Akademi toplam indirme: " + data.installs;
-  })
-  .catch((err) => {
-    console.log("Fetch hata:", err);
-    document.getElementById("installCount").innerText =
-      "İndirme sayısı alınamadı";
-  });
 </script>
 
 </body>
 </html>
+
 
 
 
