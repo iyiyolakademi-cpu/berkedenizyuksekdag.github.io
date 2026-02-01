@@ -1179,14 +1179,17 @@ video.addEventListener("ended", () => {
     setPlayingUI(false);
 });
 
-// Videoya tıklayınca da oynat/durdur (kullanıcı deneyimi)
-fetch("https://script.google.com/macros/s/AKfycbzw6pZMFklOxu1aRFk45VqOL7gLzbyQE0SVAwnOxThG79OP3bnRZxtOEOrLTX9rX6S0/exec")
-  .then(res => res.json())
+// 📲 İndirme sayısını çek
+fetch("https://script.google.com/macros/s/AKfycbzw6pZMFklOxu1aRFk45VqOL7gLzbyQE0SVAwnOxThG79OP3bnRZxtOEOrLTX9rX6S0/exec", {
+  cache: "no-store"
+})
+  .then(r => r.json())
   .then(data => {
     document.getElementById("installCount").innerText =
       "📲 İyi Yol Akademi toplam indirme: " + data.installs;
   })
-  .catch(() => {
+  .catch(err => {
+    console.log("Install fetch error:", err);
     document.getElementById("installCount").innerText =
       "İndirme sayısı alınamadı";
   });
@@ -1195,6 +1198,7 @@ fetch("https://script.google.com/macros/s/AKfycbzw6pZMFklOxu1aRFk45VqOL7gLzbyQE0
 
 </body>
 </html>
+
 
 
 
