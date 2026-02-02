@@ -921,7 +921,108 @@ body.dark .stat-icon{
   .stats-row{
     grid-template-columns: 1fr;
   }
+/* ===============================
+   KİTAPLAR BÖLÜMÜ
+   =============================== */
+.books-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 22px;
+  margin-top: 18px;
 }
+
+.book-card{
+  display:flex;
+  gap: 16px;
+  background: linear-gradient(135deg, var(--card), var(--bg));
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow:hidden;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+}
+
+body.dark .book-card{
+  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+}
+
+.book-cover{
+  width: 150px;
+  min-height: 220px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--btn-hover);
+  flex-shrink:0;
+}
+
+.book-body{
+  padding: 16px 16px 16px 0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.book-title{
+  margin: 0;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.2px;
+}
+
+.book-text{
+  margin: 10px 0 0 0;
+  color: var(--muted);
+  font-weight: 600;
+  line-height: 1.7;
+  font-size: 14.5px;
+}
+
+.book-actions{
+  margin-top: 14px;
+  display:flex;
+  flex-direction:column;
+  gap: 8px;
+}
+
+.dm-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width: fit-content;
+  padding: 11px 14px;
+  border-radius: 14px;
+  font-weight: 900;
+  text-decoration:none;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
+  border: 1px solid rgba(255,255,255,0.10);
+  transition: transform .2s, filter .2s;
+}
+
+.dm-btn:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.dm-note{
+  margin: 0;
+  color: var(--muted);
+  font-size: 12.5px;
+  font-weight: 650;
+}
+
+@media (max-width: 720px){
+  .book-card{
+    flex-direction:column;
+  }
+  .book-cover{
+    width: 100%;
+    height: 260px;
+  }
+  .book-body{
+    padding: 16px;
+  }
+}
+
 
 
 </style>
@@ -1140,6 +1241,52 @@ Aşağıda, İyi Yol Akademi’nin arayüzüne ait örnek ekran görüntüleri y
 </div>
 
 
+<h2 class="section-title" style="margin-top:80px;">Kitaplarım</h2>
+<p class="section-desc">
+İmzalı olarak satın almak isterseniz Instagram DM üzerinden ulaşabilirsiniz.
+</p>
+
+<div class="books-grid" aria-label="Kitaplar">
+  
+  <!-- KİTAP 1 -->
+  <div class="book-card">
+    <div class="book-cover" style="background-image:url('images/kitap-hayat-uzerine-sohbetler.jpg');"></div>
+    <div class="book-body">
+      <h3 class="book-title">Hayat Üzerine Sohbetler</h3>
+      <p class="book-text">
+        Hayata, alışkanlıklara ve bakış açısına dair kısa ama etkili sohbetler. Okudukça sadeleşen, sadeleştikçe güçlenen bir yol.
+      </p>
+
+      <div class="book-actions">
+        <a class="dm-btn" target="_blank" rel="noopener"
+           href="https://instagram.com/direct/new/?username=berke_yuksekdag">
+          DM’den İmzalı Satın Al
+        </a>
+        <p class="dm-note">DM’de şunu yaz: “Hayat Üzerine Sohbetler imzalı istiyorum.”</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KİTAP 2 -->
+  <div class="book-card">
+    <div class="book-cover" style="background-image:url('images/kitap-karanligin-icinden-aydinliga.jpg');"></div>
+    <div class="book-body">
+      <h3 class="book-title">Karanlığın İçinden Aydınlığa</h3>
+      <p class="book-text">
+        Zor zamanlarda zihni toparlamak, yeniden yön bulmak ve güçlenmek üzerine. Daha sakin, daha net bir iç ses için.
+      </p>
+
+      <div class="book-actions">
+        <a class="dm-btn" target="_blank" rel="noopener"
+           href="https://instagram.com/direct/new/?username=berke_yuksekdag">
+          DM’den İmzalı Satın Al
+        </a>
+        <p class="dm-note">DM’de şunu yaz: “Karanlığın İçinden Aydınlığa imzalı istiyorum.”</p>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 
 <h2 class="section-title" style="margin-top:80px;">Kitabımı Okuyanlardan Gelenler</h2>
@@ -1291,6 +1438,7 @@ video.addEventListener("ended", () => {
 
 </body>
 </html>
+
 
 
 
