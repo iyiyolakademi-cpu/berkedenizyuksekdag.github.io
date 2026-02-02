@@ -435,13 +435,14 @@ body.dark .blog-card{
 }
 /* HERO HEADER – PREMIUM */
 .hero-header{
-    padding:80px 20px 70px;
+    padding: clamp(44px, 6vw, 72px) 20px clamp(32px, 5vw, 56px);
     text-align:center;
     background:
         radial-gradient(600px 200px at 50% 0%, rgba(37,99,235,0.12), transparent 60%),
         var(--card);
     border-bottom:1px solid var(--border);
 }
+
 
 .hero-kicker{
     display:inline-block;
@@ -1319,6 +1320,7 @@ video.addEventListener("ended", () => {
 
 </body>
 </html>
+
 
 
 
