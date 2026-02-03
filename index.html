@@ -762,11 +762,20 @@ body.dark .menu-links a{ background: rgba(255,255,255,0.04); }
 
 <body>
 <!-- HAMBURGER BUTTON -->
+<body>
+
+<!-- HAMBURGER BUTTON -->
 <button class="menu-btn" type="button" aria-label="Menüyü aç" onclick="openMenu()">
   <div class="menu-icon" aria-hidden="true">
     <span></span><span></span><span></span>
   </div>
 </button>
+
+<!-- THEME BUTTON (SAĞ ÜST) -->
+<button class="theme-btn" id="themeBtn" type="button" aria-label="Tema değiştir" onclick="toggleTheme()">
+  🌑 Koyu Mod
+</button>
+
 
 <!-- OVERLAY -->
 <div class="menu-overlay" onclick="closeMenu()" aria-hidden="true"></div>
@@ -794,24 +803,6 @@ body.dark .menu-links a{ background: rgba(255,255,255,0.04); }
     © Berke Deniz Yüksekdağ
   </div>
 </nav>
-
-<header class="hero-header" id="top">
-    <span class="hero-kicker">Resmî Web Sitesi</span>
-
-    <h1 class="hero-title">
-        Berke Deniz Yüksekdağ
-    </h1>
-
-    <p class="hero-subtitle">
-        Yazar · İyi Yol Akademi Kurucusu
-    </p>
-
-    <div class="hero-actions">
-        <button id="themeBtn" aria-label="Tema değiştir" onclick="toggleTheme()">
-            🌑 Koyu Mod
-        </button>
-    </div>
-</header>
 
 
 <div class="container">
@@ -1171,6 +1162,7 @@ document.addEventListener("keydown", (e) => {
 
 </body>
 </html>
+
 
 
 
