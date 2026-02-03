@@ -2,10 +2,32 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Berke Deniz Yüksekdağ | Blog</title>
+<title>Berke Deniz Yüksekdağ | Yazar & İyi Yol Akademi Kurucusu</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Berke Deniz Yüksekdağ kişisel blog sayfası. İyi Yol Akademi kurucusu, yazar ve girişimci.">
+<meta name="description" content="Berke Deniz Yüksekdağ; yazar, yazılımcı ve İyi Yol Akademi uygulamasının kurucusudur. Kitaplar, kişisel gelişim içerikleri ve dijital projeler üzerine çalışmalar yürütmektedir.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Berke Deniz Yüksekdağ",
+  "url": "https://berkedenizyuksekdag.com",
+  "image": "https://berkedenizyuksekdag.com/images/berke.jpg",
+  "jobTitle": "Yazar ve Girişimci",
+  "description": "Berke Deniz Yüksekdağ, yazar ve İyi Yol Akademi uygulamasının kurucusudur.",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "İyi Yol Akademi",
+    "url": "https://berkedenizyuksekdag.com"
+  },
+  "sameAs": [
+    "https://play.google.com/store/apps/details?id=com.iyiyolakademi",
+    "https://apps.apple.com/tr/app/i-yi-yol-akademi/id6751721028",
+    "https://github.com/iyiyolakademi-cpu"
+  ]
+}
+</script>
+
 
 <style>
 
@@ -136,7 +158,7 @@ header button:hover{
 .container{
     max-width:1100px;
     margin:auto;
-    padding:60px 20px;
+    padding:35px 20px;
 }
 
 /* BLOG GRID */
@@ -279,7 +301,7 @@ body.dark .blog-card{
   margin: 40px auto 50px auto; /* ✅ negatif değil, normal */
   border-radius:20px;
   overflow:hidden;
-  ...
+  background:#000;
 }
 .video-box video{
   width:100%;
@@ -657,6 +679,160 @@ body.dark .publish-badge{
     height:42px;
   }
 }
+/* ===============================
+   ANA SAYFA – PROJELER (KARAKTERLİ / KLASİK DEĞİL)
+   =============================== */
+
+.projects-cta{
+  max-width:1100px;
+  margin: 55px auto 10px;
+  padding: 0 20px;
+}
+
+.projects-cta-inner{
+  position: relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:26px;
+
+  padding: 26px 24px;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.03), transparent 55%),
+    linear-gradient(135deg, var(--card), var(--bg));
+  box-shadow: 0 22px 60px rgba(0,0,0,0.10);
+  overflow:hidden;
+}
+
+.projects-cta-inner::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:10px;
+  background: linear-gradient(180deg, #22c55e, #2563eb, #ef4444);
+  opacity: 0.95;
+}
+
+.projects-cta-inner::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.06) 0px,
+      rgba(255,255,255,0.06) 1px,
+      transparent 1px,
+      transparent 10px
+    );
+  opacity: 0.18;
+  pointer-events:none;
+  mix-blend-mode: overlay;
+}
+
+body.dark .projects-cta-inner::after{
+  opacity: 0.10;
+}
+
+.projects-cta-left{
+  flex:1;
+  min-width: 260px;
+  padding-left: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.projects-cta-kicker{
+  margin:0 0 10px 0;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: var(--muted);
+}
+
+.projects-cta-title{
+  margin:0;
+  font-size: 22px;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+}
+
+.projects-cta-desc{
+  margin: 10px 0 0 0;
+  color: var(--muted);
+  font-weight: 650;
+  line-height: 1.75;
+  max-width: 720px;
+}
+
+.projects-cta-right{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:10px;
+  flex-shrink:0;
+  position: relative;
+  z-index: 2;
+}
+
+.projects-cta-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  text-decoration:none;
+  font-weight: 950;
+  color: var(--text);
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.03);
+  transition: transform .2s, background .2s;
+}
+
+body.dark .projects-cta-btn{
+  background: rgba(255,255,255,0.05);
+}
+
+.projects-cta-btn:hover{
+  transform: translateY(-2px);
+  background: var(--btn-hover);
+}
+
+.projects-cta-btn .arrow{
+  display:inline-block;
+  transform: translateX(0);
+  transition: transform .2s;
+  font-weight: 900;
+}
+
+.projects-cta-btn:hover .arrow{
+  transform: translateX(4px);
+}
+
+.projects-cta-mini{
+  margin:0;
+  color: var(--muted);
+  font-weight: 800;
+  font-size: 12.5px;
+  letter-spacing: 0.2px;
+}
+
+@media (max-width:720px){
+  .projects-cta-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .projects-cta-right{
+    width:100%;
+    align-items:flex-start;
+  }
+}
+
 
 </style>
 
@@ -665,7 +841,7 @@ body.dark .publish-badge{
 <body>
 
 <header class="hero-header">
-    <span class="hero-kicker">Kişisel Blog</span>
+    <span class="hero-kicker">Resmî Web Sitesi</span>
 
     <h1 class="hero-title">
         Berke Deniz Yüksekdağ
@@ -692,12 +868,11 @@ body.dark .publish-badge{
     <!-- SOL: Yazı -->
     <div class="about-text">
         <p>
-            Ben Berke Deniz Yüksekdağ. ‘Hayat Üzerine Sohbetler’ ve ‘Karanlığın İçinden Aydınlığa’ kitaplarının yazarıyım.
-            Bunun yanı sıra davet üzerine iki farklı derleme kitap projesinde yer aldım.
-            Aynı zamanda İyi Yol Akademi mobil uygulamasının kurucusu ve geliştiricisiyim.
-            Vizyonum, stratejik ve sürdürülebilir bir yaklaşımla kaliteli projelere imza atmaktır.
-            Yazarlığa genç yaşta başlamış olmamı önemli bir avantaj olarak görüyorum.
-            Bu platformda yalnızca bana ait blog yazılarına yer verilecektir.
+Berke Deniz Yüksekdağ, Türk yazar ve girişimcidir.
+“Hayat Üzerine Sohbetler” ve “Karanlığın İçinden Aydınlığa” kitaplarının yazarıdır. Ayrıca davet üzerine iki farklı derleme kitap projesinde yer almıştır.
+Kişisel gelişim, düşünce sistemleri ve bilinçli yaşam üzerine üretimler yapmaktadır.
+Aynı zamanda çok yönlü bir kişisel gelişim platformu olan İyi Yol Akademi mobil uygulamasının kurucusu ve geliştiricisidir.
+Bu web sitesi, Berke Deniz Yüksekdağ’a ait projeleri, yazıları ve çalışmaları resmi olarak yayınlamak amacıyla oluşturulmuştur.
         </p>
     </div>
 
@@ -707,7 +882,25 @@ body.dark .publish-badge{
     </div>
 
 </div>
+<!-- PROJELER BUTONU (ana sayfa) -->
+<section class="projects-cta" aria-label="Projeler">
+  <div class="projects-cta-inner">
+    <div class="projects-cta-left">
+      <p class="projects-cta-kicker">Projeler</p>
+      <h3 class="projects-cta-title">Berke Deniz Yüksekdağ’ın Projeleri</h3>
+      <p class="projects-cta-desc">
+     İyi Yol Akademi ve devam eden diğer projelere ait güncel durum bilgilerine bu sayfa üzerinden ulaşabilirsiniz.
+      </p>
+    </div>
 
+    <div class="projects-cta-right">
+      <a href="projects.html" class="projects-cta-btn">
+        Projeler <span aria-hidden="true">→</span>
+      </a>
+      <p class="projects-cta-mini"></p>
+    </div>
+  </div>
+</section>
 <h2 class="section-title" style="margin-top:70px;">Blog Yazıları</h2>
 
 <div class="publish-note" role="note" aria-label="Yayın Takvimi">
@@ -721,7 +914,7 @@ body.dark .publish-badge{
 <div class="blog-grid">
 
 
-  <a href="post1.html" class="blog-card">
+  <a href="iyi-yol-akademi-sadece-uygulama-mi.html" class="blog-card">
     <div class="blog-image" style="background-image:url('images/disiplin.jpg');"></div>
     <div class="blog-content">
       <h3>İyi Yol Akademi gerçekten sadece bir uygulama mı</h3>
@@ -730,7 +923,7 @@ body.dark .publish-badge{
     </div>
   </a>
 
-  <a href="post2.html" class="blog-card">
+  <a href="sahte-insanlari-nasil-taniriz.html" class="blog-card">
     <div class="blog-image" style="background-image:url('images/aliskanlik.jpg');"></div>
     <div class="blog-content">
       <h3>Sahte insanları nasıl tanırız?</h3>
@@ -739,16 +932,16 @@ body.dark .publish-badge{
     </div>
   </a>
 
-  <a href="post3.html" class="blog-card">
+  <a href="stoa-felsefesiyle-mutlu-olmak-mumkun-mu.html" class="blog-card">
     <div class="blog-image" style="background-image:url('images/odak.jpg');"></div>
     <div class="blog-content">
       <h3>Stoa felsefesiyle mutlu olmak mümkün mü?</h3>
       <p>Kendi bakış açımdan bir değerlendirme</p>
-      <div class="blog-meta">Yakında sizlerle</div>
+      <div class="blog-meta">Yakında Sizlerle</div>
     </div>
   </a>
 
-  <a href="post4.html" class="blog-card">
+  <a href="kendi-sirketimi-kurma-yolum.html" class="blog-card">
     <div class="blog-image" style="background-image:url('images/yavaslik.jpg');"></div>
     <div class="blog-content">
       <h3>1. Gün: İlk adımlarım</h3>
@@ -761,7 +954,7 @@ body.dark .publish-badge{
 
 <div class="app-header">
   <img src="images/iyi-yol-logo.png" alt="İyi Yol Akademi Logo">
-  <h2>İyi Yol Akademi</h2>
+  <h2>İYİ YOL AKADEMİ HAKKINDA</h2>
 </div>
 
 <div class="iyi-yol-info iyi-yol-row">
@@ -770,16 +963,17 @@ body.dark .publish-badge{
   <div class="iyi-yol-text">
 
     <p class="iyi-yol-desc">
-      <strong>İyi Yol Akademi</strong>, İyi Yol Akademi, kişisel gelişimi tek bir başlık altında toplayan çok yönlü bir mobil platformdur.
+      <strong>İyi Yol Akademi,</strong>
 
-Uygulama içerisinde; özenle hazırlanmış kitap özetleri, düşünsel derinlik sunan blog yazıları, gelişimi destekleyen kurslar, odaklanmayı kolaylaştıran Pomodoro, günlük düzeni kurmaya yardımcı yapılacaklar listesi, seçilmiş film önerileri, pratik ve sade yemek tarifleri ile her güne eşlik eden günlük sözler yer alır.
+Berke Deniz Yüksekdağ tarafından kurulan çok yönlü bir kişisel gelişim platformudur. Kitap özetleri, blog yazıları, eğitim içerikleri, odaklanma araçları ve zihinsel farkındalığı artırmaya yönelik çalışmalar sunar.
 
-Bunların yanı sıra, zihinsel farkındalığı artırmaya yönelik daha birçok özellik tek bir uygulama içinde sunulmaktadır.
+Platform; bireysel gelişim, düşünsel derinlik ve bilinçli yaşam anlayışını destekleyen içerikleri tek bir uygulama altında bir araya getirmeyi amaçlamaktadır.
+
+İyi Yol Akademi, kullanıcıların zihinsel disiplin kazanmalarını, düzenli üretim alışkanlığı oluşturmalarını ve yaşam farkındalıklarını artırmalarını hedefleyen sürdürülebilir bir gelişim ekosistemi olarak yapılandırılmıştır.
     </p>
 
     <p class="iyi-yol-desc" style="margin-top:14px;">
-      Aşağıda, uygulamanın içinden alınmış bazı ekran görüntülerini görebilirsiniz.
-         </p>
+Aşağıda, İyi Yol Akademi’nin arayüzüne ait örnek ekran görüntüleri yer almaktadır.         </p>
 
     <!-- Store Butonları -->
     <div class="store-buttons">
@@ -878,38 +1072,37 @@ Kitaplarımı okuyan okurlardan gelen paylaşımlar  </p>
 
 <script>
 /* ---------------------------
-   TEMA (localStorage + sistem)
+   TEMA (localStorage + varsayılan light)
 ---------------------------- */
 function applyTheme(theme){
-    const body = document.body;
-    const btn = document.getElementById("themeBtn");
+  const btn = document.getElementById("themeBtn");
 
-    if(theme === "dark"){
-        body.classList.add("dark");
-        btn.textContent = "☀️ Açık Mod";
-    } else {
-        body.classList.remove("dark");
-        btn.textContent = "🌑 Koyu Mod";
-    }
+  if(theme === "dark"){
+    document.body.classList.add("dark");
+    if(btn) btn.textContent = "☀️ Açık Mod";
+  } else {
+    document.body.classList.remove("dark");
+    if(btn) btn.textContent = "🌑 Koyu Mod";
+  }
 }
 
 function toggleTheme(){
-    const isDark = document.body.classList.toggle("dark");
-    const newTheme = isDark ? "dark" : "light";
-    localStorage.setItem("theme", newTheme);
-    applyTheme(newTheme);
+  const isDark = document.body.classList.contains("dark");
+  const newTheme = isDark ? "light" : "dark";
+  localStorage.setItem("theme", newTheme);
+  applyTheme(newTheme);
 }
 
 (function initTheme(){
-    const savedTheme = localStorage.getItem("theme");
-    if(savedTheme){
-        applyTheme(savedTheme);
-        return;
-    }
-    // Kaydedilmiş tema yoksa sistem temasını oku
-    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    applyTheme(prefersDark ? "dark" : "light");
+  const savedTheme = localStorage.getItem("theme");
+  if(savedTheme){
+    applyTheme(savedTheme);
+  } else {
+    applyTheme("light"); // ilk açılış açık mod
+    localStorage.setItem("theme", "light");
+  }
 })();
+
 
 /* ---------------------------
    VIDEO (ses + buton davranışı)
@@ -985,6 +1178,4 @@ video.addEventListener("click", toggleVideo);
 
 </body>
 </html>
-
-
 
