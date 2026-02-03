@@ -758,16 +758,33 @@ body.dark .menu-links a{ background: rgba(255,255,255,0.04); }
   font-weight: 800;
 }
 
+/* THEME BUTTON (SAĞ ÜST) */
+.theme-btn{
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 9999;
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 10px; /* daha köşeli */
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.75);
+  color: var(--text);
+  font-weight: 900;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+body.dark .theme-btn{
+  background: rgba(15,23,42,0.55);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.40);
+}
 
 </style>
 
 </head>
 
 <body>
-<!-- HAMBURGER BUTTON -->
-<body>
-
-<!-- HAMBURGER BUTTON -->
 <button class="menu-btn" type="button" aria-label="Menüyü aç" onclick="openMenu()">
   <div class="menu-icon" aria-hidden="true">
     <span></span><span></span><span></span>
@@ -1165,6 +1182,7 @@ document.addEventListener("keydown", (e) => {
 
 </body>
 </html>
+
 
 
 
