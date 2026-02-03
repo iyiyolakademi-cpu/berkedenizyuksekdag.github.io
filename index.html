@@ -1087,7 +1087,6 @@ body.dark .menu-links a{ background: rgba(255,255,255,0.04); }
   font-size: 12px;
   font-weight: 700;
 }
-}
 
 </style>
 
@@ -1485,11 +1484,26 @@ async function toggleVideo(){
 video.addEventListener("ended", () => {
     setPlayingUI(false);
 });
+/* ---------------------------
+   MENU (drawer)
+---------------------------- */
+function openMenu(){
+  document.body.classList.add("menu-open");
+}
+
+function closeMenu(){
+  document.body.classList.remove("menu-open");
+}
+
+document.addEventListener("keydown", (e) => {
+  if(e.key === "Escape") closeMenu();
+});
 
 </script>
 
 </body>
 </html>
+
 
 
 
