@@ -831,10 +831,75 @@ body.dark .projects-cta-btn{
     width:100%;
     align-items:flex-start;
   }
+}
 /* ✅ İSTATİSTİK KARTLARI (store-stats) */
 .store-stats{
   margin-top: 16px;
 }
+
+.stats-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+}
+
+@media (max-width: 720px){
+  .stats-grid{ grid-template-columns: 1fr; }
+}
+
+.stat-card{
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  background: linear-gradient(180deg, rgba(37,99,235,0.08), rgba(0,0,0,0.02));
+}
+
+body.dark .stat-card{
+  background: linear-gradient(180deg, rgba(37,99,235,0.12), rgba(255,255,255,0.03));
+}
+
+.stat-top{
+  font-size: 12px;
+  letter-spacing: .12em;
+  font-weight: 900;
+  opacity: .75;
+  margin-bottom: 10px;
+}
+
+.stat-main{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.stat-ico{
+  width: 34px;
+  height: 34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.60);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+body.dark .stat-ico{
+  background: rgba(0,0,0,0.20);
+  border-color: rgba(255,255,255,0.10);
+}
+
+.stat-value{
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.stat-sub{
+  font-size: 13px;
+  opacity: .75;
+}
+
 
 .stats-grid{
   display:grid;
@@ -1032,6 +1097,7 @@ Bu web sitesi, Berke Deniz Yüksekdağ’a ait projeleri, yazıları ve çalış
 
     <p class="iyi-yol-desc">
       <strong>İyi Yol Akademi,</strong>
+</div> <!-- ✅ iyi-yol-info kapanış -->
 
 Berke Deniz Yüksekdağ tarafından kurulan çok yönlü bir kişisel gelişim platformudur. Kitap özetleri, blog yazıları, eğitim içerikleri, odaklanma araçları ve zihinsel farkındalığı artırmaya yönelik çalışmalar sunar.
 
@@ -1268,6 +1334,7 @@ video.addEventListener("click", toggleVideo);
 
 </body>
 </html>
+
 
 
 
