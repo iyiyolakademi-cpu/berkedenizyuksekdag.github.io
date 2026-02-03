@@ -831,7 +831,74 @@ body.dark .projects-cta-btn{
     width:100%;
     align-items:flex-start;
   }
+/* ✅ İSTATİSTİK KARTLARI (store-stats) */
+.store-stats{
+  margin-top: 16px;
 }
+
+.stats-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+}
+
+@media (max-width: 720px){
+  .stats-grid{ grid-template-columns: 1fr; }
+}
+
+.stat-card{
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  background: linear-gradient(180deg, rgba(37,99,235,0.08), rgba(0,0,0,0.02));
+}
+
+body.dark .stat-card{
+  background: linear-gradient(180deg, rgba(37,99,235,0.12), rgba(255,255,255,0.03));
+}
+
+.stat-top{
+  font-size: 12px;
+  letter-spacing: .12em;
+  font-weight: 900;
+  opacity: .75;
+  margin-bottom: 10px;
+}
+
+.stat-main{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.stat-ico{
+  width: 34px;
+  height: 34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.60);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+body.dark .stat-ico{
+  background: rgba(0,0,0,0.20);
+  border-color: rgba(255,255,255,0.10);
+}
+
+.stat-value{
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.stat-sub{
+  font-size: 13px;
+  opacity: .75;
+}
+
 
 
 </style>
@@ -975,7 +1042,6 @@ Platform; bireysel gelişim, düşünsel derinlik ve bilinçli yaşam anlayış�
     <p class="iyi-yol-desc" style="margin-top:14px;">
 Aşağıda, İyi Yol Akademi’nin arayüzüne ait örnek ekran görüntüleri yer almaktadır.         </p>
 
-    <!-- Store Butonları -->
     <div class="store-buttons">
       <a class="store-btn google" target="_blank" rel="noopener"
          href="https://play.google.com/store/apps/details?id=com.iyiyolakademi&hl=tr">
@@ -988,11 +1054,34 @@ Aşağıda, İyi Yol Akademi’nin arayüzüne ait örnek ekran görüntüleri y
       </a>
     </div>
 
+    <!-- ✅ İSTATİSTİK KARTLARI (BUTONLARIN ALTINA) -->
+    <div class="store-stats">
+      <div class="stats-grid">
 
+        <div class="stat-card">
+          <div class="stat-top">TOPLAM İNDİRME</div>
+          <div class="stat-main">
+            <span class="stat-ico" aria-hidden="true">📲</span>
+            <span class="stat-value">1.000+</span>
+          </div>
+          <div class="stat-sub">Son güncelleme: 1 Şubat 2026</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-top">GENEL PUAN</div>
+          <div class="stat-main">
+            <span class="stat-ico" aria-hidden="true">⭐</span>
+            <span class="stat-value">4,9</span>
+          </div>
+          <div class="stat-sub">Google Play + App Store</div>
+        </div>
+
+      </div>
+    </div>
+    <!-- ✅ /İSTATİSTİK KARTLARI -->
 
   </div> <!-- ✅ iyi-yol-text kapanış -->
 
-</div> <!-- ✅ iyi-yol-info kapanış -->
 
 
 
@@ -1178,4 +1267,5 @@ video.addEventListener("click", toggleVideo);
 
 </body>
 </html>
+
 
