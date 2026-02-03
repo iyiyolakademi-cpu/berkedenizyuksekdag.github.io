@@ -83,12 +83,18 @@ body.dark .scroll-strip{
 }
 
 @media (max-width: 720px){
-  .scroll-track img{
-    width: 140px;
-    height: 200px;
+  .stats-row{
+    grid-template-columns: 1fr;
   }
-}
+}  /* <-- BU KAPANIŞ YOKSA, ALTTAN TÜM CSS BOZULUR */
 
+.fold{
+  margin-top: var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--card), var(--bg));
+  padding: 12px 14px;
+}
 
 :root{
     --bg:#ffffff;
@@ -1484,6 +1490,7 @@ video.addEventListener("ended", () => {
 
 </body>
 </html>
+
 
 
 
