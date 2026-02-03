@@ -52,7 +52,15 @@ body.dark{
   --accent:#60a5fa;
   --btn-hover:#334155;
   --border:#334155;
+    --hero-bg:#f3f4f6;
+  --hero-text:#111827;
+  --hero-sub:#4b5563;
+    --hero-bg:#000000;
+  --hero-text:#ffffff;
+  --hero-sub:#cbd5e1;
 }
+
+
 
 *{ box-sizing:border-box; }
 
@@ -85,9 +93,10 @@ body{
   text-align:center;
   background:
     radial-gradient(800px 260px at 50% 0%, rgba(37,99,235,0.25), transparent 60%),
-    #000;
-  border-bottom:1px solid #111;
+    var(--hero-bg);
+  border-bottom:1px solid var(--border);
 }
+
 
 
 .hero-kicker{
@@ -1217,6 +1226,7 @@ document.addEventListener("keydown", (e) => {
 
 </body>
 </html>
+
 
 
 
