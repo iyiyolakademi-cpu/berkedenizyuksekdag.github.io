@@ -4,1003 +4,302 @@
   <meta charset="UTF-8" />
   <title>Proje Portföyü | Berke Deniz Yüksekdağ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Berke Deniz Yüksekdağ proje portföyü: İyi Yol Akademi, İyi Yol Akademi Yazılım ve Medya, Sen2 robot projesi ve futbol kulübü projesi. Durumlar ve öncelik sırası ile tek sayfada." />
+  <meta name="description" content="Berke Deniz Yüksekdağ proje portföyü: İyi Yol Akademi, Yazılım, Sen2 ve İyi Yol Yayınları." />
 
   <style>
-    :root{
-      --bg:#ffffff;
-      --text:#111827;
-      --muted:#4b5563;
-      --card:#f3f4f6;
-      --accent:#2563eb;
-      --btn-hover:#e5e7eb;
-      --border:#e5e7eb;
-
-      --ok:#22c55e;
-      --warn:#f59e0b;
-      --bad:#ef4444;
-
+    :root {
+      --bg: #ffffff;
+      --text: #111827;
+      --muted: #4b5563;
+      --card: #f3f4f6;
+      --accent: #2563eb;
+      --btn-hover: #e5e7eb;
+      --border: #e5e7eb;
+      --ok: #22c55e;
+      --warn: #f59e0b;
+      --bad: #ef4444;
       --soft-ok: rgba(34,197,94,0.14);
       --soft-warn: rgba(245,158,11,0.14);
       --soft-bad: rgba(239,68,68,0.14);
-
-      --shadow: 0 18px 45px rgba(0,0,0,0.18);
+      --shadow: 0 18px 45px rgba(0,0,0,0.12);
     }
 
-    body.dark{
-      --bg:#0f172a;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-      --card:#1e293b;
-      --accent:#60a5fa;
-      --btn-hover:#334155;
-      --border:#334155;
-
-      --soft-ok: rgba(34,197,94,0.18);
-      --soft-warn: rgba(245,158,11,0.18);
-      --soft-bad: rgba(239,68,68,0.18);
-
-      --shadow: 0 22px 60px rgba(0,0,0,0.45);
+    body.dark {
+      --bg: #0f172a;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --card: #1e293b;
+      --accent: #60a5fa;
+      --btn-hover: #334155;
+      --border: #334155;
+      --shadow: 0 22px 60px rgba(0,0,0,0.4);
     }
 
-    *{ box-sizing:border-box; }
-    html, body{ max-width:100%; overflow-x:hidden; }
-
-    body{
-      margin:0;
-      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background:var(--bg);
-      color:var(--text);
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       transition: background .3s, color .3s;
-      line-height:1.6;
+      line-height: 1.6;
     }
 
-  .header{
-      padding: 30px 20px 25px; /* Üst boşluk 72px'den 30px'e düşürüldü */
-      text-align:center;
-      background:
-        radial-gradient(650px 220px at 50% 0%, rgba(37,99,235,0.12), transparent 60%),
-        linear-gradient(180deg, rgba(0,0,0,0.02), transparent 55%),
-        var(--card);
-      border-bottom:1px solid var(--border);
-      position:relative;
-      overflow:hidden;
+    /* HEADER - Yukarı çekildi ve sadeleşti */
+    .header {
+      padding: 35px 20px 25px;
+      text-align: center;
+      background: radial-gradient(600px 200px at 50% 0%, rgba(37,99,235,0.1), transparent 60%), var(--card);
+      border-bottom: 1px solid var(--border);
     }
 
-    .header::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        repeating-linear-gradient(
-          90deg,
-          rgba(255,255,255,0.06) 0px,
-          rgba(255,255,255,0.06) 1px,
-          transparent 1px,
-          transparent 10px
-        );
-      opacity:0.18;
-      pointer-events:none;
-      mix-blend-mode: overlay;
-    }
-    body.dark .header::after{ opacity:0.10; }
-
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-size:12px;
-      letter-spacing:1.2px;
-      text-transform:uppercase;
-      color:var(--accent);
-      font-weight:950;
-      margin-bottom:12px;
-      padding:7px 12px;
-      border:1px solid var(--border);
-      border-radius:999px;
-      background: rgba(0,0,0,0.02);
-      position:relative;
-      z-index:1;
-    }
-    body.dark .kicker{ background: rgba(255,255,255,0.05); }
-
-    .title{
-      margin:0;
-      font-size:clamp(32px, 6vw, 52px);
-      letter-spacing:-1.2px;
-      font-weight:950;
-      position:relative;
-      z-index:1;
+    .title {
+      margin: 0;
+      font-size: clamp(28px, 5vw, 42px);
+      letter-spacing: -1.2px;
+      font-weight: 900;
     }
 
-    .subtitle{
-      margin:12px auto 0;
-      color:var(--muted);
-      font-weight:700;
-      font-size:16px;
-      max-width:920px;
-      position:relative;
-      z-index:1;
+    .subtitle {
+      margin: 10px auto 0;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 16px;
+      max-width: 800px;
     }
 
-    .actions{
-      margin-top:22px;
-      display:flex;
-      gap:10px;
-      justify-content:center;
-      flex-wrap:wrap;
-      position:relative;
-      z-index:1;
+    .actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:12px 18px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:transparent;
-      color:var(--text);
-      font-weight:900;
-      cursor:pointer;
-      text-decoration:none;
-      transition:.2s;
-      user-select:none;
-    }
-
-    .btn:hover{
-      background:var(--btn-hover);
-      transform:translateY(-2px);
-    }
-
-    .btn.primary{
-      color:#fff;
-      border-color: rgba(255,255,255,0.12);
-      background: linear-gradient(135deg, #1d4ed8, #2563eb);
-    }
-    body.dark .btn.primary{ border-color: rgba(255,255,255,0.18); }
-    .btn.primary:hover{ filter: brightness(1.05); }
-
-    /* CONTAINER */
-    .container{
-      max-width:1100px;
-      margin:auto;
-      padding:36px 20px 70px;
-    }
-
-    .toolbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom:18px;
-    }
-
-    .legend{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap;
-      padding:10px 12px;
-      border:1px solid var(--border);
-      border-radius:14px;
-      background: linear-gradient(135deg, var(--card), var(--bg));
-    }
-
-    .legend-item{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:13px;
-      font-weight:900;
-      color:var(--muted);
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(0,0,0,0.02);
-    }
-    body.dark .legend-item{ background: rgba(255,255,255,0.05); }
-
-    .dot{
-      width:10px; height:10px; border-radius:999px;
-    }
-    .dot.ok{ background: var(--ok); }
-    .dot.warn{ background: var(--warn); }
-    .dot.bad{ background: var(--bad); }
-
-    .search-wrap{
-      flex:1;
-      min-width: 240px;
-      display:flex;
-      justify-content:flex-end;
-    }
-
-    .search{
-      width: min(420px, 100%);
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background: rgba(0,0,0,0.02);
+    .btn {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
       color: var(--text);
-      font-weight:800;
-      outline:none;
-      transition:.2s;
-    }
-    body.dark .search{ background: rgba(255,255,255,0.05); }
-
-    .search:focus{
-      border-color: rgba(37,99,235,0.55);
-      box-shadow: 0 0 0 4px rgba(37,99,235,0.12);
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: .2s;
+      font-size: 14px;
     }
 
-    /* GRID + CARDS */
-    .projects-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-      gap:22px;
+    .btn:hover { background: var(--btn-hover); transform: translateY(-2px); }
+    .btn.primary { color: #fff; background: var(--accent); border-color: var(--accent); }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 20px 60px;
     }
 
-    .project-card{
-      position:relative;
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:22px;
-      color:inherit;
-      transition:transform .25s, box-shadow .25s, border-color .25s;
-      overflow:hidden;
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
-    .project-card:hover{
-      transform: translateY(-6px);
+    .search {
+      flex: 1;
+      min-width: 250px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      outline: none;
+      font-weight: 600;
+    }
+
+    /* PROJE KARTLARI */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      transition: all .3s ease;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
       box-shadow: var(--shadow);
-      border-color: rgba(37,99,235,0.35);
+      border-color: var(--accent);
     }
 
-    /* sol şerit */
-    .project-card::before{
-      content:"";
-      position:absolute;
-      left:0; top:0; bottom:0;
-      width:8px;
-      opacity:0.95;
-      background: linear-gradient(180deg, rgba(37,99,235,0.65), rgba(37,99,235,0.10));
+    .project-title {
+      margin: 0 0 12px 0;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
     }
 
-    .project-card[data-status="active"]::before{
-      background: linear-gradient(180deg, rgba(34,197,94,0.95), rgba(34,197,94,0.20));
-    }
-    .project-card[data-status="planned"]::before{
-      background: linear-gradient(180deg, rgba(245,158,11,0.95), rgba(245,158,11,0.20));
-    }
-    .project-card[data-status="building"]::before{
-      background: linear-gradient(180deg, rgba(239,68,68,0.95), rgba(239,68,68,0.20));
-    }
-
-    .project-head{
-      padding-left:10px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
 
-    .project-title{
-      margin:0;
-      font-size:20px;
-      line-height:1.2;
-      letter-spacing:-0.2px;
-      font-weight:950;
-    }
+    .status-active { background: var(--soft-ok); color: var(--ok); }
+    .status-planned { background: var(--soft-warn); color: var(--warn); }
 
-    .meta-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .priority-pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(0,0,0,0.02);
+    .project-desc {
+      font-size: 14.5px;
       color: var(--muted);
-      font-weight:950;
-      font-size:12px;
-      letter-spacing:.2px;
-      white-space:nowrap;
-    }
-    body.dark .priority-pill{ background: rgba(255,255,255,0.05); }
-
-    .prio-dot{
-      width:8px; height:8px; border-radius:999px;
-      background: rgba(37,99,235,0.75);
+      margin-bottom: 15px;
+      font-weight: 500;
     }
 
-    .status-pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:7px 10px;
-      border-radius:999px;
-      font-size:12px;
-      font-weight:950;
-      border:1px solid var(--border);
-      white-space:nowrap;
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
     }
 
-    .status-dot{ width:8px; height:8px; border-radius:999px; }
-
-    .status-active{ color:var(--ok); background:var(--soft-ok); }
-    .status-active .status-dot{ background:var(--ok); }
-
-    .status-planned{ color:var(--warn); background:var(--soft-warn); }
-    .status-planned .status-dot{ background:var(--warn); }
-
-    .status-building{ color:var(--bad); background:var(--soft-bad); }
-    .status-building .status-dot{ background:var(--bad); }
-
-    .project-desc{
-      margin:0;
-      padding-left:10px;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.75;
-      font-weight:700;
+    .project-tag {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      background: rgba(0,0,0,0.05);
+      border-radius: 6px;
     }
+    body.dark .project-tag { background: rgba(255,255,255,0.05); }
 
-    .project-tags{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:14px;
-      padding-left:10px;
-    }
-
-    .project-tag{
-      font-size:12px;
-      font-weight:950;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(0,0,0,0.02);
-      color: var(--text);
-    }
-    body.dark .project-tag{ background: rgba(255,255,255,0.05); }
-
-    .card-actions{
-      margin-top:16px;
-      padding-left:10px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-    }
-
-    .mini{
+    .footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid var(--border);
       color: var(--muted);
-      font-weight:900;
-      font-size:12.5px;
-      letter-spacing:0.2px;
+      font-weight: 600;
+      font-size: 14px;
     }
-
-    .read-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background: linear-gradient(135deg, var(--card), var(--bg));
-      color: var(--text);
-      font-weight:950;
-      cursor:pointer;
-      transition:.2s;
-      text-decoration:none;
-      user-select:none;
-    }
-
-    .read-btn:hover{
-      background: var(--btn-hover);
-      transform: translateY(-2px);
-    }
-
-    .read-btn.primary{
-      color:#fff;
-      border-color: rgba(255,255,255,0.14);
-      background: linear-gradient(135deg, #1d4ed8, #2563eb);
-    }
-    body.dark .read-btn.primary{
-      border-color: rgba(255,255,255,0.18);
-    }
-    .read-btn.primary:hover{ filter: brightness(1.05); }
-
-    /* FOOTER */
-    .footer{
-      border-top:1px solid var(--border);
-      padding:22px 20px;
-      background: linear-gradient(135deg, var(--card), var(--bg));
-      color: var(--muted);
-      font-weight:800;
-    }
-
-    .footer-inner{
-      max-width:1100px;
-      margin:auto;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    .footer a{
-      color: var(--text);
-      text-decoration:none;
-      border-bottom: 1px solid rgba(0,0,0,0.15);
-      font-weight:900;
-    }
-    body.dark .footer a{ border-bottom-color: rgba(255,255,255,0.18); }
-    .footer a:hover{ opacity:0.9; }
-
-    /* MODAL */
-    .modal{
-      position:fixed;
-      inset:0;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:18px;
-      z-index:9999;
-    }
-    .modal.open{ display:flex; }
-
-    .modal-backdrop{
-      position:absolute;
-      inset:0;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(6px);
-    }
-
-    .modal-panel{
-      position:relative;
-      width:min(860px, 100%);
-      max-height: min(86vh, 820px);
-      overflow:auto;
-      border-radius:18px;
-      border:1px solid var(--border);
-      background: linear-gradient(135deg, var(--card), var(--bg));
-      box-shadow: var(--shadow);
-    }
-
-    .modal-head{
-      padding:18px 18px 10px 18px;
-      border-bottom:1px solid var(--border);
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:14px;
-    }
-
-    .modal-title{
-      margin:0;
-      font-size:22px;
-      font-weight:950;
-      letter-spacing:-0.3px;
-      line-height:1.25;
-    }
-
-    .modal-close{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:42px;
-      height:42px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background: rgba(0,0,0,0.02);
-      color: var(--text);
-      cursor:pointer;
-      font-weight:900;
-      transition:.2s;
-      flex-shrink:0;
-    }
-    body.dark .modal-close{ background: rgba(255,255,255,0.05); }
-    .modal-close:hover{ background: var(--btn-hover); transform: translateY(-2px); }
-
-    .modal-body{
-      padding:16px 18px 18px 18px;
-    }
-
-    .modal-meta{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-bottom:12px;
-    }
-
-    .modal-text{
-      color: var(--muted);
-      font-weight:750;
-      line-height:1.8;
-      margin: 0 0 14px 0;
-    }
-
-    .modal-list{
-      margin:0;
-      padding:0 0 0 18px;
-      color: var(--text);
-      font-weight:800;
-      line-height:1.9;
-    }
-
-    .modal-actions{
-      margin-top:16px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-      border-top:1px solid var(--border);
-      padding-top:14px;
-    }
-
-    .link-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background: rgba(0,0,0,0.02);
-      color: var(--text);
-      font-weight:950;
-      text-decoration:none;
-      transition:.2s;
-    }
-    body.dark .link-btn{ background: rgba(255,255,255,0.05); }
-    .link-btn:hover{ background: var(--btn-hover); transform: translateY(-2px); }
-
-    .link-btn.primary{
-      color:#fff;
-      border-color: rgba(255,255,255,0.14);
-      background: linear-gradient(135deg, #1d4ed8, #2563eb);
-    }
-    body.dark .link-btn.primary{ border-color: rgba(255,255,255,0.18); }
-    .link-btn.primary:hover{ filter: brightness(1.05); }
   </style>
 </head>
 
 <body>
+
 <header class="header">
   <h1 class="title">Proje Portföyü</h1>
   <p class="subtitle">Berke Deniz Yüksekdağ'ın Stratejik Girişimleri ve Projeleri</p>
 
   <div class="actions">
     <a class="btn" href="index.html">← Ana Sayfa</a>
-    <button class="btn" id="themeBtn" type="button" onclick="toggleTheme()">🌑 Koyu Mod</button>
+    <button class="btn" id="themeBtn" onclick="toggleTheme()">🌑 Koyu Mod</button>
     <a class="btn primary" href="projects.html">Güncel Görünüm</a>
   </div>
 </header>
 
-  <main class="container">
-    <div class="toolbar">
-      <div class="legend" aria-label="Durum Açıklaması">
-        <span class="legend-item"><span class="dot ok"></span> Aktif</span>
-        <span class="legend-item"><span class="dot warn"></span> Planlama</span>
-        <span class="legend-item"><span class="dot bad"></span> Hazırlık</span>
-      </div>
-
-      <div class="search-wrap">
-        <input id="search" class="search" type="search" placeholder="Arama (örn: kulüp, sen2, şirket, içerik)..." aria-label="Projelerde ara" />
-      </div>
-    </div>
-
-    <section class="projects-grid" id="grid" aria-label="Proje Listesi">
-
-      <!-- 1) AKTİF -->
-      <article class="project-card"
-        data-id="iyi-yol"
-        data-title="İyi Yol Akademi"
-        data-status="active"
-        data-statuslabel="Aktif"
-        data-priority="1"
-        data-short="Kişisel gelişim, içerik ve odak araçlarını bir araya getiren mobil platform."
-        data-long="İyi Yol Akademi; kitap özetleri, blog içerikleri ve odak araçlarını tek bir çatı altında sunan bir mobil platformdur. Amaç; içerik + araç + sistem yaklaşımıyla kullanıcıların düzenli gelişimini destekleyen, sürdürülebilir bir deneyim oluşturmaktır."
-        data-bullets="Kullanıcı odaklı: sade ve hızlı arayüz,|İçerik yapısı: düzenli içerik güncellemeleri,|Araçlar: yapılacaklar/pomodoro gibi modüller,|Süreklilik: ürün iyileştirme ve bakım planı"
-        data-tags="mobil ürün içerik"
-        data-link="https://play.google.com/store/apps/details?id=com.iyiyolakademi&hl=tr"
-        data-linklabel="Google Play"
-        data-apple="https://apps.apple.com/tr/app/i-yi-yol-akademi/id6751721028?l=tr"
-        data-applelabel="App Store">
-
-        <div class="project-head">
-          <h3 class="project-title">İyi Yol Akademi</h3>
-          <div class="meta-row">
-            <span class="priority-pill"><span class="prio-dot"></span> Proje 1</span>
-            <span class="status-pill status-active"><span class="status-dot"></span> Aktif</span>
-          </div>
-        </div>
-
-        <p class="project-desc">Kişisel gelişim, içerik ve odak araçlarını bir araya getiren mobil platform.</p>
-
-        <div class="project-tags">
-          <span class="project-tag">Mobil</span>
-          <span class="project-tag">Ürün</span>
-          <span class="project-tag">İçerik</span>
-        </div>
-
-        <div class="card-actions">
-          <span class="mini">Resmî ürün • Store yayınında</span>
-          <button class="read-btn primary" type="button" data-open="iyi-yol">Detayları Görüntüle →</button>
-        </div>
-      </article>
-
-      <!-- 2) PLANLAMA: ŞİRKET -->
-      <article class="project-card"
-        data-id="sirket"
-        data-title="İyi Yol Akademi Yazılım ve Medya"
-        data-status="planned"
-        data-statuslabel="Planlama"
-        data-priority="2"
-        data-short="Yazılım ve medya odaklı kurumsal yapı; ürün, süreç ve gelir modelinin yapılandırılması."
-        data-long="İyi Yol Akademi Yazılım ve Medya Şirketi; yazılım geliştirme ve dijital medya faaliyetlerini tek çatı altında konumlandırmayı hedefleyen kurumsal yapı planıdır. Bu kapsamda; ürün yol haritası, operasyonel süreçler, marka konumlandırması ve sürdürülebilir gelir modeli kademeli olarak tasarlanacaktır."
-        data-bullets="Marka: konumlandırma ve değer önerisi,|Süreç: düzenli üretim, ölçümleme ve iyileştirme,|Ürün: yol haritası ve önceliklendirme,|Gelir modeli: sürdürülebilir ve ölçeklenebilir yapı"
-        data-tags="şirket girişim medya yazılım strateji süreç"
-        data-link="#"
-        data-linklabel="Kurumsal Sayfa (Yakında)"
-        data-apple="#"
-        data-applelabel="App Store">
-
-        <div class="project-head">
-          <h3 class="project-title">İyi Yol Akademi Yazılım ve Medya</h3>
-          <div class="meta-row">
-            <span class="priority-pill"><span class="prio-dot"></span> Proje 2</span>
-            <span class="status-pill status-planned"><span class="status-dot"></span> Planlama</span>
-          </div>
-        </div>
-
-        <p class="project-desc">Yazılım ve medya odaklı kurumsal yapı; ürün, süreç ve gelir modelinin yapılandırılması.</p>
-
-        <div class="project-tags">
-          <span class="project-tag">Şirket</span>
-          <span class="project-tag">Yazılım</span>
-          <span class="project-tag">Medya</span>
-        </div>
-
-        <div class="card-actions">
-          <span class="mini">Kurumsal yapı • Yol haritası</span>
-          <button class="read-btn" type="button" data-open="sirket">Detayları Görüntüle →</button>
-        </div>
-      </article>
-
-      <!-- 3) SEN2 ROBOT (✅ PLANLAMA OLARAK DÜZELTİLDİ) -->
-      <article class="project-card"
-        data-id="sen2"
-        data-title="Sen2 Robot Projesi"
-        data-status="planned"
-        data-statuslabel="Planlama"
-        data-priority="3"
-        data-short="Donanım + yazılım bütünleşik Ar-Ge çalışması. Özellikler şu aşamada gizli olarak geliştirilmektedir."
-        data-long="Sen2; donanım ve yazılımın birlikte ilerlediği, sensör/otomasyon temelli bir Ar-Ge projesidir. Özellik ve mimari detaylar bu aşamada gizli tutulmaktadır. Proje iki aşamada tamamlanacaktır: 1) Temel ve başlangıç sürümü 2) Kapsamlı sürüm (final)."
-        data-bullets="Durum: geliştirme devam ediyor (özellikler gizli),|Aşama 1: temel ve başlangıç sürümü,|Aşama 2: kapsamlı sürüm ve final teslim,|Yaklaşım: prototip → iterasyon → stabil sürüm"
-        data-tags="sen2 robot donanım yazılım otomasyon ar-ge"
-        data-link="#"
-        data-linklabel="Teknik Sayfa (Yakında)"
-        data-apple="#"
-        data-applelabel="App Store">
-
-        <div class="project-head">
-          <h3 class="project-title">Sen2 Robot Projesi</h3>
-          <div class="meta-row">
-            <span class="priority-pill"><span class="prio-dot"></span> Proje 3</span>
-            <span class="status-pill status-planned"><span class="status-dot"></span> Planlama</span>
-          </div>
-        </div>
-
-        <p class="project-desc">Donanım + yazılım bütünleşik Ar-Ge çalışması. Özellikler şu aşamada gizli olarak geliştirilmektedir.</p>
-
-        <div class="project-tags">
-          <span class="project-tag">Ar-Ge</span>
-          <span class="project-tag">Donanım</span>
-          <span class="project-tag">Otomasyon</span>
-        </div>
-
-        <div class="card-actions">
-          <span class="mini">Planlama • Aşamalı geliştirme</span>
-          <button class="read-btn" type="button" data-open="sen2">Detayları Görüntüle →</button>
-        </div>
-      </article>
-
-      <!-- 4) FUTBOL KULÜBÜ -->
-      <article class="project-card"
-        data-id="kulup"
-        data-title="Futbol Kulübü Projesi"
-        data-status="planned"
-        data-statuslabel="Planlama"
-        data-priority="4"
-        data-short="Amatör seviyeden başlayarak disiplinli ve sürdürülebilir bir kulüp yapısına geçiş hedefi."
-        data-long="Bu proje; amatör seviyeden başlayarak kurumsal bir futbol kulübü yapısı oluşturmayı hedefler. Amaç sadece takım kurmak değil; kimlik, yönetim, altyapı ve sürdürülebilir gelir modeli olan uzun vadeli bir yapı kurmaktır."
-        data-bullets="Kimlik: isim, renkler, logo ve değerler,|Yapı: yönetim, teknik ekip ve oyuncu planı,|Altyapı: seçmeler ve genç oyuncu gelişimi,|Sürdürülebilirlik: sponsorluk/gelir planı ve şeffaf süreç"
-        data-tags="futbol kulüp spor organizasyon altyapı"
-        data-link="#"
-        data-linklabel="Kulüp Sunumu (Yakında)"
-        data-apple="#"
-        data-applelabel="App Store">
-
-        <div class="project-head">
-          <h3 class="project-title">Futbol Kulübü Projesi</h3>
-          <div class="meta-row">
-            <span class="priority-pill"><span class="prio-dot"></span> Proje 4</span>
-            <span class="status-pill status-planned"><span class="status-dot"></span> Planlama</span>
-          </div>
-        </div>
-
-        <p class="project-desc">Amatör seviyeden başlayarak disiplinli ve sürdürülebilir bir kulüp yapısına geçiş hedefi.</p>
-
-        <div class="project-tags">
-          <span class="project-tag">Spor</span>
-          <span class="project-tag">Kulüp</span>
-          <span class="project-tag">Organizasyon</span>
-        </div>
-
-        <div class="card-actions">
-          <span class="mini">Planlama • Yapı tasarımı</span>
-          <button class="read-btn" type="button" data-open="kulup">Detayları Görüntüle →</button>
-        </div>
-      </article>
-<article class="project-card"
-        data-id="yayinevi"
-        data-title="İyi Yol Yayınları"
-        data-status="planned"
-        data-statuslabel="Planlama"
-        data-priority="5"
-        data-short="Bağımsız ve nitelikli eserler için yeni nesil, dijital odaklı butik yayıncılık yapısı."
-        data-long="Bu proje; ISBN, bandrol ve dağıtım süreçlerini profesyonelce yöneten; hem basılı hem dijital (e-kitap/sesli kitap) alanda faaliyet gösterecek bir butik yayınevi girişimidir. Amaç, kaliteli eserleri okurla buluştururken yazar haklarını ve marka değerini koruyan, ulusal arşivlerde yer alan şeffaf bir yapı kurmaktır."
-        data-bullets="Resmiyet: ISBN, yazar sertifikası ve bakanlık süreçleri,|Dağıtım: Online kitap satış siteleri ve dijital marketler,|Format: Basılı kitap, e-kitap ve sesli kitap üretimi,|Vizyon: Nitelikli içerik arşivi ve güçlü yazar temsili"
-        data-tags="yayıncılık kitap isbn medya kültür"
-        data-link="#"
-        data-linklabel="Katalog (Yakında)"
-        data-apple="#"
-        data-applelabel="App Store">
-
-        <div class="project-head">
-          <h3 class="project-title">İyi Yol Yayınları</h3>
-          <div class="meta-row">
-            <span class="priority-pill"><span class="prio-dot"></span> Proje 5</span>
-            <span class="status-pill status-planned"><span class="status-dot"></span> Planlama</span>
-          </div>
-        </div>
-
-        <p class="project-desc">Bağımsız ve nitelikli eserler için yeni nesil, dijital odaklı butik yayıncılık yapısı.</p>
-
-        <div class="project-tags">
-          <span class="project-tag">Yayıncılık</span>
-          <span class="project-tag">Kitap</span>
-          <span class="project-tag">Kültür</span>
-        </div>
-
-        <div class="card-actions">
-          <span class="mini">Resmi süreçler • ISBN & Dağıtım</span>
-          <button class="read-btn" type="button" data-open="yayinevi">Detayları Görüntüle →</button>
-        </div>
-      </article>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <div>© <span id="year"></span> Berke Deniz Yüksekdağ • Proje Portföyü</div>
-      <div>
-        <a href="index.html">Ana sayfa</a>
-        <span aria-hidden="true"> · </span>
-        <a href="projects.html">Portföy</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- MODAL -->
-  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Proje Detayı">
-    <div class="modal-backdrop" id="backdrop"></div>
-
-    <div class="modal-panel" role="document" aria-label="Detay paneli">
-      <div class="modal-head">
-        <div>
-          <h2 class="modal-title" id="mTitle">Proje</h2>
-          <div class="modal-meta" id="mMeta"></div>
-        </div>
-        <button class="modal-close" id="closeBtn" type="button" aria-label="Kapat">✕</button>
-      </div>
-
-      <div class="modal-body">
-        <p class="modal-text" id="mLong"></p>
-        <ul class="modal-list" id="mList"></ul>
-
-        <div class="modal-actions">
-          <a class="link-btn" href="projects.html" id="mRefresh">Liste</a>
-          <a class="link-btn" href="#" id="mApple" target="_blank" rel="noopener">App Store →</a>
-          <a class="link-btn primary" href="#" id="mLink" target="_blank" rel="noopener">Bağlantıyı Aç</a>
-        </div>
-      </div>
-    </div>
+<main class="container">
+  <div class="toolbar">
+    <input type="search" id="search" class="search" placeholder="Girişimlerde ara (Yazılım, Robotik, Yayıncılık)..." oninput="filterProjects()">
+    <div style="font-size: 13px; font-weight: 700; color: var(--muted);">5 Aktif Birim</div>
   </div>
 
-  <script>
-    /* Tema */
-    function applyTheme(theme){
-      const body = document.body;
-      const btn = document.getElementById("themeBtn");
-      if(theme === "dark"){
-        body.classList.add("dark");
-        if(btn) btn.textContent = "☀️ Açık Mod";
-      }else{
-        body.classList.remove("dark");
-        if(btn) btn.textContent = "🌑 Koyu Mod";
-      }
-    }
+  <section class="projects-grid" id="projectGrid">
+    
+    <article class="project-card" data-tags="mobil içerik akademi">
+      <span class="status-pill status-active">● Aktif Ürün</span>
+      <h3 class="project-title">İyi Yol Akademi</h3>
+      <p class="project-desc">Kişisel gelişim, içerik ve odak araçlarını bir araya getiren mobil platform.</p>
+      <div class="project-tags">
+        <span class="project-tag">MOBİL</span>
+        <span class="project-tag">EĞİTİM</span>
+      </div>
+    </article>
 
-    function toggleTheme(){
-      const isDark = document.body.classList.toggle("dark");
-      const newTheme = isDark ? "dark" : "light";
-      localStorage.setItem("theme", newTheme);
-      applyTheme(newTheme);
-    }
+    <article class="project-card" data-tags="yazılım medya şirket">
+      <span class="status-pill status-planned">● Planlama</span>
+      <h3 class="project-title">İyi Yol Akademi Yazılım ve Medya</h3>
+      <p class="project-desc">Yazılım geliştirme ve dijital medya faaliyetlerini tek çatı altında toplayan kurumsal yapı.</p>
+      <div class="project-tags">
+        <span class="project-tag">KURUMSAL</span>
+        <span class="project-tag">YAZILIM</span>
+      </div>
+    </article>
 
-    (function initTheme(){
-      const savedTheme = localStorage.getItem("theme");
-      if(savedTheme){ applyTheme(savedTheme); return; }
-      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-      applyTheme(prefersDark ? "dark" : "light");
-    })();
+    <article class="project-card" data-tags="robot donanım ar-ge">
+      <span class="status-pill status-planned">● Ar-Ge</span>
+      <h3 class="project-title">Sen2 Robot Projesi</h3>
+      <p class="project-desc">Donanım ve yazılım bütünleşik, gizli aşamada geliştirilen otomasyon sistemi.</p>
+      <div class="project-tags">
+        <span class="project-tag">ROBOTİK</span>
+        <span class="project-tag">AR-GE</span>
+      </div>
+    </article>
 
-    /* Footer yıl */
-    document.getElementById("year").textContent = new Date().getFullYear();
+    <article class="project-card" data-tags="spor kulüp organizasyon">
+      <span class="status-pill status-planned">● Planlama</span>
+      <h3 class="project-title">Futbol Kulübü Projesi</h3>
+      <p class="project-desc">Amatör seviyeden kurumsal yapıya geçiş hedefleyen sürdürülebilir spor kulübü modeli.</p>
+      <div class="project-tags">
+        <span class="project-tag">SPOR</span>
+        <span class="project-tag">YÖNETİM</span>
+      </div>
+    </article>
 
-    /* Arama */
-    const search = document.getElementById("search");
-    const cards = Array.from(document.querySelectorAll(".project-card"));
+    <article class="project-card" data-tags="yayıncılık kitap medya">
+      <span class="status-pill status-planned">● Planlama</span>
+      <h3 class="project-title">İyi Yol Yayınları</h3>
+      <p class="project-desc">Bağımsız ve nitelikli eserler için yeni nesil, dijital odaklı butik yayıncılık markası.</p>
+      <div class="project-tags">
+        <span class="project-tag">MEDYA</span>
+        <span class="project-tag">YAYINCILIK</span>
+      </div>
+    </article>
 
-    function normalize(s){
-      return (s || "").toString().toLowerCase().trim();
-    }
+  </section>
+</main>
 
-    function filterProjects(q){
-      const query = normalize(q);
-      cards.forEach(card => {
-        const title = normalize(card.dataset.title);
-        const tags = normalize(card.dataset.tags);
-        const hit = !query || title.includes(query) || tags.includes(query);
-        card.style.display = hit ? "" : "none";
-      });
-    }
+<footer class="footer">
+  <div>© <span id="year"></span> Berke Deniz Yüksekdağ</div>
+  <div style="opacity: 0.6; margin-top: 5px;">Geleceği İnşa Eden Projeler</div>
+</footer>
 
-    search.addEventListener("input", (e) => filterProjects(e.target.value));
+<script>
+  function toggleTheme() {
+    const isDark = document.body.classList.toggle("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    document.getElementById("themeBtn").textContent = isDark ? "☀️ Açık Mod" : "🌑 Koyu Mod";
+  }
 
-    /* MODAL */
-    const modal = document.getElementById("modal");
-    const backdrop = document.getElementById("backdrop");
-    const closeBtn = document.getElementById("closeBtn");
-
-    const mTitle = document.getElementById("mTitle");
-    const mMeta  = document.getElementById("mMeta");
-    const mLong  = document.getElementById("mLong");
-    const mList  = document.getElementById("mList");
-    const mLink  = document.getElementById("mLink");
-    const mApple = document.getElementById("mApple");
-
-    function statusPillHTML(status, label){
-      if(status === "active"){
-        return `<span class="status-pill status-active"><span class="status-dot"></span> ${label}</span>`;
-      }
-      if(status === "planned"){
-        return `<span class="status-pill status-planned"><span class="status-dot"></span> ${label}</span>`;
-      }
-      return `<span class="status-pill status-building"><span class="status-dot"></span> ${label}</span>`;
-    }
-
-    function openModalFromCard(card){
-      const title = card.dataset.title || "Proje";
-      const status = card.dataset.status || "building";
-      const statusLabel = card.dataset.statuslabel || "Durum";
-      const prio = card.dataset.priority || "-";
-      const longText = card.dataset.long || "";
-      const bulletsRaw = card.dataset.bullets || "";
-      const link = card.dataset.link || "#";
-      const linkLabel = card.dataset.linklabel || "Bağlantı";
-
-      const apple = card.dataset.apple || "#";
-      const appleLabel = card.dataset.applelabel || "App Store";
-
-      mTitle.textContent = title;
-
-      mMeta.innerHTML = `
-        <span class="priority-pill"><span class="prio-dot"></span> Öncelik ${prio}</span>
-        ${statusPillHTML(status, statusLabel)}
-      `;
-
-      mLong.textContent = longText;
-
-      mList.innerHTML = "";
-      const items = bulletsRaw.split("|").map(s => s.trim()).filter(Boolean);
-      items.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item.replace(/,$/, "");
-        mList.appendChild(li);
-      });
-
-      /* Ana link */
-      mLink.textContent = linkLabel + " →";
-      mLink.href = link;
-
-      if(link === "#"){
-        mLink.setAttribute("aria-disabled", "true");
-        mLink.style.opacity = "0.6";
-        mLink.style.pointerEvents = "none";
-      } else {
-        mLink.removeAttribute("aria-disabled");
-        mLink.style.opacity = "1";
-        mLink.style.pointerEvents = "auto";
-      }
-
-      /* Apple */
-      if(apple === "#"){
-        mApple.style.display = "none";
-      } else {
-        mApple.style.display = "inline-flex";
-        mApple.textContent = appleLabel + " →";
-        mApple.href = apple;
-      }
-
-      modal.classList.add("open");
-      modal.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeModal(){
-      modal.classList.remove("open");
-      modal.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-    }
-
-    document.addEventListener("click", (e) => {
-      const btn = e.target.closest("[data-open]");
-      if(!btn) return;
-
-      const id = btn.getAttribute("data-open");
-      const card = document.querySelector(`.project-card[data-id="${id}"]`);
-      if(card) openModalFromCard(card);
-    });
-
-    closeBtn.addEventListener("click", closeModal);
-    backdrop.addEventListener("click", closeModal);
-
-    document.addEventListener("keydown", (e) => {
-      if(e.key === "Escape" && modal.classList.contains("open")){
-        closeModal();
-      }
-    });
-
+  function filterProjects() {
+    const query = document.getElementById("search").value.toLowerCase();
+    const cards = document.querySelectorAll(".project-card");
     cards.forEach(card => {
-      card.addEventListener("click", (e) => {
-        if(e.target.closest("button, a")) return;
-        openModalFromCard(card);
-      });
+      const content = card.innerText.toLowerCase() + card.getAttribute("data-tags").toLowerCase();
+      card.style.display = content.includes(query) ? "block" : "none";
     });
-  </script>
+  }
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+  
+  // Sayfa yüklendiğinde temayı hatırla
+  if(localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    document.getElementById("themeBtn").textContent = "☀️ Açık Mod";
+  }
+</script>
+
 </body>
 </html>
-
-
-
-
-
