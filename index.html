@@ -32,10 +32,11 @@
     "Dijital projeler"
   ],
   "sameAs": [
-    "https://play.google.com/store/apps/details?id=com.iyiyolakademi",
-    "https://apps.apple.com/tr/app/i-yi-yol-akademi/id6751721028",
-    "https://github.com/iyiyolakademi-cpu"
-  ]
+  "https://instagram.com/berke_yuksekdag",
+  "https://play.google.com/store/apps/details?id=com.iyiyolakademi",
+  "https://apps.apple.com/tr/app/i-yi-yol-akademi/id6751721028",
+  "https://github.com/iyiyolakademi-cpu"
+]
 }
 </script>
 
@@ -318,6 +319,19 @@ body.dark .blog-card{
 .video-box video{
   width:100%;
   display:block;
+}
+.video-cover{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  opacity:1;
+  transition: opacity .25s;
+  pointer-events:none;
+}
+
+.video-box.playing .video-cover{
+  opacity:0;
 }
 
 .video-btn{
@@ -1341,13 +1355,3 @@ video.addEventListener("click", toggleVideo);
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
