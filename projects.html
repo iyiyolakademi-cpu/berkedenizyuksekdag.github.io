@@ -55,9 +55,8 @@
       line-height:1.6;
     }
 
-    /* HEADER */
-    .header{
-      padding:72px 20px 46px;
+  .header{
+      padding: 30px 20px 25px; /* Üst boşluk 72px'den 30px'e düşürüldü */
       text-align:center;
       background:
         radial-gradient(650px 220px at 50% 0%, rgba(37,99,235,0.12), transparent 60%),
@@ -583,17 +582,16 @@
 </head>
 
 <body>
-  <header class="header">
-    <span class="kicker">Portföy • Öncelik ve Durum Bazlı Görünüm</span>
-    <h1 class="title">Proje Portföyü</h1>
-    <p class="subtitle"></p>
+<header class="header">
+  <h1 class="title">Proje Portföyü</h1>
+  <p class="subtitle">Berke Deniz Yüksekdağ • Stratejik Girişimler ve Yayıncılık</p>
 
-    <div class="actions">
-      <a class="btn" href="index.html">← Ana Sayfaya Dön</a>
-      <button class="btn" id="themeBtn" type="button" onclick="toggleTheme()">🌑 Koyu Mod</button>
-      <a class="btn primary" href="projects.html" aria-label="Proje portföyünü yenile">Güncel Görünüm</a>
-    </div>
-  </header>
+  <div class="actions">
+    <a class="btn" href="index.html">← Ana Sayfa</a>
+    <button class="btn" id="themeBtn" type="button" onclick="toggleTheme()">🌑 Koyu Mod</button>
+    <a class="btn primary" href="projects.html">Güncel Görünüm</a>
+  </div>
+</header>
 
   <main class="container">
     <div class="toolbar">
@@ -1001,6 +999,7 @@
   </script>
 </body>
 </html>
+
 
 
 
