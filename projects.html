@@ -594,6 +594,10 @@
   <main class="container">
     <div class="toolbar">
 <div class="legend" aria-label="Durum Açıklaması">
+  <div class="search-wrap">
+  <input id="search" class="search" type="search" placeholder="Proje ara (isim / etiket)..." />
+</div>
+
   <span class="legend-item"><span class="dot ok"></span> Aktif</span>
   <span class="legend-item"><span class="dot bad"></span> Hazırlık</span>
   <span class="legend-item"><span class="dot warn"></span> Planlama</span>
@@ -852,7 +856,9 @@ data-statuslabel="Hazırlık"
       });
     }
 
-    search.addEventListener("input", (e) => filterProjects(e.target.value));
+if (search) {
+  search.addEventListener("input", (e) => filterProjects(e.target.value));
+}
 
     /* MODAL */
     const modal = document.getElementById("modal");
@@ -967,6 +973,7 @@ data-statuslabel="Hazırlık"
   </script>
 </body>
 </html>
+
 
 
 
