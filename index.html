@@ -1034,7 +1034,7 @@ body.dark .stat-ico{
 }
 
 /* İlk açılışta sadece 4 blog görünsün */
-.homepage-blog-grid .blog-card:nth-child(n+5){
+.homepage-blog-grid .blog-card:nth-child(n+3){
   display:none;
 }
 
@@ -1317,7 +1317,7 @@ Kitaplarımı okuyan okurlardan gelen paylaşımlar  </p>
 
 <script>
   function toggleBlogs(){
-  const hiddenBlogs = document.querySelectorAll(".homepage-blog-grid .blog-card:nth-child(n+5)");
+  const hiddenBlogs = document.querySelectorAll(".homepage-blog-grid .blog-card:nth-child(n+3)");
   const btn = document.getElementById("toggleBlogsBtn");
 
   // Gizli mi açık mı kontrol
@@ -1439,6 +1439,7 @@ video.addEventListener("click", toggleVideo);
 
 </body>
 </html>
+
 
 
 
