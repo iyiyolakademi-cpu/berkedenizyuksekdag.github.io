@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blog Yazıları | Berke Deniz Yüksekdağ</title>
+<meta name="description" content="Berke Deniz Yüksekdağ blog yazıları: kişisel gelişim, stoacılık, üretim disiplini ve daha fazlası." />
+<link rel="canonical" href="https://berkedenizyuksekdag.com/blog.html" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+<style>
+:root{
+  --bg:#ffffff;
+  --text:#111827;
+  --muted:#4b5563;
+  --card:#f3f4f6;
+  --accent:#2563eb;
+  --btn-hover:#e5e7eb;
+  --border:#e5e7eb;
+}
+
+body.dark{
+  --bg:#0f172a;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --card:#1e293b;
+  --accent:#60a5fa;
+  --btn-hover:#334155;
+  --border:#334155;
+}
+
+*{ box-sizing:border-box; }
+html, body{ max-width:100%; overflow-x:hidden; }
+
+body{
+  margin:0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition: background 0.3s, color 0.3s;
+  line-height:1.6;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:35px 20px 60px;
+}
+
+.hero{
+  padding:60px 20px 40px;
+  text-align:center;
+  background:
+    radial-gradient(600px 200px at 50% 0%, rgba(37,99,235,0.12), transparent 60%),
+    var(--bg);
+  border-bottom:1px solid var(--border);
+}
+
+.hero h1{
+  margin:0;
+  font-size:clamp(30px, 5vw, 48px);
+  letter-spacing:-1px;
+  font-weight:900;
+}
+
+.hero p{
+  margin:10px 0 0;
+  color:var(--muted);
+  font-weight:600;
+}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:18px;
+  flex-wrap:wrap;
+}
+
+.nav-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 14px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:900;
+  color:var(--text);
+  border:1px solid var(--border);
+  background: rgba(0,0,0,0.03);
+  transition: transform .2s, background .2s;
+}
+body.dark .nav-btn{ background: rgba(255,255,255,0.05); }
+.nav-btn:hover{ transform: translateY(-2px); background: var(--btn-hover); }
+
+.theme-btn{
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--text);
+  font-weight:800;
+  cursor:pointer;
+  transition:0.2s;
+}
+.theme-btn:hover{ background: var(--btn-hover); }
+
+.filters{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:18px 0 18px;
+}
+
+.search{
+  flex:1;
+  min-width:220px;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  outline:none;
+}
+.search::placeholder{ color: var(--muted); }
+
+select{
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-weight:700;
+  outline:none;
+}
+
+/* BLOG GRID (seninkiyle uyumlu) */
+.blog-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:30px;
+}
+
+.blog-card{
+  background:var(--card);
+  border-radius:16px;
+  overflow:hidden;
+  text-decoration:none;
+  color:inherit;
+  display:flex;
+  flex-direction:column;
+  transition:transform 0.3s, box-shadow 0.3s;
+  border:1px solid transparent;
+}
+body.dark .blog-card{ border:1px solid var(--border); }
+
+.blog-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+.blog-image{
+  height:200px;
+  background-size:cover;
+  background-position:center;
+  background-color:var(--btn-hover);
+}
+
+.blog-content{
+  padding:25px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.blog-content h3{
+  margin:0;
+  font-size:22px;
+  line-height:1.3;
+}
+
+.blog-content p{
+  color:var(--muted);
+  font-size:15px;
+  margin:0;
+}
+
+.blog-meta{
+  margin-top:15px;
+  font-size:13px;
+  color:var(--accent);
+  font-weight:800;
+  letter-spacing: .02em;
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+  <h1>Blog Yazıları</h1>
+  <p>Kişisel gelişim, Stoacılık, üretim disiplini ve dijital projeler.</p>
+
+  <div class="container" style="padding-top:18px;">
+    <div class="topbar">
+      <a class="nav-btn" href="index.html">← Ana Sayfa</a>
+
+      <button id="themeBtn" class="theme-btn" onclick="toggleTheme()">🌑 Koyu Mod</button>
+    </div>
+
+    <div class="filters">
+      <input id="searchInput" class="search" type="search" placeholder="Yazılarda ara... (örn: stoa, disiplin)" />
+      <select id="statusFilter">
+        <option value="all">Hepsi</option>
+        <option value="soon">Yakında</option>
+        <option value="published">Yayınlandı</option>
+      </select>
+    </div>
+
+    <div class="blog-grid" id="blogGrid">
+
+      <!-- BLOG KARTLARI -->
+      <a href="iyi-yol-akademi-sadece-uygulama-mi.html" class="blog-card" data-status="soon">
+        <div class="blog-image" style="background-image:url('images/disiplin.jpg');"></div>
+        <div class="blog-content">
+          <h3>İyi Yol Akademi gerçekten sadece bir uygulama mı</h3>
+          <p>İyi Yol Akademi gerçekten sadece bir uygulama mı, yoksa arkasında çok daha derin bir amacı mı var?</p>
+          <div class="blog-meta">Yakında Sizlerle</div>
+        </div>
+      </a>
+
+      <a href="sahte-insanlari-nasil-taniriz.html" class="blog-card" data-status="soon">
+        <div class="blog-image" style="background-image:url('images/aliskanlik.jpg');"></div>
+        <div class="blog-content">
+          <h3>Sahte insanları nasıl tanırız?</h3>
+          <p>Kendi hayatımdan gerçek örneklerle birlikte kullandığım teknikler</p>
+          <div class="blog-meta">Yakında Sizlerle</div>
+        </div>
+      </a>
+
+      <a href="stoa-felsefesiyle-mutlu-olmak-mumkun-mu.html" class="blog-card" data-status="soon">
+        <div class="blog-image" style="background-image:url('images/odak.jpg');"></div>
+        <div class="blog-content">
+          <h3>Stoa felsefesiyle mutlu olmak mümkün mü?</h3>
+          <p>Kendi bakış açımdan bir değerlendirme</p>
+          <div class="blog-meta">Yakında Sizlerle</div>
+        </div>
+      </a>
+
+      <a href="kendi-sirketimi-kurma-yolum.html" class="blog-card" data-status="soon">
+        <div class="blog-image" style="background-image:url('images/yavaslik.jpg');"></div>
+        <div class="blog-content">
+          <h3>1. Gün: İlk adımlarım</h3>
+          <p>Şirket kurma yolunda attığım ilk adımlar</p>
+          <div class="blog-meta">Yakında Sizlerle</div>
+        </div>
+      </a>
+
+      <!-- Yayınlanan olunca şu şekilde işaretle:
+      <a ... class="blog-card" data-status="published">
+        ...
+        <div class="blog-meta">Yayınlandı • 10 Şubat 2026</div>
+      </a>
+      -->
+
+    </div>
+  </div>
+</header>
+
+<script>
+/* Tema */
+function applyTheme(theme){
+  const btn = document.getElementById("themeBtn");
+  if(theme === "dark"){
+    document.body.classList.add("dark");
+    if(btn) btn.textContent = "☀️ Açık Mod";
+  } else {
+    document.body.classList.remove("dark");
+    if(btn) btn.textContent = "🌑 Koyu Mod";
+  }
+}
+function toggleTheme(){
+  const isDark = document.body.classList.contains("dark");
+  const newTheme = isDark ? "light" : "dark";
+  localStorage.setItem("theme", newTheme);
+  applyTheme(newTheme);
+}
+(function initTheme(){
+  const savedTheme = localStorage.getItem("theme");
+  if(savedTheme) applyTheme(savedTheme);
+  else { applyTheme("light"); localStorage.setItem("theme","light"); }
+})();
+
+/* Filtre + arama */
+const searchInput = document.getElementById("searchInput");
+const statusFilter = document.getElementById("statusFilter");
+const cards = Array.from(document.querySelectorAll("#blogGrid .blog-card"));
+
+function normalize(s){ return (s||"").toLowerCase().trim(); }
+
+function applyFilters(){
+  const q = normalize(searchInput.value);
+  const st = statusFilter.value;
+
+  cards.forEach(card=>{
+    const text = normalize(card.innerText);
+    const status = card.getAttribute("data-status") || "published";
+
+    const matchesSearch = !q || text.includes(q);
+    const matchesStatus = (st === "all") || (st === status);
+
+    card.style.display = (matchesSearch && matchesStatus) ? "" : "none";
+  });
+}
+
+searchInput.addEventListener("input", applyFilters);
+statusFilter.addEventListener("change", applyFilters);
+applyFilters();
+</script>
+
+</body>
+</html>
