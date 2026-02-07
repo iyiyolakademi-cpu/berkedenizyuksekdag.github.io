@@ -338,22 +338,26 @@ body.dark .blog-card{
 }
 .video-box{
   position:relative;
-  max-width:360px;          /* 📱 telefon genişliği */
-  aspect-ratio: 9 / 16;     /* ✅ dikey video oranı */
+  max-width:800px;
   margin: 40px auto 50px auto;
   border-radius:20px;
   overflow:hidden;
   background:#000;
+  aspect-ratio: 16 / 9;
+
 }
 
+
 .video-box video{
-  position:absolute;
-  inset:0;               /* top:0 right:0 bottom:0 left:0 */
-  width:100%;
-  height:100%;
-  object-fit:cover;      /* ✅ oran bozulmaz, alanı doldurur */
-  display:block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
+
+
 
 .video-cover{
   position:absolute;
@@ -1404,6 +1408,7 @@ video.addEventListener("click", toggleVideo);
 
 </body>
 </html>
+
 
 
 
