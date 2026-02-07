@@ -1033,10 +1033,6 @@ body.dark .stat-ico{
   opacity: .75;
 }
 
-/* İlk açılışta sadece 4 blog görünsün */
-.homepage-blog-grid .blog-card:nth-child(n+3){
-  display:none;
-}
 
 
 
@@ -1127,7 +1123,7 @@ Aynı zamanda İyi Yol Akademi adlı kişisel gelişim odaklı mobil uygulamanı
   </p>
 </div>
 
-<div class="blog-grid homepage-blog-grid">
+<div class="blog-grid">
 
 
   <a href="iyi-yol-akademi-sadece-uygulama-mi.html" class="blog-card">
@@ -1167,15 +1163,6 @@ Aynı zamanda İyi Yol Akademi adlı kişisel gelişim odaklı mobil uygulamanı
   </a>
 
 </div> <!-- ✅ blog-grid burada kapanacak -->
-<!-- TÜM BLOGLARI GÖSTER BUTONU -->
-<div style="text-align:center; margin-top:32px;">
-  <button id="toggleBlogsBtn" onclick="toggleBlogs()"
-          style="padding:14px 28px;border-radius:999px;border:1px solid var(--border);
-                 background:transparent;color:var(--text);font-weight:800;cursor:pointer;
-                 transition:0.25s;">
-    Tüm Blogları Gör
-  </button>
-</div>
 
 <div class="app-header">
   <img src="images/iyi-yol-logo.png" alt="İyi Yol Akademi Logo">
@@ -1316,22 +1303,6 @@ Kitaplarımı okuyan okurlardan gelen paylaşımlar  </p>
 </div>
 
 <script>
-  function toggleBlogs(){
-  const hiddenBlogs = document.querySelectorAll(".homepage-blog-grid .blog-card:nth-child(n+3)");
-  const btn = document.getElementById("toggleBlogsBtn");
-
-  // Gizli mi açık mı kontrol
-  const isHidden = hiddenBlogs.length
-    ? (hiddenBlogs[0].style.display === "none" || hiddenBlogs[0].style.display === "")
-    : false;
-
-  hiddenBlogs.forEach(card => {
-    card.style.display = isHidden ? "flex" : "none";
-  });
-
-  btn.textContent = isHidden ? "Blogları Gizle" : "Tüm Blogları Gör";
-}
-
 /* ---------------------------
    TEMA (localStorage + varsayılan light)
 ---------------------------- */
@@ -1439,22 +1410,3 @@ video.addEventListener("click", toggleVideo);
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
