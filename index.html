@@ -306,6 +306,36 @@ body.dark .blog-card{
         justify-content:flex-start;
     }
 }
+/* ✅ ABOUT – Instagram butonu */
+.about-links{
+  margin-top:16px;
+}
+
+.social-btn{
+  display:inline-flex;
+  align-items:center;
+  padding:10px 16px;
+  border-radius:999px;
+  background: var(--bg);
+  color: var(--text);
+  text-decoration:none;
+  font-weight:700;
+  font-size:14px;
+  border:1px solid rgba(236,72,153,0.35);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.social-btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+  background: var(--btn-hover);
+}
+
+.social-btn:focus-visible{
+  outline: 3px solid rgba(236,72,153,0.30);
+  outline-offset: 2px;
+}
 
 
 /* VIDEO */
@@ -1128,7 +1158,19 @@ Aynı zamanda İyi Yol Akademi adlı kişisel gelişim odaklı mobil uygulamanı
       <br><br>
       İyi Yol Akademi, kullanıcıların zihinsel disiplin kazanmalarını, düzenli üretim alışkanlığı oluşturmalarını ve yaşam farkındalıklarını artırmalarını hedefleyen sürdürülebilir bir gelişim ekosistemi olarak yapılandırılmıştır.
     </p>
+  <div class="about-links">
+    <a class="social-btn ig"
+       href="https://www.instagram.com/berke_yuksekdag/"
+       target="_blank"
+       rel="noopener noreferrer">
+      Instagram: @berke_yuksekdag
+    </a>
+  </div>
+</div>
 
+<div class="about-photo">
+  <img src="images/berke.jpg" alt="Berke Deniz Yüksekdağ">
+</div>
     <p class="iyi-yol-desc" style="margin-top:14px;">
       Aşağıda, İyi Yol Akademi’nin arayüzüne ait örnek ekran görüntüleri yer almaktadır.
     </p>
@@ -1358,6 +1400,7 @@ video.addEventListener("click", toggleVideo);
 
 </body>
 </html>
+
 
 
 
