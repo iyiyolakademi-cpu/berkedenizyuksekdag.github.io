@@ -650,11 +650,13 @@ body.dark .blog-card{
 .app-track img{
   width:140px;
   height:280px;
-  object-fit:cover;
+  object-fit:contain;      /* ✅ kırpma yok */
   border-radius:14px;
   box-shadow:0 12px 24px rgba(0,0,0,0.18);
-  background:#000;
+  background: transparent; /* ✅ siyah dolgu yok */
+  flex-shrink:0;
 }
+
 
 @media (max-width:720px){
   .app-track img{ width:120px; height:240px; }
@@ -1397,6 +1399,7 @@ video.addEventListener("click", toggleVideo);
 
 </body>
 </html>
+
 
 
 
