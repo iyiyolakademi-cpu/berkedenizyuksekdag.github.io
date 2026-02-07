@@ -34,7 +34,7 @@
     "Dijital projeler"
   ],
   "sameAs": [
-  "https://instagram.com/berke_yuksekdag",
+"https://www.instagram.com/berke_yuksekdag/",
   "https://play.google.com/store/apps/details?id=com.iyiyolakademi",
   "https://apps.apple.com/tr/app/i-yi-yol-akademi/id6751721028",
   "https://github.com/iyiyolakademi-cpu"
@@ -305,8 +305,8 @@ body.dark .blog-card{
         width:170px;
         justify-content:flex-start;
     }
+ }
 
-/* ✅ ABOUT – Instagram butonu */
 .about-links{
   margin-top:16px;
 }
@@ -336,8 +336,6 @@ body.dark .blog-card{
   outline: 3px solid rgba(236,72,153,0.30);
   outline-offset: 2px;
 }
-
-
 /* VIDEO */
 .video-box{
 
@@ -1056,22 +1054,33 @@ body.dark .stat-ico{
 
 <div class="about-card about-row">
 
-    <!-- SOL: Yazı -->
-    <div class="about-text">
-        <p>
+  <!-- SOL: Yazı -->
+  <div class="about-text">
+    <p>
 Berke Deniz Yüksekdağ, Türk yazar ve girişimcidir.
 “Hayat Üzerine Sohbetler” ve “Karanlığın İçinden Aydınlığa” adlı kitapların yazarıdır. Ayrıca davet üzerine hazırlanan iki farklı derleme eserde katkıda bulunan yazar olarak yer almıştır. Çalışmalarında kişisel gelişim, düşünce sistemleri ve bilinçli yaşam temalarına odaklanmaktadır.
 
 Aynı zamanda İyi Yol Akademi adlı kişisel gelişim odaklı mobil uygulamanın kurucusu ve geliştiricisidir. Bu web sitesi, Berke Deniz Yüksekdağ’a ait yayımlanmış eserler, projeler ve çalışmaların resmî referans noktası olarak oluşturulmuştur.
-        </p>
-    </div>
+    </p>
 
-    <!-- SAĞ: Fotoğraf -->
-    <div class="about-photo">
-        <img src="images/berke.jpg" alt="Berke Deniz Yüksekdağ">
+    <!-- ✅ Instagram butonu (Hakkımda bölümünde, yazının altında) -->
+    <div class="about-links">
+      <a class="social-btn ig"
+         href="https://www.instagram.com/berke_yuksekdag/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Instagram: @berke_yuksekdag
+      </a>
     </div>
+  </div>
+
+  <!-- SAĞ: Fotoğraf -->
+  <div class="about-photo">
+    <img src="images/berke.jpg" alt="Berke Deniz Yüksekdağ">
+  </div>
 
 </div>
+
 <!-- PROJELER BUTONU (ana sayfa) -->
 <section class="projects-cta" aria-label="Projeler">
   <div class="projects-cta-inner">
@@ -1158,19 +1167,7 @@ Aynı zamanda İyi Yol Akademi adlı kişisel gelişim odaklı mobil uygulamanı
       <br><br>
       İyi Yol Akademi, kullanıcıların zihinsel disiplin kazanmalarını, düzenli üretim alışkanlığı oluşturmalarını ve yaşam farkındalıklarını artırmalarını hedefleyen sürdürülebilir bir gelişim ekosistemi olarak yapılandırılmıştır.
     </p>
-  <div class="about-links">
-    <a class="social-btn ig"
-       href="https://www.instagram.com/berke_yuksekdag/"
-       target="_blank"
-       rel="noopener noreferrer">
-      Instagram: @berke_yuksekdag
-    </a>
-  </div>
-</div>
-
-<div class="about-photo">
-  <img src="images/berke.jpg" alt="Berke Deniz Yüksekdağ">
-</div>
+  
     <p class="iyi-yol-desc" style="margin-top:14px;">
       Aşağıda, İyi Yol Akademi’nin arayüzüne ait örnek ekran görüntüleri yer almaktadır.
     </p>
@@ -1400,6 +1397,7 @@ video.addEventListener("click", toggleVideo);
 
 </body>
 </html>
+
 
 
 
