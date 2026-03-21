@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kitaplarım | Berke Deniz Yüksekdağ</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f9f5ef;
+  color:#1e1e1e;
+}
+
+/* NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  background:white;
+  border-bottom:1px solid #eee;
+  position:sticky;
+  top:0;
+}
+
+.logo{
+  font-weight:bold;
+  font-size:18px;
+}
+
+.menu a{
+  margin-left:20px;
+  text-decoration:none;
+  color:#333;
+  font-weight:500;
+}
+
+.menu a:hover{
+  color:#b88a00;
+}
+
+/* BAŞLIK */
+.header{
+  text-align:center;
+  padding:40px 20px;
+}
+
+.header h1{
+  margin:0;
+  font-size:32px;
+  color:#b88a00;
+}
+
+.header p{
+  margin-top:10px;
+  color:#666;
+}
+
+/* KARTLAR */
+.books{
+  max-width:1000px;
+  margin:auto;
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+  gap:25px;
+}
+
+.book{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.book img{
+  width:150px;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+
+.book h3{
+  margin:10px 0;
+}
+
+.book p{
+  font-size:14px;
+  color:#555;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:10px 15px;
+  background:#b88a00;
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  padding:30px;
+  margin-top:40px;
+  border-top:1px solid #ddd;
+  color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">Berke Deniz Yüksekdağ</div>
+
+  <div class="menu">
+    <a href="index.html">Ana Sayfa</a>
+    <a href="hakkimda.html">Hakkımda</a>
+    <a href="kitaplar.html">Kitaplar</a>
+    <a href="blog.html">Blog</a>
+    <a href="projects.html">Projeler</a>
+    <a href="iyi-yol-akademi.html">Akademi</a>
+  </div>
+</nav>
+
+<!-- BAŞLIK -->
+<div class="header">
+  <h1>Kitaplarım</h1>
+  <p>Yazdığım eserler ve düşünsel çalışmalarım</p>
+</div>
+
+<!-- KİTAPLAR -->
+<div class="books">
+
+  <!-- KİTAP 1 -->
+  <div class="book">
+    <img src="images/kitap1.jpg" alt="Kitap 1">
+    <h3>Hayat Üzerine Sohbetler</h3>
+    <p>Hayat, insan ve düşünce üzerine derin sohbetler içeren eser.</p>
+    <a class="btn" href="https://www.dr.com.tr" target="_blank">Satın Al</a>
+  </div>
+
+  <!-- KİTAP 2 -->
+  <div class="book">
+    <img src="images/kitap2.jpg" alt="Kitap 2">
+    <h3>Karanlığın İçinden Aydınlığa</h3>
+    <p>İçsel dönüşüm ve farkındalık üzerine yazılmış bir eser.</p>
+    <a class="btn" href="https://www.amazon.com.tr" target="_blank">Satın Al</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  © 2026 Berke Deniz Yüksekdağ
+</div>
+
+</body>
+</html>
