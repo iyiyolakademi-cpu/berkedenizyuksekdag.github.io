@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Proje Portföyü | Berke Deniz Yüksekdağ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Berke Deniz Yüksekdağ proje portföyü: İyi Yol Akademi, İyi Yol Akademi Yazılım ve Medya, Sen2 robot projesi, Habitopia ve Life Questing. Durumlar ve öncelik sırası ile tek sayfada." />
+  <meta name="description" content="Berke Deniz Yüksekdağ proje portföyü: İyi Yol Akademi, Sen2 robot projesi, Habitopia ve Life Questing. Durumlar ve öncelik sırası ile tek sayfada." />
 
   <style>
     :root{
@@ -492,6 +492,33 @@
       gap:14px;
     }
 
+    .modal-titlebar{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      flex:1;
+      min-width:0;
+    }
+
+    .modal-title-wrap{
+      flex:1;
+      min-width:0;
+    }
+
+    .modal-logo{
+      flex-shrink:0;
+      height:56px;
+      width:auto;
+      max-width:120px;
+      object-fit:contain;
+      border-radius:10px;
+      background:#000;
+      border:1px solid var(--border);
+      padding:6px;
+      display:none;
+    }
+    .modal-logo.show{ display:block; }
+
     .modal-title{
       margin:0;
       font-size:22px;
@@ -622,7 +649,8 @@
         data-link="https://play.google.com/store/apps/details?id=com.iyiyolakademi&hl=tr"
         data-linklabel="Google Play"
         data-apple="https://apps.apple.com/tr/app/i-yi-yol-akademi/id6751721028?l=tr"
-        data-applelabel="App Store">
+        data-applelabel="App Store"
+        data-logo="assets/logos/iyi-yol.jpeg">
 
         <div class="project-head">
           <h3 class="project-title">İyi Yol Akademi</h3>
@@ -649,19 +677,20 @@
         data-title="Habitopia"
         data-status="planned"
         data-statuslabel="Planlama"
-        data-priority="5"
+        data-priority="3"
         data-short="Kullanıcıların kendi karakterlerini yaratıp geliştirdiği, eğlenceli kişisel gelişim konsepti."
         data-long="Habitopia; kullanıcıların kendi karakterlerini yarattığı ve bu karakteri geliştirmek için günlük kişisel gelişim görevlerini tamamladığı, oyunlaştırılmış bir kişisel gelişim konseptidir. Amaç; alışkanlık oluşturmayı ve düzenli gelişimi, karakter ilerleme mekanikleriyle eğlenceli ve sürdürülebilir hale getirmektir."
         data-tags="oyunlaştırma alışkanlık kişisel gelişim karakter mobil"
         data-link="#"
         data-linklabel="Ürün Sayfası (Yakında)"
         data-apple="#"
-        data-applelabel="App Store">
+        data-applelabel="App Store"
+        data-logo="assets/logos/habitopia.jpeg">
 
         <div class="project-head">
           <h3 class="project-title">Habitopia</h3>
           <div class="meta-row">
-            <span class="priority-pill"><span class="prio-dot"></span> Proje 5</span>
+            <span class="priority-pill"><span class="prio-dot"></span> Proje 3</span>
             <span class="status-pill status-planned"><span class="status-dot"></span> Planlama</span>
           </div>
         </div>
@@ -676,75 +705,8 @@
           <button class="read-btn" type="button" data-open="habitopia">Detayları Görüntüle →</button>
         </div>
       </article>
-      <!-- 3) PLANLAMA: ŞİRKET -->
-      <article class="project-card"
-        data-id="sirket"
-        data-title="İyi Yol Akademi Yazılım ve Medya"
-        data-status="planned"
-        data-statuslabel="Planlama"
-        data-priority="2"
-        data-short="Yazılım ve medya odaklı kurumsal yapı; ürün, süreç ve gelir modelinin yapılandırılması."
-        data-long="İyi Yol Akademi Yazılım ve Medya Şirketi; yazılım geliştirme ve dijital medya faaliyetlerini tek çatı altında konumlandırmayı hedefleyen kurumsal yapı planıdır. Bu kapsamda; ürün yol haritası, operasyonel süreçler, marka konumlandırması ve sürdürülebilir gelir modeli kademeli olarak tasarlanacaktır."
-        data-tags="şirket girişim medya yazılım strateji süreç"
-        data-link="#"
-        data-linklabel="Kurumsal Sayfa (Yakında)"
-        data-apple="#"
-        data-applelabel="App Store">
 
-        <div class="project-head">
-          <h3 class="project-title">İyi Yol Akademi Yazılım ve Medya</h3>
-          <div class="meta-row">
-            <span class="priority-pill"><span class="prio-dot"></span> Proje 2</span>
-            <span class="status-pill status-planned"><span class="status-dot"></span> Planlama</span>
-          </div>
-        </div>
-
-        <p class="project-desc">Yazılım ve medya odaklı kurumsal yapı; ürün, süreç ve gelir modelinin yapılandırılması.</p>
-
-        <div class="project-tags">
-          
-        </div>
-
-        <div class="card-actions">
-          <button class="read-btn" type="button" data-open="sirket">Detayları Görüntüle →</button>
-        </div>
-      </article>
-
-      <!-- 4) SEN2 ROBOT -->
-      <article class="project-card"
-        data-id="sen2"
-        data-title="Sen2 Robot Projesi"
-        data-status="planned"
-        data-statuslabel="Planlama"
-        data-priority="3"
-        data-short="Donanım + yazılım bütünleşik Ar-Ge çalışması. Özellikler şu aşamada gizli olarak tutulmaktadır."
-        data-long="Sen2; donanım ve yazılımın birlikte ilerlediği, sensör/otomasyon temelli bir Ar-Ge projesidir. Özellik ve mimari detaylar bu aşamada gizli tutulmaktadır. Proje iki aşamada tamamlanacaktır: 1) Temel ve başlangıç sürümü 2) Kapsamlı sürüm (final)."
-        data-tags="sen2 robot donanım yazılım otomasyon ar-ge"
-        data-link="#"
-        data-linklabel="Teknik Sayfa (Yakında)"
-        data-apple="#"
-        data-applelabel="App Store">
-
-        <div class="project-head">
-          <h3 class="project-title">Sen2 Robot Projesi</h3>
-          <div class="meta-row">
-            <span class="priority-pill"><span class="prio-dot"></span> Proje 3</span>
-            <span class="status-pill status-planned"><span class="status-dot"></span> Planlama</span>
-          </div>
-        </div>
-
-        <p class="project-desc">Donanım + yazılım bütünleşik Ar-Ge çalışması. Özellikler şu aşamada gizli olarak geliştirilmektedir.</p>
-
-        <div class="project-tags">
-  
-        </div>
-
-        <div class="card-actions">
-          <button class="read-btn" type="button" data-open="sen2">Detayları Görüntüle →</button>
-        </div>
-      </article>
-
-      <!-- 5) LIFE QUESTING -->
+      <!-- 3) LIFE QUESTING -->
       <article class="project-card"
         data-id="life-questing"
         data-title="Life Questing"
@@ -757,7 +719,8 @@
         data-link="#"
         data-linklabel="Ürün Sayfası (Yakında)"
         data-apple="#"
-        data-applelabel="App Store">
+        data-applelabel="App Store"
+        data-logo="assets/logos/life-questing.jpeg">
 
         <div class="project-head">
           <h3 class="project-title">Life Questing</h3>
@@ -778,6 +741,40 @@
         </div>
       </article>
 
+      <!-- 4) SEN2 ROBOT -->
+      <article class="project-card"
+        data-id="sen2"
+        data-title="Sen2 Robot Projesi"
+        data-status="planned"
+        data-statuslabel="Planlama"
+        data-priority="2"
+        data-short="Donanım + yazılım bütünleşik Ar-Ge çalışması. Özellikler şu aşamada gizli olarak tutulmaktadır."
+        data-long="Sen2; donanım ve yazılımın birlikte ilerlediği, sensör/otomasyon temelli bir Ar-Ge projesidir. Özellik ve mimari detaylar bu aşamada gizli tutulmaktadır. Proje iki aşamada tamamlanacaktır: 1) Temel ve başlangıç sürümü 2) Kapsamlı sürüm (final)."
+        data-tags="sen2 robot donanım yazılım otomasyon ar-ge"
+        data-link="#"
+        data-linklabel="Teknik Sayfa (Yakında)"
+        data-apple="#"
+        data-applelabel="App Store">
+
+        <div class="project-head">
+          <h3 class="project-title">Sen2 Robot Projesi</h3>
+          <div class="meta-row">
+            <span class="priority-pill"><span class="prio-dot"></span> Proje 2</span>
+            <span class="status-pill status-planned"><span class="status-dot"></span> Planlama</span>
+          </div>
+        </div>
+
+        <p class="project-desc">Donanım + yazılım bütünleşik Ar-Ge çalışması. Özellikler şu aşamada gizli olarak geliştirilmektedir.</p>
+
+        <div class="project-tags">
+  
+        </div>
+
+        <div class="card-actions">
+          <button class="read-btn" type="button" data-open="sen2">Detayları Görüntüle →</button>
+        </div>
+      </article>
+
     </section>
   </main>
 
@@ -789,9 +786,12 @@
 
     <div class="modal-panel" role="document" aria-label="Detay paneli">
       <div class="modal-head">
-        <div>
-          <h2 class="modal-title" id="mTitle">Proje</h2>
-          <div class="modal-meta" id="mMeta"></div>
+        <div class="modal-titlebar">
+          <div class="modal-title-wrap">
+            <h2 class="modal-title" id="mTitle">Proje</h2>
+            <div class="modal-meta" id="mMeta"></div>
+          </div>
+          <img class="modal-logo" id="mLogo" alt="" />
         </div>
         <button class="modal-close" id="closeBtn" type="button" aria-label="Kapat">✕</button>
       </div>
@@ -837,8 +837,6 @@
       applyTheme(prefersDark ? "dark" : "light");
     })();
 
-    /* Footer yıl */
-
     /* Arama */
     const search = document.getElementById("search");
     const cards = Array.from(document.querySelectorAll(".project-card"));
@@ -872,6 +870,7 @@ if (search) {
     const mList  = document.getElementById("mList");
     const mLink  = document.getElementById("mLink");
     const mApple = document.getElementById("mApple");
+    const mLogo  = document.getElementById("mLogo");
 
     function statusPillHTML(status, label){
       if(status === "active"){
@@ -896,6 +895,8 @@ if (search) {
       const apple = card.dataset.apple || "#";
       const appleLabel = card.dataset.applelabel || "App Store";
 
+      const logo = card.dataset.logo || "";
+
       mTitle.textContent = title;
 
       mMeta.innerHTML = `
@@ -912,6 +913,16 @@ if (search) {
         li.textContent = item.replace(/,$/, "");
         mList.appendChild(li);
       });
+
+      /* Logo */
+      if(logo){
+        mLogo.src = logo;
+        mLogo.alt = title + " logo";
+        mLogo.classList.add("show");
+      } else {
+        mLogo.src = "";
+        mLogo.classList.remove("show");
+      }
 
       /* Ana link */
       mLink.textContent = linkLabel + " →";
