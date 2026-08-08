@@ -306,6 +306,38 @@ body.gunduz .nav{ background:rgba(238,233,220,.86); }
 .blog-content h3{ font-size:19px; }
 .blog-content p{ color:var(--muted); font-size:14.5px; margin:0; }
 .blog-meta{ margin-top:12px; font-family:var(--mono); font-size:12px; color:var(--gold); }
+.blog-category{
+  align-self:flex-start;
+  font-family:var(--mono); font-size:11px; font-weight:700;
+  letter-spacing:.08em; text-transform:uppercase;
+  color:var(--gold); background:rgba(217,164,74,.12);
+  border:1px solid rgba(217,164,74,.35);
+  padding:5px 11px; border-radius:999px;
+}
+.blog-filters{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:26px; }
+.blog-filter-btn{
+  font-family:var(--mono); font-size:12.5px; font-weight:700;
+  letter-spacing:.05em; text-transform:uppercase;
+  color:var(--paper-muted); background:transparent;
+  border:1px solid var(--line); padding:9px 16px; border-radius:999px;
+  cursor:pointer; transition:.2s;
+}
+.blog-filter-btn:hover{ border-color:var(--gold); color:var(--gold); }
+.blog-filter-btn.active{ background:var(--gold); border-color:var(--gold); color:#181305; }
+.blog-card.hide-card{ display:none !important; }
+.blog-extra{ display:none; }
+.blog-extra.show{ display:flex; }
+.blog-more-wrap{ display:flex; justify-content:center; margin-top:32px; }
+.blog-more-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:13px 24px; border-radius:999px;
+  border:1px solid var(--line); background:transparent; color:var(--paper);
+  font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:.04em;
+  cursor:pointer; transition:.2s;
+}
+.blog-more-btn:hover{ border-color:var(--gold); color:var(--gold); }
+.blog-more-btn .chev{ transition:transform .25s ease; }
+.blog-more-btn.open .chev{ transform:rotate(180deg); }
 
 /* İYİ YOL AKADEMİ */
 .app-section{ background:var(--ink-panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
@@ -475,23 +507,38 @@ footer a{ color:var(--gold); text-decoration:none; }
     <span class="publish-badge">Yayın</span>
     <p class="publish-text">Yeni yazılar <strong>her Cumartesi</strong> yayınlanır.</p>
   </div>
-  <div class="blog-grid">
-    <a href="iyi-yol-akademi-sadece-uygulama-mi.html" class="blog-card">
+  <div class="blog-filters" id="blogFilters">
+    <button class="blog-filter-btn active" data-filter="all" onclick="filterBlog('all', this)">Tümü</button>
+    <button class="blog-filter-btn" data-filter="kisisel-gelisim" onclick="filterBlog('kisisel-gelisim', this)">Kişisel Gelişim</button>
+    <button class="blog-filter-btn" data-filter="girisimcilik" onclick="filterBlog('girisimcilik', this)">Girişimcilik</button>
+  </div>
+  <div class="blog-grid" id="blogGrid">
+    <a href="iyi-yol-akademi-sadece-uygulama-mi.html" class="blog-card" data-category="girisimcilik">
       <div class="blog-image" style="background-image:url('images/disiplin.jpg');"></div>
       <div class="blog-content">
+        <span class="blog-category">Girişimcilik</span>
         <h3>İyi Yol Akademi gerçekten sadece bir uygulama mı</h3>
         <p>İyi Yol Akademi gerçekten sadece bir uygulama mı, yoksa arkasında çok daha derin bir amacı mı var?</p>
         <div class="blog-meta">Yakında Sizlerle</div>
       </div>
     </a>
-    <a href="sahte-insanlari-nasil-taniriz.html" class="blog-card">
+    <a href="sahte-insanlari-nasil-taniriz.html" class="blog-card" data-category="kisisel-gelisim">
       <div class="blog-image" style="background-image:url('images/aliskanlik.jpg');"></div>
       <div class="blog-content">
+        <span class="blog-category">Kişisel Gelişim</span>
         <h3>Sahte insanları nasıl tanırız?</h3>
         <p>Kendi hayatımdan gerçek örneklerle birlikte kullandığım teknikler</p>
         <div class="blog-meta">Yakında Sizlerle</div>
       </div>
     </a>
+    <!-- Yeni yazılar eklendikçe, kartları buraya "blog-card blog-extra" class'ıyla ekleyin.
+         Bu kartlar "Daha Fazlası" butonuna basılana kadar gizli kalır. -->
+  </div>
+  <div class="blog-more-wrap">
+    <button class="blog-more-btn" id="blogMoreBtn" onclick="toggleBlogMore()">
+      <span id="blogMoreLabel">Daha Fazlası</span>
+      <span class="chev" id="blogMoreChev">▾</span>
+    </button>
   </div>
 </section>
 
@@ -608,6 +655,41 @@ function toggleTheme(){
   const saved = localStorage.getItem("theme");
   applyTheme(saved || "gece");
 })();
+
+applyBlogFilter();
+
+/* BLOG - KATEGORİ FİLTRESİ */
+let currentBlogFilter = "all";
+function filterBlog(category, btn){
+  currentBlogFilter = category;
+  document.querySelectorAll(".blog-filter-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  applyBlogFilter();
+}
+function applyBlogFilter(){
+  const grid = document.getElementById("blogGrid");
+  const isExpanded = grid.classList.contains("expanded");
+  grid.querySelectorAll(".blog-card").forEach(card => {
+    const matchesCategory = currentBlogFilter === "all" || card.dataset.category === currentBlogFilter;
+    const isExtra = card.classList.contains("blog-extra");
+    const visibleByExpand = !isExtra || isExpanded;
+    card.classList.toggle("hide-card", !(matchesCategory && visibleByExpand));
+  });
+}
+
+/* BLOG - DAHA FAZLASI / KAPAT */
+function toggleBlogMore(){
+  const grid = document.getElementById("blogGrid");
+  const btn = document.getElementById("blogMoreBtn");
+  const label = document.getElementById("blogMoreLabel");
+  const isOpen = grid.classList.toggle("expanded");
+  btn.classList.toggle("open", isOpen);
+  label.textContent = isOpen ? "Kapat" : "Daha Fazlası";
+  applyBlogFilter();
+  if(!isOpen){
+    document.getElementById("yazilar").scrollIntoView({behavior:"smooth", block:"start"});
+  }
+}
 
 /* VIDEO */
 const video = document.getElementById("introVideo");
