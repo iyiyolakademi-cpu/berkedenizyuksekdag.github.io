@@ -2,10 +2,10 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Berke Deniz Yüksekdağ | Yazar & İyi Yol Akademi Kurucusu</title>
+<title>Berke Deniz Y&#252;ksekda&#287; | Yazar & &#304;yi Yol Akademi Kurucusu</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Berke Deniz Yüksekdağ, Türk yazar, girişimci ve yazılımcıdır. İyi Yol Akademi uygulamasının kurucusu olup kişisel gelişim, dijital projeler ve kitap çalışmaları üzerine içerikler üretmektedir.">
+<meta name="description" content="Berke Deniz Y&#252;ksekda&#287;, T&#252;rk yazar, giri&#351;imci ve yaz&#305;l&#305;mc&#305;d&#305;r. &#304;yi Yol Akademi uygulamas&#305;n&#305;n kurucusu olup ki&#351;isel geli&#351;im, dijital projeler ve kitap &#231;al&#305;&#351;malar&#305; &#252;zerine i&#231;erikler &#252;retmektedir.">
 <link rel="canonical" href="https://berkedenizyuksekdag.com/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
@@ -18,18 +18,18 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "@id": "https://berkedenizyuksekdag.com/#person",
-  "name": "Berke Deniz Yüksekdağ",
+  "name": "Berke Deniz Y\u00FCksekda\u011F",
   "url": "https://berkedenizyuksekdag.com/",
   "image": "https://berkedenizyuksekdag.com/images/berke-deniz-yuksekdag-2025.jpg",
-  "jobTitle": ["Yazar", "Girişimci", "Yazılımcı"],
-  "birthPlace": { "@type": "Place", "name": "İzmir, Türkiye" },
+  "jobTitle": ["Yazar", "Giri\u015Fimci", "Yaz\u0131l\u0131mc\u0131"],
+  "birthPlace": { "@type": "Place", "name": "\u0130zmir, T\u00FCrkiye" },
   "nationality": "Turkish",
-  "knowsLanguage": ["Türkçe", "English"],
-  "alternateName": ["Berke Yüksekdağ", "Berke Deniz"],
-  "description": "Berke Deniz Yüksekdağ, Türk yazar, girişimci ve yazılımcıdır. İyi Yol Akademi uygulamasının kurucusu olup kişisel gelişim, dijital projeler ve yazarlık alanlarında çalışmalar yürütmektedir.",
+  "knowsLanguage": ["T\u00FCrk\u00E7e", "English"],
+  "alternateName": ["Berke Y\u00FCksekda\u011F", "Berke Deniz"],
+  "description": "Berke Deniz Y\u00FCksekda\u011F, T\u00FCrk yazar, giri\u015Fimci ve yaz\u0131l\u0131mc\u0131d\u0131r. \u0130yi Yol Akademi uygulamas\u0131n\u0131n kurucusu olup ki\u015Fisel geli\u015Fim, dijital projeler ve yazarl\u0131k alanlar\u0131nda \u00E7al\u0131\u015Fmalar y\u00FCr\u00FCtmektedir.",
   "mainEntityOfPage": "https://berkedenizyuksekdag.com/",
-  "worksFor": { "@type": "Organization", "name": "İyi Yol Akademi", "url": "https://play.google.com/store/apps/details?id=com.iyiyolakademi" },
-  "knowsAbout": ["Kişisel gelişim", "Stoacılık", "Kitaplar", "Dijital projeler"],
+  "worksFor": { "@type": "Organization", "name": "\u0130yi Yol Akademi", "url": "https://play.google.com/store/apps/details?id=com.iyiyolakademi" },
+  "knowsAbout": ["Ki\u015Fisel geli\u015Fim", "Stoac\u0131l\u0131k", "Kitaplar", "Dijital projeler"],
   "sameAs": [
     "https://www.instagram.com/berke_yuksekdag/",
     "https://www.linkedin.com/in/berke-deniz-y%C3%BCksekda%C4%9F-4607603a8/",
@@ -43,7 +43,7 @@
 
 <style>
 /* ============================================
-   TOKENS — "Karanlıktan Aydınlığa" (Gece → Şafak)
+   TOKENS \2014  "Karanl\131 ktan Ayd\131 nl\131 \11F a" (Gece \2192  \15E afak)
    ============================================ */
 :root{
   --ink:#0f1117;
@@ -122,7 +122,7 @@ body.gunduz .nav{ background:rgba(238,233,220,.86); }
 @media (max-width:820px){ .nav-links{ display:none; } }
 
 /* ============================================
-   ROAD DIVIDER — signature element
+   ROAD DIVIDER \2014  signature element
    ============================================ */
 .road{
   position:relative; height:34px; margin:0 auto; max-width:1200px;
@@ -301,7 +301,75 @@ body.gunduz .nav{ background:rgba(238,233,220,.86); }
   text-decoration:none; color:inherit; display:flex; flex-direction:column; transition:.25s;
 }
 .blog-card:hover{ transform:translateY(-6px); border-color:var(--gold); }
-.blog-image{ height:180px; background-size:cover; background-position:center; }
+.blog-image{
+  position:relative; height:210px; overflow:hidden; isolation:isolate;
+  background:#10131b; border-bottom:1px solid var(--line);
+}
+.blog-image::before{
+  content:""; position:absolute; inset:0; z-index:-2;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(217,164,74,.20), transparent 32%),
+    linear-gradient(135deg, #1b1f2b 0%, #0d0f15 68%);
+}
+.blog-image::after{
+  content:""; position:absolute; inset:0; z-index:-1; opacity:.45;
+  background-image:
+    linear-gradient(rgba(217,164,74,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217,164,74,.08) 1px, transparent 1px);
+  background-size:34px 34px;
+  mask-image:linear-gradient(115deg, #000, transparent 72%);
+}
+.blog-cover{
+  position:relative; height:100%; padding:20px 22px 18px; color:#f5f1e6;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.blog-cover > *{ position:relative; z-index:1; }
+.cover-head{ display:flex; align-items:center; justify-content:space-between; gap:14px; }
+.cover-label{
+  font-family:var(--mono); font-size:10px; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--gold-soft);
+}
+.cover-number{
+  width:34px; height:34px; border:1px solid rgba(217,164,74,.5); border-radius:50%;
+  display:grid; place-items:center; color:var(--gold-soft);
+  font-family:var(--mono); font-size:11px; font-weight:700;
+}
+.cover-title{
+  max-width:270px; font-family:var(--serif); font-size:29px;
+  font-weight:600; line-height:1.05; letter-spacing:-.02em;
+}
+.cover-footer{
+  display:flex; align-items:center; gap:10px;
+  font-family:var(--mono); font-size:10px; letter-spacing:.07em;
+  text-transform:uppercase; color:#b6b2a8;
+}
+.cover-footer::before{ content:""; width:28px; height:2px; background:var(--gold); }
+.cover-checks{ display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
+.cover-check{
+  min-width:0; padding:7px 5px; border:1px solid rgba(245,241,230,.13);
+  border-radius:8px; background:rgba(245,241,230,.04);
+  text-align:center; font-family:var(--mono); font-size:9px; color:#d5d0c4;
+}
+.cover-check::before{ content:"\2713 "; color:var(--gold); margin-right:3px; }
+.success-cover .blog-cover::before{
+  content:"04"; position:absolute; right:10px; bottom:-38px; z-index:0;
+  font-family:var(--serif); font-size:150px; font-weight:700; line-height:1;
+  color:rgba(217,164,74,.055);
+}
+.success-title-row{ display:flex; align-items:flex-end; justify-content:space-between; gap:18px; }
+.cover-steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-top:12px; }
+.cover-step{
+  min-width:0; border-top:2px solid rgba(217,164,74,.42);
+  padding-top:6px; font-family:var(--mono); font-size:9px; color:#d5d0c4;
+  white-space:nowrap;
+}
+.cover-step strong{ display:block; margin-bottom:2px; color:var(--gold); font-size:9px; }
+@media (max-width:380px){
+  .blog-image{ height:200px; }
+  .cover-title{ font-size:26px; }
+  .cover-checks,.cover-steps{ gap:4px; }
+  .cover-check,.cover-step{ font-size:8px; }
+}
 .blog-content{ padding:22px; display:flex; flex-direction:column; gap:8px; }
 .blog-content h3{ font-size:19px; }
 .blog-content p{ color:var(--muted); font-size:14.5px; margin:0; }
@@ -371,7 +439,7 @@ body.gunduz .nav{ background:rgba(238,233,220,.86); }
 .blog-more-btn .chev{ transition:transform .25s ease; }
 .blog-more-btn.open .chev{ transform:rotate(180deg); }
 
-/* İYİ YOL AKADEMİ */
+/* \130 Y\130  YOL AKADEM\130  */
 .app-section{ background:var(--ink-panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
 .app-header{ display:flex; align-items:center; gap:14px; margin-bottom:26px; }
 .app-header img{ width:46px; height:46px; border-radius:12px; }
@@ -440,30 +508,30 @@ footer a{ color:var(--gold); text-decoration:none; }
 <body>
 
 <nav class="nav">
-  <div class="nav-brand">Berke Deniz Yüksekdağ</div>
+  <div class="nav-brand">Berke Deniz Y&#252;ksekda&#287;</div>
   <ul class="nav-links">
-    <li><a href="#hakkimda">Hakkımda</a></li>
+    <li><a href="#hakkimda">Hakk&#305;mda</a></li>
     <li><a href="#kitaplar">Kitaplar</a></li>
-    <li><a href="#yazilar">Yazılar</a></li>
-    <li><a href="#iyi-yol">İyi Yol Akademi</a></li>
+    <li><a href="#yazilar">Yaz&#305;lar</a></li>
+    <li><a href="#iyi-yol">&#304;yi Yol Akademi</a></li>
   </ul>
-  <button class="nav-toggle" id="themeBtn" onclick="toggleTheme()">☀ Gündüz Modu</button>
+  <button class="nav-toggle" id="themeBtn" onclick="toggleTheme()">&#9728; G&#252;nd&#252;z Modu</button>
 </nav>
 
 <section class="hero">
   <div class="hero-photo"></div>
   <div class="hero-scrim"></div>
   <div class="hero-inner">
-    <span class="eyebrow hero-kicker">Resmî Web Sitesi</span>
-    <h1 class="hero-title">Berke Deniz Yüksekdağ</h1>
-    <div class="hero-role">Yazar · Girişimci · Yazılımcı</div>
+    <span class="eyebrow hero-kicker">Resm&#238; Web Sitesi</span>
+    <h1 class="hero-title">Berke Deniz Y&#252;ksekda&#287;</h1>
+    <div class="hero-role">Yazar &#183; Giri&#351;imci &#183; Yaz&#305;l&#305;mc&#305;</div>
     <span class="hero-quote">
-      İyi Yol Akademi
-      <span class="hero-quote-sub">Şimdi App Store & Google Play'de</span>
+      &#304;yi Yol Akademi
+      <span class="hero-quote-sub">&#350;imdi App Store & Google Play'de</span>
     </span>
     <div class="hero-actions">
-      <a class="btn btn-solid" href="#kitaplar">Kitapları İncele</a>
-      <a class="btn btn-ghost" href="#iyi-yol">İyi Yol Akademi'yi Keşfet</a>
+      <a class="btn btn-solid" href="#kitaplar">Kitaplar&#305; &#304;ncele</a>
+      <a class="btn btn-ghost" href="#iyi-yol">&#304;yi Yol Akademi'yi Ke&#351;fet</a>
     </div>
   </div>
 </section>
@@ -472,10 +540,10 @@ footer a{ color:var(--gold); text-decoration:none; }
 
 <div class="stats-strip">
   <div class="stats-grid-main">
-    <div class="stat"><span class="stat-label">İndirme</span><span class="stat-value">5 B+</span></div>
-    <div class="stat"><span class="stat-label">Uygulama Puanı</span><span class="stat-value">4,9</span></div>
-    <div class="stat"><span class="stat-label">Yayınlanan Kitap</span><span class="stat-value">2</span></div>
-    <div class="stat"><span class="stat-label">Yeni Yazı</span><span class="stat-value">Her Cumartesi</span></div>
+    <div class="stat"><span class="stat-label">&#304;ndirme</span><span class="stat-value">5 B+</span></div>
+    <div class="stat"><span class="stat-label">Uygulama Puan&#305;</span><span class="stat-value">4,9</span></div>
+    <div class="stat"><span class="stat-label">Yay&#305;nlanan Kitap</span><span class="stat-value">2</span></div>
+    <div class="stat"><span class="stat-label">Yeni Yaz&#305;</span><span class="stat-value">Her Cumartesi</span></div>
   </div>
 </div>
 
@@ -484,15 +552,15 @@ footer a{ color:var(--gold); text-decoration:none; }
 <section class="section" id="hakkimda">
   <div class="about">
     <div class="about-text">
-      <span class="eyebrow">Hakkımda</span>
-      <h2 class="section-title">Berke Deniz Yüksekdağ Kimdir?</h2>
-      <p style="margin-top:22px;">Berke Deniz Yüksekdağ, Türk yazar ve girişimcidir. "Hayat Üzerine Sohbetler" ve "Karanlığın İçinden Aydınlığa" adlı kitapların yazarıdır. Ayrıca davet üzerine hazırlanan iki farklı derleme eserde katkıda bulunan yazar olarak yer almıştır. Çalışmalarında kişisel gelişim, düşünce sistemleri ve bilinçli yaşam temalarına odaklanmaktadır.</p>
-      <p>Aynı zamanda kişisel gelişim alanında faaliyet gösteren İyi Yol Akademi adlı mobil uygulamanın kurucusu ve geliştiricisidir. Yazarlık ve girişimcilik çalışmalarını disiplin, üretim ve bireysel farkındalık ekseninde sürdürmektedir.</p>
-      <p>2006 yılında İzmir'de doğmuştur. Bu web sitesi, Berke Deniz Yüksekdağ'a ait yayımlanmış eserler, projeler ve çalışmalar için resmî referans noktası olarak oluşturulmuştur.</p>
+      <span class="eyebrow">Hakk&#305;mda</span>
+      <h2 class="section-title">Berke Deniz Y&#252;ksekda&#287; Kimdir?</h2>
+      <p style="margin-top:22px;">Berke Deniz Y&#252;ksekda&#287;, T&#252;rk yazar ve giri&#351;imcidir. "Hayat &#220;zerine Sohbetler" ve "Karanl&#305;&#287;&#305;n &#304;&#231;inden Ayd&#305;nl&#305;&#287;a" adl&#305; kitaplar&#305;n yazar&#305;d&#305;r. Ayr&#305;ca davet &#252;zerine haz&#305;rlanan iki farkl&#305; derleme eserde katk&#305;da bulunan yazar olarak yer alm&#305;&#351;t&#305;r. &#199;al&#305;&#351;malar&#305;nda ki&#351;isel geli&#351;im, d&#252;&#351;&#252;nce sistemleri ve bilin&#231;li ya&#351;am temalar&#305;na odaklanmaktad&#305;r.</p>
+      <p>Ayn&#305; zamanda ki&#351;isel geli&#351;im alan&#305;nda faaliyet g&#246;steren &#304;yi Yol Akademi adl&#305; mobil uygulaman&#305;n kurucusu ve geli&#351;tiricisidir. Yazarl&#305;k ve giri&#351;imcilik &#231;al&#305;&#351;malar&#305;n&#305; disiplin, &#252;retim ve bireysel fark&#305;ndal&#305;k ekseninde s&#252;rd&#252;rmektedir.</p>
+      <p>2006 y&#305;l&#305;nda &#304;zmir'de do&#287;mu&#351;tur. Bu web sitesi, Berke Deniz Y&#252;ksekda&#287;'a ait yay&#305;mlanm&#305;&#351; eserler, projeler ve &#231;al&#305;&#351;malar i&#231;in resm&#238; referans noktas&#305; olarak olu&#351;turulmu&#351;tur.</p>
       <a class="social-btn" href="https://www.instagram.com/berke_yuksekdag/" target="_blank" rel="noopener noreferrer">Instagram: @berke_yuksekdag</a>
     </div>
     <div class="about-photo-frame">
-      <img src="images/berke-deniz-yuksekdag-2025.jpg" alt="Berke Deniz Yüksekdağ">
+      <img src="images/berke-deniz-yuksekdag-2025.jpg" alt="Berke Deniz Y&#252;ksekda&#287;">
     </div>
   </div>
 </section>
@@ -501,31 +569,31 @@ footer a{ color:var(--gold); text-decoration:none; }
   <div class="projects-cta">
     <div>
       <span class="eyebrow">Projeler</span>
-      <h3 class="projects-cta-title" style="margin-top:8px;">Berke Deniz Yüksekdağ'ın Projeleri</h3>
-      <p class="projects-cta-desc">İyi Yol Akademi ve devam eden diğer projelere ait güncel durum bilgilerine bu sayfa üzerinden ulaşabilirsiniz.</p>
+      <h3 class="projects-cta-title" style="margin-top:8px;">Berke Deniz Y&#252;ksekda&#287;'&#305;n Projeleri</h3>
+      <p class="projects-cta-desc">&#304;yi Yol Akademi ve devam eden di&#287;er projelere ait g&#252;ncel durum bilgilerine bu sayfa &#252;zerinden ula&#351;abilirsiniz.</p>
     </div>
-    <a href="projects.html" class="projects-cta-btn">Projeler →</a>
+    <a href="projects.html" class="projects-cta-btn">Projeler &#8594;</a>
   </div>
 </section>
 
 <section class="section" id="kitaplar">
   <div class="section-head">
-    <span class="eyebrow">Kitaplarım</span>
-    <h2 class="section-title">Yayımlanan Eserler</h2>
-    <p class="section-desc">Berke Deniz Yüksekdağ tarafından yayımlanan kitaplar ve eserler.</p>
+    <span class="eyebrow">Kitaplar&#305;m</span>
+    <h2 class="section-title">Yay&#305;mlanan Eserler</h2>
+    <p class="section-desc">Berke Deniz Y&#252;ksekda&#287; taraf&#305;ndan yay&#305;mlanan kitaplar ve eserler.</p>
   </div>
   <div class="books-grid">
     <div class="book-card">
-      <img src="images/hayat-uzerine-sohbetler.jpg" alt="Hayat Üzerine Sohbetler kitap kapağı">
-      <h3>Hayat Üzerine Sohbetler</h3>
-      <p>Hayat, düşünce ve insan üzerine sohbetler içeren eser.</p>
-      <a class="book-btn" href="https://www.shopier.com/iyiyolakademi/43852507" target="_blank" rel="noopener noreferrer">Satın Al</a>
+      <img src="images/hayat-uzerine-sohbetler.jpg" alt="Hayat &#220;zerine Sohbetler kitap kapa&#287;&#305;">
+      <h3>Hayat &#220;zerine Sohbetler</h3>
+      <p>Hayat, d&#252;&#351;&#252;nce ve insan &#252;zerine sohbetler i&#231;eren eser.</p>
+      <a class="book-btn" href="https://www.shopier.com/iyiyolakademi/43852507" target="_blank" rel="noopener noreferrer">Sat&#305;n Al</a>
     </div>
     <div class="book-card">
-      <img src="images/karanligin-icinden-aydinliga.jpg" alt="Karanlığın İçinden Aydınlığa kitap kapağı">
-      <h3>Karanlığın İçinden Aydınlığa</h3>
-      <p>İçsel dönüşüm, farkındalık ve düşünsel derinlik üzerine bir eser.</p>
-      <a class="book-btn" href="https://www.shopier.com/iyiyolakademi/43859867" target="_blank" rel="noopener noreferrer">Satın Al</a>
+      <img src="images/karanligin-icinden-aydinliga.jpg" alt="Karanl&#305;&#287;&#305;n &#304;&#231;inden Ayd&#305;nl&#305;&#287;a kitap kapa&#287;&#305;">
+      <h3>Karanl&#305;&#287;&#305;n &#304;&#231;inden Ayd&#305;nl&#305;&#287;a</h3>
+      <p>&#304;&#231;sel d&#246;n&#252;&#351;&#252;m, fark&#305;ndal&#305;k ve d&#252;&#351;&#252;nsel derinlik &#252;zerine bir eser.</p>
+      <a class="book-btn" href="https://www.shopier.com/iyiyolakademi/43859867" target="_blank" rel="noopener noreferrer">Sat&#305;n Al</a>
     </div>
   </div>
 </section>
@@ -533,43 +601,76 @@ footer a{ color:var(--gold); text-decoration:none; }
 <section class="section" id="yazilar">
   <div class="section-head">
     <span class="eyebrow">Blog</span>
-    <h2 class="section-title">Yazılar</h2>
+    <h2 class="section-title">Yaz&#305;lar</h2>
   </div>
   <div class="publish-note">
-    <span class="publish-badge">Yayın</span>
-    <p class="publish-text">Yeni yazılar <strong>her Cumartesi</strong> yayınlanır.</p>
+    <span class="publish-badge">Yay&#305;n</span>
+    <p class="publish-text">Yeni yaz&#305;lar <strong>her Cumartesi</strong> yay&#305;nlan&#305;r.</p>
   </div>
   <div class="blog-filters" id="blogFilters">
-    <button class="blog-filter-btn active" data-filter="all" onclick="filterBlog('all', this)">Tümü</button>
-    <button class="blog-filter-btn" data-filter="kisisel-gelisim" onclick="filterBlog('kisisel-gelisim', this)">Kişisel Gelişim</button>
-    <button class="blog-filter-btn" data-filter="girisimcilik" onclick="filterBlog('girisimcilik', this)">Girişimcilik</button>
+    <button class="blog-filter-btn active" data-filter="all" onclick="filterBlog('all', this)">T&#252;m&#252;</button>
+    <button class="blog-filter-btn" data-filter="kisisel-gelisim" onclick="filterBlog('kisisel-gelisim', this)">Ki&#351;isel Geli&#351;im</button>
+    <button class="blog-filter-btn" data-filter="girisimcilik" onclick="filterBlog('girisimcilik', this)">Giri&#351;imcilik</button>
   </div>
   <div class="blog-grid" id="blogGrid">
     <a href="bir-ise-baslamadan-once-yapilmasi-gerekenler.html" class="blog-card" data-category="girisimcilik">
-      <div class="blog-image" style="background-image:url('images/ise-baslamadan-once.jpg');"></div>
+      <div class="blog-image" role="img" aria-label="Bir i&#351;e ba&#351;lamadan &#246;nce yap&#305;lmas&#305; gerekenler kapak tasar&#305;m&#305;">
+        <div class="blog-cover start-cover">
+          <div class="cover-head">
+            <span class="cover-label">Ba&#351;lamadan &#214;nce</span>
+            <span class="cover-number">01</span>
+          </div>
+          <div class="cover-title">Fikirden<br>ilk ad&#305;ma</div>
+          <div>
+            <div class="cover-checks" aria-hidden="true">
+              <span class="cover-check">Hedef</span>
+              <span class="cover-check">Ara&#351;t&#305;r</span>
+              <span class="cover-check">Planla</span>
+              <span class="cover-check">Ba&#351;la</span>
+            </div>
+            <div class="cover-footer" style="margin-top:10px;">Uygulanabilir yol haritas&#305;</div>
+          </div>
+        </div>
+      </div>
       <div class="blog-content">
-        <span class="blog-category">Girişimcilik</span>
-        <h3>Bir işe başlamadan önce yapılması gerekenler</h3>
-        <p>Yeni bir işe ya da projeye atılmadan önce üzerinden geçmem gereken adımlar ve dikkat ettiğim noktalar.</p>
-        <div class="blog-meta">Yakında Sizlerle</div>
+        <span class="blog-category">Giri&#351;imcilik</span>
+        <h3>Bir i&#351;e ba&#351;lamadan &#246;nce yap&#305;lmas&#305; gerekenler</h3>
+        <p>Yeni bir i&#351;e ya da projeye at&#305;lmadan &#246;nce &#252;zerinden ge&#231;mem gereken ad&#305;mlar ve dikkat etti&#287;im noktalar.</p>
+        <div class="blog-meta">Yak&#305;nda Sizlerle</div>
       </div>
     </a>
     <a href="4-adimda-basari-formulum.html" class="blog-card" data-category="kisisel-gelisim">
-      <div class="blog-image" style="background-image:url('images/4-adimda-basari-formulum.jpg');"></div>
+      <div class="blog-image success-cover" role="img" aria-label="4 ad&#305;mda ba&#351;ar&#305; form&#252;l&#252;m kapak tasar&#305;m&#305;: G&#252;ven, Disiplin, Sab&#305;r ve Ba&#351;ar&#305;">
+        <div class="blog-cover">
+          <div class="cover-head">
+            <span class="cover-label">Ba&#351;ar&#305; Form&#252;l&#252;</span>
+            <span class="cover-number">04</span>
+          </div>
+          <div class="success-title-row">
+            <div class="cover-title">4 ad&#305;mda<br>ba&#351;ar&#305;</div>
+          </div>
+          <div class="cover-steps" aria-hidden="true">
+            <span class="cover-step"><strong>01</strong>G&#252;ven</span>
+            <span class="cover-step"><strong>02</strong>Disiplin</span>
+            <span class="cover-step"><strong>03</strong>Sab&#305;r</span>
+            <span class="cover-step"><strong>04</strong>Ba&#351;ar&#305;</span>
+          </div>
+        </div>
+      </div>
       <div class="blog-content">
-        <span class="blog-category">Kişisel Gelişim</span>
-        <h3>4 adımda başarı formülüm</h3>
-        <p>Kendi hayatımdan gerçek örneklerle, uyguladığım 4 adımlık başarı formülümü paylaşıyorum.</p>
-        <div class="blog-meta">Yakında Sizlerle</div>
+        <span class="blog-category">Ki&#351;isel Geli&#351;im</span>
+        <h3>4 ad&#305;mda ba&#351;ar&#305; form&#252;l&#252;m</h3>
+        <p>Kendi hayat&#305;mdan ger&#231;ek &#246;rneklerle, uygulad&#305;&#287;&#305;m 4 ad&#305;ml&#305;k ba&#351;ar&#305; form&#252;l&#252;m&#252; payla&#351;&#305;yorum.</p>
+        <div class="blog-meta">Yak&#305;nda Sizlerle</div>
       </div>
     </a>
-    <!-- Yeni yazılar eklendikçe, kartları buraya "blog-card blog-extra" class'ıyla ekleyin.
-         Bu kartlar "Daha Fazlası" butonuna basılana kadar gizli kalır. -->
+    <!-- Yeni yaz&#305;lar eklendik&#231;e, kartlar&#305; buraya "blog-card blog-extra" class'&#305;yla ekleyin.
+         Bu kartlar "Daha Fazlas&#305;" butonuna bas&#305;lana kadar gizli kal&#305;r. -->
   </div>
   <div class="blog-more-wrap">
     <button class="blog-more-btn" id="blogMoreBtn" onclick="toggleBlogMore()">
-      <span id="blogMoreLabel">Daha Fazlası</span>
-      <span class="chev" id="blogMoreChev">▾</span>
+      <span id="blogMoreLabel">Daha Fazlas&#305;</span>
+      <span class="chev" id="blogMoreChev">&#9662;</span>
     </button>
   </div>
 </section>
@@ -579,15 +680,15 @@ footer a{ color:var(--gold); text-decoration:none; }
 <section class="section" style="padding-top:0;">
   <div class="newsletter-box">
     <div>
-      <span class="eyebrow">Bültene Katıl (Ücretsiz)</span>
-      <h3 class="newsletter-title">Yeni yazılardan ilk sen haberdar ol</h3>
-      <p class="newsletter-desc">Her Cumartesi yayınlanan yazılar doğrudan e-posta kutunda. Abonelere özel bazı günler ise sürpriz çekilişler seni bekler.</p>
+      <span class="eyebrow">B&#252;ltene Kat&#305;l (&#220;cretsiz)</span>
+      <h3 class="newsletter-title">Yeni yaz&#305;lardan ilk sen haberdar ol</h3>
+      <p class="newsletter-desc">Her Cumartesi yay&#305;nlanan yaz&#305;lar do&#287;rudan e-posta kutunda. Abonelere &#246;zel baz&#305; g&#252;nler ise s&#252;rpriz &#231;ekili&#351;ler seni bekler.</p>
     </div>
     <form class="newsletter-form embeddable-buttondown-form" action="https://buttondown.com/api/emails/embed-subscribe/berke_deniz" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/berke_deniz', 'popupwindow')">
       <input type="email" name="email" class="newsletter-input" placeholder="E-posta adresin" required>
       <input type="hidden" value="1" name="embed">
       <button type="submit" class="newsletter-btn">Abone Ol</button>
-      <span class="newsletter-note">Kayıt olduğunda onay sayfası yeni pencerede açılır.</span>
+      <span class="newsletter-note">Kay&#305;t oldu&#287;unda onay sayfas&#305; yeni pencerede a&#231;&#305;l&#305;r.</span>
     </form>
   </div>
 </section>
@@ -597,16 +698,16 @@ footer a{ color:var(--gold); text-decoration:none; }
 <section class="app-section" id="iyi-yol">
   <div class="section">
     <div class="app-header">
-      <img src="images/iyi-yol-logo.png" alt="İyi Yol Akademi Logo">
-      <h2 class="section-title" style="font-size:26px;">İyi Yol Akademi Hakkında</h2>
+      <img src="images/iyi-yol-logo.png" alt="&#304;yi Yol Akademi Logo">
+      <h2 class="section-title" style="font-size:26px;">&#304;yi Yol Akademi Hakk&#305;nda</h2>
     </div>
     <div class="iyi-yol-row">
       <div>
         <p class="iyi-yol-desc">
-          <strong>İyi Yol Akademi</strong>, Berke Deniz Yüksekdağ tarafından kurulan çok yönlü bir kişisel gelişim platformudur. Kitap özetleri, blog yazıları, eğitim içerikleri, odaklanma araçları ve zihinsel farkındalığı artırmaya yönelik çalışmalar sunar.
+          <strong>&#304;yi Yol Akademi</strong>, Berke Deniz Y&#252;ksekda&#287; taraf&#305;ndan kurulan &#231;ok y&#246;nl&#252; bir ki&#351;isel geli&#351;im platformudur. Kitap &#246;zetleri, blog yaz&#305;lar&#305;, e&#287;itim i&#231;erikleri, odaklanma ara&#231;lar&#305; ve zihinsel fark&#305;ndal&#305;&#287;&#305; art&#305;rmaya y&#246;nelik &#231;al&#305;&#351;malar sunar.
         </p>
         <p class="iyi-yol-desc" style="margin-top:16px;">
-          Platform; bireysel gelişim, düşünsel derinlik ve bilinçli yaşam anlayışını destekleyen içerikleri tek bir uygulama altında bir araya getirmeyi amaçlamaktadır. Kullanıcıların zihinsel disiplin kazanmalarını, düzenli üretim alışkanlığı oluşturmalarını ve yaşam farkındalıklarını artırmalarını hedefleyen sürdürülebilir bir gelişim ekosistemi olarak yapılandırılmıştır.
+          Platform; bireysel geli&#351;im, d&#252;&#351;&#252;nsel derinlik ve bilin&#231;li ya&#351;am anlay&#305;&#351;&#305;n&#305; destekleyen i&#231;erikleri tek bir uygulama alt&#305;nda bir araya getirmeyi ama&#231;lamaktad&#305;r. Kullan&#305;c&#305;lar&#305;n zihinsel disiplin kazanmalar&#305;n&#305;, d&#252;zenli &#252;retim al&#305;&#351;kanl&#305;&#287;&#305; olu&#351;turmalar&#305;n&#305; ve ya&#351;am fark&#305;ndal&#305;klar&#305;n&#305; art&#305;rmalar&#305;n&#305; hedefleyen s&#252;rd&#252;r&#252;lebilir bir geli&#351;im ekosistemi olarak yap&#305;land&#305;r&#305;lm&#305;&#351;t&#305;r.
         </p>
         <div class="store-buttons">
           <a class="store-btn" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.iyiyolakademi&hl=tr">Google Play</a>
@@ -614,22 +715,22 @@ footer a{ color:var(--gold); text-decoration:none; }
         </div>
       </div>
       <div class="iyi-yol-stats">
-        <div class="mini-stat"><div class="mini-stat-top">Toplam İndirme</div><div class="mini-stat-value">5 B+</div></div>
-        <div class="mini-stat"><div class="mini-stat-top">Genel Puan</div><div class="mini-stat-value">4,9 ⭐</div></div>
+        <div class="mini-stat"><div class="mini-stat-top">Toplam &#304;ndirme</div><div class="mini-stat-value">5 B+</div></div>
+        <div class="mini-stat"><div class="mini-stat-top">Genel Puan</div><div class="mini-stat-value">4,9 &#11088;</div></div>
       </div>
     </div>
 
-    <p class="section-desc" style="margin-top:34px;">Aşağıda, İyi Yol Akademi'nin arayüzüne ait örnek ekran görüntüleri yer almaktadır.</p>
+    <p class="section-desc" style="margin-top:34px;">A&#351;a&#287;&#305;da, &#304;yi Yol Akademi'nin aray&#252;z&#252;ne ait &#246;rnek ekran g&#246;r&#252;nt&#252;leri yer almaktad&#305;r.</p>
     <div class="scroll-strip">
       <div class="scroll-track">
-        <img src="images/app1.jpg" alt="İyi Yol Akademi ekran 1">
-        <img src="images/app2.jpg" alt="İyi Yol Akademi ekran 2">
-        <img src="images/app3.jpg" alt="İyi Yol Akademi ekran 3">
-        <img src="images/app4.jpg" alt="İyi Yol Akademi ekran 4">
-        <img src="images/app5.jpg" alt="İyi Yol Akademi ekran 5">
-        <img src="images/app6.jpg" alt="İyi Yol Akademi ekran 6">
-        <img src="images/app7.jpg" alt="İyi Yol Akademi ekran 7">
-        <img src="images/app8.jpg" alt="İyi Yol Akademi ekran 8">
+        <img src="images/app1.jpg" alt="&#304;yi Yol Akademi ekran 1">
+        <img src="images/app2.jpg" alt="&#304;yi Yol Akademi ekran 2">
+        <img src="images/app3.jpg" alt="&#304;yi Yol Akademi ekran 3">
+        <img src="images/app4.jpg" alt="&#304;yi Yol Akademi ekran 4">
+        <img src="images/app5.jpg" alt="&#304;yi Yol Akademi ekran 5">
+        <img src="images/app6.jpg" alt="&#304;yi Yol Akademi ekran 6">
+        <img src="images/app7.jpg" alt="&#304;yi Yol Akademi ekran 7">
+        <img src="images/app8.jpg" alt="&#304;yi Yol Akademi ekran 8">
         <img src="images/app1.jpg" alt="" aria-hidden="true">
         <img src="images/app2.jpg" alt="" aria-hidden="true">
         <img src="images/app3.jpg" alt="" aria-hidden="true">
@@ -645,11 +746,11 @@ footer a{ color:var(--gold); text-decoration:none; }
 
 <section class="section">
   <div class="section-head">
-    <span class="eyebrow">Okur Paylaşımları</span>
-    <h2 class="section-title">Kitabımı Okuyanlardan Gelenler</h2>
-    <p class="section-desc">Kitaplarımı okuyan okurlardan gelen paylaşımlar.</p>
+    <span class="eyebrow">Okur Payla&#351;&#305;mlar&#305;</span>
+    <h2 class="section-title">Kitab&#305;m&#305; Okuyanlardan Gelenler</h2>
+    <p class="section-desc">Kitaplar&#305;m&#305; okuyan okurlardan gelen payla&#351;&#305;mlar.</p>
   </div>
-  <div class="book-scroll" aria-label="Kitap okur görselleri">
+  <div class="book-scroll" aria-label="Kitap okur g&#246;rselleri">
     <div class="book-track">
       <img src="images/okur1.jpg" alt="Okur yorumu 1">
       <img src="images/okur2.jpg" alt="Okur yorumu 2">
@@ -673,14 +774,14 @@ footer a{ color:var(--gold); text-decoration:none; }
     <video id="introVideo" muted playsinline preload="none">
       <source src="videos/intro.mp4" type="video/mp4">
     </video>
-    <button class="video-btn" id="videoBtn" onclick="toggleVideo()">▶</button>
+    <button class="video-btn" id="videoBtn" onclick="toggleVideo()">&#9654;</button>
   </div>
 </section>
 
 </main>
 
 <footer>
-  © 2026 Berke Deniz Yüksekdağ — <a href="https://www.instagram.com/berke_yuksekdag/" target="_blank" rel="noopener noreferrer">Instagram</a>
+  &#169; 2026 Berke Deniz Y&#252;ksekda&#287; &#8212; <a href="https://www.instagram.com/berke_yuksekdag/" target="_blank" rel="noopener noreferrer">Instagram</a>
 </footer>
 
 <script>
@@ -689,10 +790,10 @@ function applyTheme(theme){
   const btn = document.getElementById("themeBtn");
   if(theme === "gunduz"){
     document.body.classList.add("gunduz");
-    if(btn) btn.textContent = "🌙 Gece Modu";
+    if(btn) btn.textContent = "\uD83C\uDF19 Gece Modu";
   } else {
     document.body.classList.remove("gunduz");
-    if(btn) btn.textContent = "☀ Gündüz Modu";
+    if(btn) btn.textContent = "\u2600 G\u00FCnd\u00FCz Modu";
   }
 }
 function toggleTheme(){
@@ -709,7 +810,7 @@ function toggleTheme(){
 let currentBlogFilter = "all";
 applyBlogFilter();
 
-/* BLOG - KATEGORİ FİLTRESİ */
+/* BLOG - KATEGOR\u0130 F\u0130LTRES\u0130 */
 function filterBlog(category, btn){
   currentBlogFilter = category;
   document.querySelectorAll(".blog-filter-btn").forEach(b => b.classList.remove("active"));
@@ -734,7 +835,7 @@ function toggleBlogMore(){
   const label = document.getElementById("blogMoreLabel");
   const isOpen = grid.classList.toggle("expanded");
   btn.classList.toggle("open", isOpen);
-  label.textContent = isOpen ? "Kapat" : "Daha Fazlası";
+  label.textContent = isOpen ? "Kapat" : "Daha Fazlas\u0131";
   applyBlogFilter();
   if(!isOpen){
     document.getElementById("yazilar").scrollIntoView({behavior:"smooth", block:"start"});
@@ -756,10 +857,10 @@ async function safePlay(withSound){
 function setPlayingUI(isPlaying){
   if(isPlaying){
     videoBox.classList.add("playing");
-    videoBtn.textContent = awaitingSoundClick ? "🔊" : "❚❚";
+    videoBtn.textContent = awaitingSoundClick ? "\uD83D\uDD0A" : "\u275A\u275A";
   } else {
     videoBox.classList.remove("playing");
-    videoBtn.textContent = "▶";
+    videoBtn.textContent = "\u25B6";
     awaitingSoundClick = false;
   }
 }
