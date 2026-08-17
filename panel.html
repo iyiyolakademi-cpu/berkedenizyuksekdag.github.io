@@ -1,27 +1,700 @@
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Blog Yönetim Paneli</title>
-<style>:root{--bg:#0d0f14;--card:#181c25;--line:#2a303c;--gold:#d9a44a;--text:#f2eee4;--muted:#9297a3}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}.wrap{max-width:1180px;margin:auto;padding:28px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:18px}h1,h2{margin:0 0 18px}label{display:block;font-size:12px;color:var(--muted);margin:14px 0 7px}input,select,textarea{width:100%;background:#11141b;color:var(--text);border:1px solid var(--line);border-radius:11px;padding:12px;font:inherit}textarea{min-height:110px;resize:vertical}#content{min-height:330px;font-family:monospace}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}button{border:0;border-radius:999px;padding:11px 17px;font-weight:700;cursor:pointer}.primary{background:var(--gold);color:#171208}.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}.danger{background:#7d2929;color:#fff}.top{display:flex;justify-content:space-between;gap:15px;align-items:center}.status{color:var(--muted);font-size:13px}.post{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}.post:last-child{border:0}.post h3{margin:0 0 6px}.post small{color:var(--muted)}.hidden{display:none!important}.login{max-width:430px;margin:10vh auto}.preview{background:#fff;color:#171717;border-radius:14px;padding:25px;max-height:520px;overflow:auto}.preview img{max-width:100%}@media(max-width:700px){.wrap{padding:16px}.grid{grid-template-columns:1fr}.post{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}}</style></head><body>
-<div class="wrap"><section id="loginBox" class="card login"><h1>Yönetim Paneli</h1><p class="status">Blog yazılarını yönetmek için giriş yap.</p><label>E-posta</label><input id="email" type="email" autocomplete="username"><label>Şifre</label><input id="password" type="password" autocomplete="current-password"><div class="actions"><button class="primary" id="loginBtn">Giriş Yap</button></div><p id="loginMsg" class="status"></p></section>
-<main id="panel" class="hidden"><div class="top card"><div><h1 style="margin-bottom:5px">Blog Yönetimi</h1><div id="userInfo" class="status"></div></div><button class="ghost" id="logoutBtn">Çıkış Yap</button></div>
-<section class="card"><h2 id="formTitle">Yeni Yazı</h2><input id="editId" type="hidden"><div class="grid"><div><label>Başlık</label><input id="title" placeholder="Yazı başlığı"><label>Kategori</label><select id="category"><option value="girisimcilik">Girişimcilik</option><option value="kisisel-gelisim">Kişisel Gelişim</option><option value="hayat">Hayat</option><option value="diger">Diğer</option></select></div><div><label>Kısa açıklama</label><textarea id="summary" placeholder="Ana sayfadaki kartta görünecek kısa açıklama"></textarea><label><input id="published" type="checkbox" style="width:auto"> Hemen yayınla</label></div></div><label>Yazı içeriği (HTML kullanabilirsin)</label><textarea id="content" placeholder="<h2>Başlık</h2>&#10;<p>Yazı...</p>"></textarea><div class="actions"><button class="primary" id="saveBtn">Kaydet</button><button class="ghost" id="previewBtn">Önizle</button><button class="ghost" id="clearBtn">Temizle</button></div><p id="formMsg" class="status"></p></section>
-<section id="previewCard" class="card hidden"><h2>Önizleme</h2><div id="preview" class="preview"></div></section>
-<section class="card"><h2>Yazılar</h2><div id="posts" class="status">Yükleniyor…</div></section></main></div>
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Blog Yönetim Paneli</title>
+<style>
+ :root{
+  --bg:#ffffff;
+  --bg-2:#ffffff;
+  --card:#ffffff;
+  --card-solid:#ffffff;
+  --card-2:#f8fafc;
+  --text:#172033;
+  --muted:#718096;
+  --line:#e8edf4;
+  --accent:#6d5dfc;
+  --accent-2:#19b7a8;
+  --accent-soft:#f0efff;
+  --success:#16a34a;
+  --warning:#d97706;
+  --danger:#dc2626;
+  --shadow:0 12px 34px rgba(30,41,59,.08);
+  --radius:22px;
+  --radius-sm:14px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#ffffff;
+  transition:color .25s;
+}
+
+
+button,input,select,textarea{font:inherit}
+button{color:inherit}
+.hidden{display:none!important}
+
+
+.wrap{max-width:1280px;margin:0 auto;padding:28px}
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+
+.card{background:#fff;}
+.topbar{border-top:4px solid var(--accent);}
+.panel-card{border-top:4px solid var(--accent);}
+.list-card{border-top:4px solid var(--accent-2);}
+.stat:nth-child(1){border-top:3px solid #6d5dfc}
+.stat:nth-child(2){border-top:3px solid #16a34a}
+.stat:nth-child(3){border-top:3px solid #f59e0b}
+.stat:nth-child(4){border-top:3px solid #0ea5e9}
+.login{border-top:4px solid var(--accent);}
+
+.login{
+  max-width:460px;
+  margin:8vh auto;
+  padding:34px;
+  position:relative;
+  overflow:hidden;
+}
+.login::before{
+  content:"";
+  position:absolute;
+  inset:0 auto auto 0;
+  width:100%;height:4px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+}
+.login h1{font-size:30px;margin:0 0 8px}
+.login p{margin:0 0 20px;color:var(--muted)}
+
+.topbar{
+  position:sticky;
+  top:16px;
+  z-index:20;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  padding:18px 20px;
+  margin-bottom:18px;
+}
+.brand{display:flex;align-items:center;gap:13px;min-width:0}
+.brand h1{font-size:23px;margin:0;letter-spacing:-.02em}
+.brand small{display:block;color:var(--muted);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:430px}
+.top-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+
+.btn{
+  border:1px solid transparent;
+  border-radius:999px;
+  padding:11px 16px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-weight:800;
+  font-size:13px;
+  cursor:pointer;
+  transition:.2s ease;
+  text-decoration:none;
+  min-height:42px;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.btn-primary{
+  color:#fff;
+  background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 72%,var(--accent-2)));
+  box-shadow:0 10px 26px color-mix(in srgb,var(--accent) 25%, transparent);
+}
+.btn-secondary{background:var(--card-2);border-color:var(--line);color:var(--text)}
+.btn-success{background:color-mix(in srgb,var(--success) 16%,var(--card-solid));border-color:color-mix(in srgb,var(--success) 42%,transparent);color:var(--success)}
+.btn-danger{background:color-mix(in srgb,var(--danger) 14%,var(--card-solid));border-color:color-mix(in srgb,var(--danger) 38%,transparent);color:var(--danger)}
+.btn-icon{width:42px;padding:0;border-radius:14px}
+
+.dashboard-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+.stat{
+  padding:18px;
+  position:relative;
+  overflow:hidden;
+}
+.stat::after{
+  content:"";position:absolute;width:100px;height:100px;border-radius:50%;
+  right:-35px;top:-35px;background:var(--accent);opacity:.09
+}
+.stat-label{font-size:12px;color:var(--muted);font-weight:700}
+.stat-value{font-size:28px;font-weight:900;margin-top:8px;letter-spacing:-.04em}
+.stat-foot{font-size:11px;color:var(--muted);margin-top:4px}
+
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-items:start}
+.panel-card{padding:22px}
+.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;margin-bottom:18px}
+.card-head h2{margin:0;font-size:21px}
+.card-head p{margin:5px 0 0;color:var(--muted);font-size:13px}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+label{font-size:12px;color:var(--muted);font-weight:800;letter-spacing:.02em}
+input,select,textarea{
+  width:100%;
+  color:var(--text);
+  background:color-mix(in srgb,var(--card-solid) 88%,transparent);
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  padding:13px 14px;
+  outline:none;
+  transition:border-color .2s,box-shadow .2s,background .2s;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 12%,transparent);
+}
+textarea{resize:vertical;min-height:112px}
+#content{min-height:360px;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;line-height:1.65}
+
+.editor-tools{
+  display:flex;flex-wrap:wrap;gap:8px;padding:10px;
+  border:1px solid var(--line);border-bottom:0;
+  border-radius:14px 14px 0 0;background:var(--card-2)
+}
+.editor-tools button{
+  min-width:36px;height:34px;border:1px solid var(--line);border-radius:9px;
+  background:var(--card-solid);color:var(--text);cursor:pointer;font-weight:800
+}
+.editor-tools button:hover{border-color:var(--accent);color:var(--accent)}
+.editor-wrap #content{border-radius:0 0 14px 14px}
+
+.publish-row{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:13px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card-2)
+}
+.switch{position:relative;width:48px;height:28px;flex:0 0 auto}
+.switch input{display:none}
+.slider{position:absolute;inset:0;background:#465066;border-radius:999px;cursor:pointer;transition:.2s}
+.slider::before{content:"";position:absolute;width:20px;height:20px;left:4px;top:4px;border-radius:50%;background:#fff;transition:.2s}
+.switch input:checked + .slider{background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+.switch input:checked + .slider::before{transform:translateX(20px)}
+.publish-copy strong{display:block;font-size:13px}
+.publish-copy span{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+
+.form-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.status-msg{min-height:18px;margin:12px 0 0;color:var(--muted);font-size:13px}
+.status-msg.ok{color:var(--success)}
+.status-msg.err{color:var(--danger)}
+
+.side-stack{display:none}
+
+.tip-card{padding:20px;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 18%,var(--card)),color-mix(in srgb,var(--accent-2) 12%,var(--card)))}
+.tip-card h3{margin:0 0 7px;font-size:16px}
+.tip-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+
+.list-card{margin-top:18px;padding:22px}
+.list-toolbar{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:15px}
+.search-wrap{position:relative;flex:1;max-width:420px}
+.search-wrap input{padding-left:40px}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:.55}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap}
+.filter-chip{border:1px solid var(--line);background:var(--card-2);color:var(--muted);border-radius:999px;padding:8px 12px;font-size:12px;font-weight:800;cursor:pointer}
+.filter-chip.active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.posts{display:grid;gap:10px}
+.post{
+  display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;
+  padding:15px 16px;border:1px solid var(--line);border-radius:16px;background:var(--card-2);
+  transition:.2s
+}
+.post:hover{transform:translateY(-1px);border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
+.post-title{font-size:15px;font-weight:900;margin:0 0 6px}
+.post-meta{display:flex;gap:7px;flex-wrap:wrap;align-items:center;color:var(--muted);font-size:11px}
+.badge{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:5px 8px;font-size:10px;font-weight:900}
+.badge.live{color:var(--success);background:color-mix(in srgb,var(--success) 12%,transparent)}
+.badge.draft{color:var(--warning);background:color-mix(in srgb,var(--warning) 12%,transparent)}
+.post-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+
+.preview-card{margin-top:18px;padding:22px}
+.preview{
+  background:#fff;color:#161b22;border-radius:18px;padding:32px;max-height:620px;overflow:auto;
+  line-height:1.8;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)
+}
+.preview h1,.preview h2,.preview h3{line-height:1.25}
+.preview img{max-width:100%;border-radius:12px}
+
+.wordbar{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:11px;margin-top:7px}
+
+.toast{
+  position:fixed;right:22px;bottom:22px;z-index:99;
+  min-width:260px;max-width:380px;padding:14px 16px;border-radius:14px;
+  background:var(--card-solid);border:1px solid var(--line);box-shadow:var(--shadow);
+  transform:translateY(18px);opacity:0;pointer-events:none;transition:.25s
+}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.ok{border-color:color-mix(in srgb,var(--success) 48%,var(--line))}
+.toast.err{border-color:color-mix(in srgb,var(--danger) 48%,var(--line))}
+
+@media(max-width:980px){
+  .dashboard-grid{grid-template-columns:repeat(2,1fr)}
+  .layout{grid-template-columns:1fr}
+  .side-stack{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .wrap{padding:14px}
+  .topbar{top:8px;padding:14px}
+  .brand small{max-width:190px}
+  .form-grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .dashboard-grid{grid-template-columns:1fr 1fr}
+  .side-stack{grid-template-columns:1fr}
+  .list-toolbar{align-items:stretch;flex-direction:column}
+  .search-wrap{max-width:none}
+  .post{grid-template-columns:1fr}
+  .post-actions{justify-content:flex-start}
+}
+@media(max-width:480px){
+  .dashboard-grid{grid-template-columns:1fr}
+  .topbar{position:relative;top:0;align-items:flex-start;flex-direction:column}
+  .top-actions{width:100%;justify-content:flex-start}
+  .panel-card,.list-card,.preview-card{padding:16px}
+  .login{margin:4vh auto;padding:24px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section id="loginBox" class="card login">
+    <h1>Yönetim Paneli</h1>
+    <p>Blog yazılarını güvenli şekilde yönetmek için giriş yap.</p>
+
+    <div class="field">
+      <label for="email">E-posta</label>
+      <input id="email" type="email" autocomplete="username" placeholder="ornek@mail.com">
+    </div>
+
+    <div class="field" style="margin-top:12px">
+      <label for="password">Şifre</label>
+      <input id="password" type="password" autocomplete="current-password" placeholder="••••••••">
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-primary" id="loginBtn">Giriş Yap</button>
+    </div>
+    <p id="loginMsg" class="status-msg"></p>
+  </section>
+
+  <main id="panel" class="hidden">
+    <header class="card topbar">
+      <div class="brand">
+        <div>
+          <h1>Blog Yönetimi</h1>
+          <small id="userInfo">Yönetici</small>
+        </div>
+      </div>
+      <div class="top-actions">
+        <a class="btn btn-secondary" href="index.html" target="_blank">Siteyi Aç ↗</a>
+        <button class="btn btn-secondary" id="logoutBtn">Çıkış Yap</button>
+      </div>
+    </header>
+
+    <section class="dashboard-grid">
+      <div class="card stat"><div class="stat-label">Toplam Yazı</div><div class="stat-value" id="statTotal">0</div><div class="stat-foot">Tüm içerikler</div></div>
+      <div class="card stat"><div class="stat-label">Yayında</div><div class="stat-value" id="statLive">0</div><div class="stat-foot">Sitede görünen</div></div>
+      <div class="card stat"><div class="stat-label">Taslak</div><div class="stat-value" id="statDraft">0</div><div class="stat-foot">Henüz yayınlanmayan</div></div>
+      <div class="card stat"><div class="stat-label">Son Güncelleme</div><div class="stat-value" id="statLast" style="font-size:18px">—</div><div class="stat-foot">En son düzenlenen yazı</div></div>
+    </section>
+
+    <div class="layout">
+      <section class="card panel-card">
+        <div class="card-head">
+          <div>
+            <h2 id="formTitle">Yeni Yazı</h2>
+            <p>Yeni blog içeriğini hazırla, önizle ve yayınla.</p>
+          </div>
+          <span class="badge draft" id="editBadge">Yeni</span>
+        </div>
+
+        <input id="editId" type="hidden">
+        <div class="form-grid">
+          <div class="field">
+            <label for="title">Başlık</label>
+            <input id="title" placeholder="Yazı başlığı">
+          </div>
+          <div class="field">
+            <label for="category">Kategori</label>
+            <select id="category">
+              <option value="girisimcilik">Girişimcilik</option>
+              <option value="kisisel-gelisim">Kişisel Gelişim</option>
+              <option value="hayat">Hayat</option>
+              <option value="diger">Diğer</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="summary">Kısa açıklama</label>
+            <textarea id="summary" placeholder="Ana sayfadaki kartta görünecek kısa açıklama"></textarea>
+          </div>
+
+          <div class="field full">
+            <div class="publish-row">
+              <div class="publish-copy">
+                <strong>Yayın durumu</strong>
+                <span id="publishText">Bu yazı sitede hemen yayınlanacak.</span>
+              </div>
+              <label class="switch" aria-label="Yayınla">
+                <input id="published" type="checkbox" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field full">
+            <label for="content">Yazı içeriği</label>
+            <div class="editor-wrap">
+              <div class="editor-tools">
+                <button type="button" data-tag="h2" title="Başlık">H2</button>
+                <button type="button" data-tag="h3" title="Alt başlık">H3</button>
+                <button type="button" data-tag="em" title="İtalik"><i>I</i></button>
+                <button type="button" data-tag="p" title="Paragraf">P</button>
+                <button type="button" data-tag="blockquote" title="Alıntı">❝</button>
+                <button type="button" data-action="link" title="Bağlantı">🔗</button>
+                <button type="button" data-action="ul" title="Liste">• Liste</button>
+              </div>
+              <textarea id="content" placeholder="<h2>Başlık</h2>&#10;<p>Yazı...</p>"></textarea>
+            </div>
+            <div class="wordbar"><span id="wordCount">0 kelime</span><span id="charCount">0 karakter</span></div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" id="saveBtn">Kaydet</button>
+          <button class="btn btn-secondary" id="previewBtn">Önizle</button>
+          <button class="btn btn-secondary" id="clearBtn">Temizle</button>
+        </div>
+        <p id="formMsg" class="status-msg"></p>
+      </section>
+
+      <aside class="side-stack">
+
+        <section class="card tip-card">
+          <h3>Hızlı İpucu ✨</h3>
+          <p>Başlık ve kısa açıklamayı net tut. İçeriği kaydetmeden önce “Önizle” ile görünümü kontrol edebilirsin.</p>
+        </section>
+      </aside>
+    </div>
+
+    <section id="previewCard" class="card preview-card hidden">
+      <div class="card-head"><div><h2>Önizleme</h2><p>Bu görünüm sadece kontrol içindir.</p></div><button class="btn btn-secondary" id="closePreviewBtn">Kapat</button></div>
+      <div id="preview" class="preview"></div>
+    </section>
+
+    <section class="card list-card">
+      <div class="card-head">
+        <div><h2>Yazılar</h2><p>Tüm içerikleri ara, düzenle veya sil.</p></div>
+      </div>
+      <div class="list-toolbar">
+        <div class="search-wrap"><span class="search-icon">⌕</span><input id="searchInput" placeholder="Yazılarda ara..."></div>
+        <div class="filter-row">
+          <button class="filter-chip active" data-filter="all">Tümü</button>
+          <button class="filter-chip" data-filter="live">Yayında</button>
+          <button class="filter-chip" data-filter="draft">Taslak</button>
+        </div>
+      </div>
+      <div id="posts" class="posts"><div class="status-msg">Yükleniyor…</div></div>
+    </section>
+  </main>
+</div>
+
+<div id="toast" class="toast"></div>
+
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
 <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 import {getAuth,signInWithEmailAndPassword,signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 import {getFirestore,collection,getDocs,addDoc,doc,updateDoc,deleteDoc,serverTimestamp} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
-const firebaseConfig={apiKey:"AIzaSyBv3kaf0kCyP0WqFXtbmROTTVtj57upEFY",authDomain:"berke-web-panel.firebaseapp.com",projectId:"berke-web-panel",storageBucket:"berke-web-panel.firebasestorage.app",messagingSenderId:"956917805545",appId:"1:956917805545:web:46b1b3ba5a5881b7d1db78",measurementId:"G-NZ358NMQ0F"};
-const ADMIN_UID="jdnJwVoe5XOVu05AmKPX5Zqh10H3"; const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app); const $=id=>document.getElementById(id); let cache=[];
-const labels={girisimcilik:"Girişimcilik","kisisel-gelisim":"Kişisel Gelişim",hayat:"Hayat",diger:"Diğer"};
-$("loginBtn").onclick=async()=>{try{$("loginMsg").textContent="Giriş yapılıyor…";await signInWithEmailAndPassword(auth,$("email").value.trim(),$("password").value);$("loginMsg").textContent=""}catch(e){$("loginMsg").textContent="Giriş başarısız. E-posta veya şifreyi kontrol et."}};
+
+const firebaseConfig={
+  apiKey:"AIzaSyBv3kaf0kCyP0WqFXtbmROTTVtj57upEFY",
+  authDomain:"berke-web-panel.firebaseapp.com",
+  projectId:"berke-web-panel",
+  storageBucket:"berke-web-panel.firebasestorage.app",
+  messagingSenderId:"956917805545",
+  appId:"1:956917805545:web:46b1b3ba5a5881b7d1db78",
+  measurementId:"G-NZ358NMQ0F"
+};
+
+const ADMIN_UID="jdnJwVoe5XOVu05AmKPX5Zqh10H3";
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
+const $=id=>document.getElementById(id);
+let cache=[];
+let currentFilter="all";
+
+const labels={
+  girisimcilik:"Girişimcilik",
+  "kisisel-gelisim":"Kişisel Gelişim",
+  hayat:"Hayat",
+  diger:"Diğer"
+};
+
+function toast(message,type="ok"){
+  const el=$("toast");
+  el.textContent=message;
+  el.className=`toast ${type} show`;
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer=setTimeout(()=>el.classList.remove("show"),2600);
+}
+
+function setStatus(el,message,type=""){
+  el.textContent=message;
+  el.className=`status-msg ${type}`;
+}
+
+
+$("loginBtn").onclick=async()=>{
+  try{
+    setStatus($("loginMsg"),"Giriş yapılıyor…");
+    await signInWithEmailAndPassword(auth,$("email").value.trim(),$("password").value);
+    setStatus($("loginMsg"),"");
+  }catch(e){
+    console.error(e);
+    setStatus($("loginMsg"),"Giriş başarısız. E-posta veya şifreyi kontrol et.","err");
+  }
+};
+$("password").addEventListener("keydown",e=>{if(e.key==="Enter")$("loginBtn").click()});
 $("logoutBtn").onclick=()=>signOut(auth);
-onAuthStateChanged(auth,async user=>{if(user&&user.uid===ADMIN_UID){$("loginBox").classList.add("hidden");$("panel").classList.remove("hidden");$("userInfo").textContent=user.email||"Yönetici";await loadPosts()}else{if(user)await signOut(auth);$("panel").classList.add("hidden");$("loginBox").classList.remove("hidden")}});
-function clearForm(){$("editId").value="";$("title").value="";$("summary").value="";$("content").value="";$("category").value="girisimcilik";$("published").checked=true;$("formTitle").textContent="Yeni Yazı";$("formMsg").textContent="";$("previewCard").classList.add("hidden")}
+
+onAuthStateChanged(auth,async user=>{
+  if(user&&user.uid===ADMIN_UID){
+    $("loginBox").classList.add("hidden");
+    $("panel").classList.remove("hidden");
+    $("userInfo").textContent=user.email||"Yönetici";
+    await loadPosts();
+  }else{
+    if(user)await signOut(auth);
+    $("panel").classList.add("hidden");
+    $("loginBox").classList.remove("hidden");
+  }
+});
+
+function clearForm(){
+  $("editId").value="";
+  $("title").value="";
+  $("summary").value="";
+  $("content").value="";
+  $("category").value="girisimcilik";
+  $("published").checked=true;
+  $("formTitle").textContent="Yeni Yazı";
+  $("editBadge").textContent="Yeni";
+  $("editBadge").className="badge draft";
+  setStatus($("formMsg"),"");
+  $("previewCard").classList.add("hidden");
+  updatePublishText();
+  updateCounts();
+}
 $("clearBtn").onclick=clearForm;
-$("previewBtn").onclick=()=>{$("preview").innerHTML=DOMPurify.sanitize(`<h1>${$("title").value}</h1>`+$("content").value);$("previewCard").classList.remove("hidden")};
-$("saveBtn").onclick=async()=>{const title=$("title").value.trim(),content=$("content").value.trim();if(!title||!content){$("formMsg").textContent="Başlık ve içerik zorunlu.";return}const published=$("published").checked;const data={title,summary:$("summary").value.trim(),category:$("category").value,categoryLabel:labels[$("category").value],content,published,updatedAt:serverTimestamp()};try{$("saveBtn").disabled=true;const id=$("editId").value;if(id){if(published&&!cache.find(x=>x.id===id)?.published)data.publishedAt=serverTimestamp();await updateDoc(doc(db,"blogs",id),data)}else{data.createdAt=serverTimestamp();if(published)data.publishedAt=serverTimestamp();await addDoc(collection(db,"blogs"),data)}clearForm();$("formMsg").textContent="Kaydedildi.";await loadPosts()}catch(e){console.error(e);$("formMsg").textContent="Kaydetme sırasında hata oluştu. Firestore kurallarını kontrol et."}finally{$("saveBtn").disabled=false}};
-async function loadPosts(){try{const snap=await getDocs(collection(db,"blogs"));cache=snap.docs.map(d=>({id:d.id,...d.data()}));cache.sort((a,b)=>(b.updatedAt?.toMillis?.()||b.createdAt?.toMillis?.()||0)-(a.updatedAt?.toMillis?.()||a.createdAt?.toMillis?.()||0));$("posts").innerHTML=cache.length?cache.map(x=>`<div class="post"><div><h3>${esc(x.title)}</h3><small>${esc(x.categoryLabel||x.category)} · ${x.published?"Yayında":"Taslak"}</small></div><div class="actions" style="margin:0"><button class="ghost" data-edit="${x.id}">Düzenle</button><button class="danger" data-delete="${x.id}">Sil</button></div></div>`).join(""):"Henüz yazı yok.";document.querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>editPost(b.dataset.edit));document.querySelectorAll("[data-delete]").forEach(b=>b.onclick=()=>removePost(b.dataset.delete))}catch(e){console.error(e);$("posts").textContent="Yazılar okunamadı. Yönetici okuma yetkisini Firestore kurallarında açmalısın."}}
-function editPost(id){const x=cache.find(v=>v.id===id);if(!x)return;$("editId").value=id;$("title").value=x.title||"";$("summary").value=x.summary||"";$("category").value=x.category||"diger";$("content").value=x.content||"";$("published").checked=!!x.published;$("formTitle").textContent="Yazıyı Düzenle";scrollTo({top:0,behavior:"smooth"})}
-async function removePost(id){if(!confirm("Bu yazıyı kalıcı olarak silmek istiyor musun?"))return;await deleteDoc(doc(db,"blogs",id));await loadPosts()}
-function esc(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-</script></body></html>
+
+function updatePublishText(){
+  $("publishText").textContent=$("published").checked
+    ?"Bu yazı sitede hemen yayınlanacak."
+    :"Bu yazı taslak olarak kaydedilecek.";
+}
+$("published").addEventListener("change",updatePublishText);
+
+function updateCounts(){
+  const raw=$("content").value.trim();
+  const text=raw.replace(/<[^>]*>/g," ").replace(/\s+/g," ").trim();
+  const words=text?text.split(" ").length:0;
+  $("wordCount").textContent=`${words} kelime`;
+  $("charCount").textContent=`${raw.length} karakter`;
+}
+$("content").addEventListener("input",updateCounts);
+
+function wrapSelection(tag){
+  const el=$("content");
+  const start=el.selectionStart,end=el.selectionEnd;
+  const selected=el.value.slice(start,end)||"Metin";
+  const insert=`<${tag}>${selected}</${tag}>`;
+  el.setRangeText(insert,start,end,"end");
+  el.focus();updateCounts();
+}
+function insertLink(){
+  const url=prompt("Bağlantı adresini yaz:","https://");
+  if(!url)return;
+  const el=$("content");
+  const start=el.selectionStart,end=el.selectionEnd;
+  const selected=el.value.slice(start,end)||"Bağlantı metni";
+  el.setRangeText(`<a href="${url}" target="_blank" rel="noopener noreferrer">${selected}</a>`,start,end,"end");
+  el.focus();updateCounts();
+}
+function insertList(){
+  const el=$("content");
+  const insert="<ul>\n  <li>Madde 1</li>\n  <li>Madde 2</li>\n</ul>";
+  el.setRangeText(insert,el.selectionStart,el.selectionEnd,"end");
+  el.focus();updateCounts();
+}
+document.querySelectorAll("[data-tag]").forEach(b=>b.onclick=()=>wrapSelection(b.dataset.tag));
+document.querySelector('[data-action="link"]').onclick=insertLink;
+document.querySelector('[data-action="ul"]').onclick=insertList;
+
+function showPreview(){
+  const title=esc($("title").value||"Başlıksız Yazı");
+  const summary=esc($("summary").value||"");
+  $("preview").innerHTML=DOMPurify.sanitize(`<h1>${title}</h1>${summary?`<p><em>${summary}</em></p>`:""}${$("content").value}`);
+  $("previewCard").classList.remove("hidden");
+  $("previewCard").scrollIntoView({behavior:"smooth",block:"start"});
+}
+$("previewBtn").onclick=showPreview;
+$("closePreviewBtn").onclick=()=>$("previewCard").classList.add("hidden");
+
+$("saveBtn").onclick=async()=>{
+  const title=$("title").value.trim();
+  const content=$("content").value.trim();
+  if(!title||!content){setStatus($("formMsg"),"Başlık ve içerik zorunlu.","err");return}
+
+  const published=$("published").checked;
+  const data={
+    title,
+    summary:$("summary").value.trim(),
+    category:$("category").value,
+    categoryLabel:labels[$("category").value],
+    content,
+    published,
+    updatedAt:serverTimestamp()
+  };
+
+  try{
+    $("saveBtn").disabled=true;
+    $("saveBtn").textContent="Kaydediliyor…";
+    const id=$("editId").value;
+    if(id){
+      if(published&&!cache.find(x=>x.id===id)?.published)data.publishedAt=serverTimestamp();
+      await updateDoc(doc(db,"blogs",id),data);
+    }else{
+      data.createdAt=serverTimestamp();
+      if(published)data.publishedAt=serverTimestamp();
+      await addDoc(collection(db,"blogs"),data);
+    }
+    clearForm();
+    await loadPosts();
+    setStatus($("formMsg"),"Kaydedildi.","ok");
+    toast(published?"Yazı kaydedildi ve yayınlandı.":"Taslak başarıyla kaydedildi.");
+  }catch(e){
+    console.error(e);
+    setStatus($("formMsg"),"Kaydetme sırasında hata oluştu. Firestore kurallarını kontrol et.","err");
+    toast("Kaydetme sırasında hata oluştu.","err");
+  }finally{
+    $("saveBtn").disabled=false;
+    $("saveBtn").textContent="Kaydet";
+  }
+};
+
+async function loadPosts(){
+  try{
+    const snap=await getDocs(collection(db,"blogs"));
+    cache=snap.docs.map(d=>({id:d.id,...d.data()}));
+    cache.sort((a,b)=>(b.updatedAt?.toMillis?.()||b.createdAt?.toMillis?.()||0)-(a.updatedAt?.toMillis?.()||a.createdAt?.toMillis?.()||0));
+    updateStats();
+    renderPosts();
+  }catch(e){
+    console.error(e);
+    $("posts").innerHTML='<div class="status-msg err">Yazılar okunamadı. Firestore kurallarını kontrol et.</div>';
+  }
+}
+
+function updateStats(){
+  $("statTotal").textContent=cache.length;
+  $("statLive").textContent=cache.filter(x=>x.published).length;
+  $("statDraft").textContent=cache.filter(x=>!x.published).length;
+  const last=cache[0];
+  const d=last?.updatedAt?.toDate?.()||last?.createdAt?.toDate?.();
+  $("statLast").textContent=d?new Intl.DateTimeFormat("tr-TR",{day:"2-digit",month:"short"}).format(d):"—";
+}
+
+function renderPosts(){
+  const q=$("searchInput").value.trim().toLocaleLowerCase("tr-TR");
+  const list=cache.filter(x=>{
+    const statusOk=currentFilter==="all"||(currentFilter==="live"&&x.published)||(currentFilter==="draft"&&!x.published);
+    const text=`${x.title||""} ${x.summary||""} ${x.categoryLabel||x.category||""}`.toLocaleLowerCase("tr-TR");
+    return statusOk&&(!q||text.includes(q));
+  });
+
+  $("posts").innerHTML=list.length?list.map(x=>{
+    const d=x.updatedAt?.toDate?.()||x.createdAt?.toDate?.();
+    const dateText=d?new Intl.DateTimeFormat("tr-TR",{day:"2-digit",month:"short",year:"numeric"}).format(d):"Tarih yok";
+    return `<article class="post">
+      <div>
+        <h3 class="post-title">${esc(x.title)}</h3>
+        <div class="post-meta">
+          <span>${esc(x.categoryLabel||x.category||"Diğer")}</span>
+          <span>•</span>
+          <span>${dateText}</span>
+          <span class="badge ${x.published?"live":"draft"}">${x.published?"● Yayında":"● Taslak"}</span>
+        </div>
+      </div>
+      <div class="post-actions">
+        <button class="btn btn-secondary" data-edit="${x.id}">Düzenle</button>
+        <button class="btn btn-danger" data-delete="${x.id}">Sil</button>
+      </div>
+    </article>`;
+  }).join(""):'<div class="status-msg">Bu filtreye uygun yazı bulunamadı.</div>';
+
+  document.querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>editPost(b.dataset.edit));
+  document.querySelectorAll("[data-delete]").forEach(b=>b.onclick=()=>removePost(b.dataset.delete));
+}
+
+$("searchInput").addEventListener("input",renderPosts);
+document.querySelectorAll(".filter-chip").forEach(btn=>btn.onclick=()=>{
+  currentFilter=btn.dataset.filter;
+  document.querySelectorAll(".filter-chip").forEach(b=>b.classList.toggle("active",b===btn));
+  renderPosts();
+});
+
+function editPost(id){
+  const x=cache.find(v=>v.id===id);
+  if(!x)return;
+  $("editId").value=id;
+  $("title").value=x.title||"";
+  $("summary").value=x.summary||"";
+  $("category").value=x.category||"diger";
+  $("content").value=x.content||"";
+  $("published").checked=!!x.published;
+  $("formTitle").textContent="Yazıyı Düzenle";
+  $("editBadge").textContent=x.published?"Yayında":"Taslak";
+  $("editBadge").className=`badge ${x.published?"live":"draft"}`;
+  updatePublishText();
+  updateCounts();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+async function removePost(id){
+  const x=cache.find(v=>v.id===id);
+  if(!confirm(`“${x?.title||"Bu yazı"}” kalıcı olarak silinsin mi?`))return;
+  try{
+    await deleteDoc(doc(db,"blogs",id));
+    await loadPosts();
+    toast("Yazı silindi.");
+  }catch(e){
+    console.error(e);
+    toast("Silme sırasında hata oluştu.","err");
+  }
+}
+
+function esc(s=""){
+  return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+updatePublishText();
+updateCounts();
+</script>
+</body>
+</html>
