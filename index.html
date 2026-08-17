@@ -3957,8 +3957,8 @@ footer a{
 
     <p class="section-desc">
 
-      Girişimcilik, kişisel gelişim,
-      üretmek ve hayat üzerine notlar.
+      Başarı, mutluluk, hayat, genç girişimcilik
+      ve yazarlık üzerine notlar.
 
     </p>
 
@@ -4008,20 +4008,50 @@ footer a{
 
     <button
       class="blog-filter-btn"
-      onclick="filterBlog('kisisel-gelisim',this)"
+      onclick="filterBlog('basari',this)"
     >
 
-      Kişisel Gelişim
+      Başarı
 
     </button>
 
 
     <button
       class="blog-filter-btn"
-      onclick="filterBlog('girisimcilik',this)"
+      onclick="filterBlog('mutluluk',this)"
     >
 
-      Girişimcilik
+      Mutluluk
+
+    </button>
+
+
+    <button
+      class="blog-filter-btn"
+      onclick="filterBlog('hayat-uzerine',this)"
+    >
+
+      Hayat Üzerine
+
+    </button>
+
+
+    <button
+      class="blog-filter-btn"
+      onclick="filterBlog('genc-girisimci',this)"
+    >
+
+      Genç Girişimci
+
+    </button>
+
+
+    <button
+      class="blog-filter-btn"
+      onclick="filterBlog('yazarlik',this)"
+    >
+
+      Yazarlık
 
     </button>
 
@@ -5135,17 +5165,45 @@ function formatDate(value) {
   return new Intl.DateTimeFormat("tr-TR", { day:"numeric", month:"long", year:"numeric" }).format(d);
 }
 
+const categoryLabels = {
+  "basari": "Başarı",
+  "mutluluk": "Mutluluk",
+  "hayat-uzerine": "Hayat Üzerine",
+  "genc-girisimci": "Genç Girişimci",
+  "yazarlik": "Yazarlık",
+
+  // Eski yazılar için geriye dönük uyumluluk
+  "kisisel-gelisim": "Başarı",
+  "girisimcilik": "Genç Girişimci",
+  "hayat": "Hayat Üzerine"
+};
+
+function canonicalCategory(value = "") {
+  const aliases = {
+    "kisisel-gelisim": "basari",
+    "girisimcilik": "genc-girisimci",
+    "hayat": "hayat-uzerine"
+  };
+  return aliases[value] || value;
+}
+
+function categoryLabel(value = "") {
+  return categoryLabels[value] || categoryLabels[canonicalCategory(value)] || value || "Yazı";
+}
+
 function renderBlogs(category = "all") {
-  const items = category === "all" ? loadedBlogs : loadedBlogs.filter(x => x.category === category);
+  const items = category === "all"
+    ? loadedBlogs
+    : loadedBlogs.filter(x => canonicalCategory(x.category) === category);
   if (!items.length) {
     blogGrid.innerHTML = '<div style="grid-column:1/-1;padding:32px 0;color:var(--muted);">Bu kategoride henüz yayınlanmış yazı yok.</div>';
     return;
   }
   blogGrid.innerHTML = items.map((b, i) => `
-    <a href="blog.html?id=${encodeURIComponent(b.id)}" class="blog-card" data-category="${escapeHTML(b.category || "diger")}">
+    <a href="blog.html?id=${encodeURIComponent(b.id)}" class="blog-card" data-category="${escapeHTML(canonicalCategory(b.category || ""))}">
       <div class="blog-number">${String(i + 1).padStart(2,"0")}</div>
       <div class="blog-content">
-        <span class="blog-category">${escapeHTML(b.categoryLabel || b.category || "Yazı")}</span>
+        <span class="blog-category">${escapeHTML(categoryLabel(b.category || ""))}</span>
         <h3>${escapeHTML(b.title || "Başlıksız Yazı")}</h3>
         <p>${escapeHTML(b.summary || "")}</p>
         <div class="blog-meta">${escapeHTML(formatDate(b.publishedAt || b.createdAt))}</div>
