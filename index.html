@@ -4030,153 +4030,11 @@ footer a{
 
 
 
-  <div
-    class="blog-grid"
-    id="blogGrid"
-  >
-
-
-
-    <a
-      href="bir-ise-baslamadan-once-yapilmasi-gerekenler.html"
-      class="blog-card"
-      data-category="girisimcilik"
-    >
-
-
-      <div class="blog-number">
-
-        01
-
-      </div>
-
-
-      <div class="blog-content">
-
-
-        <span class="blog-category">
-
-          Girişimcilik
-
-        </span>
-
-
-        <h3>
-
-          Bir işe başlamadan önce yapılması gerekenler
-
-        </h3>
-
-
-        <p>
-
-          Yeni bir işe ya da projeye atılmadan önce
-          üzerinden geçmem gereken adımlar ve
-          dikkat ettiğim noktalar.
-
-        </p>
-
-
-        <div class="blog-meta">
-
-          Yakında sizlerle
-
-        </div>
-
-
-      </div>
-
-
-    </a>
-
-
-
-    <a
-      href="4-adimda-basari-formulum.html"
-      class="blog-card"
-      data-category="kisisel-gelisim"
-    >
-
-
-      <div class="blog-number">
-
-        02
-
-      </div>
-
-
-      <div class="blog-content">
-
-
-        <span class="blog-category">
-
-          Kişisel Gelişim
-
-        </span>
-
-
-        <h3>
-
-          4 adımda başarı formülüm
-
-        </h3>
-
-
-        <p>
-
-          Kendi hayatımdan gerçek örneklerle,
-          uyguladığım 4 adımlık başarı
-          formülümü paylaşıyorum.
-
-        </p>
-
-
-        <div class="blog-meta">
-
-          Yakında sizlerle
-
-        </div>
-
-
-      </div>
-
-
-    </a>
-
-
+  <div class="blog-grid" id="blogGrid">
+    <div style="grid-column:1/-1;padding:32px 0;color:var(--muted);">Yazılar yükleniyor…</div>
   </div>
 
-
-
-  <div class="blog-more-wrap">
-
-
-    <button
-      class="blog-more-btn"
-      id="blogMoreBtn"
-      onclick="toggleBlogMore()"
-    >
-
-
-      <span id="blogMoreLabel">
-
-        Daha Fazlası
-
-      </span>
-
-
-      <span class="chev">
-
-        ▾
-
-      </span>
-
-
-    </button>
-
-
-  </div>
-
+  <div class="blog-more-wrap" id="blogMoreWrap" style="display:none;"></div>
 
 </section>
 
@@ -5246,6 +5104,78 @@ if(video){
 
 </script>
 
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+import { getFirestore, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBv3kaf0kCyP0WqFXtbmROTTVtj57upEFY",
+  authDomain: "berke-web-panel.firebaseapp.com",
+  projectId: "berke-web-panel",
+  storageBucket: "berke-web-panel.firebasestorage.app",
+  messagingSenderId: "956917805545",
+  appId: "1:956917805545:web:46b1b3ba5a5881b7d1db78",
+  measurementId: "G-NZ358NMQ0F"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const blogGrid = document.getElementById("blogGrid");
+let loadedBlogs = [];
+
+function escapeHTML(value = "") {
+  return String(value).replace(/[&<>'"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[ch]));
+}
+
+function formatDate(value) {
+  if (!value) return "Yeni yazı";
+  const d = value.toDate ? value.toDate() : new Date(value);
+  if (Number.isNaN(d.getTime())) return "Yeni yazı";
+  return new Intl.DateTimeFormat("tr-TR", { day:"numeric", month:"long", year:"numeric" }).format(d);
+}
+
+function renderBlogs(category = "all") {
+  const items = category === "all" ? loadedBlogs : loadedBlogs.filter(x => x.category === category);
+  if (!items.length) {
+    blogGrid.innerHTML = '<div style="grid-column:1/-1;padding:32px 0;color:var(--muted);">Bu kategoride henüz yayınlanmış yazı yok.</div>';
+    return;
+  }
+  blogGrid.innerHTML = items.map((b, i) => `
+    <a href="blog.html?id=${encodeURIComponent(b.id)}" class="blog-card" data-category="${escapeHTML(b.category || "diger")}">
+      <div class="blog-number">${String(i + 1).padStart(2,"0")}</div>
+      <div class="blog-content">
+        <span class="blog-category">${escapeHTML(b.categoryLabel || b.category || "Yazı")}</span>
+        <h3>${escapeHTML(b.title || "Başlıksız Yazı")}</h3>
+        <p>${escapeHTML(b.summary || "")}</p>
+        <div class="blog-meta">${escapeHTML(formatDate(b.publishedAt || b.createdAt))}</div>
+      </div>
+    </a>`).join("");
+}
+
+window.filterBlog = function(category, btn) {
+  document.querySelectorAll(".blog-filter-btn").forEach(x => x.classList.remove("active"));
+  if (btn) btn.classList.add("active");
+  renderBlogs(category);
+};
+
+async function loadBlogs() {
+  try {
+    const snap = await getDocs(query(collection(db,"blogs"), where("published","==",true)));
+    loadedBlogs = snap.docs.map(d => ({ id:d.id, ...d.data() }));
+    loadedBlogs.sort((a,b) => {
+      const ad = (a.publishedAt || a.createdAt)?.toMillis?.() || 0;
+      const bd = (b.publishedAt || b.createdAt)?.toMillis?.() || 0;
+      return bd - ad;
+    });
+    renderBlogs();
+  } catch (err) {
+    console.error(err);
+    blogGrid.innerHTML = '<div style="grid-column:1/-1;padding:32px 0;color:var(--muted);">Yazılar şu anda yüklenemedi.</div>';
+  }
+}
+loadBlogs();
+</script>
 
 </body>
 </html>
