@@ -331,10 +331,11 @@ textarea{resize:vertical;min-height:112px}
           <div class="field">
             <label for="category">Kategori</label>
             <select id="category">
-              <option value="girisimcilik">Girişimcilik</option>
-              <option value="kisisel-gelisim">Kişisel Gelişim</option>
-              <option value="hayat">Hayat</option>
-              <option value="diger">Diğer</option>
+              <option value="basari">Başarı</option>
+              <option value="mutluluk">Mutluluk</option>
+              <option value="hayat-uzerine">Hayat Üzerine</option>
+              <option value="genc-girisimci">Genç Girişimci</option>
+              <option value="yazarlik">Yazarlık</option>
             </select>
           </div>
 
@@ -440,11 +441,22 @@ let cache=[];
 let currentFilter="all";
 
 const labels={
-  girisimcilik:"Girişimcilik",
-  "kisisel-gelisim":"Kişisel Gelişim",
-  hayat:"Hayat",
-  diger:"Diğer"
+  "basari":"Başarı",
+  "mutluluk":"Mutluluk",
+  "hayat-uzerine":"Hayat Üzerine",
+  "genc-girisimci":"Genç Girişimci",
+  "yazarlik":"Yazarlık"
 };
+
+function canonicalCategory(value=""){
+  const aliases={
+    "kisisel-gelisim":"basari",
+    "girisimcilik":"genc-girisimci",
+    "hayat":"hayat-uzerine",
+    "diger":"hayat-uzerine"
+  };
+  return aliases[value]||value;
+}
 
 function toast(message,type="ok"){
   const el=$("toast");
@@ -491,7 +503,7 @@ function clearForm(){
   $("title").value="";
   $("summary").value="";
   $("content").value="";
-  $("category").value="girisimcilik";
+  $("category").value="basari";
   $("published").checked=true;
   $("formTitle").textContent="Yeni Yazı";
   $("editBadge").textContent="Yeni";
@@ -665,7 +677,7 @@ function editPost(id){
   $("editId").value=id;
   $("title").value=x.title||"";
   $("summary").value=x.summary||"";
-  $("category").value=x.category||"diger";
+  $("category").value=canonicalCategory(x.category||"basari");
   $("content").value=x.content||"";
   $("published").checked=!!x.published;
   $("formTitle").textContent="Yazıyı Düzenle";
