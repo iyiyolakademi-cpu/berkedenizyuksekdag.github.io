@@ -232,6 +232,16 @@ textarea{resize:vertical;min-height:112px}
 
 .wordbar{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:11px;margin-top:7px}
 
+.schedule-box{margin-top:10px;padding:13px 14px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.schedule-box.hidden{display:none!important}
+.schedule-grid{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end}
+.schedule-hint{font-size:11px;color:var(--muted);margin-top:7px}
+.last-draft{margin:0 0 18px;padding:18px 20px;border-left:4px solid var(--warning);display:flex;align-items:center;justify-content:space-between;gap:14px}
+.last-draft h3{margin:0 0 4px;font-size:16px}
+.last-draft p{margin:0;color:var(--muted);font-size:12px}
+.badge.scheduled{color:#2563eb;background:#eff6ff}
+@media(max-width:720px){.schedule-grid{grid-template-columns:1fr}.last-draft{align-items:flex-start;flex-direction:column}}
+
 .toast{
   position:fixed;right:22px;bottom:22px;z-index:99;
   min-width:260px;max-width:380px;padding:14px 16px;border-radius:14px;
@@ -312,6 +322,14 @@ textarea{resize:vertical;min-height:112px}
       <div class="card stat"><div class="stat-label">Son Güncelleme</div><div class="stat-value" id="statLast" style="font-size:18px">—</div><div class="stat-foot">En son düzenlenen yazı</div></div>
     </section>
 
+    <section id="lastDraftCard" class="card last-draft hidden">
+      <div>
+        <h3>Son kaydedilen taslağa devam et</h3>
+        <p id="lastDraftText">—</p>
+      </div>
+      <button class="btn btn-secondary" id="continueDraftBtn">Taslağı Aç</button>
+    </section>
+
     <div class="layout">
       <section class="card panel-card">
         <div class="card-head">
@@ -354,6 +372,16 @@ textarea{resize:vertical;min-height:112px}
                 <input id="published" type="checkbox" checked>
                 <span class="slider"></span>
               </label>
+            </div>
+            <div id="scheduleBox" class="schedule-box">
+              <div class="schedule-grid">
+                <div class="field">
+                  <label for="scheduledAt">Şu tarihte yayınla (isteğe bağlı)</label>
+                  <input id="scheduledAt" type="datetime-local">
+                </div>
+                <button class="btn btn-secondary" type="button" id="clearScheduleBtn">Tarihi Temizle</button>
+              </div>
+              <div class="schedule-hint">Tarih boşsa yazı hemen yayınlanır. Gelecek bir tarih seçersen o zamana kadar sitede görünmez.</div>
             </div>
           </div>
 
@@ -406,6 +434,7 @@ textarea{resize:vertical;min-height:112px}
         <div class="filter-row">
           <button class="filter-chip active" data-filter="all">Tümü</button>
           <button class="filter-chip" data-filter="live">Yayında</button>
+          <button class="filter-chip" data-filter="scheduled">Planlı</button>
           <button class="filter-chip" data-filter="draft">Taslak</button>
         </div>
       </div>
@@ -420,7 +449,7 @@ textarea{resize:vertical;min-height:112px}
 <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 import {getAuth,signInWithEmailAndPassword,signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
-import {getFirestore,collection,getDocs,addDoc,doc,updateDoc,deleteDoc,serverTimestamp} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+import {getFirestore,collection,getDocs,addDoc,doc,updateDoc,deleteDoc,serverTimestamp,Timestamp} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 const firebaseConfig={
   apiKey:"AIzaSyBv3kaf0kCyP0WqFXtbmROTTVtj57upEFY",
@@ -439,6 +468,7 @@ const db=getFirestore(app);
 const $=id=>document.getElementById(id);
 let cache=[];
 let currentFilter="all";
+let lastDraftId="";
 
 const labels={
   "basari":"Başarı",
@@ -505,6 +535,7 @@ function clearForm(){
   $("content").value="";
   $("category").value="basari";
   $("published").checked=true;
+  $("scheduledAt").value="";
   $("formTitle").textContent="Yeni Yazı";
   $("editBadge").textContent="Yeni";
   $("editBadge").className="badge draft";
@@ -515,12 +546,27 @@ function clearForm(){
 }
 $("clearBtn").onclick=clearForm;
 
+function getScheduleDate(){
+  const value=$("scheduledAt").value;
+  if(!value)return null;
+  const d=new Date(value);
+  return Number.isNaN(d.getTime())?null:d;
+}
 function updatePublishText(){
-  $("publishText").textContent=$("published").checked
-    ?"Bu yazı sitede hemen yayınlanacak."
-    :"Bu yazı taslak olarak kaydedilecek.";
+  const isPublished=$("published").checked;
+  const d=getScheduleDate();
+  $("scheduleBox").classList.toggle("hidden",!isPublished);
+  if(!isPublished){
+    $("publishText").textContent="Bu yazı taslak olarak kaydedilecek.";
+  }else if(d&&d.getTime()>Date.now()){
+    $("publishText").textContent=`Yazı ${new Intl.DateTimeFormat("tr-TR",{dateStyle:"medium",timeStyle:"short"}).format(d)} tarihinde yayınlanacak.`;
+  }else{
+    $("publishText").textContent="Bu yazı sitede hemen yayınlanacak.";
+  }
 }
 $("published").addEventListener("change",updatePublishText);
+$("scheduledAt").addEventListener("change",updatePublishText);
+$("clearScheduleBtn").onclick=()=>{$("scheduledAt").value="";updatePublishText()};
 
 function updateCounts(){
   const raw=$("content").value.trim();
@@ -574,6 +620,8 @@ $("saveBtn").onclick=async()=>{
   if(!title||!content){setStatus($("formMsg"),"Başlık ve içerik zorunlu.","err");return}
 
   const published=$("published").checked;
+  const scheduleDate=published?getScheduleDate():null;
+  const scheduledAt=scheduleDate&&scheduleDate.getTime()>Date.now()?Timestamp.fromDate(scheduleDate):null;
   const data={
     title,
     summary:$("summary").value.trim(),
@@ -581,6 +629,7 @@ $("saveBtn").onclick=async()=>{
     categoryLabel:labels[$("category").value],
     content,
     published,
+    scheduledAt,
     updatedAt:serverTimestamp()
   };
 
@@ -589,17 +638,18 @@ $("saveBtn").onclick=async()=>{
     $("saveBtn").textContent="Kaydediliyor…";
     const id=$("editId").value;
     if(id){
-      if(published&&!cache.find(x=>x.id===id)?.published)data.publishedAt=serverTimestamp();
+      if(published&&!scheduledAt&&!cache.find(x=>x.id===id)?.published)data.publishedAt=serverTimestamp();
+      if(published&&scheduledAt)data.publishedAt=scheduledAt;
       await updateDoc(doc(db,"blogs",id),data);
     }else{
       data.createdAt=serverTimestamp();
-      if(published)data.publishedAt=serverTimestamp();
+      if(published)data.publishedAt=scheduledAt||serverTimestamp();
       await addDoc(collection(db,"blogs"),data);
     }
     clearForm();
     await loadPosts();
     setStatus($("formMsg"),"Kaydedildi.","ok");
-    toast(published?"Yazı kaydedildi ve yayınlandı.":"Taslak başarıyla kaydedildi.");
+    toast(!published?"Taslak başarıyla kaydedildi.":scheduledAt?"Yazı planlandı.":"Yazı kaydedildi ve yayınlandı.");
   }catch(e){
     console.error(e);
     setStatus($("formMsg"),"Kaydetme sırasında hata oluştu. Firestore kurallarını kontrol et.","err");
@@ -623,19 +673,35 @@ async function loadPosts(){
   }
 }
 
+function isScheduled(x){
+  const d=x?.scheduledAt?.toDate?.();
+  return !!(x?.published&&d&&d.getTime()>Date.now());
+}
+function isLive(x){return !!(x?.published&&!isScheduled(x));}
 function updateStats(){
   $("statTotal").textContent=cache.length;
-  $("statLive").textContent=cache.filter(x=>x.published).length;
+  $("statLive").textContent=cache.filter(isLive).length;
   $("statDraft").textContent=cache.filter(x=>!x.published).length;
   const last=cache[0];
   const d=last?.updatedAt?.toDate?.()||last?.createdAt?.toDate?.();
   $("statLast").textContent=d?new Intl.DateTimeFormat("tr-TR",{day:"2-digit",month:"short"}).format(d):"—";
+  updateLastDraft();
 }
+function updateLastDraft(){
+  const draft=cache.find(x=>!x.published);
+  const card=$("lastDraftCard");
+  if(!draft){card.classList.add("hidden");lastDraftId="";return}
+  lastDraftId=draft.id;
+  const d=draft.updatedAt?.toDate?.()||draft.createdAt?.toDate?.();
+  $("lastDraftText").textContent=`${draft.title||"Başlıksız taslak"}${d?` · Son kayıt: ${new Intl.DateTimeFormat("tr-TR",{dateStyle:"medium",timeStyle:"short"}).format(d)}`:""}`;
+  card.classList.remove("hidden");
+}
+$("continueDraftBtn").onclick=()=>{if(lastDraftId)editPost(lastDraftId)};
 
 function renderPosts(){
   const q=$("searchInput").value.trim().toLocaleLowerCase("tr-TR");
   const list=cache.filter(x=>{
-    const statusOk=currentFilter==="all"||(currentFilter==="live"&&x.published)||(currentFilter==="draft"&&!x.published);
+    const statusOk=currentFilter==="all"||(currentFilter==="live"&&isLive(x))||(currentFilter==="draft"&&!x.published)||(currentFilter==="scheduled"&&isScheduled(x));
     const text=`${x.title||""} ${x.summary||""} ${x.categoryLabel||x.category||""}`.toLocaleLowerCase("tr-TR");
     return statusOk&&(!q||text.includes(q));
   });
@@ -650,17 +716,19 @@ function renderPosts(){
           <span>${esc(x.categoryLabel||x.category||"Diğer")}</span>
           <span>•</span>
           <span>${dateText}</span>
-          <span class="badge ${x.published?"live":"draft"}">${x.published?"● Yayında":"● Taslak"}</span>
+          <span class="badge ${isScheduled(x)?"scheduled":x.published?"live":"draft"}">${isScheduled(x)?"● Planlı":x.published?"● Yayında":"● Taslak"}</span>
         </div>
       </div>
       <div class="post-actions">
         <button class="btn btn-secondary" data-edit="${x.id}">Düzenle</button>
+        <button class="btn btn-secondary" data-copy="${x.id}">Kopyala</button>
         <button class="btn btn-danger" data-delete="${x.id}">Sil</button>
       </div>
     </article>`;
   }).join(""):'<div class="status-msg">Bu filtreye uygun yazı bulunamadı.</div>';
 
   document.querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>editPost(b.dataset.edit));
+  document.querySelectorAll("[data-copy]").forEach(b=>b.onclick=()=>copyPost(b.dataset.copy));
   document.querySelectorAll("[data-delete]").forEach(b=>b.onclick=()=>removePost(b.dataset.delete));
 }
 
@@ -680,12 +748,38 @@ function editPost(id){
   $("category").value=canonicalCategory(x.category||"basari");
   $("content").value=x.content||"";
   $("published").checked=!!x.published;
+  const sd=x.scheduledAt?.toDate?.();
+  $("scheduledAt").value=sd?toLocalInput(sd):"";
   $("formTitle").textContent="Yazıyı Düzenle";
-  $("editBadge").textContent=x.published?"Yayında":"Taslak";
-  $("editBadge").className=`badge ${x.published?"live":"draft"}`;
+  $("editBadge").textContent=isScheduled(x)?"Planlı":x.published?"Yayında":"Taslak";
+  $("editBadge").className=`badge ${isScheduled(x)?"scheduled":x.published?"live":"draft"}`;
   updatePublishText();
   updateCounts();
   window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function toLocalInput(d){
+  const pad=n=>String(n).padStart(2,"0");
+  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+
+function copyPost(id){
+  const x=cache.find(v=>v.id===id);
+  if(!x)return;
+  $("editId").value="";
+  $("title").value=`${x.title||"Başlıksız Yazı"} (Kopya)`;
+  $("summary").value=x.summary||"";
+  $("category").value=canonicalCategory(x.category||"basari");
+  $("content").value=x.content||"";
+  $("published").checked=false;
+  $("scheduledAt").value="";
+  $("formTitle").textContent="Kopyadan Yeni Yazı";
+  $("editBadge").textContent="Yeni Kopya";
+  $("editBadge").className="badge draft";
+  updatePublishText();
+  updateCounts();
+  window.scrollTo({top:0,behavior:"smooth"});
+  toast("Yazı kopyalandı. Yeni bir içerik olarak düzenleyebilirsin.");
 }
 
 async function removePost(id){
