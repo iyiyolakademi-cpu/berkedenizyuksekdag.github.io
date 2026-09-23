@@ -1,987 +1,2625 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Proje Portföyü | Berke Deniz Yüksekdağ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Berke Deniz Yüksekdağ proje portföyü: İyi Yol Akademi, Sen2 robot projesi, Habitopia ve Life Questing. Durumlar ve öncelik sırası ile tek sayfada." />
+<meta charset="UTF-8">
 
-  <style>
-    :root{
-      --bg:#ffffff;
-      --text:#111827;
-      --muted:#4b5563;
-      --card:#f3f4f6;
-      --accent:#2563eb;
-      --btn-hover:#e5e7eb;
-      --border:#e5e7eb;
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
 
-      --ok:#22c55e;
-      --warn:#f59e0b;
---bad:#a855f7; 
-      --soft-ok: rgba(34,197,94,0.14);
-      --soft-warn: rgba(245,158,11,0.14);
---soft-bad: rgba(168,85,247,0.16);
+<title>Projeler</title>
 
-      --shadow: 0 18px 45px rgba(0,0,0,0.18);
-    }
+<style>
 
-    body.dark{
-      --bg:#0f172a;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-      --card:#1e293b;
-      --accent:#60a5fa;
-      --btn-hover:#334155;
-      --border:#334155;
+/* =========================================================
+   GENEL
+========================================================= */
 
-      --soft-ok: rgba(34,197,94,0.18);
-      --soft-warn: rgba(245,158,11,0.18);
---soft-bad: rgba(168,85,247,0.22);
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
 
-      --shadow: 0 22px 60px rgba(0,0,0,0.45);
-    }
+html,
+body{
+    width:100%;
+    min-height:100%;
+    background:#f4f4f2;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
 
-    *{ box-sizing:border-box; }
-    html, body{ max-width:100%; overflow-x:hidden; }
+    color:#111;
+}
 
-    body{
-      margin:0;
-      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      transition: background .3s, color .3s;
-      line-height:1.6;
-    }
+body{
+    overflow-x:hidden;
+}
 
-.header{
-  padding: 30px 20px 25px;
-  text-align:center;
-  background:
-    radial-gradient(650px 220px at 50% 0%, rgba(37,99,235,0.12), transparent 60%),
-    linear-gradient(180deg, rgba(0,0,0,0.00), transparent 55%),
-    var(--bg);
-  border-bottom:1px solid var(--border);
-  position:relative;
-  overflow:hidden;
+button{
+    font-family:inherit;
+}
+
+img{
+    display:block;
 }
 
 
-    .header::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        repeating-linear-gradient(
-          90deg,
-          rgba(255,255,255,0.06) 0px,
-          rgba(255,255,255,0.06) 1px,
-          transparent 1px,
-          transparent 10px
+/* =========================================================
+   SAYFA
+========================================================= */
+
+.app{
+    width:100%;
+    min-height:100vh;
+}
+
+.page{
+    width:100%;
+    min-height:100vh;
+}
+
+
+/* =========================================================
+   PROJELER ANA SAYFA
+========================================================= */
+
+.projects-page{
+    padding:
+        calc(20px + env(safe-area-inset-top))
+        22px
+        calc(35px + env(safe-area-inset-bottom));
+}
+
+
+/* ÜST BAŞLIK */
+
+.projects-header{
+    width:100%;
+    max-width:1500px;
+    margin:0 auto 22px;
+}
+
+.projects-header-top{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.projects-title-area h1{
+    font-size:24px;
+    line-height:1.1;
+    font-weight:850;
+    letter-spacing:-0.7px;
+}
+
+.projects-title-area p{
+    color:#777;
+    font-size:13px;
+    margin-top:7px;
+    line-height:1.45;
+}
+
+
+/* PROJE GRID */
+
+.projects-grid{
+    width:100%;
+    max-width:1500px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+
+/* =========================================================
+   PROJE KARTI
+========================================================= */
+
+.project-card{
+    height:325px;
+
+    position:relative;
+    overflow:hidden;
+
+    border-radius:24px;
+
+    cursor:pointer;
+
+    background:#101010;
+
+    box-shadow:
+        0 2px 4px rgba(0,0,0,.04),
+        0 10px 30px rgba(0,0,0,.08);
+
+    transform:translateZ(0);
+
+    transition:
+        transform .28s cubic-bezier(.2,.8,.2,1),
+        box-shadow .28s ease;
+}
+
+.project-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 10px 22px rgba(0,0,0,.10),
+        0 25px 50px rgba(0,0,0,.10);
+}
+
+
+/* ARKA PLAN EFEKT */
+
+.card-bg{
+    position:absolute;
+    inset:0;
+}
+
+.card-bg::before{
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    border-radius:50%;
+
+    top:-130px;
+    right:-100px;
+
+    filter:blur(20px);
+
+    opacity:.55;
+}
+
+
+/* İYİ YOL */
+
+.iyiyol-card{
+    background:
+        radial-gradient(
+            circle at 75% 10%,
+            rgba(255,185,43,.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #08090b,
+            #111216
         );
-      opacity:0.18;
-      pointer-events:none;
-      mix-blend-mode: overlay;
-    }
-    body.dark .header::after{ opacity:0.10; }
+}
 
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-size:12px;
-      letter-spacing:1.2px;
-      text-transform:uppercase;
-      color:var(--accent);
-      font-weight:950;
-      margin-bottom:12px;
-      padding:7px 12px;
-      border:1px solid var(--border);
-      border-radius:999px;
-      background: rgba(0,0,0,0.02);
-      position:relative;
-      z-index:1;
-    }
-    body.dark .kicker{ background: rgba(255,255,255,0.05); }
+.iyiyol-card .card-bg::before{
+    background:#d99a18;
+}
 
-    .title{
-      margin:0;
-      font-size:clamp(32px, 6vw, 52px);
-      letter-spacing:-1.2px;
-      font-weight:950;
-      position:relative;
-      z-index:1;
+
+/* HABITOPIA */
+
+.habitopia-card{
+    background:
+        radial-gradient(
+            circle at 80% 0%,
+            rgba(132,154,104,.20),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #050706,
+            #0d110e
+        );
+}
+
+.habitopia-card .card-bg::before{
+    background:#758c62;
+}
+
+
+/* OYNABAK */
+
+.oynabak-card{
+    background:
+        radial-gradient(
+            circle at 80% 0%,
+            rgba(105,75,255,.34),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 15% 85%,
+            rgba(0,169,255,.16),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #08080e,
+            #101022
+        );
+}
+
+.oynabak-card .card-bg::before{
+    background:#6148ff;
+}
+
+
+/* =========================================================
+   KARE LOGO
+========================================================= */
+
+.project-logo-area{
+    position:absolute;
+
+    top:26px;
+    left:26px;
+
+    width:145px;
+    height:145px;
+
+    border-radius:25px;
+
+    z-index:3;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.055);
+
+    border:1px solid rgba(255,255,255,.09);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.3);
+
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+
+    transition:transform .35s ease;
+}
+
+.project-card:hover .project-logo-area{
+    transform:scale(1.035);
+}
+
+
+/* GERÇEK LOGOLAR */
+
+.project-logo{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+
+/* =========================================================
+   OYNABAK LOGO
+========================================================= */
+
+.oynabak-logo{
+    width:100%;
+    height:100%;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #5e49ff,
+            transparent 50%
+        ),
+        #090910;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+}
+
+.oynabak-icon{
+    width:54px;
+    height:54px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #8e72ff,
+            #5132e8
+        );
+
+    position:relative;
+
+    margin-bottom:11px;
+
+    box-shadow:
+        0 9px 25px
+        rgba(106,77,255,.35);
+}
+
+.oynabak-icon::before{
+    content:"";
+
+    position:absolute;
+
+    left:21px;
+    top:15px;
+
+    width:0;
+    height:0;
+
+    border-top:12px solid transparent;
+    border-bottom:12px solid transparent;
+    border-left:18px solid white;
+}
+
+.oynabak-name-logo{
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.oynabak-name-logo span{
+    color:#917aff;
+}
+
+
+/* =========================================================
+   KART BİLGİ
+========================================================= */
+
+.card-content{
+    position:absolute;
+
+    left:26px;
+    right:26px;
+    bottom:23px;
+
+    z-index:5;
+
+    color:white;
+}
+
+
+/* PROJE ETİKET */
+
+.project-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+
+    margin-bottom:9px;
+
+    font-size:9px;
+    font-weight:800;
+
+    letter-spacing:1.1px;
+
+    color:rgba(255,255,255,.75);
+}
+
+.project-tag-dot{
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:#ffbd36;
+}
+
+
+/* PROJE ADI */
+
+.project-name{
+    font-size:23px;
+    line-height:1.05;
+
+    font-weight:850;
+
+    letter-spacing:-.6px;
+
+    margin-bottom:8px;
+
+    padding-right:55px;
+}
+
+
+/* ALT METİN */
+
+.project-description{
+    color:rgba(255,255,255,.66);
+
+    font-size:11px;
+
+    line-height:1.45;
+
+    padding-right:55px;
+}
+
+
+/* OK */
+
+.project-arrow{
+    position:absolute;
+
+    right:24px;
+    bottom:27px;
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:white;
+
+    color:#111;
+
+    z-index:8;
+
+    transition:
+        transform .25s ease,
+        background .25s ease;
+}
+
+.project-card:hover .project-arrow{
+    transform:translateX(4px);
+}
+
+.project-arrow svg{
+    width:18px;
+    height:18px;
+}
+
+
+/* SAĞ ÜST DEKORASYON */
+
+.card-decoration{
+    position:absolute;
+
+    right:28px;
+    top:30px;
+
+    font-size:10px;
+
+    color:rgba(255,255,255,.35);
+
+    z-index:3;
+
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.card-decoration span{
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.5);
+}
+
+
+/* =========================================================
+   DETAY SAYFASI
+========================================================= */
+
+.project-detail-page{
+
+    display:none;
+
+    min-height:100vh;
+
+    background:#f3f3f1;
+
+    animation:
+        detailPageIn
+        .35s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.project-detail-page.active{
+    display:block;
+}
+
+.projects-page.hidden{
+    display:none;
+}
+
+
+@keyframes detailPageIn{
+
+    from{
+        opacity:0;
+        transform:translateX(20px);
     }
 
-    .subtitle{
-      margin:12px auto 0;
-      color:var(--muted);
-      font-weight:700;
-      font-size:16px;
-      max-width:920px;
-      position:relative;
-      z-index:1;
+    to{
+        opacity:1;
+        transform:translateX(0);
     }
+}
 
-    .actions{
-      margin-top:22px;
-      display:flex;
-      gap:10px;
-      justify-content:center;
-      flex-wrap:wrap;
-      position:relative;
-      z-index:1;
-    }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:12px 18px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:transparent;
-      color:var(--text);
-      font-weight:900;
-      cursor:pointer;
-      text-decoration:none;
-      transition:.2s;
-      user-select:none;
-    }
+/* =========================================================
+   DETAY HERO
+========================================================= */
 
-    .btn:hover{
-      background:var(--btn-hover);
-      transform:translateY(-2px);
-    }
+.detail-hero{
 
-    .btn.primary{
-      color:#fff;
-      border-color: rgba(255,255,255,0.12);
-      background: linear-gradient(135deg, #1d4ed8, #2563eb);
-    }
-    body.dark .btn.primary{ border-color: rgba(255,255,255,0.18); }
-    .btn.primary:hover{ filter: brightness(1.05); }
+    position:relative;
 
-    /* CONTAINER */
-    .container{
-      max-width:1100px;
-      margin:auto;
-      padding:36px 20px 70px;
-    }
+    min-height:440px;
 
-    .toolbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom:18px;
-    }
+    background:#090a0d;
 
-    .legend{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap;
-      padding:10px 12px;
-      border:1px solid var(--border);
-      border-radius:14px;
-      background: linear-gradient(135deg, var(--card), var(--bg));
-    }
+    color:white;
 
-    .legend-item{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:13px;
-      font-weight:900;
-      color:var(--muted);
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(0,0,0,0.02);
-    }
-    body.dark .legend-item{ background: rgba(255,255,255,0.05); }
+    overflow:hidden;
 
-    .dot{
-      width:10px; height:10px; border-radius:999px;
-    }
-    .dot.ok{ background: var(--ok); }
-    .dot.warn{ background: var(--warn); }
-    .dot.bad{ background: var(--bad); }
+    padding:
+        calc(20px + env(safe-area-inset-top))
+        25px
+        45px;
+}
 
-    .search-wrap{
-      flex:1;
-      min-width: 240px;
-      display:flex;
-      justify-content:flex-end;
-    }
 
-    .search{
-      width: min(420px, 100%);
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background: rgba(0,0,0,0.02);
-      color: var(--text);
-      font-weight:800;
-      outline:none;
-      transition:.2s;
-    }
-    body.dark .search{ background: rgba(255,255,255,0.05); }
+/* HERO ARKA IŞIK */
 
-    .search:focus{
-      border-color: rgba(37,99,235,0.55);
-      box-shadow: 0 0 0 4px rgba(37,99,235,0.12);
-    }
+.detail-glow{
 
-    /* GRID + CARDS */
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    opacity:.3;
+
+    right:-140px;
+    top:-160px;
+
+    pointer-events:none;
+}
+
+
+/* GERİ */
+
+.detail-nav{
+
+    width:100%;
+    max-width:1100px;
+
+    margin:auto;
+
+    position:relative;
+
+    z-index:5;
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+}
+
+.back-button{
+
+    border:none;
+
+    background:
+        rgba(255,255,255,.09);
+
+    color:white;
+
+    min-width:44px;
+    height:44px;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    backdrop-filter:blur(12px);
+
+    transition:.2s;
+}
+
+.back-button:active{
+    transform:scale(.94);
+}
+
+.back-button svg{
+    width:20px;
+    height:20px;
+}
+
+
+.detail-nav-label{
+
+    font-size:11px;
+
+    letter-spacing:1px;
+
+    font-weight:700;
+
+    color:
+        rgba(255,255,255,.45);
+}
+
+
+/* HERO İÇERİK */
+
+.detail-hero-content{
+
+    width:100%;
+    max-width:1100px;
+
+    margin:55px auto 0;
+
+    position:relative;
+
+    z-index:3;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+}
+
+
+/* DETAY LOGO */
+
+.detail-logo{
+
+    width:175px;
+    height:175px;
+
+    border-radius:34px;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.35);
+
+    background:#111;
+}
+
+.detail-logo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.detail-logo .oynabak-logo{
+    border-radius:0;
+}
+
+
+/* HERO TEXT */
+
+.detail-headline{
+    flex:1;
+}
+
+.detail-type{
+
+    font-size:10px;
+
+    letter-spacing:1.5px;
+
+    font-weight:800;
+
+    color:#b7b7b7;
+
+    margin-bottom:10px;
+}
+
+.detail-title{
+
+    font-size:42px;
+
+    letter-spacing:-1.5px;
+
+    font-weight:900;
+
+    line-height:1;
+
+    margin-bottom:15px;
+}
+
+.detail-short-description{
+
+    max-width:650px;
+
+    color:
+        rgba(255,255,255,.68);
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    margin-bottom:22px;
+}
+
+
+/* BADGELER */
+
+.detail-badges{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+}
+
+.detail-badge{
+
+    padding:8px 12px;
+
+    border-radius:100px;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    color:
+        rgba(255,255,255,.76);
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    background:
+        rgba(255,255,255,.06);
+}
+
+
+/* =========================================================
+   DETAY İÇERİK
+========================================================= */
+
+.detail-content{
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:
+        42px 24px
+        calc(60px + env(safe-area-inset-bottom));
+}
+
+
+/* BİLGİ SATIRI */
+
+.project-meta{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:12px;
+
+    margin-bottom:38px;
+}
+
+.meta-box{
+
+    background:white;
+
+    border-radius:19px;
+
+    padding:20px;
+
+    border:
+        1px solid
+        rgba(0,0,0,.045);
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,.035);
+}
+
+.meta-label{
+
+    font-size:10px;
+
+    color:#999;
+
+    margin-bottom:8px;
+
+    font-weight:700;
+
+    letter-spacing:.4px;
+}
+
+.meta-value{
+
+    font-size:14px;
+
+    font-weight:800;
+}
+
+
+/* DETAY GRID */
+
+.detail-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.35fr .65fr;
+
+    gap:18px;
+
+    align-items:start;
+}
+
+
+/* BÜYÜK KART */
+
+.content-card{
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:28px;
+
+    border:
+        1px solid
+        rgba(0,0,0,.045);
+
+    margin-bottom:18px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(0,0,0,.035);
+}
+
+.section-mini{
+
+    color:#999;
+
+    font-size:9px;
+
+    letter-spacing:1.1px;
+
+    font-weight:800;
+
+    margin-bottom:9px;
+}
+
+.content-card h2{
+
+    font-size:21px;
+
+    line-height:1.2;
+
+    letter-spacing:-.5px;
+
+    margin-bottom:13px;
+}
+
+.content-card p{
+
+    color:#626262;
+
+    font-size:14px;
+
+    line-height:1.75;
+}
+
+
+/* ÖZELLİKLER */
+
+.features-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:11px;
+
+    margin-top:18px;
+}
+
+.feature-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+    padding:14px;
+
+    border-radius:15px;
+
+    background:#f7f7f6;
+}
+
+.feature-icon{
+
+    width:34px;
+    height:34px;
+
+    flex-shrink:0;
+
+    border-radius:11px;
+
+    background:#111;
+
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.feature-icon svg{
+
+    width:16px;
+    height:16px;
+}
+
+.feature-text strong{
+
+    font-size:12px;
+
+    display:block;
+
+    margin-bottom:3px;
+}
+
+.feature-text span{
+
+    color:#888;
+
+    font-size:11px;
+
+    line-height:1.5;
+}
+
+
+/* HEDEF */
+
+.vision-card{
+
+    background:#0b0c0f;
+
+    color:white;
+
+    border-radius:24px;
+
+    padding:28px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    margin-bottom:18px;
+}
+
+.vision-card::after{
+
+    content:"";
+
+    width:170px;
+    height:170px;
+
+    position:absolute;
+
+    right:-80px;
+    top:-80px;
+
+    border-radius:50%;
+
+    background:
+        var(--project-color);
+
+    filter:blur(55px);
+
+    opacity:.35;
+}
+
+.vision-card h3{
+
+    position:relative;
+
+    z-index:2;
+
+    font-size:20px;
+
+    margin-bottom:12px;
+}
+
+.vision-card p{
+
+    position:relative;
+
+    z-index:2;
+
+    color:
+        rgba(255,255,255,.65);
+
+    line-height:1.7;
+
+    font-size:13px;
+}
+
+
+/* DURUM */
+
+.status-card{
+
+    padding:24px;
+
+    border-radius:24px;
+
+    background:white;
+
+    border:
+        1px solid
+        rgba(0,0,0,.045);
+}
+
+.status-line{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:12px;
+}
+
+.status-line:last-child{
+    margin-bottom:0;
+}
+
+.status-title{
+
+    font-size:11px;
+
+    color:#999;
+}
+
+.status-value{
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+
+/* =========================================================
+   ALT BUTON
+========================================================= */
+
+.detail-footer{
+
+    max-width:1100px;
+
+    margin:0 auto;
+
+    padding:0 24px 40px;
+}
+
+.back-projects-button{
+
+    width:100%;
+
+    height:55px;
+
+    border:none;
+
+    background:#111;
+
+    color:white;
+
+    border-radius:17px;
+
+    font-size:13px;
+
+    font-weight:750;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:9px;
+
+    transition:.2s;
+}
+
+.back-projects-button:active{
+    transform:scale(.985);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1000px){
+
     .projects-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-      gap:22px;
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .detail-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+/* =========================================================
+   TELEFON
+========================================================= */
+
+@media(max-width:650px){
+
+    .projects-page{
+
+        padding:
+            calc(17px + env(safe-area-inset-top))
+            14px
+            calc(30px + env(safe-area-inset-bottom));
+    }
+
+    .projects-header{
+        margin-bottom:17px;
+    }
+
+    .projects-title-area h1{
+        font-size:21px;
+    }
+
+    .projects-title-area p{
+        font-size:11px;
+    }
+
+    .projects-grid{
+        grid-template-columns:1fr;
+        gap:14px;
     }
 
     .project-card{
-      position:relative;
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:22px;
-      color:inherit;
-      transition:transform .25s, box-shadow .25s, border-color .25s;
-      overflow:hidden;
+
+        height:260px;
+
+        border-radius:21px;
     }
 
-    .project-card:hover{
-      transform: translateY(-6px);
-      box-shadow: var(--shadow);
-      border-color: rgba(37,99,235,0.35);
+    .project-logo-area{
+
+        width:115px;
+        height:115px;
+
+        top:20px;
+        left:20px;
+
+        border-radius:21px;
     }
 
-    /* sol şerit */
-    .project-card::before{
-      content:"";
-      position:absolute;
-      left:0; top:0; bottom:0;
-      width:8px;
-      opacity:0.95;
-      background: linear-gradient(180deg, rgba(37,99,235,0.65), rgba(37,99,235,0.10));
+    .card-content{
+
+        left:20px;
+        right:20px;
+        bottom:20px;
     }
 
-    .project-card[data-status="active"]::before{
-      background: linear-gradient(180deg, rgba(34,197,94,0.95), rgba(34,197,94,0.20));
+    .project-name{
+
+        font-size:20px;
     }
-    .project-card[data-status="planned"]::before{
-      background: linear-gradient(180deg, rgba(245,158,11,0.95), rgba(245,158,11,0.20));
+
+    .project-description{
+
+        font-size:10px;
+
+        max-width:75%;
     }
- .project-card[data-status="building"]::before{
-  background: linear-gradient(180deg, rgba(168,85,247,0.95), rgba(168,85,247,0.20));
+
+    .project-arrow{
+
+        width:40px;
+        height:40px;
+
+        right:18px;
+        bottom:23px;
+    }
+
+    .card-decoration{
+
+        right:20px;
+        top:22px;
+    }
+
+
+    /* DETAY */
+
+    .detail-hero{
+
+        min-height:auto;
+
+        padding:
+            calc(17px + env(safe-area-inset-top))
+            18px
+            38px;
+    }
+
+    .detail-nav-label{
+        font-size:9px;
+    }
+
+    .detail-hero-content{
+
+        margin-top:40px;
+
+        display:block;
+    }
+
+    .detail-logo{
+
+        width:125px;
+        height:125px;
+
+        border-radius:26px;
+
+        margin-bottom:25px;
+    }
+
+    .detail-title{
+
+        font-size:34px;
+
+        letter-spacing:-1.1px;
+    }
+
+    .detail-short-description{
+
+        font-size:13px;
+
+        line-height:1.65;
+    }
+
+    .detail-content{
+
+        padding:
+            25px 14px
+            calc(40px + env(safe-area-inset-bottom));
+    }
+
+    .project-meta{
+
+        grid-template-columns:1fr;
+
+        gap:9px;
+
+        margin-bottom:20px;
+    }
+
+    .meta-box{
+
+        padding:17px;
+
+        border-radius:17px;
+    }
+
+    .content-card,
+    .vision-card,
+    .status-card{
+
+        border-radius:20px;
+    }
+
+    .content-card{
+        padding:22px;
+    }
+
+    .content-card h2{
+        font-size:19px;
+    }
+
+    .content-card p{
+        font-size:13px;
+    }
+
+    .detail-footer{
+        padding:0 14px 30px;
+    }
+
 }
 
 
-    .project-head{
-      padding-left:10px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
+/* =========================================================
+   ÇOK KÜÇÜK EKRANLAR
+========================================================= */
+
+@media(max-width:360px){
+
+    .project-card{
+        height:245px;
     }
 
-    .project-title{
-      margin:0;
-      font-size:20px;
-      line-height:1.2;
-      letter-spacing:-0.2px;
-      font-weight:950;
+    .project-logo-area{
+
+        width:105px;
+        height:105px;
     }
 
-    .meta-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
+    .detail-title{
+        font-size:30px;
     }
 
-    .priority-pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(0,0,0,0.02);
-      color: var(--muted);
-      font-weight:950;
-      font-size:12px;
-      letter-spacing:.2px;
-      white-space:nowrap;
-    }
-    body.dark .priority-pill{ background: rgba(255,255,255,0.05); }
+}
 
-    .prio-dot{
-      width:8px; height:8px; border-radius:999px;
-      background: rgba(37,99,235,0.75);
-    }
+</style>
 
-    .status-pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:7px 10px;
-      border-radius:999px;
-      font-size:12px;
-      font-weight:950;
-      border:1px solid var(--border);
-      white-space:nowrap;
-    }
-
-    .status-dot{ width:8px; height:8px; border-radius:999px; }
-
-    .status-active{ color:var(--ok); background:var(--soft-ok); }
-    .status-active .status-dot{ background:var(--ok); }
-
-    .status-planned{ color:var(--warn); background:var(--soft-warn); }
-    .status-planned .status-dot{ background:var(--warn); }
-
-    .status-building{ color:var(--bad); background:var(--soft-bad); }
-    .status-building .status-dot{ background:var(--bad); }
-
-    .project-desc{
-      margin:0;
-      padding-left:10px;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.75;
-      font-weight:700;
-    }
-
-    .project-tags{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:14px;
-      padding-left:10px;
-    }
-
-    .project-tag{
-      font-size:12px;
-      font-weight:950;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(0,0,0,0.02);
-      color: var(--text);
-    }
-    body.dark .project-tag{ background: rgba(255,255,255,0.05); }
-
-    .card-actions{
-      margin-top:16px;
-      padding-left:10px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-    }
-
-    .mini{
-      color: var(--muted);
-      font-weight:900;
-      font-size:12.5px;
-      letter-spacing:0.2px;
-    }
-
-    .read-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background: linear-gradient(135deg, var(--card), var(--bg));
-      color: var(--text);
-      font-weight:950;
-      cursor:pointer;
-      transition:.2s;
-      text-decoration:none;
-      user-select:none;
-    }
-
-    .read-btn:hover{
-      background: var(--btn-hover);
-      transform: translateY(-2px);
-    }
-
-    .read-btn.primary{
-      color:#fff;
-      border-color: rgba(255,255,255,0.14);
-      background: linear-gradient(135deg, #1d4ed8, #2563eb);
-    }
-    body.dark .read-btn.primary{
-      border-color: rgba(255,255,255,0.18);
-    }
-    .read-btn.primary:hover{ filter: brightness(1.05); }
-
-    /* FOOTER */
-    .footer{
-      border-top:1px solid var(--border);
-      padding:22px 20px;
-      background: linear-gradient(135deg, var(--card), var(--bg));
-      color: var(--muted);
-      font-weight:800;
-    }
-
-    .footer-inner{
-      max-width:1100px;
-      margin:auto;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    .footer a{
-      color: var(--text);
-      text-decoration:none;
-      border-bottom: 1px solid rgba(0,0,0,0.15);
-      font-weight:900;
-    }
-    body.dark .footer a{ border-bottom-color: rgba(255,255,255,0.18); }
-    .footer a:hover{ opacity:0.9; }
-
-    /* MODAL */
-    .modal{
-      position:fixed;
-      inset:0;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:18px;
-      z-index:9999;
-    }
-    .modal.open{ display:flex; }
-
-    .modal-backdrop{
-      position:absolute;
-      inset:0;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(6px);
-    }
-
-    .modal-panel{
-      position:relative;
-      width:min(860px, 100%);
-      max-height: min(86vh, 820px);
-      overflow:auto;
-      border-radius:18px;
-      border:1px solid var(--border);
-      background: linear-gradient(135deg, var(--card), var(--bg));
-      box-shadow: var(--shadow);
-    }
-
-    .modal-head{
-      padding:18px 18px 10px 18px;
-      border-bottom:1px solid var(--border);
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:14px;
-    }
-
-    .modal-titlebar{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      flex:1;
-      min-width:0;
-    }
-
-    .modal-title-wrap{
-      flex:1;
-      min-width:0;
-    }
-
-    .modal-logo{
-      flex-shrink:0;
-      height:84px;
-      width:auto;
-      max-width:170px;
-      object-fit:contain;
-      border-radius:10px;
-      background:#000;
-      border:1px solid var(--border);
-      padding:6px;
-      display:none;
-    }
-    .modal-logo.show{ display:block; }
-
-    .modal-title{
-      margin:0;
-      font-size:22px;
-      font-weight:950;
-      letter-spacing:-0.3px;
-      line-height:1.25;
-    }
-
-    .modal-close{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:42px;
-      height:42px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background: rgba(0,0,0,0.02);
-      color: var(--text);
-      cursor:pointer;
-      font-weight:900;
-      transition:.2s;
-      flex-shrink:0;
-    }
-    body.dark .modal-close{ background: rgba(255,255,255,0.05); }
-    .modal-close:hover{ background: var(--btn-hover); transform: translateY(-2px); }
-
-    .modal-body{
-      padding:16px 18px 18px 18px;
-    }
-
-    .modal-meta{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-bottom:12px;
-    }
-
-    .modal-text{
-      color: var(--muted);
-      font-weight:750;
-      line-height:1.8;
-      margin: 0 0 14px 0;
-    }
-
-    .modal-list{
-      margin:0;
-      padding:0 0 0 18px;
-      color: var(--text);
-      font-weight:800;
-      line-height:1.9;
-    }
-
-    .modal-actions{
-      margin-top:16px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-      border-top:1px solid var(--border);
-      padding-top:14px;
-    }
-
-    .link-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background: rgba(0,0,0,0.02);
-      color: var(--text);
-      font-weight:950;
-      text-decoration:none;
-      transition:.2s;
-    }
-    body.dark .link-btn{ background: rgba(255,255,255,0.05); }
-    .link-btn:hover{ background: var(--btn-hover); transform: translateY(-2px); }
-
-    .link-btn.primary{
-      color:#fff;
-      border-color: rgba(255,255,255,0.14);
-      background: linear-gradient(135deg, #1d4ed8, #2563eb);
-    }
-    body.dark .link-btn.primary{ border-color: rgba(255,255,255,0.18); }
-    .link-btn.primary:hover{ filter: brightness(1.05); }
-  </style>
 </head>
 
+
 <body>
-<header class="header">
-  <h1 class="title">Proje Portföyü</h1>
-  <div class="actions">
-    <a class="btn" href="index.html">← Ana Sayfa</a>
-    <button class="btn" id="themeBtn" type="button" onclick="toggleTheme()">🌑 Koyu Mod</button>
-  </div>
-</header>
 
-  <main class="container">
-    <div class="toolbar">
-<div class="legend" aria-label="Durum Açıklaması">
-  <div class="search-wrap">
-  <input id="search" class="search" type="search" placeholder="Proje ara (isim / etiket)..." />
-</div>
-
-  <span class="legend-item"><span class="dot ok"></span> Aktif</span>
-  <span class="legend-item"><span class="dot bad"></span> Hazırlık</span>
-  <span class="legend-item"><span class="dot warn"></span> Planlama</span>
-</div>
+<div class="app">
 
 
-    
+<!-- =======================================================
+     PROJELER ANA SAYFASI
+======================================================= -->
+
+<section
+class="page projects-page"
+id="projectsPage">
+
+<div class="projects-header">
+
+    <div class="projects-header-top">
+
+        <div class="projects-title-area">
+
+            <h1>Projeler</h1>
+
+            <p>
+                Geliştirdiğimiz projeleri keşfet.
+            </p>
+
+        </div>
+
     </div>
 
-    <section class="projects-grid" id="grid" aria-label="Proje Listesi">
-
-      <!-- 1) AKTİF -->
-      <article class="project-card"
-        data-id="iyi-yol"
-        data-title="İyi Yol Akademi"
-        data-status="active"
-        data-statuslabel="Aktif"
-        data-priority="1"
-        data-short="Kişisel gelişim, içerik ve odak araçlarını bir araya getiren mobil platform."
-        data-long="İyi Yol Akademi; kitap özetleri, blog içerikleri ve odak araçlarını tek bir çatı altında sunan bir mobil platformdur. Amaç; içerik + araç + sistem yaklaşımıyla kullanıcıların düzenli gelişimini destekleyen, sürdürülebilir bir deneyim oluşturmaktır."
-        data-tags="mobil ürün içerik"
-        data-link="https://play.google.com/store/apps/details?id=com.iyiyolakademi&hl=tr"
-        data-linklabel="Google Play"
-        data-apple="https://apps.apple.com/tr/app/i-yi-yol-akademi/id6751721028?l=tr"
-        data-applelabel="App Store"
-        data-logo="images/iyi-yol.jpeg">
-
-        <div class="project-head">
-          <h3 class="project-title">İyi Yol Akademi</h3>
-          <div class="meta-row">
-            <span class="priority-pill"><span class="prio-dot"></span> Proje 1</span>
-            <span class="status-pill status-active"><span class="status-dot"></span> Aktif</span>
-          </div>
-        </div>
-
-        <p class="project-desc">Kişisel gelişim, içerik ve odak araçlarını bir araya getiren mobil platform.</p>
-
-        <div class="project-tags">
-
-        </div>
-
-        <div class="card-actions">
-          <button class="read-btn primary" type="button" data-open="iyi-yol">Detayları Görüntüle →</button>
-        </div>
-      </article>
-
-      <!-- 2) HABITOPIA -->
-      <article class="project-card"
-        data-id="habitopia"
-        data-title="Habitopia"
-        data-status="planned"
-        data-statuslabel="Planlama"
-        data-priority="3"
-        data-short="Kullanıcıların kendi karakterlerini yaratıp geliştirdiği, eğlenceli kişisel gelişim konsepti."
-        data-long="Habitopia; kullanıcıların kendi karakterlerini yarattığı ve bu karakteri geliştirmek için günlük kişisel gelişim görevlerini tamamladığı, oyunlaştırılmış bir kişisel gelişim konseptidir. Amaç; alışkanlık oluşturmayı ve düzenli gelişimi, karakter ilerleme mekanikleriyle eğlenceli ve sürdürülebilir hale getirmektir."
-        data-tags="oyunlaştırma alışkanlık kişisel gelişim karakter mobil"
-        data-link="#"
-        data-linklabel="Ürün Sayfası (Yakında)"
-        data-apple="#"
-        data-applelabel="App Store"
-        data-logo="images/habitopia.jpeg">
-
-        <div class="project-head">
-          <h3 class="project-title">Habitopia</h3>
-          <div class="meta-row">
-            <span class="priority-pill"><span class="prio-dot"></span> Proje 3</span>
-            <span class="status-pill status-planned"><span class="status-dot"></span> Planlama</span>
-          </div>
-        </div>
-
-        <p class="project-desc">Kullanıcıların kendi karakterlerini yaratıp geliştirdiği, eğlenceli kişisel gelişim konsepti.</p>
-
-        <div class="project-tags">
-       
-        </div>
-
-        <div class="card-actions">
-          <button class="read-btn" type="button" data-open="habitopia">Detayları Görüntüle →</button>
-        </div>
-      </article>
-
-      <!-- 3) LIFE QUESTING -->
-      <article class="project-card"
-        data-id="life-questing"
-        data-title="Life Questing"
-        data-status="planned"
-        data-statuslabel="Planlama"
-        data-priority="4"
-        data-short="Kullanıcıya kişisel asistan görevi görecek, yapay zeka destekli bir proje."
-        data-long="Life Questing; kullanıcının günlük yaşamında kişisel asistan görevi görecek, yapay zeka destekli bir sistemdir. Amaç; kullanıcının hedeflerini, görevlerini ve rutinlerini takip ederek ona akıllı öneriler ve destek sunan, yapay zeka temelli bir yardımcı deneyim oluşturmaktır."
-        data-tags="yapay zeka kişisel asistan görev takip yazılım"
-        data-link="#"
-        data-linklabel="Ürün Sayfası (Yakında)"
-        data-apple="#"
-        data-applelabel="App Store"
-        data-logo="images/life-questing.jpeg">
-
-        <div class="project-head">
-          <h3 class="project-title">Life Questing</h3>
-          <div class="meta-row">
-            <span class="priority-pill"><span class="prio-dot"></span> Proje 4</span>
-            <span class="status-pill status-planned"><span class="status-dot"></span> Planlama</span>
-          </div>
-        </div>
-
-        <p class="project-desc">Kullanıcıya kişisel asistan görevi görecek, yapay zeka destekli bir proje.</p>
-
-        <div class="project-tags">
-   
-        </div>
-
-        <div class="card-actions">
-          <button class="read-btn" type="button" data-open="life-questing">Detayları Görüntüle →</button>
-        </div>
-      </article>
-
-      <!-- 4) SEN2 ROBOT -->
-      <article class="project-card"
-        data-id="sen2"
-        data-title="Sen2 Robot Projesi"
-        data-status="planned"
-        data-statuslabel="Planlama"
-        data-priority="2"
-        data-short="Donanım + yazılım bütünleşik Ar-Ge çalışması. Özellikler şu aşamada gizli olarak tutulmaktadır."
-        data-long="Sen2; donanım ve yazılımın birlikte ilerlediği, sensör/otomasyon temelli bir Ar-Ge projesidir. Özellik ve mimari detaylar bu aşamada gizli tutulmaktadır. Proje iki aşamada tamamlanacaktır: 1) Temel ve başlangıç sürümü 2) Kapsamlı sürüm (final)."
-        data-tags="sen2 robot donanım yazılım otomasyon ar-ge"
-        data-link="#"
-        data-linklabel="Teknik Sayfa (Yakında)"
-        data-apple="#"
-        data-applelabel="App Store">
-
-        <div class="project-head">
-          <h3 class="project-title">Sen2 Robot Projesi</h3>
-          <div class="meta-row">
-            <span class="priority-pill"><span class="prio-dot"></span> Proje 2</span>
-            <span class="status-pill status-planned"><span class="status-dot"></span> Planlama</span>
-          </div>
-        </div>
-
-        <p class="project-desc">Donanım + yazılım bütünleşik Ar-Ge çalışması. Özellikler şu aşamada gizli olarak geliştirilmektedir.</p>
-
-        <div class="project-tags">
-  
-        </div>
-
-        <div class="card-actions">
-          <button class="read-btn" type="button" data-open="sen2">Detayları Görüntüle →</button>
-        </div>
-      </article>
-
-    </section>
-  </main>
+</div>
 
 
+<div class="projects-grid">
 
-  <!-- MODAL -->
-  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Proje Detayı">
-    <div class="modal-backdrop" id="backdrop"></div>
 
-    <div class="modal-panel" role="document" aria-label="Detay paneli">
-      <div class="modal-head">
-        <div class="modal-titlebar">
-          <div class="modal-title-wrap">
-            <h2 class="modal-title" id="mTitle">Proje</h2>
-            <div class="modal-meta" id="mMeta"></div>
-          </div>
-          <img class="modal-logo" id="mLogo" alt="" />
-        </div>
-        <button class="modal-close" id="closeBtn" type="button" aria-label="Kapat">✕</button>
-      </div>
+<!-- =======================================================
+     İYİ YOL AKADEMİ
+======================================================= -->
 
-      <div class="modal-body">
-        <p class="modal-text" id="mLong"></p>
-        <ul class="modal-list" id="mList"></ul>
+<div
+class="project-card iyiyol-card"
+onclick="openProject('iyiyol')">
 
-        <div class="modal-actions">
-          <a class="link-btn" href="projects.html" id="mRefresh">Liste</a>
-          <a class="link-btn" href="#" id="mApple" target="_blank" rel="noopener">App Store →</a>
-          <a class="link-btn primary" href="#" id="mLink" target="_blank" rel="noopener">Bağlantıyı Aç</a>
-        </div>
-      </div>
+    <div class="card-bg"></div>
+
+    <div class="card-decoration">
+
+        <span></span>
+
+        AKTİF PROJE
+
     </div>
-  </div>
 
-  <script>
-    /* Tema */
-    function applyTheme(theme){
-      const body = document.body;
-      const btn = document.getElementById("themeBtn");
-      if(theme === "dark"){
-        body.classList.add("dark");
-        if(btn) btn.textContent = "☀️ Açık Mod";
-      }else{
-        body.classList.remove("dark");
-        if(btn) btn.textContent = "🌑 Koyu Mod";
-      }
-    }
 
-    function toggleTheme(){
-      const isDark = document.body.classList.toggle("dark");
-      const newTheme = isDark ? "dark" : "light";
-      localStorage.setItem("theme", newTheme);
-      applyTheme(newTheme);
-    }
+    <div class="project-logo-area">
 
-    (function initTheme(){
-      const savedTheme = localStorage.getItem("theme");
-      if(savedTheme){ applyTheme(savedTheme); return; }
-      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-      applyTheme(prefersDark ? "dark" : "light");
-    })();
+        <!--
+        BURAYA İYİ YOL AKADEMİ LOGO ADRESİNİ EKLE
+        LOGO KARE OLMALI
+        -->
 
-    /* Arama */
-    const search = document.getElementById("search");
-    const cards = Array.from(document.querySelectorAll(".project-card"));
+        <img
+        src="iyi-yol-akademi.jpg"
+        class="project-logo"
+        alt="İyi Yol Akademi">
 
-    function normalize(s){
-      return (s || "").toString().toLowerCase().trim();
-    }
+    </div>
 
-    function filterProjects(q){
-      const query = normalize(q);
-      cards.forEach(card => {
-        const title = normalize(card.dataset.title);
-        const tags = normalize(card.dataset.tags);
-        const hit = !query || title.includes(query) || tags.includes(query);
-        card.style.display = hit ? "" : "none";
-      });
-    }
 
-if (search) {
-  search.addEventListener("input", (e) => filterProjects(e.target.value));
+    <div class="card-content">
+
+        <div class="project-tag">
+
+            <div class="project-tag-dot"></div>
+
+            PROJE
+
+        </div>
+
+
+        <div class="project-name">
+
+            İyi Yol Akademi
+
+        </div>
+
+
+        <div class="project-description">
+
+            Projeyi keşfetmek ve detaylarını
+            incelemek için dokun.
+
+        </div>
+
+    </div>
+
+
+    <div class="project-arrow">
+
+        <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2">
+
+            <path d="M5 12h14"></path>
+
+            <path d="m13 6 6 6-6 6"></path>
+
+        </svg>
+
+    </div>
+
+</div>
+
+
+
+<!-- =======================================================
+     HABITOPIA
+======================================================= -->
+
+<div
+class="project-card habitopia-card"
+onclick="openProject('habitopia')">
+
+    <div class="card-bg"></div>
+
+
+    <div class="card-decoration">
+
+        <span></span>
+
+        PROJE
+
+    </div>
+
+
+    <div class="project-logo-area">
+
+        <!--
+        BURAYA HABITOPIA LOGO ADRESİNİ EKLE
+        -->
+
+        <img
+        src="habitopia.jpg"
+        class="project-logo"
+        alt="Habitopia">
+
+    </div>
+
+
+    <div class="card-content">
+
+        <div class="project-tag">
+
+            <div
+            class="project-tag-dot"
+            style="background:#8fa778">
+            </div>
+
+            PROJE
+
+        </div>
+
+
+        <div class="project-name">
+
+            Habitopia
+
+        </div>
+
+
+        <div class="project-description">
+
+            Habitopia'nın vizyonunu ve
+            proje detaylarını keşfet.
+
+        </div>
+
+    </div>
+
+
+    <div class="project-arrow">
+
+        <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2">
+
+            <path d="M5 12h14"></path>
+
+            <path d="m13 6 6 6-6 6"></path>
+
+        </svg>
+
+    </div>
+
+</div>
+
+
+
+<!-- =======================================================
+     OYNABAK
+======================================================= -->
+
+<div
+class="project-card oynabak-card"
+onclick="openProject('oynabak')">
+
+    <div class="card-bg"></div>
+
+
+    <div class="card-decoration">
+
+        <span></span>
+
+        YENİ PROJE
+
+    </div>
+
+
+    <div class="project-logo-area">
+
+        <div class="oynabak-logo">
+
+            <div class="oynabak-icon"></div>
+
+            <div class="oynabak-name-logo">
+
+                oyna<span>bak</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="card-content">
+
+        <div class="project-tag">
+
+            <div
+            class="project-tag-dot"
+            style="background:#816cff">
+            </div>
+
+            PROJE
+
+        </div>
+
+
+        <div class="project-name">
+
+            Oynabak
+
+        </div>
+
+
+        <div class="project-description">
+
+            Yeni nesil sosyal oyun ve
+            işletme deneyimini keşfet.
+
+        </div>
+
+    </div>
+
+
+    <div class="project-arrow">
+
+        <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2">
+
+            <path d="M5 12h14"></path>
+
+            <path d="m13 6 6 6-6 6"></path>
+
+        </svg>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     PROJE DETAY SAYFASI
+======================================================= -->
+
+<section
+class="project-detail-page"
+id="detailPage">
+
+
+<!-- HERO -->
+
+<div class="detail-hero">
+
+    <div
+    class="detail-glow"
+    id="detailGlow">
+    </div>
+
+
+    <div class="detail-nav">
+
+        <button
+        class="back-button"
+        onclick="closeProject()">
+
+            <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2">
+
+                <path d="m15 18-6-6 6-6"></path>
+
+            </svg>
+
+        </button>
+
+
+        <div class="detail-nav-label">
+
+            PROJE DETAYLARI
+
+        </div>
+
+    </div>
+
+
+
+    <div class="detail-hero-content">
+
+
+        <div
+        class="detail-logo"
+        id="detailLogo">
+        </div>
+
+
+        <div class="detail-headline">
+
+
+            <div class="detail-type">
+
+                PROJE
+
+            </div>
+
+
+            <h1
+            class="detail-title"
+            id="detailTitle">
+
+            </h1>
+
+
+            <p
+            class="detail-short-description"
+            id="detailDescription">
+
+            </p>
+
+
+            <div
+            class="detail-badges"
+            id="detailBadges">
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- DETAY BODY -->
+
+<div class="detail-content">
+
+
+    <div
+    class="project-meta"
+    id="projectMeta">
+    </div>
+
+
+
+    <div class="detail-grid">
+
+
+        <!-- SOL -->
+
+        <div>
+
+
+            <div class="content-card">
+
+                <div class="section-mini">
+
+                    PROJE HAKKINDA
+
+                </div>
+
+
+                <h2 id="aboutTitle">
+
+                    Proje hakkında
+
+                </h2>
+
+
+                <p id="aboutText">
+                </p>
+
+            </div>
+
+
+
+            <div class="content-card">
+
+                <div class="section-mini">
+
+                    ÖNE ÇIKANLAR
+
+                </div>
+
+
+                <h2>
+
+                    Projede neler var?
+
+                </h2>
+
+
+                <div
+                class="features-list"
+                id="featuresList">
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- SAĞ -->
+
+        <div>
+
+
+            <div
+            class="vision-card"
+            id="visionCard">
+
+                <div class="section-mini">
+
+                    VİZYON
+
+                </div>
+
+
+                <h3>
+
+                    Projenin amacı
+
+                </h3>
+
+
+                <p id="visionText">
+                </p>
+
+            </div>
+
+
+
+            <div class="status-card">
+
+
+                <div class="section-mini">
+
+                    PROJE BİLGİLERİ
+
+                </div>
+
+
+                <div id="statusList">
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<div class="detail-footer">
+
+    <button
+    class="back-projects-button"
+    onclick="closeProject()">
+
+        <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2">
+
+            <path d="m15 18-6-6 6-6"></path>
+
+        </svg>
+
+        Tüm Projelere Dön
+
+    </button>
+
+</div>
+
+
+</section>
+
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   PROJE VERİLERİ
+========================================================= */
+
+const projects = {
+
+
+/* =========================================================
+   İYİ YOL AKADEMİ
+========================================================= */
+
+iyiyol:{
+
+    title:"İyi Yol Akademi",
+
+    color:"#e0a42d",
+
+    logo:`
+        <img
+        src="iyi-yol-akademi.jpg"
+        alt="İyi Yol Akademi">
+    `,
+
+    description:
+    "Kişisel gelişim, eğitim ve kültürü tek bir dijital deneyimde buluşturan yeni nesil mobil platform.",
+
+    badges:[
+        "Kişisel Gelişim",
+        "Eğitim",
+        "Mobil Uygulama"
+    ],
+
+    meta:[
+
+        {
+            label:"PROJE TÜRÜ",
+            value:"Mobil Platform"
+        },
+
+        {
+            label:"ODAK",
+            value:"Kişisel Gelişim"
+        },
+
+        {
+            label:"DURUM",
+            value:"Aktif"
+        }
+
+    ],
+
+    aboutTitle:
+    "Gelişimi herkes için ulaşılabilir hale getiren bir platform",
+
+    about:
+    `İyi Yol Akademi; kullanıcıların kendilerini geliştirebilecekleri,
+    yeni bilgiler keşfedebilecekleri ve günlük yaşamlarında
+    faydalanabilecekleri içerikleri tek bir platformda bir araya getirmek
+    amacıyla geliştirilen kapsamlı bir dijital projedir.
+
+    Platform yalnızca içerik sunmayı değil, kullanıcıya sürekli
+    gelişebileceği düzenli ve kaliteli bir dijital alan oluşturmayı
+    hedefler.`,
+
+    features:[
+
+        {
+            title:"Kitap Özetleri",
+
+            text:
+            "Seçilen kitapların temel fikirlerini daha kısa ve anlaşılır şekilde keşfet."
+        },
+
+        {
+            title:"Kitap ve Film Önerileri",
+
+            text:
+            "Kişisel gelişim ve kültür dünyasına katkı sağlayacak özel seçkiler."
+        },
+
+        {
+            title:"İngilizce İçerikleri",
+
+            text:
+            "Kullanıcıların İngilizce gelişimini destekleyen eğitim içerikleri."
+        },
+
+        {
+            title:"Blog ve Bilgi İçerikleri",
+
+            text:
+            "Farklı konularda düzenli olarak sunulan bilgilendirici içerikler."
+        }
+
+    ],
+
+    vision:
+    `İyi Yol Akademi'nin temel amacı,
+    insanların gelişim yolculuklarında her gün
+    kullanabilecekleri güçlü ve güvenilir bir dijital
+    platform oluşturmaktır.`,
+
+    status:[
+
+        {
+            name:"Platform",
+            value:"Mobil"
+        },
+
+        {
+            name:"Kategori",
+            value:"Eğitim"
+        },
+
+        {
+            name:"Proje",
+            value:"İyi Yol Akademi"
+        }
+
+    ]
+
+},
+
+
+
+/* =========================================================
+   HABITOPIA
+========================================================= */
+
+habitopia:{
+
+    title:"Habitopia",
+
+    color:"#84956d",
+
+    logo:`
+        <img
+        src="habitopia.jpg"
+        alt="Habitopia">
+    `,
+
+    description:
+    "Alışkanlıkları, hedefleri ve kişisel gelişimi daha düzenli bir sisteme dönüştüren dijital yaşam projesi.",
+
+    badges:[
+        "Alışkanlık",
+        "Verimlilik",
+        "Yaşam"
+    ],
+
+    meta:[
+
+        {
+            label:"PROJE TÜRÜ",
+            value:"Dijital Platform"
+        },
+
+        {
+            label:"ODAK",
+            value:"Alışkanlıklar"
+        },
+
+        {
+            label:"DURUM",
+            value:"Geliştiriliyor"
+        }
+
+    ],
+
+    aboutTitle:
+    "Küçük alışkanlıklardan daha güçlü bir yaşam sistemine",
+
+    about:
+    `Habitopia, insanların günlük alışkanlıklarını daha düzenli
+    hale getirmesine ve kişisel hedeflerini takip etmesine yardımcı
+    olmak amacıyla tasarlanan bir projedir.
+
+    Kullanıcının büyük hedeflerini küçük ve sürdürülebilir adımlara
+    dönüştürmesine yardımcı olan sade, motive edici ve düzenli
+    bir deneyim oluşturulması hedeflenmektedir.`,
+
+    features:[
+
+        {
+            title:"Alışkanlık Takibi",
+
+            text:
+            "Günlük alışkanlıklarını oluştur ve gelişimini düzenli olarak takip et."
+        },
+
+        {
+            title:"Hedef Sistemi",
+
+            text:
+            "Büyük hedeflerini daha küçük ve gerçekleştirilebilir adımlara ayır."
+        },
+
+        {
+            title:"Kişisel İlerleme",
+
+            text:
+            "Zaman içerisindeki gelişimini daha anlaşılır biçimde görüntüle."
+        },
+
+        {
+            title:"Düzenli Yaşam",
+
+            text:
+            "Günlük hayatı daha planlı ve sürdürülebilir hale getirmeye yardımcı ol."
+        }
+
+    ],
+
+    vision:
+    `Habitopia'nın amacı insanların yalnızca hedef belirlediği
+    değil, o hedefleri günlük yaşamlarının doğal bir parçasına
+    dönüştürebildiği bir sistem oluşturmaktır.`,
+
+    status:[
+
+        {
+            name:"Platform",
+            value:"Dijital"
+        },
+
+        {
+            name:"Kategori",
+            value:"Yaşam"
+        },
+
+        {
+            name:"Proje",
+            value:"Habitopia"
+        }
+
+    ]
+
+},
+
+
+
+/* =========================================================
+   OYNABAK
+========================================================= */
+
+oynabak:{
+
+    title:"Oynabak",
+
+    color:"#694fff",
+
+    logo:`
+
+        <div class="oynabak-logo">
+
+            <div class="oynabak-icon"></div>
+
+            <div class="oynabak-name-logo">
+
+                oyna<span>bak</span>
+
+            </div>
+
+        </div>
+
+    `,
+
+    description:
+    "Kafelerden spor salonlarına ve mağazalara kadar fiziksel mekanları sosyal ve eğlenceli deneyimlerle buluşturan yeni nesil proje.",
+
+    badges:[
+        "Oyun",
+        "Sosyal",
+        "İşletmeler"
+    ],
+
+    meta:[
+
+        {
+            label:"PROJE TÜRÜ",
+            value:"Sosyal Platform"
+        },
+
+        {
+            label:"ODAK",
+            value:"Oyun & Deneyim"
+        },
+
+        {
+            label:"DURUM",
+            value:"Yeni Proje"
+        }
+
+    ],
+
+    aboutTitle:
+    "Gerçek mekanları dijital eğlenceyle birleştiren yeni bir deneyim",
+
+    about:
+    `Oynabak; kafeler, spor salonları, mağazalar ve farklı
+    işletmeler için geliştirilen sosyal ve etkileşimli bir
+    deneyim projesidir.
+
+    Kullanıcıların bulundukları mekanlarda arkadaşlarıyla
+    oynayabilecekleri oyunlar ve farklı etkileşimler üzerinden
+    daha eğlenceli zaman geçirmesi hedeflenmektedir.
+
+    Aynı zamanda işletmeler açısından müşterilerin mekanda
+    geçirdiği zamanı ve etkileşimi artırabilecek yeni bir
+    dijital deneyim oluşturmayı amaçlar.`,
+
+    features:[
+
+        {
+            title:"Çok Oyunculu Oyunlar",
+
+            text:
+            "Arkadaşlarla aynı ortamda oynanabilecek iki, üç ve dört kişilik oyun deneyimleri."
+        },
+
+        {
+            title:"İşletme Entegrasyonu",
+
+            text:
+            "Kafe, spor salonu ve mağazaların kendi müşterilerine farklı deneyimler sunabilmesi."
+        },
+
+        {
+            title:"Sosyal Deneyim",
+
+            text:
+            "İnsanların aynı ortamda daha fazla etkileşime geçmesini sağlayan oyun yapısı."
+        },
+
+        {
+            title:"Yeni Nesil Eğlence",
+
+            text:
+            "Fiziksel mekanlarla dijital oyunları bir araya getiren farklı bir kullanıcı deneyimi."
+        }
+
+    ],
+
+    vision:
+    `Oynabak'ın amacı fiziksel işletmeleri yalnızca ziyaret
+    edilen yerler olmaktan çıkarıp, insanların birlikte
+    eğlenebileceği ve etkileşime geçebileceği deneyim alanlarına
+    dönüştürmektir.`,
+
+    status:[
+
+        {
+            name:"Platform",
+            value:"Web / Mobil"
+        },
+
+        {
+            name:"Kategori",
+            value:"Eğlence"
+        },
+
+        {
+            name:"Proje",
+            value:"Oynabak"
+        }
+
+    ]
+
 }
 
-    /* MODAL */
-    const modal = document.getElementById("modal");
-    const backdrop = document.getElementById("backdrop");
-    const closeBtn = document.getElementById("closeBtn");
+};
 
-    const mTitle = document.getElementById("mTitle");
-    const mMeta  = document.getElementById("mMeta");
-    const mLong  = document.getElementById("mLong");
-    const mList  = document.getElementById("mList");
-    const mLink  = document.getElementById("mLink");
-    const mApple = document.getElementById("mApple");
-    const mLogo  = document.getElementById("mLogo");
 
-    function statusPillHTML(status, label){
-      if(status === "active"){
-        return `<span class="status-pill status-active"><span class="status-dot"></span> ${label}</span>`;
-      }
-      if(status === "planned"){
-        return `<span class="status-pill status-planned"><span class="status-dot"></span> ${label}</span>`;
-      }
-      return `<span class="status-pill status-building"><span class="status-dot"></span> ${label}</span>`;
+
+/* =========================================================
+   FEATURE ICON
+========================================================= */
+
+const featureIcon = `
+
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2">
+
+    <path
+    d="M12 3 4 7v5c0 5 3.5 8.5 8 9
+    4.5-.5 8-4 8-9V7l-8-4Z">
+    </path>
+
+    <path d="m9 12 2 2 4-4"></path>
+
+</svg>
+
+`;
+
+
+
+/* =========================================================
+   PROJE AÇ
+========================================================= */
+
+function openProject(id){
+
+    const project = projects[id];
+
+
+    if(!project){
+        return;
     }
 
-    function openModalFromCard(card){
-      const title = card.dataset.title || "Proje";
-      const status = card.dataset.status || "building";
-      const statusLabel = card.dataset.statuslabel || "Durum";
-      const prio = card.dataset.priority || "-";
-      const longText = card.dataset.long || "";
-      const bulletsRaw = card.dataset.bullets || "";
-      const link = card.dataset.link || "#";
-      const linkLabel = card.dataset.linklabel || "Bağlantı";
 
-      const apple = card.dataset.apple || "#";
-      const appleLabel = card.dataset.applelabel || "App Store";
+    /* BAŞLIK */
 
-      const logo = card.dataset.logo || "";
+    document.getElementById(
+        "detailTitle"
+    ).innerText = project.title;
 
-      mTitle.textContent = title;
 
-      mMeta.innerHTML = `
-        <span class="priority-pill"><span class="prio-dot"></span> Öncelik ${prio}</span>
-        ${statusPillHTML(status, statusLabel)}
-      `;
+    document.getElementById(
+        "detailDescription"
+    ).innerText = project.description;
 
-      mLong.textContent = longText;
 
-      mList.innerHTML = "";
-      const items = bulletsRaw.split("|").map(s => s.trim()).filter(Boolean);
-      items.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item.replace(/,$/, "");
-        mList.appendChild(li);
-      });
+    /* LOGO */
 
-      /* Logo */
-      if(logo){
-        mLogo.src = logo;
-        mLogo.alt = title + " logo";
-        mLogo.classList.add("show");
-      } else {
-        mLogo.src = "";
-        mLogo.classList.remove("show");
-      }
+    document.getElementById(
+        "detailLogo"
+    ).innerHTML = project.logo;
 
-      /* Ana link */
-      mLink.textContent = linkLabel + " →";
-      mLink.href = link;
 
-      if(link === "#"){
-        mLink.setAttribute("aria-disabled", "true");
-        mLink.style.opacity = "0.6";
-        mLink.style.pointerEvents = "none";
-      } else {
-        mLink.removeAttribute("aria-disabled");
-        mLink.style.opacity = "1";
-        mLink.style.pointerEvents = "auto";
-      }
+    /* GLOW */
 
-      /* Apple */
-      if(apple === "#"){
-        mApple.style.display = "none";
-      } else {
-        mApple.style.display = "inline-flex";
-        mApple.textContent = appleLabel + " →";
-        mApple.href = apple;
-      }
+    document.getElementById(
+        "detailGlow"
+    ).style.background = project.color;
 
-      modal.classList.add("open");
-      modal.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
+
+    /* BADGE */
+
+    document.getElementById(
+        "detailBadges"
+    ).innerHTML =
+
+    project.badges.map(
+
+        badge => `
+
+        <div class="detail-badge">
+
+            ${badge}
+
+        </div>
+
+        `
+
+    ).join("");
+
+
+    /* META */
+
+    document.getElementById(
+        "projectMeta"
+    ).innerHTML =
+
+    project.meta.map(
+
+        item => `
+
+        <div class="meta-box">
+
+            <div class="meta-label">
+
+                ${item.label}
+
+            </div>
+
+            <div class="meta-value">
+
+                ${item.value}
+
+            </div>
+
+        </div>
+
+        `
+
+    ).join("");
+
+
+    /* ABOUT */
+
+    document.getElementById(
+        "aboutTitle"
+    ).innerText =
+        project.aboutTitle;
+
+
+    document.getElementById(
+        "aboutText"
+    ).innerText =
+        project.about;
+
+
+    /* FEATURES */
+
+    document.getElementById(
+        "featuresList"
+    ).innerHTML =
+
+    project.features.map(
+
+        feature => `
+
+        <div class="feature-item">
+
+            <div class="feature-icon">
+
+                ${featureIcon}
+
+            </div>
+
+            <div class="feature-text">
+
+                <strong>
+
+                    ${feature.title}
+
+                </strong>
+
+                <span>
+
+                    ${feature.text}
+
+                </span>
+
+            </div>
+
+        </div>
+
+        `
+
+    ).join("");
+
+
+    /* VISION */
+
+    document.getElementById(
+        "visionText"
+    ).innerText =
+        project.vision;
+
+
+    document.getElementById(
+        "visionCard"
+    ).style.setProperty(
+        "--project-color",
+        project.color
+    );
+
+
+    /* STATUS */
+
+    document.getElementById(
+        "statusList"
+    ).innerHTML =
+
+    project.status.map(
+
+        status => `
+
+        <div class="status-line">
+
+            <div class="status-title">
+
+                ${status.name}
+
+            </div>
+
+            <div class="status-value">
+
+                ${status.value}
+
+            </div>
+
+        </div>
+
+        `
+
+    ).join("");
+
+
+    /* SAYFA GEÇİŞİ */
+
+    document.getElementById(
+        "projectsPage"
+    ).classList.add("hidden");
+
+
+    document.getElementById(
+        "detailPage"
+    ).classList.add("active");
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"instant"
+    });
+
+
+}
+
+
+
+/* =========================================================
+   PROJE DETAYINI KAPAT
+========================================================= */
+
+function closeProject(){
+
+    document.getElementById(
+        "detailPage"
+    ).classList.remove("active");
+
+
+    document.getElementById(
+        "projectsPage"
+    ).classList.remove("hidden");
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"instant"
+    });
+
+}
+
+
+
+/* =========================================================
+   TELEFON GERİ TUŞU BENZERİ
+========================================================= */
+
+window.addEventListener(
+    "popstate",
+    function(){
+
+        if(
+            document.getElementById(
+                "detailPage"
+            ).classList.contains("active")
+        ){
+
+            closeProject();
+
+        }
+
     }
+);
 
-    function closeModal(){
-      modal.classList.remove("open");
-      modal.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-    }
+</script>
 
-    document.addEventListener("click", (e) => {
-      const btn = e.target.closest("[data-open]");
-      if(!btn) return;
 
-      const id = btn.getAttribute("data-open");
-      const card = document.querySelector(`.project-card[data-id="${id}"]`);
-      if(card) openModalFromCard(card);
-    });
-
-    closeBtn.addEventListener("click", closeModal);
-    backdrop.addEventListener("click", closeModal);
-
-    document.addEventListener("keydown", (e) => {
-      if(e.key === "Escape" && modal.classList.contains("open")){
-        closeModal();
-      }
-    });
-
-    cards.forEach(card => {
-      card.addEventListener("click", (e) => {
-        if(e.target.closest("button, a")) return;
-        openModalFromCard(card);
-      });
-    });
-  </script>
 </body>
 </html>
