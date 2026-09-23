@@ -109,6 +109,65 @@ img{
     line-height:1.45;
 }
 
+/* ANA SİTEYE DÖN / ÇIKIŞ */
+.site-exit-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    min-height:42px;
+    padding:10px 16px;
+    border-radius:999px;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:-.1px;
+    border:1px solid rgba(0,0,0,.08);
+    box-shadow:0 8px 22px rgba(0,0,0,.08);
+    transition:transform .2s ease, background .2s ease;
+    flex-shrink:0;
+}
+
+.site-exit-button:hover{
+    transform:translateY(-2px);
+    background:#292929;
+}
+
+.site-exit-button:active{
+    transform:scale(.97);
+}
+
+.site-exit-button svg{
+    width:16px;
+    height:16px;
+}
+
+.detail-exit-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    min-height:40px;
+    padding:9px 14px;
+    border-radius:999px;
+    color:#fff;
+    text-decoration:none;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.5px;
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.10);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    transition:.2s;
+}
+
+.detail-exit-button:hover{
+    background:rgba(255,255,255,.15);
+}
+
 
 /* PROJE GRID */
 
@@ -1226,6 +1285,29 @@ img{
         font-size:11px;
     }
 
+    .projects-header-top{
+        align-items:center;
+    }
+
+    .site-exit-button{
+        min-height:40px;
+        padding:9px 12px;
+        font-size:11px;
+    }
+
+    .site-exit-button .exit-text-full{
+        display:none;
+    }
+
+    .site-exit-button .exit-text-short{
+        display:inline;
+    }
+
+    .detail-exit-button{
+        padding:9px 11px;
+        font-size:9px;
+    }
+
     .projects-grid{
         grid-template-columns:1fr;
         gap:14px;
@@ -1433,6 +1515,15 @@ id="projectsPage">
             </p>
 
         </div>
+
+        <a class="site-exit-button" href="index.html" aria-label="Ana siteye dön">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M19 12H5"></path>
+                <path d="m12 19-7-7 7-7"></path>
+            </svg>
+            <span class="exit-text-full">Ana Siteye Dön</span>
+            <span class="exit-text-short">Çıkış</span>
+        </a>
 
     </div>
 
@@ -1738,6 +1829,10 @@ id="detailPage">
             PROJE DETAYLARI
 
         </div>
+
+        <a class="detail-exit-button" href="index.html" aria-label="Ana siteye dön">
+            Siteye Dön ↗
+        </a>
 
     </div>
 
