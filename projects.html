@@ -296,7 +296,9 @@ img{
     width:100%;
     height:100%;
 
-    object-fit:cover;
+    object-fit:contain;
+    background:#fff;
+    padding:8px;
 }
 
 
@@ -720,7 +722,8 @@ img{
     width:100%;
     height:100%;
 
-    object-fit:cover;
+    object-fit:contain;
+    background:#fff;
 }
 
 .detail-logo .oynabak-logo{
@@ -1466,7 +1469,7 @@ onclick="openProject('iyiyol')">
         -->
 
         <img
-        src="iyi-yol-akademi.jpg"
+        src="images/iyi-yol-akademi.jpg"
         class="project-logo"
         alt="İyi Yol Akademi">
 
@@ -1548,7 +1551,7 @@ onclick="openProject('habitopia')">
         -->
 
         <img
-        src="habitopia.jpg"
+        src="images/habitopia.jpg"
         class="project-logo"
         alt="Habitopia">
 
@@ -1628,17 +1631,10 @@ onclick="openProject('oynabak')">
 
     <div class="project-logo-area">
 
-        <div class="oynabak-logo">
-
-            <div class="oynabak-icon"></div>
-
-            <div class="oynabak-name-logo">
-
-                oyna<span>bak</span>
-
-            </div>
-
-        </div>
+        <img
+        src="images/oynabak.jpg"
+        class="project-logo"
+        alt="Oynabak">
 
     </div>
 
@@ -1976,7 +1972,7 @@ iyiyol:{
 
     logo:`
         <img
-        src="iyi-yol-akademi.jpg"
+        src="images/iyi-yol-akademi.jpg"
         alt="İyi Yol Akademi">
     `,
 
@@ -2094,7 +2090,7 @@ habitopia:{
 
     logo:`
         <img
-        src="habitopia.jpg"
+        src="images/habitopia.jpg"
         alt="Habitopia">
     `,
 
@@ -2209,19 +2205,9 @@ oynabak:{
     color:"#694fff",
 
     logo:`
-
-        <div class="oynabak-logo">
-
-            <div class="oynabak-icon"></div>
-
-            <div class="oynabak-name-logo">
-
-                oyna<span>bak</span>
-
-            </div>
-
-        </div>
-
+        <img
+        src="images/oynabak.jpg"
+        alt="Oynabak">
     `,
 
     description:
