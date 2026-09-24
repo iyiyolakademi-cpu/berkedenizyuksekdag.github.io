@@ -1,2 +1,819 @@
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Yazı | Berke Deniz Yüksekdağ</title><meta name="robots" content="index,follow"><style>:root{--bg:#0d0f14;--card:#181c25;--line:#292e3a;--gold:#d9a44a;--text:#f2eee4;--muted:#a6a298}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif;line-height:1.8}.nav{max-width:900px;margin:auto;padding:22px 20px;border-bottom:1px solid var(--line)}.nav a{color:var(--gold);text-decoration:none;font-weight:700}.article{max-width:820px;margin:auto;padding:55px 20px 90px}.cat{color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:.12em}h1{font-family:Georgia,serif;font-size:clamp(36px,7vw,64px);line-height:1.08;margin:12px 0 18px}.summary{font-size:18px;color:var(--muted);margin-bottom:18px}.meta{font-size:12px;color:var(--muted);padding-bottom:25px;border-bottom:1px solid var(--line)}.content{margin-top:36px;font-size:17px}.content h2,.content h3{font-family:Georgia,serif;line-height:1.25;margin-top:38px}.content a{color:var(--gold)}.content img{max-width:100%;height:auto;border-radius:14px}.content blockquote{border-left:3px solid var(--gold);margin:28px 0;padding:5px 0 5px 20px;color:var(--muted)}.error{padding:40px 0;color:var(--muted)}</style></head><body><nav class="nav"><a href="index.html#yazilar">← Yazılara dön</a></nav><article class="article" id="article"><div class="error">Yazı yükleniyor…</div></article><script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script><script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";import{getFirestore,doc,getDoc}from"https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";const firebaseConfig={apiKey:"AIzaSyBv3kaf0kCyP0WqFXtbmROTTVtj57upEFY",authDomain:"berke-web-panel.firebaseapp.com",projectId:"berke-web-panel",storageBucket:"berke-web-panel.firebasestorage.app",messagingSenderId:"956917805545",appId:"1:956917805545:web:46b1b3ba5a5881b7d1db78",measurementId:"G-NZ358NMQ0F"};const db=getFirestore(initializeApp(firebaseConfig));const id=new URLSearchParams(location.search).get("id"),root=document.getElementById("article");const esc=(s="")=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));function date(v){if(!v)return"";const d=v.toDate?v.toDate():new Date(v);return new Intl.DateTimeFormat("tr-TR",{day:"numeric",month:"long",year:"numeric"}).format(d)}async function load(){if(!id){root.innerHTML='<div class="error">Yazı bulunamadı.</div>';return}try{const snap=await getDoc(doc(db,"blogs",id));if(!snap.exists()||snap.data().published!==true){root.innerHTML='<div class="error">Bu yazı bulunamadı veya yayında değil.</div>';return}const x=snap.data();document.title=`${x.title} | Berke Deniz Yüksekdağ`;root.innerHTML=`<div class="cat">${esc(x.categoryLabel||x.category||"Yazı")}</div><h1>${esc(x.title)}</h1><div class="summary">${esc(x.summary||"")}</div><div class="meta">${esc(date(x.publishedAt||x.createdAt))}</div><div class="content">${DOMPurify.sanitize(x.content||"")}</div>`}catch(e){console.error(e);root.innerHTML='<div class="error">Yazı yüklenirken bir sorun oluştu.</div>'}}load();</script></body></html>
+<!doctype html>
+<html lang="tr">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Yazı | Berke Deniz Yüksekdağ</title>
+
+<meta name="robots" content="index,follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+
+<style>
+
+:root{
+
+  --bg:#ffffff;
+
+  --text:#202020;
+
+  --soft:#555555;
+
+  --muted:#7a7a7a;
+
+  --line:#e8e8e8;
+
+  --gold:#c98e32;
+
+  --light:#f8f8f8;
+
+}
+
+
+*{
+  box-sizing:border-box;
+}
+
+
+html{
+  background:#ffffff !important;
+  color-scheme:light !important;
+}
+
+
+body{
+
+  margin:0;
+
+  min-height:100vh;
+
+  background:#ffffff !important;
+
+  color:var(--text);
+
+  font-family:'Manrope',Arial,sans-serif;
+
+  line-height:1.8;
+
+}
+
+
+/* =========================
+   ÜST MENÜ
+========================= */
+
+.nav{
+
+  width:100%;
+
+  background:#ffffff !important;
+
+  border-bottom:1px solid var(--line);
+
+}
+
+
+.nav-inner{
+
+  max-width:900px;
+
+  margin:auto;
+
+  padding:27px 20px;
+
+}
+
+
+.nav a{
+
+  color:var(--gold);
+
+  text-decoration:none;
+
+  font-weight:700;
+
+  font-size:15px;
+
+}
+
+
+/* =========================
+   MAKALE
+========================= */
+
+.article{
+
+  max-width:820px;
+
+  margin:auto;
+
+  padding:60px 20px 100px;
+
+  background:#ffffff !important;
+
+}
+
+
+.cat{
+
+  color:var(--gold);
+
+  font-family:'JetBrains Mono',monospace;
+
+  font-size:12px;
+
+  font-weight:600;
+
+  text-transform:uppercase;
+
+  letter-spacing:.13em;
+
+  margin-bottom:17px;
+
+}
+
+
+h1{
+
+  font-family:'Fraunces',Georgia,serif;
+
+  font-size:clamp(40px,7vw,64px);
+
+  line-height:1.07;
+
+  letter-spacing:-.03em;
+
+  margin:0 0 22px;
+
+  color:#111111 !important;
+
+}
+
+
+.summary{
+
+  max-width:760px;
+
+  font-size:18px;
+
+  line-height:1.8;
+
+  color:#666666 !important;
+
+  margin-bottom:20px;
+
+}
+
+
+.meta{
+
+  font-size:13px;
+
+  color:#888888 !important;
+
+  padding-bottom:30px;
+
+  border-bottom:1px solid var(--line);
+
+}
+
+
+/* =========================
+   YAZI İÇERİĞİ
+========================= */
+
+.content{
+
+  margin-top:42px;
+
+  background:#ffffff !important;
+
+  color:#303030 !important;
+
+  font-size:18px;
+
+  line-height:1.9;
+
+}
+
+
+/* İçeriden gelen eski arka planları iptal et */
+
+.content,
+.content article,
+.content main,
+.content section,
+.content .article-container,
+.content .article-content,
+.content .ending{
+
+  background:#ffffff !important;
+
+}
+
+
+.content p{
+
+  color:#303030 !important;
+
+  margin:0 0 28px;
+
+}
+
+
+.content strong,
+.content b{
+
+  color:#111111 !important;
+
+  font-weight:700;
+
+}
+
+
+.content h1,
+.content h2,
+.content h3,
+.content h4{
+
+  color:#111111 !important;
+
+  font-family:'Fraunces',Georgia,serif;
+
+}
+
+
+.content h2{
+
+  font-size:30px;
+
+  margin:45px 0 20px;
+
+}
+
+
+.content h3{
+
+  font-size:24px;
+
+  margin:40px 0 18px;
+
+}
+
+
+.content a{
+
+  color:var(--gold) !important;
+
+}
+
+
+.content img{
+
+  display:block;
+
+  max-width:100%;
+
+  height:auto;
+
+  margin:35px auto;
+
+  border-radius:12px;
+
+}
+
+
+.content blockquote{
+
+  border-left:4px solid var(--gold);
+
+  margin:38px 0;
+
+  padding:8px 0 8px 22px;
+
+  color:#222222 !important;
+
+  font-family:'Fraunces',Georgia,serif;
+
+  font-size:22px;
+
+  line-height:1.6;
+
+}
+
+
+/* Daha önce hazırladığımız HTML ile uyumlu */
+
+.content .article-container{
+
+  width:100% !important;
+
+  max-width:100% !important;
+
+  margin:0 !important;
+
+  padding:0 !important;
+
+}
+
+
+.content .article-info{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:8px;
+
+  padding-bottom:23px !important;
+
+  margin-bottom:38px !important;
+
+  border-bottom:1px solid #e8e8e8 !important;
+
+  color:#777777 !important;
+
+  font-size:15px;
+
+}
+
+
+.content .article-info span{
+
+  color:#777777 !important;
+
+}
+
+
+.content .highlight{
+
+  background:#f7f7f7 !important;
+
+  color:#181818 !important;
+
+  border-left:4px solid var(--gold) !important;
+
+  padding:18px 20px !important;
+
+  margin:40px 0 !important;
+
+  font-family:'Fraunces',Georgia,serif !important;
+
+  font-size:22px !important;
+
+  line-height:1.6 !important;
+
+  font-weight:600;
+
+}
+
+
+.content .goodbye{
+
+  color:#111111 !important;
+
+}
+
+
+.content .author-bottom{
+
+  color:#888888 !important;
+
+}
+
+
+/* =========================
+   HATA / YÜKLENİYOR
+========================= */
+
+.error{
+
+  padding:50px 0;
+
+  color:#777777;
+
+}
+
+
+/* =========================
+   TELEFON
+========================= */
+
+@media(max-width:600px){
+
+  .nav-inner{
+
+    padding:24px 19px;
+
+  }
+
+
+  .article{
+
+    padding:50px 19px 75px;
+
+  }
+
+
+  h1{
+
+    font-size:46px;
+
+  }
+
+
+  .summary{
+
+    font-size:17px;
+
+  }
+
+
+  .content{
+
+    font-size:17px;
+
+    line-height:1.85;
+
+  }
+
+
+  .content .highlight{
+
+    font-size:20px !important;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+
+  <div class="nav-inner">
+
+    <a href="index.html#yazilar">
+      ← Yazılara dön
+    </a>
+
+  </div>
+
+</nav>
+
+
+<article class="article" id="article">
+
+  <div class="error">
+    Yazı yükleniyor…
+  </div>
+
+</article>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+
+
+<script type="module">
+
+
+import {
+  initializeApp
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
+
+import {
+  getFirestore,
+  doc,
+  getDoc
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+
+
+const firebaseConfig={
+
+  apiKey:
+  "AIzaSyBv3kaf0kCyP0WqFXtbmROTTVtj57upEFY",
+
+  authDomain:
+  "berke-web-panel.firebaseapp.com",
+
+  projectId:
+  "berke-web-panel",
+
+  storageBucket:
+  "berke-web-panel.firebasestorage.app",
+
+  messagingSenderId:
+  "956917805545",
+
+  appId:
+  "1:956917805545:web:46b1b3ba5a5881b7d1db78",
+
+  measurementId:
+  "G-NZ358NMQ0F"
+
+};
+
+
+
+const db =
+getFirestore(
+  initializeApp(firebaseConfig)
+);
+
+
+
+const id =
+new URLSearchParams(
+  location.search
+).get("id");
+
+
+const root =
+document.getElementById("article");
+
+
+
+const esc=(s="")=>
+
+String(s).replace(
+
+  /[&<>"']/g,
+
+  c=>({
+
+    "&":"&amp;",
+
+    "<":"&lt;",
+
+    ">":"&gt;",
+
+    '"':"&quot;",
+
+    "'":"&#39;"
+
+  }[c])
+
+);
+
+
+
+function date(v){
+
+  if(!v)return"";
+
+
+  const d =
+  v.toDate
+  ? v.toDate()
+  : new Date(v);
+
+
+  if(
+    Number.isNaN(
+      d.getTime()
+    )
+  ){
+
+    return"";
+
+  }
+
+
+  return new Intl.DateTimeFormat(
+
+    "tr-TR",
+
+    {
+
+      day:"numeric",
+
+      month:"long",
+
+      year:"numeric"
+
+    }
+
+  ).format(d);
+
+}
+
+
+
+const categoryNames={
+
+  "basari":
+  "Başarı",
+
+  "mutluluk":
+  "Mutluluk",
+
+  "hayat-uzerine":
+  "Hayat Üzerine",
+
+  "genc-girisimci":
+  "Genç Girişimci",
+
+  "yazarlik":
+  "Yazarlık",
+
+  "kisisel-gelisim":
+  "Başarı",
+
+  "girisimcilik":
+  "Genç Girişimci",
+
+  "hayat":
+  "Hayat Üzerine"
+
+};
+
+
+
+function getCategory(x){
+
+  const value =
+  x.categoryLabel ||
+  x.category ||
+  "Yazı";
+
+
+  return (
+    categoryNames[value] ||
+    value
+  );
+
+}
+
+
+
+async function load(){
+
+
+  if(!id){
+
+    root.innerHTML=
+    '<div class="error">Yazı bulunamadı.</div>';
+
+    return;
+
+  }
+
+
+  try{
+
+
+    const snap =
+    await getDoc(
+      doc(
+        db,
+        "blogs",
+        id
+      )
+    );
+
+
+    if(
+      !snap.exists() ||
+      snap.data().published!==true
+    ){
+
+      root.innerHTML=
+      '<div class="error">Bu yazı bulunamadı veya yayında değil.</div>';
+
+      return;
+
+    }
+
+
+    const x =
+    snap.data();
+
+
+    document.title =
+    `${x.title} | Berke Deniz Yüksekdağ`;
+
+
+
+    /*
+      İçerikte daha önce eklediğimiz
+      style/script kodlarını kaldırıyoruz.
+      Böylece blog.html tasarımını bozamaz.
+    */
+
+    const safeContent =
+    DOMPurify.sanitize(
+
+      x.content || "",
+
+      {
+
+        FORBID_TAGS:[
+          "style",
+          "script",
+          "link",
+          "meta",
+          "title"
+        ],
+
+        FORBID_ATTR:[
+          "onload",
+          "onclick",
+          "onerror"
+        ]
+
+      }
+
+    );
+
+
+
+    root.innerHTML=`
+
+      <div class="cat">
+        ${esc(getCategory(x))}
+      </div>
+
+
+      <h1>
+        ${esc(x.title || "Başlıksız Yazı")}
+      </h1>
+
+
+      ${
+        x.summary
+        ?
+        `
+        <div class="summary">
+          ${esc(x.summary)}
+        </div>
+        `
+        :
+        ""
+      }
+
+
+      <div class="meta">
+        ${esc(
+          date(
+            x.publishedAt ||
+            x.createdAt
+          )
+        )}
+      </div>
+
+
+      <div class="content">
+
+        ${safeContent}
+
+      </div>
+
+    `;
+
+
+  }
+
+  catch(e){
+
+
+    console.error(e);
+
+
+    root.innerHTML=
+    '<div class="error">Yazı yüklenirken bir sorun oluştu.</div>';
+
+
+  }
+
+}
+
+
+
+load();
+
+
+</script>
+
+
+</body>
+
+</html>
