@@ -17,7 +17,6 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -45,24 +44,8 @@
     "Türkçe",
     "English"
   ],
-  "alternateName": [
-    "Berke Yüksekdağ",
-    "Berke Deniz"
-  ],
   "description": "Berke Deniz Yüksekdağ, yazarlık, girişimcilik ve mobil uygulama geliştirme alanlarında çalışmalar yürütmektedir. İyi Yol Akademi mobil uygulamasının kurucusudur.",
   "mainEntityOfPage": "https://berkedenizyuksekdag.com/",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "İyi Yol Akademi",
-    "url": "https://play.google.com/store/apps/details?id=com.iyiyolakademi"
-  },
-  "knowsAbout": [
-    "Kişisel gelişim",
-    "Yazarlık",
-    "Girişimcilik",
-    "Mobil uygulamalar",
-    "Dijital projeler"
-  ],
   "sameAs": [
     "https://www.instagram.com/berke_yuksekdag/",
     "https://www.linkedin.com/in/berke-deniz-y%C3%BCksekda%C4%9F-4607603a8/",
@@ -77,60 +60,30 @@
 
 <style>
 
-/* =========================================================
-   RENKLER
-========================================================= */
-
 :root{
-
   --ink:#0d0f14;
   --ink-panel:#14171f;
   --ink-card:#181c25;
-
   --line:#292e3a;
-
   --gold:#d9a44a;
   --gold-soft:#f0c66d;
-
   --paper:#f2eee4;
   --paper-muted:#b2ada0;
-
   --muted:#8e929e;
-
-  --radius:20px;
-
-  --serif:'Fraunces', Georgia, serif;
-
-  --sans:'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
-
-  --mono:'JetBrains Mono', monospace;
-
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Manrope',Arial,sans-serif;
+  --mono:'JetBrains Mono',monospace;
 }
 
-
-/* =========================================================
-   GÜNDÜZ
-========================================================= */
-
 body.gunduz{
-
   --ink:#eee9dc;
   --ink-panel:#f7f4ec;
   --ink-card:#ffffff;
-
   --line:#ded7c4;
-
   --paper:#171a24;
   --paper-muted:#5d594d;
-
   --muted:#706c60;
-
 }
-
-
-/* =========================================================
-   GENEL
-========================================================= */
 
 *{
   box-sizing:border-box;
@@ -140,40 +93,24 @@ html{
   scroll-behavior:smooth;
 }
 
-html,
-body{
+html,body{
   max-width:100%;
   overflow-x:hidden;
 }
 
 body{
-
   margin:0;
-
   background:var(--ink);
-
   color:var(--paper);
-
   font-family:var(--sans);
-
   line-height:1.65;
-
-  transition:
-    background .4s ease,
-    color .4s ease;
-
+  transition:.35s;
 }
 
-h1,
-h2,
-h3{
-
+h1,h2,h3{
   font-family:var(--serif);
-
-  font-weight:600;
-
   margin:0;
-
+  font-weight:600;
 }
 
 a{
@@ -181,2963 +118,874 @@ a{
 }
 
 img{
-
   max-width:100%;
-
   display:block;
-
 }
 
-button,
-input{
-
+button,input{
   font-family:inherit;
-
 }
-
-
-/* =========================================================
-   EYEBROW
-========================================================= */
 
 .eyebrow{
-
   font-family:var(--mono);
-
   font-size:11px;
-
   letter-spacing:.18em;
-
   text-transform:uppercase;
-
   color:var(--gold);
-
   font-weight:600;
-
 }
 
 
-/* =========================================================
-   NAV
-========================================================= */
+/* NAV */
 
 .nav{
-
   position:sticky;
-
   top:0;
-
   z-index:100;
-
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
-
   gap:25px;
-
   padding:17px 32px;
-
-  background:rgba(13,15,20,.82);
-
+  background:rgba(13,15,20,.88);
   backdrop-filter:blur(18px);
-
-  -webkit-backdrop-filter:blur(18px);
-
   border-bottom:1px solid rgba(255,255,255,.06);
-
 }
-
 
 body.gunduz .nav{
-
-  background:rgba(238,233,220,.88);
-
-  border-bottom:1px solid var(--line);
-
+  background:rgba(238,233,220,.9);
+  border-color:var(--line);
 }
-
 
 .nav-brand{
-
   font-family:var(--serif);
-
   font-size:19px;
-
   font-weight:600;
-
-  letter-spacing:-.025em;
-
-  white-space:nowrap;
-
 }
-
 
 .nav-right{
-
   display:flex;
-
   align-items:center;
-
   gap:18px;
-
 }
-
 
 .nav-links{
-
   display:flex;
-
   align-items:center;
-
   gap:25px;
-
-  list-style:none;
-
   margin:0;
-
   padding:0;
-
+  list-style:none;
 }
-
 
 .nav-links a{
-
-  position:relative;
-
   text-decoration:none;
-
   font-size:13px;
-
   font-weight:600;
-
   color:var(--paper-muted);
-
   transition:.2s;
-
 }
-
-
-.nav-links a::after{
-
-  content:"";
-
-  position:absolute;
-
-  left:0;
-
-  bottom:-7px;
-
-  width:0;
-
-  height:1px;
-
-  background:var(--gold);
-
-  transition:width .25s ease;
-
-}
-
 
 .nav-links a:hover{
-
-  color:var(--paper);
-
-}
-
-
-.nav-links a:hover::after{
-
-  width:100%;
-
-}
-
-
-/* =========================================================
-   TEMA
-========================================================= */
-
-.nav-toggle{
-
-  width:42px;
-
-  height:42px;
-
-  flex:0 0 42px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  border:1px solid var(--line);
-
-  border-radius:50%;
-
-  background:var(--ink-card);
-
-  color:var(--paper);
-
-  font-size:18px;
-
-  cursor:pointer;
-
-  transition:.25s;
-
-}
-
-
-.nav-toggle:hover{
-
-  transform:rotate(12deg);
-
-  border-color:var(--gold);
-
   color:var(--gold);
-
 }
 
-
-/* =========================================================
-   MOBİL MENÜ
-========================================================= */
+.nav-toggle,
+.mobile-menu-btn{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:var(--ink-card);
+  color:var(--paper);
+  cursor:pointer;
+  font-size:18px;
+}
 
 .mobile-menu-btn{
-
   display:none;
-
-  width:42px;
-
-  height:42px;
-
-  align-items:center;
-
-  justify-content:center;
-
-  border:1px solid var(--line);
-
-  border-radius:50%;
-
-  background:var(--ink-card);
-
-  color:var(--paper);
-
-  font-size:20px;
-
-  line-height:1;
-
-  cursor:pointer;
-
-  transition:.2s;
-
 }
-
-
-.mobile-menu-btn:hover{
-
-  border-color:var(--gold);
-
-  color:var(--gold);
-
-}
-
 
 @media(max-width:930px){
 
   .nav{
-
     padding:13px 18px;
-
   }
-
 
   .nav-brand{
-
-    font-size:16px;
-
-    max-width:190px;
-
-    line-height:1.25;
-
-    white-space:normal;
-
+    font-size:15px;
   }
-
-
-  .nav-right{
-
-    gap:9px;
-
-  }
-
 
   .mobile-menu-btn{
-
-    display:flex;
-
+    display:block;
   }
-
 
   .nav-links{
-
     position:absolute;
-
     top:calc(100% + 1px);
-
     left:14px;
-
     right:14px;
-
-    display:flex;
-
     flex-direction:column;
-
     align-items:stretch;
-
     gap:0;
-
     padding:10px;
-
-    background:rgba(20,23,31,.98);
-
+    background:var(--ink-panel);
     border:1px solid var(--line);
-
     border-radius:16px;
-
-    box-shadow:0 20px 50px rgba(0,0,0,.32);
-
     opacity:0;
-
     visibility:hidden;
-
-    transform:translateY(-8px);
-
     pointer-events:none;
-
-    transition:.22s ease;
-
+    transform:translateY(-8px);
+    transition:.2s;
   }
-
-
-  body.gunduz .nav-links{
-
-    background:rgba(247,244,236,.98);
-
-  }
-
 
   .nav-links.mobile-open{
-
     opacity:1;
-
     visibility:visible;
-
-    transform:translateY(0);
-
     pointer-events:auto;
-
+    transform:none;
   }
-
-
-  .nav-links li{
-
-    width:100%;
-
-  }
-
 
   .nav-links a{
-
-    display:flex;
-
-    align-items:center;
-
-    width:100%;
-
-    padding:14px 15px;
-
-    border-radius:10px;
-
-    color:var(--paper);
-
-    font-size:14px;
-
-  }
-
-
-  .nav-links a::after{
-
-    display:none;
-
-  }
-
-
-  .nav-links a:hover{
-
-    background:rgba(217,164,74,.10);
-
-    color:var(--gold);
-
+    display:block;
+    padding:13px;
   }
 
 }
 
 
-@media(max-width:400px){
-
-  .nav-brand{
-
-    max-width:150px;
-
-    font-size:14px;
-
-  }
-
-
-  .nav-toggle,
-  .mobile-menu-btn{
-
-    width:38px;
-
-    height:38px;
-
-    flex-basis:38px;
-
-  }
-
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
+/* HERO */
 
 .hero{
-
   position:relative;
-
   min-height:720px;
-
   display:flex;
-
   align-items:flex-end;
-
   background:#000;
-
   overflow:hidden;
-
 }
-
 
 .hero-photo{
-
   position:absolute;
-
   inset:0;
-
-  background:
-    url('images/berke-deniz-yuksekdag-2025.jpg')
-    center 20% / cover no-repeat;
-
-  filter:
-    saturate(.8)
-    contrast(1.04);
-
-  transform:scale(1.01);
-
+  background:url('images/berke-deniz-yuksekdag-2025.jpg') center 20% / cover no-repeat;
+  filter:saturate(.8) contrast(1.04);
 }
-
 
 .hero-scrim{
-
   position:absolute;
-
   inset:0;
-
   background:
-
     linear-gradient(
       180deg,
-      rgba(8,9,13,.10) 0%,
-      rgba(8,9,13,.23) 30%,
-      rgba(8,9,13,.72) 69%,
-      rgba(8,9,13,.98) 100%
+      rgba(8,9,13,.08),
+      rgba(8,9,13,.25) 35%,
+      rgba(8,9,13,.75) 70%,
+      rgba(8,9,13,.98)
     ),
-
     linear-gradient(
       90deg,
-      rgba(8,9,13,.82) 0%,
-      rgba(8,9,13,.34) 52%,
-      rgba(8,9,13,.05) 100%
+      rgba(8,9,13,.82),
+      rgba(8,9,13,.30) 55%,
+      transparent
     );
-
 }
-
 
 .hero-inner{
-
   position:relative;
-
   z-index:2;
-
   width:100%;
-
   max-width:1200px;
-
-  margin:0 auto;
-
+  margin:auto;
   padding:90px 32px 76px;
-
 }
-
-
-.hero-kicker{
-
-  display:inline-flex;
-
-  align-items:center;
-
-  gap:10px;
-
-  margin-bottom:18px;
-
-  color:var(--gold-soft);
-
-}
-
-
-.hero-kicker::before{
-
-  content:"";
-
-  width:28px;
-
-  height:1px;
-
-  background:var(--gold);
-
-}
-
 
 .hero-title{
-
   max-width:850px;
-
   font-size:clamp(44px,7vw,78px);
-
   line-height:1;
-
   letter-spacing:-.04em;
-
   color:#f7f3e9;
-
 }
-
 
 .hero-role{
-
   margin-top:18px;
-
-  font-size:clamp(15px,2vw,18px);
-
+  font-size:18px;
   font-weight:600;
-
   color:#d7d2c7;
-
-  letter-spacing:.02em;
-
 }
-
 
 .hero-description{
-
   max-width:590px;
-
-  margin:23px 0 0;
-
+  margin-top:23px;
   color:#aaa79f;
-
   font-size:15.5px;
-
   line-height:1.8;
-
 }
-
 
 .hero-project{
-
   display:flex;
-
-  align-items:center;
-
   gap:12px;
-
   width:max-content;
-
-  max-width:100%;
-
   margin-top:26px;
-
   padding:9px 13px;
-
   border-left:2px solid var(--gold);
-
-  color:#e8e2d6;
-
   font-family:var(--mono);
-
   font-size:12px;
-
-  letter-spacing:.05em;
-
 }
-
 
 .hero-project strong{
-
   color:var(--gold-soft);
-
 }
-
 
 .hero-actions{
-
   margin-top:32px;
-
   display:flex;
-
   gap:12px;
-
   flex-wrap:wrap;
-
 }
-
 
 .btn{
-
   display:inline-flex;
-
   align-items:center;
-
   justify-content:center;
-
-  gap:9px;
-
-  min-height:48px;
-
   padding:13px 21px;
-
+  min-height:48px;
   border-radius:999px;
-
-  font-weight:700;
-
-  font-size:13.5px;
-
   text-decoration:none;
-
+  font-size:13.5px;
+  font-weight:700;
   transition:.2s;
-
 }
-
 
 .btn-solid{
-
   background:#f5f1e7;
-
   color:#13151b;
-
 }
-
 
 .btn-solid:hover{
-
-  transform:translateY(-2px);
-
   background:var(--gold);
-
+  transform:translateY(-2px);
 }
-
 
 .btn-ghost{
-
   border:1px solid rgba(245,241,230,.32);
-
   color:#f5f1e7;
-
-  background:rgba(255,255,255,.02);
-
 }
-
 
 .btn-ghost:hover{
-
-  transform:translateY(-2px);
-
   border-color:var(--gold);
-
-  color:var(--gold-soft);
-
+  color:var(--gold);
 }
 
 
-@media(max-width:600px){
-
-  .hero{
-
-    min-height:680px;
-
-  }
-
-
-  .hero-inner{
-
-    padding:80px 20px 55px;
-
-  }
-
-
-  .hero-title{
-
-    font-size:43px;
-
-  }
-
-
-  .hero-description{
-
-    font-size:14.5px;
-
-  }
-
-
-  .hero-project{
-
-    align-items:flex-start;
-
-    flex-direction:column;
-
-    gap:4px;
-
-  }
-
-}
-
-
-/* =========================================================
-   YOL
-========================================================= */
-
-.road{
-
-  position:relative;
-
-  width:min(1200px,calc(100% - 64px));
-
-  height:58px;
-
-  margin:0 auto;
-
-  overflow:hidden;
-
-}
-
-
-.road::before{
-
-  content:"";
-
-  position:absolute;
-
-  left:0;
-
-  right:0;
-
-  top:50%;
-
-  height:1px;
-
-  background:var(--line);
-
-}
-
-
-.road::after{
-
-  content:"";
-
-  position:absolute;
-
-  left:0;
-
-  right:0;
-
-  top:calc(50% - 1px);
-
-  height:3px;
-
-  background:
-
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 14px,
-      var(--gold) 14px 39px,
-      transparent 39px 55px
-    );
-
-  background-size:110px 3px;
-
-  animation:roadMove 3.8s linear infinite;
-
-  opacity:.85;
-
-}
-
-
-@keyframes roadMove{
-
-  from{
-    background-position:0 0;
-  }
-
-  to{
-    background-position:-110px 0;
-  }
-
-}
-
-
-@media(prefers-reduced-motion:reduce){
-
-  .road::after{
-    animation:none;
-  }
-
-}
-
-
-/* =========================================================
-   İSTATİSTİKLER
-========================================================= */
+/* İSTATİSTİK */
 
 .stats-strip{
-
-  background:var(--ink);
-
   border-bottom:1px solid var(--line);
-
 }
-
 
 .stats-grid-main{
-
   max-width:1200px;
-
-  margin:0 auto;
-
+  margin:auto;
   padding:38px 32px;
-
   display:grid;
-
   grid-template-columns:repeat(4,1fr);
-
   gap:14px;
-
 }
-
 
 .stat{
-
-  position:relative;
-
-  min-height:115px;
-
   padding:22px;
-
   background:var(--ink-card);
-
   border:1px solid var(--line);
-
   border-radius:16px;
-
-  display:flex;
-
-  flex-direction:column;
-
-  justify-content:center;
-
-  gap:7px;
-
-  overflow:hidden;
-
-  transition:.25s ease;
-
 }
-
-
-.stat::before{
-
-  content:"";
-
-  position:absolute;
-
-  top:0;
-
-  left:22px;
-
-  width:38px;
-
-  height:2px;
-
-  background:var(--gold);
-
-}
-
-
-.stat:hover{
-
-  transform:translateY(-4px);
-
-  border-color:rgba(217,164,74,.48);
-
-}
-
-
-.stat-label{
-
-  order:2;
-
-  font-family:var(--mono);
-
-  font-size:10.5px;
-
-  letter-spacing:.12em;
-
-  text-transform:uppercase;
-
-  color:var(--muted);
-
-}
-
 
 .stat-value{
-
-  order:1;
-
+  display:block;
   font-family:var(--serif);
-
   font-size:30px;
-
-  font-weight:600;
-
   color:var(--gold-soft);
-
 }
 
+.stat-label{
+  display:block;
+  margin-top:7px;
+  font-family:var(--mono);
+  font-size:10px;
+  color:var(--muted);
+  text-transform:uppercase;
+}
 
-@media(max-width:820px){
+@media(max-width:750px){
 
   .stats-grid-main{
-
     grid-template-columns:repeat(2,1fr);
-
-  }
-
-}
-
-
-@media(max-width:480px){
-
-  .stats-grid-main{
-
     padding:25px 20px;
-
-    gap:10px;
-
-  }
-
-
-  .stat{
-
-    padding:18px;
-
-  }
-
-
-  .stat-value{
-
-    font-size:25px;
-
   }
 
 }
 
 
-/* =========================================================
-   BÖLÜMLER
-========================================================= */
+/* GENEL SECTION */
 
 .section{
-
   max-width:1200px;
-
-  margin:0 auto;
-
+  margin:auto;
   padding:88px 32px;
-
 }
-
 
 .section-head{
-
   max-width:720px;
-
   margin-bottom:44px;
-
 }
-
 
 .section-title{
-
   margin-top:9px;
-
   font-size:clamp(29px,4vw,42px);
-
   line-height:1.15;
-
-  letter-spacing:-.025em;
-
 }
-
 
 .section-desc{
-
   margin-top:14px;
-
   color:var(--muted);
-
   font-size:15.5px;
-
-  line-height:1.8;
-
 }
-
 
 @media(max-width:520px){
 
   .section{
-
     padding:65px 20px;
-
   }
 
 }
 
 
-/* =========================================================
-   HAKKIMDA
-========================================================= */
+/* HAKKIMDA */
 
 .about{
-
   display:grid;
-
   grid-template-columns:1.12fr .88fr;
-
   gap:60px;
-
   align-items:center;
-
 }
-
 
 .about-text p{
-
-  color:var(--paper);
-
   font-size:16px;
-
   line-height:1.9;
-
-  margin:0 0 17px;
-
 }
-
 
 .about-text strong{
-
   color:var(--gold-soft);
-
-  font-weight:700;
-
 }
-
 
 .about-photo-frame{
-
-  position:relative;
-
-  border-radius:20px;
-
   overflow:hidden;
-
   border:1px solid var(--line);
-
+  border-radius:20px;
 }
-
-
-.about-photo-frame::after{
-
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  border:1px solid rgba(217,164,74,.12);
-
-  border-radius:inherit;
-
-  pointer-events:none;
-
-}
-
 
 .about-photo-frame img{
-
   width:100%;
-
   aspect-ratio:4/5;
-
   object-fit:cover;
-
 }
-
 
 .social-btn{
-
   display:inline-flex;
-
-  align-items:center;
-
-  gap:8px;
-
   margin-top:20px;
-
   padding:11px 17px;
-
   border-radius:999px;
-
   border:1px solid var(--line);
-
   text-decoration:none;
-
   font-weight:700;
-
-  font-size:13.5px;
-
-  transition:.2s;
-
+  font-size:13px;
 }
-
 
 .social-btn:hover{
-
   border-color:var(--gold);
-
   color:var(--gold);
-
 }
-
 
 @media(max-width:900px){
 
   .about{
-
     grid-template-columns:1fr;
-
-  }
-
-
-  .about-photo-frame{
-
-    max-width:360px;
-
   }
 
 }
 
 
-/* =========================================================
-   BASINDA
-========================================================= */
+/* BASINDA */
+
+.press-list{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
 
 .press-card{
-
   position:relative;
-
   overflow:hidden;
-
   display:grid;
-
   grid-template-columns:155px 1fr auto;
-
   align-items:center;
-
   gap:28px;
-
   padding:30px;
-
   border:1px solid var(--line);
-
   border-radius:22px;
-
   background:var(--ink-card);
-
-  transition:
-    transform .25s ease,
-    border-color .25s ease,
-    box-shadow .25s ease;
-
+  transition:.25s;
 }
-
 
 .press-card::before{
-
   content:"";
-
   position:absolute;
-
   left:0;
-
   top:0;
-
   bottom:0;
-
   width:4px;
-
   background:var(--gold);
-
 }
-
 
 .press-card:hover{
-
   transform:translateY(-4px);
-
   border-color:rgba(217,164,74,.5);
-
   box-shadow:0 22px 50px rgba(0,0,0,.14);
-
 }
-
 
 .press-logo-box{
-
   min-height:125px;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   padding:20px;
-
   border:1px solid var(--line);
-
   border-radius:16px;
-
   background:#fff;
-
 }
-
 
 .press-logo{
-
   width:130px;
-
-  max-width:100%;
-
+  max-height:100px;
+  object-fit:contain;
 }
-
-
-.press-content{
-
-  min-width:0;
-
-}
-
 
 .press-topline{
-
   display:flex;
-
   align-items:center;
-
   gap:10px;
-
   flex-wrap:wrap;
-
   margin-bottom:11px;
-
 }
-
 
 .press-source{
-
   font-family:var(--mono);
-
   font-size:10px;
-
   letter-spacing:.12em;
-
   text-transform:uppercase;
-
   color:var(--gold);
-
   font-weight:700;
-
 }
-
 
 .press-date{
-
   font-family:var(--mono);
-
   font-size:10px;
-
   color:var(--muted);
-
 }
-
 
 .press-title{
-
   font-size:clamp(23px,3vw,32px);
-
   line-height:1.22;
-
-  letter-spacing:-.02em;
-
 }
-
 
 .press-description{
-
   margin:14px 0 0;
-
   max-width:680px;
-
   color:var(--muted);
-
   font-size:14.5px;
-
   line-height:1.8;
-
 }
-
 
 .press-author{
-
   margin-top:13px;
-
   font-family:var(--mono);
-
   font-size:10.5px;
-
   color:var(--paper-muted);
-
 }
-
 
 .press-link{
-
   flex-shrink:0;
-
   display:inline-flex;
-
   align-items:center;
-
   justify-content:center;
-
   gap:9px;
-
   padding:13px 19px;
-
   border-radius:999px;
-
   background:var(--gold);
-
   color:#181305;
-
   text-decoration:none;
-
   font-size:12.5px;
-
   font-weight:800;
-
   white-space:nowrap;
-
   transition:.2s;
-
 }
-
 
 .press-link:hover{
-
   transform:translateY(-2px);
-
   filter:brightness(1.06);
-
 }
-
-
-.press-link span{
-
-  transition:transform .2s ease;
-
-}
-
-
-.press-link:hover span{
-
-  transform:translate(2px,-2px);
-
-}
-
 
 @media(max-width:850px){
 
   .press-card{
-
     grid-template-columns:120px 1fr;
-
   }
 
-
   .press-link{
-
-    grid-column:1 / -1;
-
+    grid-column:1/-1;
     justify-self:flex-start;
-
     margin-left:148px;
-
   }
 
 }
-
 
 @media(max-width:600px){
 
   .press-card{
-
     grid-template-columns:1fr;
-
-    gap:20px;
-
     padding:24px;
-
   }
-
 
   .press-logo-box{
-
     width:150px;
-
     min-height:100px;
-
   }
-
 
   .press-link{
-
-    grid-column:auto;
-
     margin-left:0;
-
-    justify-self:flex-start;
-
+    grid-column:auto;
   }
 
 }
 
 
-/* =========================================================
-   PROJELER
-========================================================= */
+/* PROJELER */
 
 .projects-cta{
-
   position:relative;
-
   overflow:hidden;
-
   background:var(--ink-card);
-
   border:1px solid var(--line);
-
   border-radius:20px;
-
   padding:34px;
-
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
-
   gap:28px;
-
 }
-
 
 .projects-cta::before{
-
   content:"";
-
   position:absolute;
-
   left:0;
-
   top:0;
-
   bottom:0;
-
   width:3px;
-
   background:var(--gold);
-
 }
-
 
 .projects-cta-title{
-
   margin-top:8px;
-
   font-size:23px;
-
 }
-
 
 .projects-cta-desc{
-
   margin-top:9px;
-
   color:var(--muted);
-
-  max-width:540px;
-
 }
-
 
 .projects-cta-btn{
-
   flex-shrink:0;
-
-  display:inline-flex;
-
-  align-items:center;
-
-  gap:10px;
-
   background:var(--gold);
-
   color:#181305;
-
   padding:13px 20px;
-
   border-radius:999px;
-
   font-weight:800;
-
-  font-size:13px;
-
   text-decoration:none;
-
-  transition:.2s;
-
 }
 
 
-.projects-cta-btn:hover{
-
-  transform:translateY(-2px);
-
-}
-
-
-@media(max-width:720px){
-
-  .projects-cta{
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
-  }
-
-}
-
-
-/* =========================================================
-   KİTAPLAR
-========================================================= */
+/* KİTAPLAR */
 
 .books-grid{
-
   display:grid;
-
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
   gap:26px;
-
 }
-
 
 .book-card{
-
-  position:relative;
-
   background:var(--ink-card);
-
   border:1px solid var(--line);
-
   border-radius:18px;
-
   padding:27px;
-
   display:flex;
-
   flex-direction:column;
-
-  transition:
-    transform .25s,
-    border-color .25s;
-
+  transition:.25s;
 }
-
 
 .book-card:hover{
-
   transform:translateY(-5px);
-
   border-color:rgba(217,164,74,.5);
-
 }
-
 
 .book-card img{
-
   width:155px;
-
   margin:0 auto 23px;
-
   border-radius:7px;
-
   box-shadow:0 18px 35px rgba(0,0,0,.38);
-
-  transition:transform .3s ease;
-
 }
-
-
-.book-card:hover img{
-
-  transform:
-    translateY(-5px)
-    rotate(-1deg);
-
-}
-
 
 .book-card h3{
-
   font-size:21px;
-
-  margin-bottom:9px;
-
 }
 
-
-.book-card > p{
-
+.book-card p{
   color:var(--muted);
-
   font-size:14.5px;
-
-  margin-top:0;
-
 }
-
-
-.book-quote{
-
-  position:relative;
-
-  margin:18px 0 18px;
-
-  padding:17px 18px 17px 21px;
-
-  border-left:2px solid var(--gold);
-
-  background:rgba(217,164,74,.055);
-
-  border-radius:0 11px 11px 0;
-
-  font-family:var(--serif);
-
-  font-size:15px;
-
-  font-style:italic;
-
-  line-height:1.7;
-
-  color:var(--paper-muted);
-
-  overflow:hidden;
-
-}
-
-
-.book-quote::before{
-
-  content:"“";
-
-  position:absolute;
-
-  top:-9px;
-
-  left:7px;
-
-  font-family:var(--serif);
-
-  font-size:46px;
-
-  color:var(--gold);
-
-  opacity:.20;
-
-  line-height:1;
-
-}
-
-
-.book-quote-text{
-
-  position:relative;
-
-  z-index:1;
-
-}
-
-
-.book-quote-label{
-
-  display:block;
-
-  margin-top:9px;
-
-  font-family:var(--mono);
-
-  font-style:normal;
-
-  font-size:9px;
-
-  letter-spacing:.12em;
-
-  text-transform:uppercase;
-
-  color:var(--gold);
-
-}
-
 
 .book-btn{
-
   margin-top:auto;
-
   padding:12px;
-
   text-align:center;
-
   border-radius:999px;
-
   background:var(--gold);
-
   color:#181305;
-
   text-decoration:none;
-
   font-weight:800;
-
-  font-size:13px;
-
-  transition:.2s;
-
 }
 
 
-.book-btn:hover{
-
-  filter:brightness(1.08);
-
-  transform:translateY(-2px);
-
-}
-
-
-/* =========================================================
-   BLOG
-========================================================= */
-
-.publish-note{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:12px;
-
-  margin-bottom:28px;
-
-  padding:14px 0;
-
-  border-bottom:1px solid var(--line);
-
-}
-
-
-.publish-badge{
-
-  font-family:var(--mono);
-
-  font-size:10px;
-
-  letter-spacing:.12em;
-
-  text-transform:uppercase;
-
-  color:var(--gold);
-
-}
-
-
-.publish-text{
-
-  margin:0;
-
-  color:var(--muted);
-
-  font-size:14px;
-
-}
-
-
-.publish-text strong{
-
-  color:var(--paper);
-
-}
-
+/* BLOG */
 
 .blog-filters{
-
   display:flex;
-
   gap:9px;
-
   flex-wrap:wrap;
-
   margin-bottom:30px;
-
 }
-
 
 .blog-filter-btn{
-
   font-family:var(--mono);
-
-  font-size:10.5px;
-
+  font-size:10px;
   font-weight:600;
-
-  letter-spacing:.06em;
-
-  text-transform:uppercase;
-
   color:var(--paper-muted);
-
   background:transparent;
-
   border:1px solid var(--line);
-
   padding:8px 14px;
-
   border-radius:999px;
-
   cursor:pointer;
-
-  transition:.2s;
-
 }
-
-
-.blog-filter-btn:hover{
-
-  color:var(--gold);
-
-  border-color:var(--gold);
-
-}
-
 
 .blog-filter-btn.active{
-
   color:#181305;
-
   background:var(--gold);
-
   border-color:var(--gold);
-
 }
-
 
 .blog-grid{
-
   display:grid;
-
   grid-template-columns:repeat(2,1fr);
-
   gap:0 40px;
-
   border-top:1px solid var(--line);
-
 }
-
 
 .blog-card{
-
-  position:relative;
-
   display:grid;
-
   grid-template-columns:58px 1fr;
-
   gap:17px;
-
   padding:31px 0;
-
   text-decoration:none;
-
-  color:inherit;
-
   border-bottom:1px solid var(--line);
-
-  transition:.25s;
-
 }
-
-
-.blog-card:nth-child(odd){
-
-  padding-right:20px;
-
-}
-
-
-.blog-card:nth-child(even){
-
-  padding-left:20px;
-
-}
-
 
 .blog-number{
-
   font-family:var(--serif);
-
   font-size:31px;
-
-  line-height:1;
-
   color:var(--gold);
-
-  opacity:.70;
-
-  transition:.25s;
-
 }
-
-
-.blog-card:hover .blog-number{
-
-  opacity:1;
-
-  transform:translateX(4px);
-
-}
-
-
-.blog-content{
-
-  display:flex;
-
-  flex-direction:column;
-
-  gap:10px;
-
-}
-
 
 .blog-category{
-
-  align-self:flex-start;
-
   font-family:var(--mono);
-
   font-size:9.5px;
-
-  font-weight:600;
-
-  letter-spacing:.11em;
-
   text-transform:uppercase;
-
   color:var(--gold);
-
 }
-
 
 .blog-content h3{
-
-  max-width:480px;
-
-  font-size:clamp(20px,2.5vw,25px);
-
-  line-height:1.27;
-
-  letter-spacing:-.015em;
-
-  transition:color .2s;
-
+  margin-top:8px;
+  font-size:23px;
 }
-
-
-.blog-card:hover h3{
-
-  color:var(--gold-soft);
-
-}
-
 
 .blog-content p{
-
-  margin:0;
-
-  max-width:480px;
-
+  margin:9px 0;
   color:var(--muted);
-
   font-size:14px;
-
-  line-height:1.75;
-
 }
-
 
 .blog-meta{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:8px;
-
-  margin-top:7px;
-
   font-family:var(--mono);
-
-  font-size:10.5px;
-
+  font-size:10px;
   color:var(--paper-muted);
-
 }
-
-
-.blog-meta::after{
-
-  content:"→";
-
-  color:var(--gold);
-
-  transition:transform .2s;
-
-}
-
-
-.blog-card:hover .blog-meta::after{
-
-  transform:translateX(5px);
-
-}
-
-
-.blog-card.hide-card{
-
-  display:none !important;
-
-}
-
-
-.blog-extra{
-
-  display:none;
-
-}
-
-
-.blog-grid.expanded .blog-extra{
-
-  display:grid;
-
-}
-
-
-.blog-more-wrap{
-
-  display:flex;
-
-  justify-content:center;
-
-  margin-top:34px;
-
-}
-
-
-.blog-more-btn{
-
-  display:inline-flex;
-
-  align-items:center;
-
-  gap:9px;
-
-  padding:11px 22px;
-
-  border-radius:999px;
-
-  border:1px solid var(--line);
-
-  background:transparent;
-
-  color:var(--paper);
-
-  font-family:var(--mono);
-
-  font-size:11px;
-
-  font-weight:600;
-
-  letter-spacing:.04em;
-
-  cursor:pointer;
-
-  transition:.2s;
-
-}
-
-
-.blog-more-btn:hover{
-
-  border-color:var(--gold);
-
-  color:var(--gold);
-
-}
-
-
-.blog-more-btn .chev{
-
-  transition:transform .25s ease;
-
-}
-
-
-.blog-more-btn.open .chev{
-
-  transform:rotate(180deg);
-
-}
-
 
 @media(max-width:760px){
 
   .blog-grid{
-
     grid-template-columns:1fr;
-
-  }
-
-
-  .blog-card:nth-child(odd),
-  .blog-card:nth-child(even){
-
-    padding:26px 0;
-
   }
 
 }
 
 
-@media(max-width:430px){
-
-  .blog-card{
-
-    grid-template-columns:43px 1fr;
-
-    gap:12px;
-
-  }
-
-
-  .blog-number{
-
-    font-size:25px;
-
-  }
-
-}
-
-
-/* =========================================================
-   NEWSLETTER
-========================================================= */
-
-.newsletter-box{
-
-  position:relative;
-
-  overflow:hidden;
-
-  background:var(--ink-card);
-
-  border:1px solid var(--line);
-
-  border-radius:22px;
-
-  padding:38px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  gap:32px;
-
-}
-
-
-.newsletter-box::before{
-
-  content:"";
-
-  position:absolute;
-
-  left:0;
-
-  top:0;
-
-  bottom:0;
-
-  width:4px;
-
-  background:var(--gold);
-
-}
-
-
-.newsletter-title{
-
-  margin-top:8px;
-
-  font-size:25px;
-
-}
-
-
-.newsletter-desc{
-
-  margin-top:10px;
-
-  color:var(--muted);
-
-  max-width:440px;
-
-  font-size:15px;
-
-  line-height:1.7;
-
-}
-
-
-.newsletter-form{
-
-  display:flex;
-
-  gap:10px;
-
-  flex-shrink:0;
-
-  flex-wrap:wrap;
-
-}
-
-
-.newsletter-input{
-
-  min-width:240px;
-
-  padding:14px 18px;
-
-  border-radius:12px;
-
-  border:1px solid var(--line);
-
-  background:var(--ink-panel);
-
-  color:var(--paper);
-
-  font-size:14px;
-
-  outline:none;
-
-  transition:.2s;
-
-}
-
-
-.newsletter-input:focus{
-
-  border-color:var(--gold);
-
-}
-
-
-.newsletter-input::placeholder{
-
-  color:var(--paper-muted);
-
-}
-
-
-.newsletter-btn{
-
-  padding:14px 24px;
-
-  border-radius:12px;
-
-  border:none;
-
-  cursor:pointer;
-
-  background:var(--gold);
-
-  color:#181305;
-
-  font-weight:800;
-
-  font-size:14px;
-
-  transition:.2s;
-
-}
-
-
-.newsletter-btn:hover{
-
-  transform:translateY(-2px);
-
-}
-
-
-.newsletter-note{
-
-  margin-top:10px;
-
-  font-family:var(--mono);
-
-  font-size:10.5px;
-
-  color:var(--muted);
-
-  width:100%;
-
-}
-
-
-@media(max-width:820px){
-
-  .newsletter-box{
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
-  }
-
-
-  .newsletter-form{
-
-    width:100%;
-
-  }
-
-
-  .newsletter-input{
-
-    flex:1;
-
-    min-width:0;
-
-  }
-
-}
-
-
-/* =========================================================
-   İYİ YOL AKADEMİ
-========================================================= */
+/* İYİ YOL */
 
 .app-section{
-
   background:var(--ink-panel);
-
   border-top:1px solid var(--line);
-
   border-bottom:1px solid var(--line);
-
 }
-
 
 .app-header{
-
   display:flex;
-
   align-items:center;
-
   gap:14px;
-
   margin-bottom:26px;
-
 }
-
 
 .app-header img{
-
   width:46px;
-
   height:46px;
-
   border-radius:12px;
-
 }
-
 
 .iyi-yol-row{
-
   display:flex;
-
-  align-items:flex-start;
-
   justify-content:space-between;
-
   gap:40px;
-
 }
-
 
 .iyi-yol-desc{
-
-  font-size:16.5px;
-
-  color:var(--paper);
-
   max-width:620px;
-
+  font-size:16px;
   line-height:1.85;
-
 }
-
-
-.iyi-yol-desc strong{
-
-  color:var(--gold-soft);
-
-}
-
 
 .store-buttons{
-
   margin-top:24px;
-
   display:flex;
-
   gap:11px;
-
   flex-wrap:wrap;
-
 }
-
 
 .store-btn{
-
-  display:inline-flex;
-
-  align-items:center;
-
   padding:11px 19px;
-
   border-radius:999px;
-
   text-decoration:none;
-
   font-weight:800;
-
   font-size:13px;
-
-  color:#181305;
-
   background:var(--gold);
-
-  transition:.2s;
-
+  color:#181305;
 }
-
-
-.store-btn:hover{
-
-  transform:translateY(-2px);
-
-}
-
 
 .store-btn.apple{
-
   background:transparent;
-
-  color:var(--paper);
-
   border:1px solid var(--line);
-
+  color:var(--paper);
 }
-
-
-.store-btn.apple:hover{
-
-  border-color:var(--gold);
-
-  color:var(--gold);
-
-}
-
 
 .iyi-yol-stats{
-
-  flex-shrink:0;
-
-  display:flex;
-
-  flex-direction:column;
-
-  gap:14px;
-
   min-width:220px;
-
+  display:flex;
+  flex-direction:column;
+  gap:14px;
 }
-
 
 .mini-stat{
-
   border:1px solid var(--line);
-
   border-radius:14px;
-
   padding:17px 19px;
-
   background:var(--ink-card);
-
 }
-
 
 .mini-stat-top{
-
   font-family:var(--mono);
-
   font-size:10px;
-
-  letter-spacing:.1em;
-
-  text-transform:uppercase;
-
   color:var(--muted);
-
 }
-
 
 .mini-stat-value{
-
   font-family:var(--serif);
-
   font-size:27px;
-
   color:var(--gold-soft);
-
-  margin-top:5px;
-
 }
-
 
 @media(max-width:820px){
 
   .iyi-yol-row{
-
     flex-direction:column;
-
   }
 
 }
 
 
-/* =========================================================
-   UYGULAMA EKRANLARI
-========================================================= */
-
-.scroll-strip{
-
-  margin-top:34px;
-
-  overflow:hidden;
-
-  border-radius:16px;
-
-  mask-image:
-    linear-gradient(
-      to right,
-      transparent,
-      black 5%,
-      black 95%,
-      transparent
-    );
-
-  -webkit-mask-image:
-    linear-gradient(
-      to right,
-      transparent,
-      black 5%,
-      black 95%,
-      transparent
-    );
-
-}
-
-
-.scroll-track{
-
-  display:flex;
-
-  gap:14px;
-
-  width:max-content;
-
-  animation:scrollLeft 28s linear infinite;
-
-}
-
-
-.scroll-strip:hover .scroll-track{
-
-  animation-play-state:paused;
-
-}
-
-
-.scroll-track img{
-
-  width:170px;
-
-  height:280px;
-
-  object-fit:contain;
-
-  border-radius:14px;
-
-  flex-shrink:0;
-
-}
-
-
-@keyframes scrollLeft{
-
-  from{
-
-    transform:translateX(0);
-
-  }
-
-  to{
-
-    transform:translateX(-50%);
-
-  }
-
-}
-
-
-/* =========================================================
-   OKURLAR
-========================================================= */
-
-.book-scroll{
-
-  margin-top:20px;
-
-  overflow:hidden;
-
-  border-radius:16px;
-
-  mask-image:
-    linear-gradient(
-      to right,
-      transparent,
-      black 5%,
-      black 95%,
-      transparent
-    );
-
-  -webkit-mask-image:
-    linear-gradient(
-      to right,
-      transparent,
-      black 5%,
-      black 95%,
-      transparent
-    );
-
-}
-
-
-.book-track{
-
-  display:flex;
-
-  gap:14px;
-
-  width:max-content;
-
-  animation:bookScroll 26s linear infinite;
-
-}
-
-
-.book-scroll:hover .book-track{
-
-  animation-play-state:paused;
-
-}
-
-
-.book-track img{
-
-  width:150px;
-
-  height:280px;
-
-  object-fit:cover;
-
-  border-radius:14px;
-
-  box-shadow:0 12px 24px rgba(0,0,0,.3);
-
-  flex-shrink:0;
-
-}
-
-
-@keyframes bookScroll{
-
-  from{
-
-    transform:translateX(0);
-
-  }
-
-  to{
-
-    transform:translateX(-50%);
-
-  }
-
-}
-
-
-/* =========================================================
-   VIDEO
-========================================================= */
+/* VIDEO */
 
 .video-box{
-
   position:relative;
-
   max-width:800px;
-
-  margin:0 auto;
-
+  margin:auto;
   border-radius:20px;
-
   overflow:hidden;
-
   background:#000;
-
   aspect-ratio:16/9;
-
   border:1px solid var(--line);
-
 }
-
 
 .video-box video{
-
-  position:absolute;
-
-  inset:0;
-
   width:100%;
-
   height:100%;
-
   object-fit:cover;
-
 }
-
-
-.video-cover{
-
-  position:absolute;
-
-  inset:0;
-
-  background-size:cover;
-
-  background-position:center;
-
-  transition:opacity .25s;
-
-}
-
-
-.video-box.playing .video-cover{
-
-  opacity:0;
-
-}
-
 
 .video-btn{
-
   position:absolute;
-
   top:50%;
-
   left:50%;
-
   transform:translate(-50%,-50%);
-
-  background:rgba(217,164,74,.93);
-
-  border:none;
-
-  color:#181305;
-
-  font-size:24px;
-
   width:66px;
-
   height:66px;
-
   border-radius:50%;
-
+  border:none;
+  background:var(--gold);
+  color:#181305;
+  font-size:24px;
   cursor:pointer;
-
-  transition:.25s;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
 }
-
-
-.video-btn:hover{
-
-  background:var(--gold-soft);
-
-  transform:
-    translate(-50%,-50%)
-    scale(1.06);
-
-}
-
-
-.video-box.playing .video-btn{
-
-  top:14px;
-
-  left:14px;
-
-  transform:none;
-
-  width:42px;
-
-  height:42px;
-
-  font-size:15px;
-
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
 
 footer{
-
   padding:43px 32px;
-
   text-align:center;
-
   border-top:1px solid var(--line);
-
   font-family:var(--mono);
-
   font-size:11.5px;
-
   color:var(--muted);
-
 }
 
-
 footer a{
-
   color:var(--gold);
-
   text-decoration:none;
-
 }
 
 </style>
@@ -3148,91 +996,53 @@ footer a{
 <body>
 
 
-<!-- =====================================================
-     NAV
-===================================================== -->
-
 <nav class="nav">
 
-
   <div class="nav-brand">
-
     Berke Deniz Yüksekdağ
-
   </div>
-
 
   <div class="nav-right">
 
-
-    <ul
-      class="nav-links"
-      id="navLinks"
-    >
-
+    <ul class="nav-links" id="navLinks">
 
       <li>
-        <a
-          href="#hakkimda"
-          onclick="closeMobileMenu()"
-        >
+        <a href="#hakkimda" onclick="closeMobileMenu()">
           Hakkımda
         </a>
       </li>
 
-
       <li>
-        <a
-          href="#basinda"
-          onclick="closeMobileMenu()"
-        >
+        <a href="#basinda" onclick="closeMobileMenu()">
           Basında
         </a>
       </li>
 
-
       <li>
-        <a
-          href="#kitaplar"
-          onclick="closeMobileMenu()"
-        >
+        <a href="#kitaplar" onclick="closeMobileMenu()">
           Kitaplar
         </a>
       </li>
 
-
       <li>
-        <a
-          href="#yazilar"
-          onclick="closeMobileMenu()"
-        >
+        <a href="#yazilar" onclick="closeMobileMenu()">
           Yazılar
         </a>
       </li>
 
-
       <li>
-        <a
-          href="projects.html"
-          onclick="closeMobileMenu()"
-        >
+        <a href="projects.html">
           Projeler
         </a>
       </li>
 
-
       <li>
-        <a
-          href="#iyi-yol"
-          onclick="closeMobileMenu()"
-        >
+        <a href="#iyi-yol" onclick="closeMobileMenu()">
           İyi Yol Akademi
         </a>
       </li>
 
-
     </ul>
-
 
     <button
       class="nav-toggle"
@@ -3243,195 +1053,112 @@ footer a{
       ☀
     </button>
 
-
     <button
       class="mobile-menu-btn"
       id="mobileMenuBtn"
       onclick="toggleMobileMenu()"
       aria-label="Menüyü aç"
-      aria-expanded="false"
     >
       ☰
     </button>
 
-
   </div>
-
 
 </nav>
 
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
-
 <section class="hero">
-
 
   <div class="hero-photo"></div>
 
-
   <div class="hero-scrim"></div>
-
 
   <div class="hero-inner">
 
-
-    <span class="eyebrow hero-kicker">
-
+    <span class="eyebrow">
       Resmî Web Sitesi
-
     </span>
 
-
     <h1 class="hero-title">
-
       Berke Deniz<br>
       Yüksekdağ
-
     </h1>
 
-
     <div class="hero-role">
-
       Yazar · Girişimci · İyi Yol Akademi Kurucusu
-
     </div>
 
-
     <p class="hero-description">
-
-      Yazarlıkla başlayan üretim yolculuğunu
-      girişimcilik ve teknolojiyle genişleten;
-      kitaplar, mobil uygulamalar ve yeni dijital
-      projeler geliştiren Berke Deniz Yüksekdağ'ın
+      Yazarlıkla başlayan üretim yolculuğunu girişimcilik ve
+      teknolojiyle genişleten; kitaplar, mobil uygulamalar ve
+      yeni dijital projeler geliştiren Berke Deniz Yüksekdağ'ın
       resmî web sitesi.
-
     </p>
-
 
     <div class="hero-project">
 
-
       <span>
-
         Güncel Proje
-
       </span>
 
-
       <strong>
-
-OynaBak
+        OynaBak
       </strong>
-
 
     </div>
 
-
     <div class="hero-actions">
-
 
       <a
         class="btn btn-solid"
         href="#hakkimda"
       >
-
-        Hakkımda
-        <span>→</span>
-
+        Hakkımda →
       </a>
-
 
       <a
         class="btn btn-ghost"
         href="#basinda"
       >
-
         Basında
-
       </a>
-
 
     </div>
 
-
   </div>
-
 
 </section>
 
 
 
-<div class="road"></div>
-
-
-
-<!-- =====================================================
-     İSTATİSTİKLER
-===================================================== -->
-
 <div class="stats-strip">
-
 
   <div class="stats-grid-main">
 
-
     <div class="stat">
-
-      <span class="stat-label">
-        İyi Yol Akademi
-      </span>
-
-      <span class="stat-value">
-        9 B+
-      </span>
-
+      <span class="stat-value">9 B+</span>
+      <span class="stat-label">İyi Yol Akademi</span>
     </div>
 
-
     <div class="stat">
-
-      <span class="stat-label">
-        Uygulama Puanı
-      </span>
-
-      <span class="stat-value">
-        4,9
-      </span>
-
+      <span class="stat-value">4,9</span>
+      <span class="stat-label">Uygulama Puanı</span>
     </div>
 
-
     <div class="stat">
-
-      <span class="stat-label">
-        Yayınlanan Kitap
-      </span>
-
-      <span class="stat-value">
-        2
-      </span>
-
+      <span class="stat-value">2</span>
+      <span class="stat-label">Yayınlanan Kitap</span>
     </div>
 
-
     <div class="stat">
-
-      <span class="stat-label">
-        Yeni Yazı
+      <span class="stat-value" style="font-size:20px;">
+        Pazartesi & Perşembe
       </span>
-
-      <span class="stat-value">
-        Her Pazartesi ve Perşembe
-      </span>
-
+      <span class="stat-label">Yeni Yazı</span>
     </div>
-
 
   </div>
-
 
 </div>
 
@@ -3441,79 +1168,49 @@ OynaBak
 
 
 
-<!-- =====================================================
-     HAKKIMDA
-===================================================== -->
-
 <section
   class="section"
   id="hakkimda"
 >
 
-
   <div class="about">
-
 
     <div class="about-text">
 
-
       <span class="eyebrow">
-
         Hakkımda
-
       </span>
 
-
       <h2 class="section-title">
-
         Berke Deniz Yüksekdağ Kimdir?
-
       </h2>
 
-
       <p style="margin-top:24px;">
-
-        Berke Deniz Yüksekdağ, 2006 yılında İzmir’de
-        doğdu. Yazarlık, girişimcilik ve mobil uygulama
-        geliştirme alanlarında çalışmalarını sürdüren
-        Yüksekdağ, kişisel gelişim üzerine kaleme aldığı
-        iki kitabın yazarıdır. Bunun yanı sıra üç farklı
-        derleme projesinde yazar olarak yer aldı.
-
+        Berke Deniz Yüksekdağ, 2006 yılında İzmir’de doğdu.
+        Yazarlık, girişimcilik ve mobil uygulama geliştirme
+        alanlarında çalışmalarını sürdüren Yüksekdağ,
+        kişisel gelişim üzerine kaleme aldığı iki kitabın
+        yazarıdır. Bunun yanı sıra üç farklı derleme
+        projesinde yazar olarak yer aldı.
       </p>
 
-
       <p>
-
         Yazarlığın yanında teknoloji ve dijital girişimcilik
         alanına yönelen Yüksekdağ,
         <strong>
-          5.000’den fazla indirmeye ulaşan İyi Yol Akademi
-          mobil uygulamasının kurucusu ve geliştirme
-          ekibinin başındaki isimdir.
+          İyi Yol Akademi mobil uygulamasının kurucusu ve
+          geliştirme ekibinin başındaki isimdir.
         </strong>
-
-        İyi Yol Akademi ile kişisel gelişimi dijital
-        araçlarla bir araya getiren bir platform
-        oluşturmayı amaçlamaktadır.
-
       </p>
 
-
       <p>
-
         Çalışmalarını yalnızca mevcut projeleriyle
         sınırlamayan Yüksekdağ, yeni fikirleri hayata
         geçirmeye ve farklı alanlarda projeler üretmeye
-        devam etmektedir. Bu çalışmaların sonuncusu,
-        alışkanlık geliştirme üzerine kurgulanan
-        <strong>Habitopia</strong> projesidir.
-
+        devam etmektedir.
       </p>
 
-
       <p>
-
         Yazarlıkla başlayan üretim yolculuğunu girişimcilik
         ve teknolojiyle genişleten Berke Deniz Yüksekdağ,
         çalışmalarını
@@ -3521,9 +1218,7 @@ OynaBak
           üretmek, geliştirmek ve kalıcı değer oluşturmak
         </strong>
         düşüncesi etrafında sürdürmektedir.
-
       </p>
-
 
       <a
         class="social-btn"
@@ -3531,957 +1226,523 @@ OynaBak
         target="_blank"
         rel="noopener noreferrer"
       >
-
         Instagram · @berke_yuksekdag
-
       </a>
-
 
     </div>
 
 
-
     <div class="about-photo-frame">
-
 
       <img
         src="images/berke-deniz-yuksekdag-2025.jpg"
         alt="Berke Deniz Yüksekdağ"
       >
 
-
     </div>
 
-
   </div>
-
 
 </section>
 
 
 
-<!-- =====================================================
-     BASINDA
-===================================================== -->
 
 <section
   class="section"
   id="basinda"
 >
 
-
   <div class="section-head">
 
-
     <span class="eyebrow">
-
       Basında
-
     </span>
 
-
     <h2 class="section-title">
-
       Hakkımda Yayınlananlar
-
     </h2>
 
-
     <p class="section-desc">
-
       Kitaplarım ve çalışmalarım hakkında
-      basında yayımlanan içerikler.
-
+      farklı platformlarda yayımlanan içerikler.
     </p>
-
 
   </div>
 
 
+  <div class="press-list">
 
-  <article class="press-card">
 
+    <!-- YENİGÜN -->
 
-    <div class="press-logo-box">
+    <article class="press-card">
 
-      <div
-        style="
-          font-family:Arial,sans-serif;
-          font-weight:900;
-          font-size:24px;
-          color:#e31e24;
-          letter-spacing:-1px;
-        "
-      >
-        YENİGÜN
+      <div class="press-logo-box">
+
+        <img
+          src="images/yenigun-logo.png"
+          alt="Gazete Yenigün"
+          class="press-logo"
+        >
+
       </div>
 
-    </div>
 
+      <div class="press-content">
 
+        <div class="press-topline">
 
-    <div class="press-content">
+          <span class="press-source">
+            Gazete Yenigün
+          </span>
 
+          <span class="press-date">
+            Basında
+          </span>
 
-      <div class="press-topline">
+        </div>
 
+        <h3 class="press-title">
+          Berke Deniz Yüksekdağ
+        </h3>
 
-        <span class="press-source">
+        <p class="press-description">
+          Berke Deniz Yüksekdağ'ın yazarlık çalışmaları,
+          kitapları ve üretim yolculuğu hakkında
+          Gazete Yenigün'de yayımlanan içerik.
+        </p>
 
+        <div class="press-author">
           Gazete Yenigün
-
-        </span>
-
-
-        <span class="press-date">
-
-          21 Eylül 2024
-
-        </span>
-
+        </div>
 
       </div>
 
 
-      <h3 class="press-title">
+      <a
+        class="press-link"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Haberi Gör
+        <span>↗</span>
+      </a>
 
-        Hayat Üzerine Sohbetler — Berke Deniz Yüksekdağ
-
-      </h3>
-
-
-      <p class="press-description">
-
-        Gözde Yılmaz'ın Gazete Yenigün'de yayımlanan
-        yazısında <strong>Hayat Üzerine Sohbetler</strong>;
-        sosyal ilişkiler, güven, disiplin, sabır ve
-        başarıya olan inanç üzerinden ele alınıyor.
-
-      </p>
+    </article>
 
 
-      <div class="press-author">
 
-        Yazar · Gözde Yılmaz
+    <!-- KİTUP -->
+
+    <article class="press-card">
+
+      <div class="press-logo-box">
+
+        <img
+          src="images/kitup-logo.png"
+          alt="Kitup"
+          class="press-logo"
+          style="
+            width:135px;
+            height:auto;
+            object-fit:contain;
+          "
+        >
 
       </div>
 
 
-    </div>
+      <div class="press-content">
+
+        <div class="press-topline">
+
+          <span class="press-source">
+            Kitup
+          </span>
+
+          <span class="press-date">
+            Kitap Tanıtımı
+          </span>
+
+        </div>
 
 
-
-    <a
-      class="press-link"
-      href="https://www.gazeteyenigun.com.tr/makale/22399189/gozde-yilmaz/dul-jean-louis-fournier-hayat-uzerine-sohbetler-berke-deniz-yuksekdag"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-
-      Gazete Yenigün'de Oku
-      <span>↗</span>
-
-    </a>
+        <h3 class="press-title">
+          Hayat Üzerine Sohbetler
+        </h3>
 
 
-  </article>
+        <p class="press-description">
+          Hayat üzerine farklı görüşlere sahip dört gencin;
+          yaşanmış deneyimler ve sohbetler üzerinden aşk,
+          karakter, mutluluk, insan ilişkileri ve hayatın
+          farklı yönleri üzerine düşüncelerini bir araya
+          getirdiği <strong>Hayat Üzerine Sohbetler</strong>,
+          Kitup'ta okuyucularla buluşuyor.
+        </p>
 
+
+        <div class="press-author">
+          Kitup · Hayat Üzerine Sohbetler
+        </div>
+
+      </div>
+
+
+      <a
+        class="press-link"
+        href="https://kitup.net/tr/book/hayat-%C3%BCzerine-sohbetler"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        Kitup'ta Gör
+        <span>↗</span>
+
+      </a>
+
+    </article>
+
+
+  </div>
 
 </section>
 
 
 
-<!-- =====================================================
-     PROJELER
-===================================================== -->
 
-<section
-  class="section"
-  style="padding-top:0;"
->
-
+<section class="section">
 
   <div class="projects-cta">
 
-
     <div>
 
-
       <span class="eyebrow">
-
         Projeler
-
       </span>
 
-
-      <h3 class="projects-cta-title">
-
-        Berke Deniz Yüksekdağ'ın Projeleri
-
-      </h3>
-
+      <h2 class="projects-cta-title">
+        Dijital Projelerimi İncele
+      </h2>
 
       <p class="projects-cta-desc">
-
-        İyi Yol Akademi, Habitopia ve devam eden diğer
-        projelere ait güncel durum bilgilerine
-        projeler sayfasından ulaşabilirsiniz.
-
+        İyi Yol Akademi, OynaBak, Habitopia ve geliştirdiğim
+        diğer projeler hakkında detaylı bilgi al.
       </p>
 
-
     </div>
-
 
     <a
       href="projects.html"
       class="projects-cta-btn"
     >
-
       Projeleri Gör →
-
     </a>
 
-
   </div>
-
 
 </section>
 
 
 
-<div class="road"></div>
-
-
-
-<!-- =====================================================
-     KİTAPLAR
-===================================================== -->
 
 <section
   class="section"
   id="kitaplar"
 >
 
-
   <div class="section-head">
 
-
     <span class="eyebrow">
-
-      Kitaplarım
-
+      Kitaplar
     </span>
 
-
     <h2 class="section-title">
-
-      Yayımlanan Eserler
-
+      Yayınlanan Kitaplarım
     </h2>
 
-
     <p class="section-desc">
-
-      Berke Deniz Yüksekdağ tarafından yayımlanan
-      kitaplar ve eserler.
-
+      Yazarlık yolculuğum boyunca yayımlanan çalışmalar.
     </p>
 
-
   </div>
-
 
 
   <div class="books-grid">
 
 
-
-    <div class="book-card">
-
+    <article class="book-card">
 
       <img
         src="images/hayat-uzerine-sohbetler.jpg"
-        alt="Hayat Üzerine Sohbetler kitap kapağı"
+        alt="Hayat Üzerine Sohbetler"
       >
-
 
       <h3>
-
         Hayat Üzerine Sohbetler
-
       </h3>
 
-
       <p>
-
-        Hayat, düşünce ve insan üzerine
-        sohbetler içeren eser.
-
+        Hayat, ilişkiler, karakter ve insan üzerine
+        sohbetlerden oluşan bir kitap.
       </p>
 
-
-      <div class="book-quote">
-
-
-        <span class="book-quote-text">
-
-      Başarıya giden süreçte mutlu olmuyorsanız o şey başarı değil, zorunluluktur.
-
-        </span>
-
-
-        <span class="book-quote-label">
-
-          Kitaptan Bir Alıntı
-
-        </span>
-
-
-      </div>
-
-
       <a
-        class="book-btn"
-        href="https://www.shopier.com/iyiyolakademi/43852507"
+        href="https://kitup.net/tr/book/hayat-%C3%BCzerine-sohbetler"
         target="_blank"
         rel="noopener noreferrer"
+        class="book-btn"
       >
-
-        Satın Al
-
+        Kitabı İncele
       </a>
 
-
-    </div>
-
+    </article>
 
 
-    <div class="book-card">
-
+    <article class="book-card">
 
       <img
-        src="images/karanligin-icinden-aydinliga.jpg"
-        alt="Karanlığın İçinden Aydınlığa kitap kapağı"
+        src="images/kitap2.jpg"
+        alt="Berke Deniz Yüksekdağ Kitabı"
       >
-
 
       <h3>
-
-        Karanlığın İçinden Aydınlığa
-
+        İkinci Kitabım
       </h3>
 
-
       <p>
-
-        İçsel dönüşüm, farkındalık ve
-        düşünsel derinlik üzerine bir eser.
-
+        Kişisel gelişim ve hayat üzerine kaleme alınan
+        çalışmalarım arasında yer alan kitabım.
       </p>
 
-
-      <div class="book-quote">
-
-
-        <span class="book-quote-text">
-
-         Çünkü hayat, sürekli akan bir nehir gibi değişken ve yenilenen bir süreçtir.
-
-        </span>
-
-
-        <span class="book-quote-label">
-
-          Kitaptan Bir Alıntı
-
-        </span>
-
-
-      </div>
-
-
       <a
+        href="#"
         class="book-btn"
-        href="https://www.shopier.com/iyiyolakademi/43859867"
-        target="_blank"
-        rel="noopener noreferrer"
       >
-
-        Satın Al
-
+        Kitabı İncele
       </a>
 
-
-    </div>
+    </article>
 
 
   </div>
-
 
 </section>
 
 
 
-<div class="road"></div>
-
-
-
-<!-- =====================================================
-     BLOG
-===================================================== -->
 
 <section
   class="section"
   id="yazilar"
 >
 
-
   <div class="section-head">
 
-
     <span class="eyebrow">
-
-      Blog
-
+      Yazılar
     </span>
-
 
     <h2 class="section-title">
-
-      Yazılar
-
+      Son Yazılar
     </h2>
 
-
     <p class="section-desc">
-
-      Başarı, mutluluk, hayat, genç girişimcilik
-      ve yazarlık üzerine notlar.
-
+      Başarı, hayat, girişimcilik, mutluluk ve yazarlık
+      üzerine düşünceler.
     </p>
-
 
   </div>
 
 
-
-  <div class="publish-note">
-
-
-    <span class="publish-badge">
-
-      Yayın
-
-    </span>
-
-
-    <p class="publish-text">
-
-      Yeni yazılar
-      <strong>her Pazartesi ve Perşembe</strong>
-      yayınlanır.
-
-    </p>
-
-
-  </div>
-
-
-
-  <div
-    class="blog-filters"
-    id="blogFilters"
-  >
-
+  <div class="blog-filters">
 
     <button
       class="blog-filter-btn active"
       onclick="filterBlog('all',this)"
     >
-
       Tümü
-
     </button>
-
 
     <button
       class="blog-filter-btn"
       onclick="filterBlog('basari',this)"
     >
-
       Başarı
-
     </button>
-
 
     <button
       class="blog-filter-btn"
       onclick="filterBlog('mutluluk',this)"
     >
-
       Mutluluk
-
     </button>
-
 
     <button
       class="blog-filter-btn"
       onclick="filterBlog('hayat-uzerine',this)"
     >
-
       Hayat Üzerine
-
     </button>
-
 
     <button
       class="blog-filter-btn"
       onclick="filterBlog('genc-girisimci',this)"
     >
-
       Genç Girişimci
-
     </button>
-
 
     <button
       class="blog-filter-btn"
       onclick="filterBlog('yazarlik',this)"
     >
-
       Yazarlık
-
     </button>
 
-
   </div>
 
 
+  <div
+    class="blog-grid"
+    id="blogGrid"
+  >
 
-  <div class="blog-grid" id="blogGrid">
-    <div style="grid-column:1/-1;padding:32px 0;color:var(--muted);">Yazılar yükleniyor…</div>
-  </div>
-
-  <div class="blog-more-wrap" id="blogMoreWrap" style="display:none;"></div>
-
-</section>
-
-
-
-<div class="road"></div>
-
-
-
-<!-- =====================================================
-     BÜLTEN
-===================================================== -->
-
-<section
-  class="section"
-  style="padding-top:20px;"
->
-
-
-  <div class="newsletter-box">
-
-
-    <div>
-
-
-      <span class="eyebrow">
-
-        Bültene Katıl · Ücretsiz
-
-      </span>
-
-
-      <h3 class="newsletter-title">
-
-        Yeni yazılardan ilk sen haberdar ol
-
-      </h3>
-
-
-      <p class="newsletter-desc">
-
-        Her Pazartesi ve Perşembe yayınlanan yazılar
-        doğrudan e-posta kutunda.
-
-        Abonelere özel bazı günlerde ise
-        sürpriz çekilişler seni bekler.
-
-      </p>
-
-
+    <div style="
+      grid-column:1/-1;
+      padding:35px 0;
+      color:var(--muted);
+    ">
+      Yazılar yükleniyor...
     </div>
 
-
-
-    <form
-      class="newsletter-form embeddable-buttondown-form"
-      action="https://buttondown.com/api/emails/embed-subscribe/berke_deniz"
-      method="post"
-      target="popupwindow"
-      onsubmit="window.open('https://buttondown.com/berke_deniz','popupwindow')"
-    >
-
-
-      <input
-        type="email"
-        name="email"
-        class="newsletter-input"
-        placeholder="E-posta adresin"
-        required
-      >
-
-
-      <input
-        type="hidden"
-        value="1"
-        name="embed"
-      >
-
-
-      <button
-        type="submit"
-        class="newsletter-btn"
-      >
-
-        Abone Ol
-
-      </button>
-
-
-      <span class="newsletter-note">
-
-        Kayıt olduğunda onay sayfası yeni pencerede açılır.
-
-      </span>
-
-
-    </form>
-
-
   </div>
-
 
 </section>
 
 
 
-<div class="road"></div>
-
-
-
-<!-- =====================================================
-     İYİ YOL AKADEMİ
-===================================================== -->
 
 <section
   class="app-section"
   id="iyi-yol"
 >
 
-
   <div class="section">
-
 
     <div class="app-header">
 
-
       <img
-        src="images/iyi-yol-logo.png"
-        alt="İyi Yol Akademi Logo"
+        src="images/iyi-yol-akademi-logo.png"
+        alt="İyi Yol Akademi"
       >
 
+      <div>
 
-      <h2
-        class="section-title"
-        style="font-size:27px;margin-top:0;"
-      >
+        <span class="eyebrow">
+          Mobil Uygulama
+        </span>
 
-        İyi Yol Akademi
+        <h2 class="section-title" style="font-size:30px;">
+          İyi Yol Akademi
+        </h2>
 
-      </h2>
-
+      </div>
 
     </div>
 
 
-
     <div class="iyi-yol-row">
 
-
       <div>
-
 
         <p class="iyi-yol-desc">
 
           <strong>İyi Yol Akademi</strong>,
-          Berke Deniz Yüksekdağ tarafından kurulan
-          çok yönlü bir kişisel gelişim platformudur.
-
-          Kitap özetleri, blog yazıları,
-          eğitim içerikleri, odaklanma araçları
-          ve zihinsel farkındalığı artırmaya
-          yönelik çalışmalar sunar.
-
-        </p>
-
-
-        <p
-          class="iyi-yol-desc"
-          style="margin-top:16px;"
-        >
-
-          Platform; bireysel gelişim,
-          düşünsel derinlik ve bilinçli yaşam
-          anlayışını destekleyen içerikleri
-          tek bir uygulama altında
-          bir araya getirmeyi amaçlamaktadır.
+          kişisel gelişim, eğitim, motivasyon ve günlük
+          gelişim içeriklerini tek bir mobil uygulamada
+          bir araya getiren dijital platformdur.
 
         </p>
 
 
         <div class="store-buttons">
 
-
           <a
+            href="https://play.google.com/store/apps/details?id=com.iyiyolakademi"
+            target="_blank"
+            rel="noopener noreferrer"
             class="store-btn"
-            target="_blank"
-            rel="noopener"
-            href="https://play.google.com/store/apps/details?id=com.iyiyolakademi&hl=tr"
           >
-
             Google Play
-
           </a>
-
 
           <a
-            class="store-btn apple"
+            href="https://apps.apple.com/tr/app/i-yi-yol-akademi/id6751721028"
             target="_blank"
-            rel="noopener"
-            href="https://apps.apple.com/tr/app/i-yi-yol-akademi/id6751721028?l=tr"
+            rel="noopener noreferrer"
+            class="store-btn apple"
           >
-
             App Store
-
           </a>
-
 
         </div>
 
-
       </div>
-
 
 
       <div class="iyi-yol-stats">
 
-
         <div class="mini-stat">
 
-
           <div class="mini-stat-top">
-
-            Toplam İndirme
-
+            Kullanıcı / İndirme
           </div>
 
-
           <div class="mini-stat-value">
-
             9 B+
-
           </div>
-
 
         </div>
 
 
         <div class="mini-stat">
 
-
           <div class="mini-stat-top">
-
-            Genel Puan
-
+            Mağaza Puanı
           </div>
-
 
           <div class="mini-stat-value">
-
-            4,9 ★
-
+            4,9
           </div>
-
 
         </div>
 
-
       </div>
 
-
     </div>
-
-
-
-    <p
-      class="section-desc"
-      style="margin-top:34px;"
-    >
-
-      İyi Yol Akademi'nin arayüzüne ait
-      örnek ekran görüntüleri.
-
-    </p>
-
-
-
-    <div class="scroll-strip">
-
-
-      <div class="scroll-track">
-
-
-        <img src="images/app1.jpg" alt="İyi Yol Akademi ekran 1">
-
-        <img src="images/app2.jpg" alt="İyi Yol Akademi ekran 2">
-
-        <img src="images/app3.jpg" alt="İyi Yol Akademi ekran 3">
-
-        <img src="images/app4.jpg" alt="İyi Yol Akademi ekran 4">
-
-        <img src="images/app5.jpg" alt="İyi Yol Akademi ekran 5">
-
-        <img src="images/app6.jpg" alt="İyi Yol Akademi ekran 6">
-
-        <img src="images/app7.jpg" alt="İyi Yol Akademi ekran 7">
-
-        <img src="images/app8.jpg" alt="İyi Yol Akademi ekran 8">
-
-
-        <img src="images/app1.jpg" alt="" aria-hidden="true">
-
-        <img src="images/app2.jpg" alt="" aria-hidden="true">
-
-        <img src="images/app3.jpg" alt="" aria-hidden="true">
-
-        <img src="images/app4.jpg" alt="" aria-hidden="true">
-
-        <img src="images/app5.jpg" alt="" aria-hidden="true">
-
-        <img src="images/app6.jpg" alt="" aria-hidden="true">
-
-        <img src="images/app7.jpg" alt="" aria-hidden="true">
-
-        <img src="images/app8.jpg" alt="" aria-hidden="true">
-
-
-      </div>
-
-
-    </div>
-
 
   </div>
-
 
 </section>
 
 
 
-<!-- =====================================================
-     OKUR PAYLAŞIMLARI
-===================================================== -->
 
 <section class="section">
 
-
   <div class="section-head">
 
-
     <span class="eyebrow">
-
-      Okur Paylaşımları
-
+      Video
     </span>
 
-
     <h2 class="section-title">
-
-      Kitabımı Okuyanlardan Gelenler
-
+      İyi Yol Akademi
     </h2>
 
-
-    <p class="section-desc">
-
-      Kitaplarımı okuyan okurlardan gelen
-      paylaşımlar.
-
-    </p>
-
-
   </div>
-
-
-
-  <div
-    class="book-scroll"
-    aria-label="Kitap okur görselleri"
-  >
-
-
-    <div class="book-track">
-
-
-      <img src="images/okur1.jpg" alt="Okur yorumu 1">
-
-      <img src="images/okur2.jpg" alt="Okur yorumu 2">
-
-      <img src="images/okur3.jpg" alt="Okur yorumu 3">
-
-      <img src="images/okur4.jpg" alt="Okur yorumu 4">
-
-      <img src="images/okur5.jpg" alt="Okur yorumu 5">
-
-      <img src="images/okur6.jpg" alt="Okur yorumu 6">
-
-
-      <img src="images/okur1.jpg" alt="" aria-hidden="true">
-
-      <img src="images/okur2.jpg" alt="" aria-hidden="true">
-
-      <img src="images/okur3.jpg" alt="" aria-hidden="true">
-
-      <img src="images/okur4.jpg" alt="" aria-hidden="true">
-
-      <img src="images/okur5.jpg" alt="" aria-hidden="true">
-
-      <img src="images/okur6.jpg" alt="" aria-hidden="true">
-
-
-    </div>
-
-
-  </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     VIDEO
-===================================================== -->
-
-<section
-  class="section"
-  style="padding-top:0;"
->
 
 
   <div
@@ -4489,26 +1750,16 @@ OynaBak
     id="videoBox"
   >
 
-
-    <div
-      class="video-cover"
-      style="background-image:url('images/video-kapak.jpg')"
-    ></div>
-
-
     <video
       id="introVideo"
-      muted
       playsinline
       preload="none"
     >
-
 
       <source
         src="videos/intro.mp4"
         type="video/mp4"
       >
-
 
     </video>
 
@@ -4519,14 +1770,10 @@ OynaBak
       onclick="toggleVideo()"
       aria-label="Videoyu oynat"
     >
-
       ▶
-
     </button>
 
-
   </div>
-
 
 </section>
 
@@ -4535,704 +1782,549 @@ OynaBak
 
 
 
-<footer>
 
+<footer>
 
   © 2026 Berke Deniz Yüksekdağ
 
   &nbsp;·&nbsp;
-
 
   <a
     href="https://www.instagram.com/berke_yuksekdag/"
     target="_blank"
     rel="noopener noreferrer"
   >
-
     Instagram
-
   </a>
-
 
 </footer>
 
 
 
+
 <script>
 
-/* =========================================================
-   TEMA
-========================================================= */
+/* TEMA */
 
 function applyTheme(theme){
 
   const btn =
     document.getElementById("themeBtn");
 
-
   if(theme === "gunduz"){
-
 
     document.body.classList.add("gunduz");
 
-
     if(btn){
-
       btn.textContent = "☾";
-
-      btn.setAttribute(
-        "aria-label",
-        "Gece moduna geç"
-      );
-
     }
-
 
   }else{
 
-
     document.body.classList.remove("gunduz");
 
-
     if(btn){
-
       btn.textContent = "☀";
-
-      btn.setAttribute(
-        "aria-label",
-        "Gündüz moduna geç"
-      );
-
     }
 
   }
 
 }
-
 
 
 function toggleTheme(){
 
-
-  const isGunduz =
+  const gunduz =
     document.body.classList.contains("gunduz");
 
-
-  const newTheme =
-    isGunduz
+  const theme =
+    gunduz
       ? "gece"
       : "gunduz";
 
-
   localStorage.setItem(
     "theme",
-    newTheme
+    theme
   );
 
-
-  applyTheme(newTheme);
+  applyTheme(theme);
 
 }
 
 
-
-(function initTheme(){
-
-
-  const saved =
-    localStorage.getItem("theme");
-
+(function(){
 
   applyTheme(
-    saved || "gece"
+    localStorage.getItem("theme") || "gece"
   );
-
 
 })();
 
 
-
-/* =========================================================
-   MOBİL MENÜ
-========================================================= */
+/* MOBİL MENÜ */
 
 function toggleMobileMenu(){
-
 
   const menu =
     document.getElementById("navLinks");
 
-
-  const button =
+  const btn =
     document.getElementById("mobileMenuBtn");
 
-
-  if(!menu || !button){
-
-    return;
-
-  }
-
-
-  const isOpen =
+  const open =
     menu.classList.toggle("mobile-open");
 
-
-  button.textContent =
-    isOpen ? "×" : "☰";
-
-
-  button.setAttribute(
-    "aria-expanded",
-    isOpen ? "true" : "false"
-  );
-
+  btn.textContent =
+    open ? "×" : "☰";
 
 }
-
 
 
 function closeMobileMenu(){
 
-
   const menu =
     document.getElementById("navLinks");
 
-
-  const button =
+  const btn =
     document.getElementById("mobileMenuBtn");
 
-
-  if(!menu || !button){
-
-    return;
-
+  if(menu){
+    menu.classList.remove("mobile-open");
   }
-
-
-  menu.classList.remove("mobile-open");
-
-
-  button.textContent = "☰";
-
-
-  button.setAttribute(
-    "aria-expanded",
-    "false"
-  );
-
-}
-
-
-
-document.addEventListener(
-  "click",
-  function(event){
-
-
-    const nav =
-      document.querySelector(".nav");
-
-
-    const menu =
-      document.getElementById("navLinks");
-
-
-    if(
-      nav &&
-      menu &&
-      menu.classList.contains("mobile-open") &&
-      !nav.contains(event.target)
-    ){
-
-      closeMobileMenu();
-
-    }
-
-
-  }
-);
-
-
-
-window.addEventListener(
-  "resize",
-  function(){
-
-
-    if(window.innerWidth > 930){
-
-      closeMobileMenu();
-
-    }
-
-
-  }
-);
-
-
-
-/* =========================================================
-   BLOG
-========================================================= */
-
-let currentBlogFilter = "all";
-
-
-function filterBlog(
-  category,
-  btn
-){
-
-
-  currentBlogFilter = category;
-
-
-  document
-    .querySelectorAll(".blog-filter-btn")
-    .forEach(function(button){
-
-
-      button.classList.remove("active");
-
-
-    });
-
-
-  btn.classList.add("active");
-
-
-  applyBlogFilter();
-
-}
-
-
-
-function applyBlogFilter(){
-
-
-  const grid =
-    document.getElementById("blogGrid");
-
-
-  if(!grid){
-
-    return;
-
-  }
-
-
-  const isExpanded =
-    grid.classList.contains("expanded");
-
-
-  grid
-    .querySelectorAll(".blog-card")
-    .forEach(function(card){
-
-
-      const matchesCategory =
-
-        currentBlogFilter === "all"
-
-        ||
-
-        card.dataset.category ===
-        currentBlogFilter;
-
-
-      const isExtra =
-        card.classList.contains("blog-extra");
-
-
-      const visibleByExpand =
-        !isExtra || isExpanded;
-
-
-      card.classList.toggle(
-
-        "hide-card",
-
-        !(matchesCategory && visibleByExpand)
-
-      );
-
-
-    });
-
-}
-
-
-
-applyBlogFilter();
-
-
-
-function toggleBlogMore(){
-
-
-  const grid =
-    document.getElementById("blogGrid");
-
-
-  const btn =
-    document.getElementById("blogMoreBtn");
-
-
-  const label =
-    document.getElementById("blogMoreLabel");
-
-
-  if(!grid){
-
-    return;
-
-  }
-
-
-  const isOpen =
-    grid.classList.toggle("expanded");
-
 
   if(btn){
-
-    btn.classList.toggle(
-      "open",
-      isOpen
-    );
-
-  }
-
-
-  if(label){
-
-    label.textContent =
-      isOpen
-        ? "Kapat"
-        : "Daha Fazlası";
-
-  }
-
-
-  applyBlogFilter();
-
-
-  if(!isOpen){
-
-
-    const section =
-      document.getElementById("yazilar");
-
-
-    if(section){
-
-      section.scrollIntoView({
-        behavior:"smooth",
-        block:"start"
-      });
-
-    }
-
-
+    btn.textContent = "☰";
   }
 
 }
 
 
-
-/* =========================================================
-   VIDEO
-========================================================= */
+/* VIDEO */
 
 const video =
   document.getElementById("introVideo");
-
-
-const videoBox =
-  document.getElementById("videoBox");
-
 
 const videoBtn =
   document.getElementById("videoBtn");
 
 
-if(video){
-
-  video.pause();
-
-  video.currentTime = 0;
-
-  video.load();
-
-}
-
-
-let awaitingSoundClick = false;
-
-
-
-async function safePlay(withSound){
-
+function toggleVideo(){
 
   if(!video){
-
-    return false;
-
-  }
-
-
-  try{
-
-
-    video.muted =
-      !withSound;
-
-
-    await video.play();
-
-
-    return true;
-
-
-  }catch(e){
-
-
-    return false;
-
-
-  }
-
-}
-
-
-
-function setPlayingUI(isPlaying){
-
-
-  if(
-    !videoBox ||
-    !videoBtn
-  ){
-
     return;
-
   }
-
-
-  if(isPlaying){
-
-
-    videoBox.classList.add("playing");
-
-
-    videoBtn.textContent =
-      awaitingSoundClick
-        ? "🔊"
-        : "❚❚";
-
-
-  }else{
-
-
-    videoBox.classList.remove("playing");
-
-
-    videoBtn.textContent = "▶";
-
-
-    awaitingSoundClick = false;
-
-
-  }
-
-}
-
-
-
-async function toggleVideo(){
-
-
-  if(!video){
-
-    return;
-
-  }
-
 
   if(video.paused){
 
+    video.play();
 
-    video.currentTime = 0;
-
-
-    let ok =
-      await safePlay(true);
-
-
-    if(ok){
-
-
-      awaitingSoundClick = false;
-
-
-      setPlayingUI(true);
-
-
-    }else{
-
-
-      awaitingSoundClick = true;
-
-
-      await safePlay(false);
-
-
-      setPlayingUI(true);
-
-
+    if(videoBtn){
+      videoBtn.textContent = "❚❚";
     }
-
 
   }else{
 
-
     video.pause();
 
-
-    setPlayingUI(false);
-
+    if(videoBtn){
+      videoBtn.textContent = "▶";
+    }
 
   }
 
 }
 
 
-
 if(video){
-
 
   video.addEventListener(
     "ended",
     function(){
 
-
-      setPlayingUI(false);
-
+      if(videoBtn){
+        videoBtn.textContent = "▶";
+      }
 
     }
   );
 
-
-  video.addEventListener(
-    "click",
-    toggleVideo
-  );
-
-
 }
 
 </script>
+
+
 
 
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-import { getFirestore, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBv3kaf0kCyP0WqFXtbmROTTVtj57upEFY",
-  authDomain: "berke-web-panel.firebaseapp.com",
-  projectId: "berke-web-panel",
-  storageBucket: "berke-web-panel.firebasestorage.app",
-  messagingSenderId: "956917805545",
-  appId: "1:956917805545:web:46b1b3ba5a5881b7d1db78",
-  measurementId: "G-NZ358NMQ0F"
+
+  apiKey:
+    "AIzaSyBv3kaf0kCyP0WqFXtbmROTTVtj57upEFY",
+
+  authDomain:
+    "berke-web-panel.firebaseapp.com",
+
+  projectId:
+    "berke-web-panel",
+
+  storageBucket:
+    "berke-web-panel.firebasestorage.app",
+
+  messagingSenderId:
+    "956917805545",
+
+  appId:
+    "1:956917805545:web:46b1b3ba5a5881b7d1db78",
+
+  measurementId:
+    "G-NZ358NMQ0F"
+
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const blogGrid = document.getElementById("blogGrid");
+
+const app =
+  initializeApp(firebaseConfig);
+
+const db =
+  getFirestore(app);
+
+const blogGrid =
+  document.getElementById("blogGrid");
+
 let loadedBlogs = [];
 
-function escapeHTML(value = "") {
-  return String(value).replace(/[&<>'"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[ch]));
+
+function escapeHTML(value = ""){
+
+  return String(value).replace(
+    /[&<>'"]/g,
+    ch => ({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      "'":"&#39;",
+      '"':"&quot;"
+    }[ch])
+  );
+
 }
 
-function formatDate(value) {
-  if (!value) return "Yeni yazı";
-  const d = value.toDate ? value.toDate() : new Date(value);
-  if (Number.isNaN(d.getTime())) return "Yeni yazı";
-  return new Intl.DateTimeFormat("tr-TR", { day:"numeric", month:"long", year:"numeric" }).format(d);
+
+function formatDate(value){
+
+  if(!value){
+    return "Yeni yazı";
+  }
+
+  const d =
+    value.toDate
+      ? value.toDate()
+      : new Date(value);
+
+  if(Number.isNaN(d.getTime())){
+    return "Yeni yazı";
+  }
+
+  return new Intl.DateTimeFormat(
+    "tr-TR",
+    {
+      day:"numeric",
+      month:"long",
+      year:"numeric"
+    }
+  ).format(d);
+
 }
+
 
 const categoryLabels = {
-  "basari": "Başarı",
-  "mutluluk": "Mutluluk",
-  "hayat-uzerine": "Hayat Üzerine",
-  "genc-girisimci": "Genç Girişimci",
-  "yazarlik": "Yazarlık",
 
-  // Eski yazılar için geriye dönük uyumluluk
-  "kisisel-gelisim": "Başarı",
-  "girisimcilik": "Genç Girişimci",
-  "hayat": "Hayat Üzerine"
+  "basari":
+    "Başarı",
+
+  "mutluluk":
+    "Mutluluk",
+
+  "hayat-uzerine":
+    "Hayat Üzerine",
+
+  "genc-girisimci":
+    "Genç Girişimci",
+
+  "yazarlik":
+    "Yazarlık",
+
+  "kisisel-gelisim":
+    "Başarı",
+
+  "girisimcilik":
+    "Genç Girişimci",
+
+  "hayat":
+    "Hayat Üzerine"
+
 };
 
-function canonicalCategory(value = "") {
+
+function canonicalCategory(value = ""){
+
   const aliases = {
-    "kisisel-gelisim": "basari",
-    "girisimcilik": "genc-girisimci",
-    "hayat": "hayat-uzerine"
+
+    "kisisel-gelisim":
+      "basari",
+
+    "girisimcilik":
+      "genc-girisimci",
+
+    "hayat":
+      "hayat-uzerine"
+
   };
+
   return aliases[value] || value;
+
 }
 
-function categoryLabel(value = "") {
-  return categoryLabels[value] || categoryLabels[canonicalCategory(value)] || value || "Yazı";
+
+function categoryLabel(value = ""){
+
+  return (
+    categoryLabels[value]
+    ||
+    categoryLabels[
+      canonicalCategory(value)
+    ]
+    ||
+    value
+    ||
+    "Yazı"
+  );
+
 }
 
-function renderBlogs(category = "all") {
-  const items = category === "all"
-    ? loadedBlogs
-    : loadedBlogs.filter(x => canonicalCategory(x.category) === category);
-  if (!items.length) {
-    blogGrid.innerHTML = '<div style="grid-column:1/-1;padding:32px 0;color:var(--muted);">Bu kategoride henüz yayınlanmış yazı yok.</div>';
-    return;
-  }
-  blogGrid.innerHTML = items.map((b, i) => `
-    <a href="blog.html?id=${encodeURIComponent(b.id)}" class="blog-card" data-category="${escapeHTML(canonicalCategory(b.category || ""))}">
-      <div class="blog-number">${String(i + 1).padStart(2,"0")}</div>
-      <div class="blog-content">
-        <span class="blog-category">${escapeHTML(categoryLabel(b.category || ""))}</span>
-        <h3>${escapeHTML(b.title || "Başlıksız Yazı")}</h3>
-        <p>${escapeHTML(b.summary || "")}</p>
-        <div class="blog-meta">${escapeHTML(formatDate(b.publishedAt || b.createdAt))}</div>
+
+function renderBlogs(category = "all"){
+
+  const items =
+
+    category === "all"
+
+      ? loadedBlogs
+
+      : loadedBlogs.filter(
+          item =>
+            canonicalCategory(
+              item.category
+            ) === category
+        );
+
+
+  if(!items.length){
+
+    blogGrid.innerHTML = `
+      <div
+        style="
+          grid-column:1/-1;
+          padding:32px 0;
+          color:var(--muted);
+        "
+      >
+        Bu kategoride henüz yayınlanmış yazı yok.
       </div>
-    </a>`).join("");
+    `;
+
+    return;
+
+  }
+
+
+  blogGrid.innerHTML =
+    items.map(
+      (b,i) => `
+
+        <a
+          href="blog.html?id=${encodeURIComponent(b.id)}"
+          class="blog-card"
+          data-category="${escapeHTML(
+            canonicalCategory(
+              b.category || ""
+            )
+          )}"
+        >
+
+          <div class="blog-number">
+
+            ${String(i + 1).padStart(2,"0")}
+
+          </div>
+
+
+          <div class="blog-content">
+
+            <span class="blog-category">
+
+              ${escapeHTML(
+                categoryLabel(
+                  b.category || ""
+                )
+              )}
+
+            </span>
+
+
+            <h3>
+
+              ${escapeHTML(
+                b.title || "Başlıksız Yazı"
+              )}
+
+            </h3>
+
+
+            <p>
+
+              ${escapeHTML(
+                b.summary || ""
+              )}
+
+            </p>
+
+
+            <div class="blog-meta">
+
+              ${escapeHTML(
+                formatDate(
+                  b.publishedAt ||
+                  b.createdAt
+                )
+              )}
+
+            </div>
+
+          </div>
+
+        </a>
+
+      `
+    ).join("");
+
 }
 
-window.filterBlog = function(category, btn) {
-  document.querySelectorAll(".blog-filter-btn").forEach(x => x.classList.remove("active"));
-  if (btn) btn.classList.add("active");
+
+window.filterBlog =
+function(category,btn){
+
+  document
+    .querySelectorAll(".blog-filter-btn")
+    .forEach(
+      button =>
+        button.classList.remove("active")
+    );
+
+  if(btn){
+    btn.classList.add("active");
+  }
+
   renderBlogs(category);
+
 };
 
-async function loadBlogs() {
-  try {
-    const snap = await getDocs(query(collection(db,"blogs"), where("published","==",true)));
-    loadedBlogs = snap.docs.map(d => ({ id:d.id, ...d.data() }));
-    loadedBlogs.sort((a,b) => {
-      const ad = (a.publishedAt || a.createdAt)?.toMillis?.() || 0;
-      const bd = (b.publishedAt || b.createdAt)?.toMillis?.() || 0;
-      return bd - ad;
-    });
+
+async function loadBlogs(){
+
+  try{
+
+    const snap =
+      await getDocs(
+
+        query(
+          collection(db,"blogs"),
+          where(
+            "published",
+            "==",
+            true
+          )
+        )
+
+      );
+
+
+    loadedBlogs =
+      snap.docs.map(
+        d => ({
+          id:d.id,
+          ...d.data()
+        })
+      );
+
+
+    loadedBlogs.sort(
+      (a,b) => {
+
+        const ad =
+          (
+            a.publishedAt ||
+            a.createdAt
+          )?.toMillis?.() || 0;
+
+        const bd =
+          (
+            b.publishedAt ||
+            b.createdAt
+          )?.toMillis?.() || 0;
+
+        return bd - ad;
+
+      }
+    );
+
+
     renderBlogs();
-  } catch (err) {
+
+
+  }catch(err){
+
     console.error(err);
-    blogGrid.innerHTML = '<div style="grid-column:1/-1;padding:32px 0;color:var(--muted);">Yazılar şu anda yüklenemedi.</div>';
+
+    blogGrid.innerHTML = `
+
+      <div
+        style="
+          grid-column:1/-1;
+          padding:32px 0;
+          color:var(--muted);
+        "
+      >
+
+        Yazılar şu anda yüklenemedi.
+
+      </div>
+
+    `;
+
   }
+
 }
+
+
 loadBlogs();
+
 </script>
+
 
 </body>
 </html>
