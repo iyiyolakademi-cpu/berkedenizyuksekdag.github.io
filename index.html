@@ -770,6 +770,8 @@ body.gunduz .nav{
 
   display:flex;
 
+  text-decoration:none;
+
   align-items:center;
 
   gap:12px;
@@ -799,6 +801,14 @@ body.gunduz .nav{
 
   color:var(--gold-soft);
 
+}
+
+.hero-project:hover{
+  border-left-color:var(--gold-soft);
+}
+
+.hero-project:hover strong{
+  color:var(--gold);
 }
 
 
@@ -3311,23 +3321,16 @@ footer a{
     </p>
 
 
-    <div class="hero-project">
-
-
-      <span>
-
-        Güncel Proje
-
-      </span>
-
-
-      <strong>
-
-OynaBak
-      </strong>
-
-
-    </div>
+    <a
+      class="hero-project"
+      href="https://oynabak.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Berke Deniz Yüksekdağ tarafından geliştirilen OynaBak"
+    >
+      <span>Güncel Proje</span>
+      <strong>Berke Deniz Yüksekdağ tarafından geliştirilen OynaBak</strong>
+    </a>
 
 
     <div class="hero-actions">
