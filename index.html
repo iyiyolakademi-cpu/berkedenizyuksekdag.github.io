@@ -3195,6 +3195,45 @@ footer a{
   letter-spacing:-.025em;
 }
 
+.timeline-launch-text{
+  max-width:680px;
+  margin:10px 0 0;
+  color:var(--paper-muted);
+  font-size:14px;
+}
+
+.timeline-stats{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  margin:22px 0 0;
+}
+
+.timeline-stat{
+  padding:14px 16px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:rgba(255,255,255,.035);
+}
+
+.timeline-stat strong{
+  display:block;
+  color:var(--gold-soft);
+  font-family:var(--serif);
+  font-size:23px;
+  line-height:1;
+}
+
+.timeline-stat span{
+  display:block;
+  margin-top:6px;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
 .timeline-toggle{
   flex-shrink:0;
   display:inline-flex;
@@ -3367,6 +3406,37 @@ footer a{
   letter-spacing:-.015em;
 }
 
+.timeline-card p{
+  position:relative;
+  z-index:1;
+  margin:10px 0 0;
+  color:var(--paper-muted);
+  font-size:14px;
+  line-height:1.65;
+}
+
+.timeline-tags{
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:14px;
+}
+
+.timeline-tags span{
+  display:inline-flex;
+  align-items:center;
+  padding:5px 8px;
+  border-radius:999px;
+  background:rgba(var(--accent-rgb),.10);
+  color:var(--paper);
+  font-family:var(--mono);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.04em;
+}
+
 .timeline-badge{
   position:relative;
   z-index:1;
@@ -3428,6 +3498,10 @@ footer a{
 
   .timeline-toggle{
     width:100%;
+  }
+
+  .timeline-stats{
+    grid-template-columns:1fr;
   }
 
   .timeline-panel.open{
@@ -3725,7 +3799,7 @@ footer a{
     <div class="stat">
 
       <span class="stat-label">
-        İyi Yol Akademi
+        İndirme
       </span>
 
       <span class="stat-value">
@@ -3742,7 +3816,7 @@ footer a{
       </span>
 
       <span class="stat-value">
-        4,9
+        4,9 
       </span>
 
     </div>
@@ -3916,6 +3990,25 @@ footer a{
     <div class="timeline-launch-copy">
       <span class="eyebrow">2024 → 2027</span>
       <h2 class="timeline-launch-title">Yolculuğum & Kilometre Taşları</h2>
+      <p class="timeline-launch-text">
+        Yazarlıkla başlayan bu yolculuk; basın, dijital yayınlar, mobil uygulama,
+        girişimcilik ve teknoloji projeleriyle adım adım büyüyen bir üretim hikayesine dönüştü.
+      </p>
+
+      <div class="timeline-stats">
+        <div class="timeline-stat">
+          <strong>3+</strong>
+          <span>Ana Proje</span>
+        </div>
+        <div class="timeline-stat">
+          <strong>10K+</strong>
+          <span>Uygulama İndirme</span>
+        </div>
+        <div class="timeline-stat">
+          <strong>2027</strong>
+          <span>Yeni Hedef</span>
+        </div>
+      </div>
     </div>
 
     <button
@@ -3942,6 +4035,14 @@ footer a{
           <div class="timeline-card">
             <span class="timeline-badge">Kitap</span>
             <h3>Hayat Üzerine Sohbetler</h3>
+            <p>
+              Yazarlık yolculuğumun ilk güçlü adımlarından biri oldu. Kişisel gelişim,
+              yaşam üzerine düşünceler ve okuyucuyla samimi bir bağ kurma fikri bu dönemde şekillendi.
+            </p>
+            <div class="timeline-tags">
+              <span>İlk adım</span>
+              <span>Yazarlık</span>
+            </div>
           </div>
         </article>
 
@@ -3950,6 +4051,14 @@ footer a{
           <div class="timeline-card">
             <span class="timeline-badge">Basın</span>
             <h3>Yenigün Gazetesi</h3>
+            <p>
+              Çalışmalarımın basında yer alması, ürettiğim işlerin daha geniş bir kitleye ulaşması
+              açısından önemli bir görünürlük kazandırdı.
+            </p>
+            <div class="timeline-tags">
+              <span>Basın</span>
+              <span>Görünürlük</span>
+            </div>
           </div>
         </article>
 
@@ -3958,6 +4067,14 @@ footer a{
           <div class="timeline-card">
             <span class="timeline-badge">Dijital Yayın</span>
             <h3>Kitup</h3>
+            <p>
+              Dijital yayın dünyasında yer alarak içerik üretimini yalnızca basılı alanla sınırlı
+              tutmadım; daha erişilebilir ve yeni nesil okuma kanallarını da deneyimledim.
+            </p>
+            <div class="timeline-tags">
+              <span>Dijital</span>
+              <span>İçerik</span>
+            </div>
           </div>
         </article>
 
@@ -3966,6 +4083,14 @@ footer a{
           <div class="timeline-card">
             <span class="timeline-badge">Kitap</span>
             <h3>Karanlığın İçinden Aydınlığa</h3>
+            <p>
+              Zorluklardan güç alma, umut ve yeniden ayağa kalkma temaları üzerine kurulu bu çalışma,
+              yazarlık çizgimin daha duygusal ve daha güçlü bir tarafını temsil etti.
+            </p>
+            <div class="timeline-tags">
+              <span>Umut</span>
+              <span>Gelişim</span>
+            </div>
           </div>
         </article>
 
@@ -3974,6 +4099,14 @@ footer a{
           <div class="timeline-card">
             <span class="timeline-badge">Derleme</span>
             <h3>Şiirim Sensin</h3>
+            <p>
+              Edebiyat tarafındaki üretimlerimi çeşitlendirdiğim, duygu ve ifade gücünü daha kısa
+              metinlerle aktardığım özel bir yayın süreci oldu.
+            </p>
+            <div class="timeline-tags">
+              <span>Şiir</span>
+              <span>Edebiyat</span>
+            </div>
           </div>
         </article>
 
@@ -3982,6 +4115,14 @@ footer a{
           <div class="timeline-card">
             <span class="timeline-badge">Derleme</span>
             <h3>Şiirim Sensin 2</h3>
+            <p>
+              İlk çalışmanın devamı niteliğinde, edebiyat alanındaki sürekliliğimi ve üretmeye devam
+              etme isteğimi gösteren ikinci önemli adım oldu.
+            </p>
+            <div class="timeline-tags">
+              <span>Devam</span>
+              <span>Üretim</span>
+            </div>
           </div>
         </article>
 
@@ -3990,6 +4131,15 @@ footer a{
           <div class="timeline-card">
             <span class="timeline-badge">Mobil Uygulama</span>
             <h3>İyi Yol Akademi</h3>
+            <p>
+              Kişisel gelişim, eğitim, motivasyon ve faydalı içerikleri bir araya getiren mobil uygulama
+              fikri hayata geçti. Bu proje, yazarlığı teknolojiyle birleştirdiğim en önemli dönüm noktalarından biri oldu.
+            </p>
+            <div class="timeline-tags">
+              <span>Kurucu</span>
+              <span>Mobil</span>
+              <span>Eğitim</span>
+            </div>
           </div>
         </article>
 
@@ -3998,6 +4148,14 @@ footer a{
           <div class="timeline-card">
             <span class="timeline-badge">Dergi</span>
             <h3>Sakura Dergisi — 13. Sayı</h3>
+            <p>
+              Yazılarımın dergi formatında yer alması, edebiyat ve düşünce tarafındaki üretimimi
+              farklı bir yayın mecrasında okuyucuyla buluşturdu.
+            </p>
+            <div class="timeline-tags">
+              <span>Dergi</span>
+              <span>Yayın</span>
+            </div>
           </div>
         </article>
 
@@ -4006,6 +4164,15 @@ footer a{
           <div class="timeline-card">
             <span class="timeline-badge">Kilometre Taşı</span>
             <h3>İyi Yol Akademi — 10.000 İndirme</h3>
+            <p>
+              İyi Yol Akademi'nin 10.000 indirmeye ulaşması, yalnızca bir sayı değil; projeye inanan
+              bir topluluğun oluşmaya başladığının en net göstergelerinden biri oldu.
+            </p>
+            <div class="timeline-tags">
+              <span>10K+</span>
+              <span>Topluluk</span>
+              <span>Büyüme</span>
+            </div>
           </div>
         </article>
 
@@ -4014,6 +4181,15 @@ footer a{
           <div class="timeline-card">
             <span class="timeline-badge">Teknoloji Projesi</span>
             <h3>OynaBak</h3>
+            <p>
+              Kafe, spor salonu ve işletmeler için QR üzerinden oyun, menü ve değerlendirme deneyimi
+              sunan OynaBak; sahaya çıkma, satış yapma ve gerçek işletmelerle çalışma sürecini başlattı.
+            </p>
+            <div class="timeline-tags">
+              <span>QR</span>
+              <span>Girişim</span>
+              <span>Saha</span>
+            </div>
           </div>
         </article>
 
@@ -4030,6 +4206,14 @@ footer a{
           <div class="timeline-card">
             <span class="timeline-badge">Hedef</span>
             <h3>Şirketleşme</h3>
+            <p>
+              İyi Yol Akademi, OynaBak ve yeni teknoloji fikirlerini daha kurumsal bir yapıya taşımak;
+              projeleri sürdürülebilir bir marka çatısı altında büyütmek ana hedeflerden biri.
+            </p>
+            <div class="timeline-tags">
+              <span>Marka</span>
+              <span>Kurumsal</span>
+            </div>
           </div>
         </article>
 
@@ -4038,6 +4222,15 @@ footer a{
           <div class="timeline-card">
             <span class="timeline-badge">Gelecek Proje</span>
             <h3>Sen ve 2 — Robot Projesi</h3>
+            <p>
+              Masaüstü boyutta, kişisel asistan hissi veren, sohbet ve hatırlatma özellikleriyle
+              geliştirilecek robot fikri; yazılım, tasarım ve donanımı birleştiren yeni hedef olarak planlanıyor.
+            </p>
+            <div class="timeline-tags">
+              <span>Robotik</span>
+              <span>Donanım</span>
+              <span>2027</span>
+            </div>
           </div>
         </article>
 
