@@ -286,6 +286,16 @@ img{
 }
 
 
+/* TAZE MOLA CAFE */
+.tazemola-card{
+    background:
+        radial-gradient(circle at 80% 0%, rgba(232,184,92,.28), transparent 38%),
+        linear-gradient(145deg,#17130d,#292016);
+}
+.tazemola-card .card-bg::before{
+    background:#d8a64e;
+}
+
 /* OYNABAK */
 
 .oynabak-card{
@@ -2036,6 +2046,51 @@ id="detailPage">
 
     </button>
 
+
+<!-- =======================================================
+     TAZE MOLA CAFE
+======================================================= -->
+
+<div
+class="project-card tazemola-card"
+onclick="openProject('tazemola')">
+
+    <div class="card-bg"></div>
+
+    <div class="card-decoration">
+        <span></span>
+        2026 PROJESİ
+    </div>
+
+    <div class="project-logo-area">
+        <img
+            src="images/taze-mola-cafe.png"
+            class="project-logo"
+            alt="Taze Mola Cafe">
+    </div>
+
+    <div class="card-content">
+        <div class="project-tag">
+            <div class="project-tag-dot" style="background:#e8b85c"></div>
+            İŞLETME
+        </div>
+
+        <div class="project-name">Taze Mola Cafe</div>
+
+        <div class="project-description">
+            Günlük atıştırmalıklar, taze lezzetler ve keyifli molalar.
+        </div>
+    </div>
+
+    <div class="project-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14"></path>
+            <path d="m13 6 6 6-6 6"></path>
+        </svg>
+    </div>
+</div>
+
+
 </div>
 
 
@@ -2406,6 +2461,59 @@ oynabak:{
 
     ]
 
+},
+
+/* =========================================================
+   TAZE MOLA CAFE
+========================================================= */
+
+tazemola:{
+    title:"Taze Mola Cafe",
+    color:"#d8a64e",
+    logo:`
+        <img
+            src="images/taze-mola-cafe.png"
+            alt="Taze Mola Cafe">
+    `,
+    description:"Günlük hayatın temposuna lezzetli bir mola veren; sandviç, çiğ köfte, simit ve pratik atıştırmalıklar sunan kafe projesi.",
+    badges:[
+        "Kafe",
+        "Atıştırmalık",
+        "Günlük Lezzetler"
+    ],
+    meta:[
+        {label:"PROJE TÜRÜ",value:"Kafe / Yiyecek-İçecek"},
+        {label:"ODAK",value:"Pratik ve Taze Lezzetler"},
+        {label:"YIL",value:"2026"}
+    ],
+    aboutTitle:"Günün her anına lezzetli bir mola",
+    about:`Taze Mola Cafe, günlük yaşamın içinde hızlı, pratik ve keyifli bir mola vermek isteyenlere yönelik bir kafe projesidir.
+
+Menüsünde sucuklu sandviç gibi doyurucu seçeneklerin yanı sıra çiğ köfte, simit ve farklı atıştırmalıklar yer alır. Amaç, farklı damak tatlarına hitap eden ulaşılabilir lezzetleri samimi bir mola deneyimiyle buluşturmaktır.`,
+    features:[
+        {
+            title:"Sucuklu Sandviç",
+            text:"Doyurucu ve pratik bir atıştırmalık seçeneği."
+        },
+        {
+            title:"Çiğ Köfte",
+            text:"Lezzetli, paylaşmaya ve hızlı bir öğüne uygun alternatif."
+        },
+        {
+            title:"Simit",
+            text:"Günün farklı saatlerinde tercih edilebilecek klasik bir lezzet."
+        },
+        {
+            title:"Günlük Atıştırmalıklar",
+            text:"Kısa molalara ve günlük ihtiyaçlara uygun pratik seçenekler."
+        }
+    ],
+    vision:`Taze Mola Cafe'nin amacı, günlük koşturmacanın içinde insanların uğrayabileceği, sevdiği lezzetleri bulabileceği ve keyifli bir mola verebileceği bir kafe markası oluşturmaktır.`,
+    status:[
+        {name:"Kategori",value:"Kafe"},
+        {name:"Ürünler",value:"Sandviç, çiğ köfte, simit"},
+        {name:"Proje yılı",value:"2026"}
+    ]
 }
 
 };
