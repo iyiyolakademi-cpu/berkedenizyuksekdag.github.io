@@ -3531,6 +3531,294 @@ footer a{
   }
 }
 
+
+/* =========================================================
+   KADIN GİRİŞİMCİ EKİBİ — KONTENJAN GÖSTERGESİ
+   Veriler: HTML'deki data-filled ve data-total özellikleri
+========================================================= */
+.women-team-section{
+  padding-top:62px;
+  padding-bottom:16px;
+}
+
+.women-team-card{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  border:1px solid rgba(217,164,74,.29);
+  border-radius:26px;
+  background:
+    radial-gradient(ellipse at 100% 0%,rgba(217,164,74,.10),transparent 48%),
+    linear-gradient(115deg,rgba(217,164,74,.075),transparent 48%),
+    var(--ink-card);
+  box-shadow:0 25px 60px rgba(0,0,0,.09);
+}
+
+.women-team-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-soft),transparent 85%);
+}
+
+.women-team-inner{
+  display:grid;
+  grid-template-columns:minmax(0,1.22fr) minmax(310px,.78fr);
+  align-items:center;
+  gap:clamp(28px,4vw,65px);
+  padding:clamp(28px,4.5vw,55px);
+}
+
+.women-team-copy{min-width:0;}
+
+.women-team-label{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  border:1px solid rgba(217,164,74,.28);
+  border-radius:99px;
+  padding:8px 12px;
+  background:rgba(217,164,74,.075);
+  color:var(--gold-soft);
+  font-family:var(--mono);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.women-team-label-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 0 4px rgba(217,164,74,.14);
+}
+
+.women-team-title{
+  max-width:650px;
+  margin-top:19px;
+  font-family:var(--serif);
+  font-size:clamp(31px,4vw,49px);
+  line-height:1.14;
+  letter-spacing:-.035em;
+  color:var(--paper);
+}
+
+.women-team-title em{
+  font-style:normal;
+  color:var(--gold-soft);
+}
+
+.women-team-description{
+  max-width:530px;
+  margin:17px 0 0;
+  color:var(--paper-muted);
+  font-size:14.5px;
+  line-height:1.85;
+}
+
+.women-team-footer{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:13px 18px;
+  margin-top:27px;
+}
+
+.women-team-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:13px 19px;
+  border-radius:999px;
+  background:var(--gold);
+  color:#181305;
+  text-decoration:none;
+  font-size:12.5px;
+  font-weight:800;
+  transition:transform .2s ease,filter .2s ease;
+}
+
+.women-team-link:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.07);
+}
+
+.women-team-footnote{
+  font-family:var(--mono);
+  color:var(--muted);
+  font-size:10.5px;
+}
+
+.women-team-status{
+  position:relative;
+  padding:28px 26px 26px;
+  border:1px solid var(--line);
+  border-radius:21px;
+  background:var(--ink-panel);
+  box-shadow:0 15px 35px rgba(0,0,0,.065);
+}
+
+.women-team-status-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:22px;
+}
+
+.women-team-status-label{
+  color:var(--muted);
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+
+.women-team-status-pill{
+  border:1px solid rgba(217,164,74,.32);
+  border-radius:999px;
+  background:rgba(217,164,74,.075);
+  padding:6px 10px;
+  color:var(--gold-soft);
+  font-family:var(--mono);
+  font-size:10px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.women-team-meter{
+  display:flex;
+  align-items:center;
+  gap:23px;
+}
+
+.women-team-ring{
+  --team-angle:108deg;
+  width:128px;
+  height:128px;
+  flex:0 0 128px;
+  padding:10px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:conic-gradient(var(--gold) 0deg var(--team-angle),rgba(217,164,74,.14) var(--team-angle) 360deg);
+}
+
+.women-team-ring-inner{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background:var(--ink-panel);
+}
+
+.women-team-percent{
+  color:var(--paper);
+  font-family:var(--serif);
+  font-size:33px;
+  font-weight:600;
+  line-height:1.1;
+}
+
+.women-team-percent-caption{
+  margin-top:4px;
+  color:var(--muted);
+  font-family:var(--mono);
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+
+.women-team-numbers{min-width:0;}
+
+.women-team-count{
+  display:block;
+  color:var(--paper);
+  font-family:var(--serif);
+  font-size:clamp(28px,3vw,38px);
+  font-weight:600;
+  line-height:1.15;
+  white-space:nowrap;
+}
+
+.women-team-count span{color:var(--gold-soft);}
+
+.women-team-count-label{
+  margin:8px 0 0;
+  color:var(--paper-muted);
+  font-size:12px;
+  line-height:1.6;
+}
+
+.women-team-seats{
+  display:grid;
+  grid-template-columns:repeat(10,minmax(0,1fr));
+  gap:6px;
+  margin-top:25px;
+}
+
+.women-team-seat{
+  height:10px;
+  border-radius:99px;
+  background:rgba(217,164,74,.14);
+  border:1px solid rgba(217,164,74,.10);
+}
+
+.women-team-seat.is-filled{
+  background:linear-gradient(90deg,var(--gold),var(--gold-soft));
+  border-color:transparent;
+}
+
+.women-team-remaining{
+  margin:12px 0 0;
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--paper-muted);
+}
+
+.women-team-remaining strong{color:var(--gold-soft);}
+
+body.gunduz .women-team-label,
+body.gunduz .women-team-status-pill,
+body.gunduz .women-team-title em,
+body.gunduz .women-team-count span,
+body.gunduz .women-team-remaining strong{
+  color:#906117;
+}
+
+@media(max-width:840px){
+  .women-team-inner{grid-template-columns:1fr;}
+  .women-team-status{max-width:510px;width:100%;}
+}
+
+@media(max-width:520px){
+  .women-team-section{padding-top:43px;padding-bottom:8px;}
+  .women-team-card{border-radius:20px;}
+  .women-team-inner{padding:24px 19px;gap:25px;}
+  .women-team-title{font-size:33px;}
+  .women-team-status{padding:23px 17px;border-radius:17px;}
+  .women-team-meter{gap:15px;}
+  .women-team-ring{width:108px;height:108px;flex-basis:108px;padding:9px;}
+  .women-team-percent{font-size:29px;}
+  .women-team-count{font-size:27px;}
+  .women-team-seats{gap:4px;}
+  .women-team-link{width:100%;}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .women-team-link{transition:none;}
+}
+
 </style>
 
 </head>
@@ -3832,6 +4120,90 @@ footer a{
 
 
 <main>
+
+<!-- =====================================================
+     KADIN GİRİŞİMCİ EKİBİ — 10 KİŞİLİK KONTENJAN
+     Doluluk güncellemek için data-filled="3" değerini değiştirin.
+===================================================== -->
+<section
+  class="section women-team-section"
+  id="kadin-girisimci-ekibi"
+  data-filled="3"
+  data-total="10"
+  aria-labelledby="womenTeamTitle"
+>
+  <div class="women-team-card">
+    <div class="women-team-inner">
+      <div class="women-team-copy">
+        <div class="women-team-label">
+          <span class="women-team-label-dot" aria-hidden="true"></span>
+          Yeni ekip oluşumu
+        </div>
+        <h2 class="women-team-title" id="womenTeamTitle">
+          Kadın <em>Girişimci Ekibi</em>
+        </h2>
+        <p class="women-team-description">
+          Yeni fikirleri birlikte geliştirmek, üretmek ve girişimcilik yolculuğunda
+          birbirini destekleyen güçlü bir ekip oluşturmak için bir araya geliyoruz.
+          10 kişilik ekibimiz şekilleniyor.
+        </p>
+        <div class="women-team-footer">
+          <a class="women-team-link"
+             href="https://www.instagram.com/berke_yuksekdag/"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Kadın Girişimci Ekibi hakkında Instagram üzerinden bilgi al">
+            Detaylar için iletişime geç <span aria-hidden="true">↗</span>
+          </a>
+          <span class="women-team-footnote">Sınırlı kontenjan · 10 kişi</span>
+        </div>
+      </div>
+
+      <div class="women-team-status"
+           role="progressbar"
+           aria-label="Kadın Girişimci Ekibi kontenjan doluluğu"
+           aria-valuemin="0"
+           aria-valuemax="10"
+           aria-valuenow="3"
+           aria-valuetext="10 kişilik kontenjanın 3'ü doldu">
+        <div class="women-team-status-top">
+          <span class="women-team-status-label">Kontenjan durumu</span>
+          <span class="women-team-status-pill">Ekip oluşturuluyor</span>
+        </div>
+        <div class="women-team-meter">
+          <div class="women-team-ring" aria-hidden="true">
+            <div class="women-team-ring-inner">
+              <span class="women-team-percent" data-team-percent>30%</span>
+              <span class="women-team-percent-caption">Doluluk</span>
+            </div>
+          </div>
+          <div class="women-team-numbers">
+            <strong class="women-team-count">
+              <span data-team-filled>3</span> / <span data-team-total>10</span>
+            </strong>
+            <p class="women-team-count-label">Kontenjan doldu</p>
+          </div>
+        </div>
+        <div class="women-team-seats" aria-hidden="true">
+          <span class="women-team-seat is-filled"></span>
+          <span class="women-team-seat is-filled"></span>
+          <span class="women-team-seat is-filled"></span>
+          <span class="women-team-seat"></span>
+          <span class="women-team-seat"></span>
+          <span class="women-team-seat"></span>
+          <span class="women-team-seat"></span>
+          <span class="women-team-seat"></span>
+          <span class="women-team-seat"></span>
+          <span class="women-team-seat"></span>
+        </div>
+        <p class="women-team-remaining">
+          <strong><span data-team-remaining>7</span> kişilik yer</strong> kaldı.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 
@@ -5964,6 +6336,45 @@ function toggleTimeline(){
     ? "Zaman Çizelgesini Kapat"
     : "Zaman Çizelgesini Gör";
 }
+</script>
+
+
+<script>
+/* Kontenjanı değiştirmek için #kadin-girisimci-ekibi içindeki
+   data-filled değerini güncelleyin (örn. 4). Tüm rakamlar,
+   yüzde ve doluluk grafiği otomatik yenilenir. */
+(function(){
+  const section = document.getElementById('kadin-girisimci-ekibi');
+  if (!section) return;
+  const total = Math.max(1, Math.floor(Number(section.dataset.total) || 10));
+  const filled = Math.max(0, Math.min(total, Math.floor(Number(section.dataset.filled) || 0)));
+  const percentage = Math.round(100 * filled / total);
+  const update = (selector, value) => {
+    const el = section.querySelector(selector);
+    if (el) el.textContent = String(value);
+  };
+  update('[data-team-filled]', filled);
+  update('[data-team-total]', total);
+  update('[data-team-remaining]', total - filled);
+  update('[data-team-percent]', percentage + '%');
+  const ring = section.querySelector('.women-team-ring');
+  if (ring) ring.style.setProperty('--team-angle', (360 * filled / total) + 'deg');
+  const status = section.querySelector('[role="progressbar"]');
+  if (status) {
+    status.setAttribute('aria-valuemax', String(total));
+    status.setAttribute('aria-valuenow', String(filled));
+    status.setAttribute('aria-valuetext', total + " kişilik kontenjanın " + filled + "'ü doldu");
+  }
+  const seats = section.querySelector('.women-team-seats');
+  if (seats) {
+    seats.replaceChildren();
+    for (let i = 0; i < total; i++) {
+      const seat = document.createElement('span');
+      seat.className = 'women-team-seat' + (i < filled ? ' is-filled' : '');
+      seats.appendChild(seat);
+    }
+  }
+})();
 </script>
 
 </body>
