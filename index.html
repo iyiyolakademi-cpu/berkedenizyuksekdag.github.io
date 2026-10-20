@@ -14,46 +14,96 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Manrope:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://berkedenizyuksekdag.com/#person",
-  "name": "Berke Deniz Yüksekdağ",
-  "url": "https://berkedenizyuksekdag.com/",
-  "image": "https://berkedenizyuksekdag.com/images/berke-deniz-yuksekdag-2025.jpg",
-  "jobTitle": "Girişimci",
-  "birthPlace": {
-    "@type": "Place",
-    "name": "İzmir, Türkiye"
-  },
-  "nationality": "Turkish",
-  "knowsLanguage": [
-    "Türkçe",
-    "English"
-  ],
-  "alternateName": [
-    "Berke Yüksekdağ",
-    "Berke Deniz"
-  ],
-  "description": "Berke Deniz Yüksekdağ; İyi Yol Akademi ve OynaBak gibi teknoloji ürünleri geliştiren, yeni yazılım ve robotik girişimler planlayan bir girişimcidir.",
-  "mainEntityOfPage": "https://berkedenizyuksekdag.com/",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "İyi Yol Akademi",
-    "url": "https://play.google.com/store/apps/details?id=com.iyiyolakademi"
-  },
-  "knowsAbout": [
-    "Girişimcilik",
-    "Dijital ürünler",
-    "Mobil uygulamalar",
-    "Robotik projeler",
-    "Finans yazılımları",
-    "Yazarlık"
-  ],
-  "sameAs": [
-    "https://www.instagram.com/berke_yuksekdag/",
-    "https://www.linkedin.com/in/berke-deniz-y%C3%BCksekda%C4%9F-4607603a8/",
-    "https://medium.com/@iyiyolakademi",
-    "https://play.google.com/store/apps/details?id=com.iyiyolakademi",
-    "https://apps.apple.com/tr/app/i-yi-yol-akademi/id6751721028"
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://berkedenizyuksekdag.com/#person",
+      "name": "Berke Deniz Yüksekdağ",
+      "url": "https://berkedenizyuksekdag.com/",
+      "image": "https://berkedenizyuksekdag.com/images/berke-deniz-yuksekdag-2025.jpg",
+      "jobTitle": "Girişimci",
+      "birthPlace": {
+        "@type": "Place",
+        "name": "İzmir, Türkiye"
+      },
+      "nationality": "Turkish",
+      "knowsLanguage": [
+        "Türkçe",
+        "English"
+      ],
+      "alternateName": [
+        "Berke Yüksekdağ",
+        "Berke Deniz"
+      ],
+      "description": "Berke Deniz Yüksekdağ; İyi Yol Akademi ve OynaBak gibi teknoloji ürünleri geliştiren, yeni yazılım ve robotik girişimler planlayan bir girişimcidir.",
+      "mainEntityOfPage": {
+        "@id": "https://berkedenizyuksekdag.com/#webpage"
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "İyi Yol Akademi",
+        "url": "https://play.google.com/store/apps/details?id=com.iyiyolakademi"
+      },
+      "knowsAbout": [
+        "Girişimcilik",
+        "Dijital ürünler",
+        "Mobil uygulamalar",
+        "Robotik projeler",
+        "Finans yazılımları",
+        "Yazarlık"
+      ],
+      "sameAs": [
+        "https://www.instagram.com/berke_yuksekdag/",
+        "https://www.linkedin.com/in/berke-deniz-y%C3%BCksekda%C4%9F-4607603a8/",
+        "https://medium.com/@iyiyolakademi",
+        "https://play.google.com/store/apps/details?id=com.iyiyolakademi",
+        "https://apps.apple.com/tr/app/i-yi-yol-akademi/id6751721028"
+      ],
+      "affiliation": [
+        {
+          "@id": "https://oynabak.com/#organization",
+          "@type": "Organization",
+          "name": "OynaBak",
+          "url": "https://oynabak.com/"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://berkedenizyuksekdag.com/#website",
+      "url": "https://berkedenizyuksekdag.com/",
+      "name": "Berke Deniz Yüksekdağ",
+      "inLanguage": "tr-TR",
+      "publisher": {
+        "@id": "https://berkedenizyuksekdag.com/#person"
+      }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://berkedenizyuksekdag.com/#webpage",
+      "url": "https://berkedenizyuksekdag.com/",
+      "name": "Berke Deniz Yüksekdağ | Girişimci",
+      "mainEntity": {
+        "@id": "https://berkedenizyuksekdag.com/#person"
+      },
+      "isPartOf": {
+        "@id": "https://berkedenizyuksekdag.com/#website"
+      },
+      "inLanguage": "tr-TR",
+      "mentions": {
+        "@id": "https://oynabak.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://oynabak.com/#organization",
+      "name": "OynaBak",
+      "url": "https://oynabak.com/",
+      "founder": {
+        "@id": "https://berkedenizyuksekdag.com/#person"
+      }
+    }
   ]
 }</script>
 <style>
@@ -4037,7 +4087,7 @@ body{background:#fff;color:#171d27}
 @media(max-width:520px){.hero-title{font-size:clamp(42px,11vw,55px);letter-spacing:-.057em}.venture-hero-statement{margin-top:18px}.hero-description{font-size:13.7px}.roadmap-card{padding:23px 19px}.venture-hero-panel-row{padding:14px 0}.venture-hero-panel-row strong{font-size:12.5px}.venture-hero-panel-row small{font-size:9.5px}.hero-actions{gap:8px}.hero-actions .btn{font-size:11.5px}.stat-value{font-size:29px}.stat-label{font-size:10px}.featured-section{padding-bottom:45px}.roadmap-section{padding-top:63px;padding-bottom:53px}}
 @media(prefers-reduced-motion:reduce){.featured-venture-card:hover{transform:none}}
 </style>
-<meta content="#ffffff" name="theme-color"/><meta content="website" property="og:type"/><meta content="tr_TR" property="og:locale"/><meta content="Berke Deniz Yüksekdağ | Girişimci" property="og:title"/><meta content="Dijital girişimler, robotik fikirler, yeni yazılım projeleri ve girişimcilik çalışmaları." property="og:description"/><meta content="https://berkedenizyuksekdag.com/" property="og:url"/><meta content="summary" name="twitter:card"/></head>
+<meta content="#ffffff" name="theme-color"/><meta content="website" property="og:type"/><meta content="tr_TR" property="og:locale"/><meta content="Berke Deniz Yüksekdağ | Girişimci" property="og:title"/><meta content="Berke Deniz Yüksekdağ; İyi Yol Akademi ve OynaBak girişimlerinin geliştiricisi. Girişimleri, projeleri ve girişimcilik yolculuğu." property="og:description"/><meta content="https://berkedenizyuksekdag.com/" property="og:url"/><meta content="summary" name="twitter:card"/></head>
 <body>
 <!-- =====================================================
      NAV
