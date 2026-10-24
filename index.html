@@ -8,6 +8,10 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Berke Deniz Yüksekdağ’ın teknoloji girişimlerini, İyi Yol Akademi, OynaBak ve Patiyiz çalışmalarını, yeni yazılım planlarını ve girişimcilik yolculuğunu keşfedin." name="description"/>
 <link href="https://berkedenizyuksekdag.com/" rel="canonical"/>
+<link rel="alternate" hreflang="tr" href="https://berkedenizyuksekdag.com/" />
+<link rel="alternate" hreflang="en" href="https://berkedenizyuksekdag.com/?lang=en" />
+<link rel="alternate" hreflang="x-default" href="https://berkedenizyuksekdag.com/" />
+<meta name="i18n-title-en" content="Berke Deniz Yüksekdağ | Entrepreneur" />
 <meta content="index, follow, max-image-preview:large" name="robots"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -4139,6 +4143,17 @@ body{padding-bottom:calc(43px + env(safe-area-inset-bottom, 0px))}
 #iletisim{scroll-margin-top:85px}
 @media(max-width:600px){.floating-collab-link{right:12px;bottom:calc(39px + 14px + env(safe-area-inset-bottom, 0px));min-height:42px;padding:10px 14px;gap:9px;font-size:12px;box-shadow:0 5px 17px rgba(0,0,0,.19)}}
 @media(prefers-reduced-motion:reduce){.floating-collab-link{transition:none}.floating-collab-link:hover{transform:none}}
+/* Türkçe/İngilizce menü seçimi ve basın kiti bağlantıları */
+.language-switcher{display:inline-flex;align-items:center;gap:3px;padding:4px;background:#f2f4f6;border:1px solid #e0e3e8;border-radius:10px;flex-shrink:0}
+.language-switcher button{appearance:none;display:block;min-width:32px;min-height:29px;padding:6px 8px;background:transparent;border:0;border-radius:7px;color:#647080;font:800 11px/1 var(--sans),Arial,sans-serif;cursor:pointer}
+.language-switcher button.is-active,.language-switcher button[aria-pressed='true']{background:#1b2330;color:#fff}
+.language-switcher button:focus-visible{outline:2px solid #b48e54;outline-offset:2px}
+.nav-right{gap:clamp(8px,1.2vw,16px)}
+.nav-links{gap:clamp(9px,1.1vw,18px)}
+.press-kit-teaser{display:inline-flex;align-items:center;gap:7px;margin-top:15px;color:#202833;font:800 12px var(--sans),Arial,sans-serif;text-decoration:underline;text-underline-offset:4px}
+.press-kit-teaser:hover{color:#876642}
+@media(max-width:930px){.language-switcher{order:1}.mobile-menu-btn{order:2}.nav-right{gap:9px}}
+@media(max-width:480px){.language-switcher{padding:3px;gap:1px}.language-switcher button{min-height:29px;min-width:31px;padding:5px 7px}.nav-inner{min-height:60px}}
 </style>
 <meta content="#ffffff" name="theme-color"/><meta content="website" property="og:type"/><meta content="tr_TR" property="og:locale"/><meta content="Berke Deniz Yüksekdağ | Girişimci" property="og:title"/><meta content="Berke Deniz Yüksekdağ; İyi Yol Akademi, OynaBak ve Patiyiz girişimlerinin geliştiricisi. Girişimleri, projeleri ve girişimcilik yolculuğu." property="og:description"/><meta content="https://berkedenizyuksekdag.com/" property="og:url"/><meta content="summary" name="twitter:card"/></head>
 <body>
@@ -4148,8 +4163,9 @@ body{padding-bottom:calc(43px + env(safe-area-inset-bottom, 0px))}
 <nav aria-label="Ana menü" class="nav">
 <div class="nav-inner">
 <div class="nav-right">
-<ul class="nav-links" id="navLinks"><li><a href="#projeler" onclick="closeMobileMenu()">Girişimler</a></li><li><a href="#yol-haritasi" onclick="closeMobileMenu()">Yol Haritası</a></li><li><a href="#kadin-girisimci-ekibi" onclick="closeMobileMenu()">Girişimci Ekibi</a></li><li><a href="#hakkimda" onclick="closeMobileMenu()">Hakkımda</a></li><li><a href="#kitaplar" onclick="closeMobileMenu()">Yayınlar</a></li></ul>
+<ul class="nav-links" id="navLinks"><li><a href="#projeler" onclick="closeMobileMenu()">Girişimler</a></li><li><a href="#yol-haritasi" onclick="closeMobileMenu()">Yol Haritası</a></li><li><a href="#kadin-girisimci-ekibi" onclick="closeMobileMenu()">Girişimci Ekibi</a></li><li><a href="#hakkimda" onclick="closeMobileMenu()">Hakkımda</a></li><li><a href="#kitaplar" onclick="closeMobileMenu()">Yayınlar</a></li><li><a href="press-kit.html" onclick="closeMobileMenu()">Basın Kiti</a></li></ul>
 <a class="nav-contact" href="#iletisim">İletişim</a>
+<div class="language-switcher" role="group" aria-label="Site dilini seçin"><button type="button" data-language="tr" class="is-active" aria-pressed="true">TR</button><button type="button" data-language="en" aria-pressed="false">EN</button></div>
 <button aria-controls="navLinks" aria-expanded="false" aria-label="Menüyü aç" class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" type="button">☰</button>
 </div>
 </div>
@@ -4502,6 +4518,7 @@ body{padding-bottom:calc(43px + env(safe-area-inset-bottom, 0px))}
 <span class="eyebrow">Basın &amp; Yayınlar</span>
 <h2 class="section-title">Basında ve Yayınlarda</h2>
 <p class="section-desc">Çalışmalarım hakkında yayımlanan haberler, kendi yazılarımın yer aldığı dergiler ve kitaplarımın tanıtıldığı platformlar.</p>
+<a class="press-kit-teaser" href="press-kit.html">Dijital Basın Kiti <span aria-hidden="true">↗</span></a>
 </div>
 <!-- Sakura Dergisi · MagPublish · Temmuz 2026 -->
 <article class="press-card" data-type="Dergide yayımlanan yazı" style="margin-bottom:24px;">
@@ -4871,7 +4888,7 @@ body{padding-bottom:calc(43px + env(safe-area-inset-bottom, 0px))}
 <footer id="iletisim">
 <div class="footer-inner">
 <div class="footer-main"><span class="eyebrow">İş Birlikleri &amp; İletişim</span><h2>Bir fikriniz mi var?</h2><p>Yeni girişim fikirleri, ortak çalışmalar ve iş birlikleri için Instagram üzerinden iletişime geçebilirsiniz.</p><a class="footer-primary-link" href="https://www.instagram.com/berke_yuksekdag/" rel="noopener noreferrer" target="_blank">Instagram’da mesaj gönder ↗</a></div>
-<div class="footer-meta"><strong>Berke Deniz Yüksekdağ</strong><span>Girişimci</span><div class="footer-social"><a href="https://www.instagram.com/berke_yuksekdag/" rel="noopener noreferrer" target="_blank">Instagram</a><a href="https://www.linkedin.com/in/berke-deniz-y%C3%BCksekda%C4%9F-4607603a8/" rel="noopener noreferrer" target="_blank">LinkedIn</a></div></div>
+<div class="footer-meta"><strong>Berke Deniz Yüksekdağ</strong><span>Girişimci</span><div class="footer-social"><a href="https://www.instagram.com/berke_yuksekdag/" rel="noopener noreferrer" target="_blank">Instagram</a><a href="https://www.linkedin.com/in/berke-deniz-y%C3%BCksekda%C4%9F-4607603a8/" rel="noopener noreferrer" target="_blank">LinkedIn</a><a href="press-kit.html">Basın Kiti</a></div></div>
 <div class="footer-bottom"><span>© 2026 Berke Deniz Yüksekdağ · Tüm hakları saklıdır.</span><a href="#anasayfa">Başa dön ↑</a>
 </div>
 </div>
@@ -5588,5 +5605,6 @@ function toggleTimeline(){
   }
 })();
 </script>
+<script src="language.js" defer></script>
 </body>
 </html>
