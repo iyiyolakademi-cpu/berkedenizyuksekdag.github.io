@@ -4087,6 +4087,13 @@ body{background:#fff;color:#171d27}
 @media(max-width:520px){.hero-title{font-size:clamp(42px,11vw,55px);letter-spacing:-.057em}.venture-hero-statement{margin-top:18px}.hero-description{font-size:13.7px}.roadmap-card{padding:23px 19px}.venture-hero-panel-row{padding:14px 0}.venture-hero-panel-row strong{font-size:12.5px}.venture-hero-panel-row small{font-size:9.5px}.hero-actions{gap:8px}.hero-actions .btn{font-size:11.5px}.stat-value{font-size:29px}.stat-label{font-size:10px}.featured-section{padding-bottom:45px}.roadmap-section{padding-top:63px;padding-bottom:53px}}
 @media(prefers-reduced-motion:reduce){.featured-venture-card:hover{transform:none}}
 @media (min-width:1100px){.featured-venture-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.featured-venture-card{padding:26px 22px 21px}}
+/* İyi Yol Akademi başarı duyurusu: sayfanın en altı */
+.academy-announcement{width:100%;overflow:hidden;background:#fff3f3;border-top:2px solid #bf1f2c;border-bottom:2px solid #bf1f2c;color:#ba1e2b;padding:14px 0;font-family:var(--mono),sans-serif;font-weight:800;letter-spacing:.025em;font-size:clamp(12px,1.2vw,15px)}
+.academy-announcement-track{display:flex;width:max-content;animation:academyAnnouncementFlow 27s linear infinite}
+.academy-announcement-group{display:flex;align-items:center;gap:42px;flex:none;padding-right:42px;white-space:nowrap}
+.academy-announcement-group span{display:inline-flex;align-items:center;gap:8px}
+@keyframes academyAnnouncementFlow{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.academy-announcement-track{animation:none;width:100%;justify-content:center}.academy-announcement-group[aria-hidden="true"],.academy-announcement-group span:not(:first-child){display:none}.academy-announcement-group{padding:0;max-width:100%;white-space:normal;text-align:center}.academy-announcement-group span{white-space:normal}}
 </style>
 <meta content="#ffffff" name="theme-color"/><meta content="website" property="og:type"/><meta content="tr_TR" property="og:locale"/><meta content="Berke Deniz Yüksekdağ | Girişimci" property="og:title"/><meta content="Berke Deniz Yüksekdağ; İyi Yol Akademi, OynaBak ve Patiyiz girişimlerinin geliştiricisi. Girişimleri, projeleri ve girişimcilik yolculuğu." property="og:description"/><meta content="https://berkedenizyuksekdag.com/" property="og:url"/><meta content="summary" name="twitter:card"/></head>
 <body>
@@ -4134,7 +4141,7 @@ body{background:#fff;color:#171d27}
 <div aria-label="Çalışmalarımın özeti" class="stats-strip">
 <div class="stats-grid-main">
 <div class="stat"><span class="stat-value">3</span><span class="stat-label">Mevcut girişim</span></div>
-<div class="stat"><span class="stat-value">5</span><span class="stat-label">Planlanan yeni girişim</span></div>
+<div class="stat"><span class="stat-value">4</span><span class="stat-label">Planlanan yeni girişim</span></div>
 <div class="stat"><span class="stat-value">10.000+</span><span class="stat-label">İyi Yol Akademi indirme</span></div>
 <div class="stat"><span class="stat-value">2</span><span class="stat-label">Yayımlanan kitap</span></div>
 </div>
@@ -4257,7 +4264,7 @@ body{background:#fff;color:#171d27}
 <article class="roadmap-card"><div class="roadmap-top"><span>ROBOTİK</span><span class="roadmap-status">Planlanan</span></div><h3>SEN V1 Robot Projesi</h3><p>İnsan-teknoloji etkileşimini temel alan bir robotik ürün fikri.</p><details><summary>Hedeflenen çalışma</summary><p>Kullanım senaryolarını araştırmak, tasarım yaklaşımını belirlemek ve geliştirilebilir bir ilk prototip için kapsam oluşturmak.</p></details></article>
 <article class="roadmap-card"><div class="roadmap-top"><span>FİNANS YAZILIMI</span><span class="roadmap-status">Planlanan</span></div><h3>Muhasebe ve Finans Yönetim Yazılımı</h3><p>Gelir-gider, stok, müşteri ilişkileri ve borç-alacak takibini daha pratik hâle getirecek bütünleşik yazılım fikri.</p><details><summary>Hedeflenen çalışma</summary><p>İşletmelerin ihtiyaçlarını araştırmak; finans takibi, otomasyon ve stok süreçleri için anlaşılır bir ürün taslağı oluşturmak.</p></details></article>
 <article class="roadmap-card"><div class="roadmap-top"><span>SOSYAL PLATFORMLAR</span><span class="roadmap-status">Planlanan</span></div><h3>Sosyal Medya Uygulaması</h3><p>İçerik paylaşımı, sosyal bağlantılar ve topluluk oluşturmayı merkeze alan bir dijital platform fikri.</p><details><summary>Hedeflenen çalışma</summary><p>Kullanıcı deneyimini, paylaşım yapısını ve topluluk güvenliğini araştırmak; ilk sürümün temel özelliklerini planlamak.</p></details></article>
-<article class="roadmap-card"><div class="roadmap-top"><span>EVCİL HAYVAN TOPLULUĞU</span><span class="roadmap-status">Planlanan</span></div><h3>Hayvan Sahipleri Sosyal Uygulaması</h3><p>Evcil hayvan sahiplerinin iletişim kurabileceği, deneyim paylaşabileceği ve bilgiye ulaşabileceği bir uygulama fikri.</p><details><summary>Hedeflenen çalışma</summary><p>Hayvan sahiplerinin karşılaştığı ihtiyaçları araştırmak, topluluk özelliklerini belirlemek ve kullanılabilir bir arayüz tasarlamak.</p></details></article>
+
 <article class="roadmap-card"><div class="roadmap-top"><span>İŞLETME YÖNETİMİ</span><span class="roadmap-status">Planlanan</span></div><h3>Petshop Yönetim Yazılımı</h3><p>Petshop işletmelerinin stok, ürün, satış ve müşteri işlemlerini tek yerden takip edebilmesine yönelik yazılım fikri.</p><details><summary>Hedeflenen çalışma</summary><p>Petshopların günlük operasyonlarını incelemek ve öncelikli yönetim araçlarını belirleyerek ilk ürün kapsamını oluşturmak.</p></details></article>
 </div>
 <div class="roadmap-bottom"><div><strong>Bir fikirden ilk ürüne</strong><p>Her yeni girişim için önce kullanıcı ihtiyacını anlamayı, ardından kapsamı netleştirip aşamalı geliştirme yapmayı hedefliyorum.</p></div><a href="#iletisim">İş Birliği İçin İletişim</a></div>
@@ -4336,7 +4343,7 @@ body{background:#fff;color:#171d27}
 <span class="eyebrow">KURUCUNUN NOTU</span><h2 class="section-title">Hakkımda</h2>
 <p>Ben Berke Deniz Yüksekdağ. Girişimcilik ve teknoloji alanında, <strong>ihtiyaçlardan yola çıkan fikirleri kullanılabilir ürünlere dönüştürmek</strong> için çalışıyorum.</p>
 <p><strong>İyi Yol Akademi</strong> mobil uygulamasını hayata geçirdim ve <strong>OynaBak</strong> girişimini geliştirdim. Yazarlık geçmişim de üretme yaklaşımımın bir parçası; yayımlanmış iki kitabım bulunuyor.</p>
-<p>Gelecek çalışmalarım arasında <strong>SEN V1 robot projesi</strong>, <strong>muhasebe ve finans yazılımı</strong>, <strong>sosyal medya uygulaması</strong>, <strong>hayvan sahiplerine yönelik bir sosyal platform</strong> ve <strong>petshop yönetim yazılımı</strong> var. Bu fikirleri araştırma ve geliştirme süreçleriyle adım adım ilerletmeyi hedefliyorum.</p>
+<p>Gelecek çalışmalarım arasında <strong>SEN V1 robot projesi</strong>, <strong>muhasebe ve finans yazılımı</strong>, <strong>sosyal medya uygulaması</strong> ve <strong>petshop yönetim yazılımı</strong> var. Bu fikirleri araştırma ve geliştirme süreçleriyle adım adım ilerletmeyi hedefliyorum.</p>
 <a class="social-btn" href="https://www.instagram.com/berke_yuksekdag/" rel="noopener noreferrer" target="_blank">Instagram üzerinden iletişim</a>
 </div></div>
 </section>
@@ -4820,6 +4827,12 @@ body{background:#fff;color:#171d27}
 <div class="footer-bottom"><span>© 2026 Berke Deniz Yüksekdağ · Tüm hakları saklıdır.</span><a href="#anasayfa">Başa dön ↑</a></div>
 </div>
 </footer>
+<aside class="academy-announcement" role="note" aria-label="İyi Yol Akademi 10.000 indirmeye ulaştı!">
+<div class="academy-announcement-track" aria-hidden="true">
+<div class="academy-announcement-group"><span>✦ İyi Yol Akademi 10.000 indirmeye ulaştı!</span><span>✦ İyi Yol Akademi 10.000 indirmeye ulaştı!</span><span>✦ İyi Yol Akademi 10.000 indirmeye ulaştı!</span><span>✦ İyi Yol Akademi 10.000 indirmeye ulaştı!</span><span>✦ İyi Yol Akademi 10.000 indirmeye ulaştı!</span></div>
+<div class="academy-announcement-group" aria-hidden="true"><span>✦ İyi Yol Akademi 10.000 indirmeye ulaştı!</span><span>✦ İyi Yol Akademi 10.000 indirmeye ulaştı!</span><span>✦ İyi Yol Akademi 10.000 indirmeye ulaştı!</span><span>✦ İyi Yol Akademi 10.000 indirmeye ulaştı!</span><span>✦ İyi Yol Akademi 10.000 indirmeye ulaştı!</span></div>
+</div>
+</aside>
 <script>
 
 /* =========================================================
