@@ -4117,9 +4117,18 @@ body{padding-bottom:calc(43px + env(safe-area-inset-bottom, 0px))}
  .academy-announcement-group span:not(:first-child),.academy-announcement-group[aria-hidden="true"]{display:none}
 }
 /* Başarı sayaçları ve sabit iş birliği kısayolu */
-.stats-grid-main{grid-template-columns:repeat(5,minmax(0,1fr))}
-@media(max-width:1080px){.stats-grid-main{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:700px){.stats-grid-main{grid-template-columns:repeat(2,minmax(0,1fr))}.stats-grid-main .stat:last-child{grid-column:1/-1}}
+.stats-grid-main{grid-template-columns:repeat(12,minmax(0,1fr))}
+.stats-grid-main>.stat{grid-column:span 3}
+.stats-grid-main>.stat:nth-child(n+5){grid-column:span 4}
+@media(max-width:1080px){
+ .stats-grid-main{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .stats-grid-main>.stat,.stats-grid-main>.stat:nth-child(n+5){grid-column:auto}
+ .stats-grid-main>.stat:last-child{grid-column:2}
+}
+@media(max-width:700px){
+ .stats-grid-main{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .stats-grid-main>.stat:last-child{grid-column:1/-1}
+}
 
 .stats-strip .stat-value[data-count-target]{font-variant-numeric:tabular-nums;white-space:nowrap}
 .floating-collab-link{position:fixed;right:24px;bottom:calc(43px + 20px + env(safe-area-inset-bottom, 0px));z-index:1050;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:46px;padding:12px 17px;background:#171d27;color:#fff;border:1px solid rgba(255,255,255,.24);border-radius:999px;font:800 13px/1.1 var(--sans),Arial,sans-serif;text-decoration:none;box-shadow:0 8px 28px rgba(0,0,0,.22);transition:opacity .2s ease,visibility .2s ease,background-color .2s ease,transform .2s ease}
@@ -4179,8 +4188,10 @@ body{padding-bottom:calc(43px + env(safe-area-inset-bottom, 0px))}
 <div class="stat"><span class="stat-value" data-count-target="3" data-count-suffix="">3</span><span class="stat-label">Mevcut girişim</span></div>
 <div class="stat"><span class="stat-value" data-count-target="4" data-count-suffix="">4</span><span class="stat-label">Planlanan yeni girişim</span></div>
 <div class="stat"><span class="stat-value" data-count-target="10000" data-count-suffix="+">10.000+</span><span class="stat-label">İyi Yol Akademi indirme</span></div>
-<div class="stat"><span class="stat-value" data-count-target="35" data-count-suffix="">35</span><span class="stat-label">Freed’e satılan OynaBak standı</span></div>
+<div class="stat"><span class="stat-value" data-count-target="35" data-count-suffix="+">35+</span><span class="stat-label">Toplam satılan OynaBak standı</span></div>
 <div class="stat"><span class="stat-value" data-count-target="2" data-count-suffix="">2</span><span class="stat-label">Yayımlanan kitap</span></div>
+<div class="stat"><span class="stat-value" data-count-target="100" data-count-suffix="+">100+</span><span class="stat-label">İmzalı kitap satışı</span></div>
+<div class="stat"><span class="stat-value" data-count-target="3" data-count-suffix="">3</span><span class="stat-label">Derleme projesi</span></div>
 </div>
 </div>
 <main><section aria-labelledby="featuredTitle" class="section featured-section" id="projeler">
