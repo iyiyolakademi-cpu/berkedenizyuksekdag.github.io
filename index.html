@@ -4087,26 +4087,19 @@ body{background:#fff;color:#171d27}
 @media(max-width:520px){.hero-title{font-size:clamp(42px,11vw,55px);letter-spacing:-.057em}.venture-hero-statement{margin-top:18px}.hero-description{font-size:13.7px}.roadmap-card{padding:23px 19px}.venture-hero-panel-row{padding:14px 0}.venture-hero-panel-row strong{font-size:12.5px}.venture-hero-panel-row small{font-size:9.5px}.hero-actions{gap:8px}.hero-actions .btn{font-size:11.5px}.stat-value{font-size:29px}.stat-label{font-size:10px}.featured-section{padding-bottom:45px}.roadmap-section{padding-top:63px;padding-bottom:53px}}
 @media(prefers-reduced-motion:reduce){.featured-venture-card:hover{transform:none}}
 @media (min-width:1100px){.featured-venture-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.featured-venture-card{padding:26px 22px 21px}}
-/* Haber kanalı tarzında ekrana sabit alt son dakika şeridi */
+/* Sabit, kayan İyi Yol Akademi duyurusu */
 body{padding-bottom:calc(43px + env(safe-area-inset-bottom, 0px))}
 .academy-announcement{
  position:fixed;inset:auto 0 0 0;z-index:1100;
  display:flex;align-items:stretch;width:100%;height:calc(43px + env(safe-area-inset-bottom, 0px));
  margin:0;padding:0 0 env(safe-area-inset-bottom, 0px);box-sizing:border-box;
- background:#ff0000;color:#000;overflow:hidden;border-top:2px solid #c00000;
- box-shadow:0 -2px 8px rgba(0,0,0,.14);
+ background:#ff0000;color:#fff;overflow:hidden;border:0;
  font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;
-}
-.academy-breaking-label{
- flex:0 0 auto;display:flex;align-items:center;justify-content:center;
- padding:0 16px;background:#0c0c0c;color:#fff;
- font-size:11px;line-height:1;font-weight:800;letter-spacing:.045em;
- white-space:nowrap;z-index:1;
 }
 .academy-ticker-window{position:relative;display:flex;align-items:center;overflow:hidden;min-width:0;flex:1}
 .academy-announcement-track{display:flex;width:max-content;flex:none;align-items:center;animation:academyAnnouncementFlow 44s linear infinite;will-change:transform}
 .academy-announcement-group{display:flex;align-items:center;flex:none;width:max-content;gap:54px;padding:0 54px 0 0;white-space:nowrap}
-.academy-announcement-group span{display:block;flex:none;font-size:13px;font-weight:800;line-height:1.2;letter-spacing:0;color:#000;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.academy-announcement-group span{display:block;flex:none;font-size:13px;font-weight:800;line-height:1.2;letter-spacing:0;color:#fff;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
 .academy-announcement:hover .academy-announcement-track{animation-play-state:paused}
 .academy-announcement:focus-within .academy-announcement-track{animation-play-state:paused}
 .academy-ticker-accessible{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -4114,7 +4107,6 @@ body{padding-bottom:calc(43px + env(safe-area-inset-bottom, 0px))}
 @media(max-width:600px){
  body{padding-bottom:calc(39px + env(safe-area-inset-bottom, 0px))}
  .academy-announcement{height:calc(39px + env(safe-area-inset-bottom, 0px))}
- .academy-breaking-label{padding:0 10px;font-size:10px;letter-spacing:.025em}
  .academy-announcement-group{gap:36px;padding-right:36px}
  .academy-announcement-group span{font-size:12px;font-weight:800}
 }
@@ -4857,8 +4849,7 @@ body{padding-bottom:calc(43px + env(safe-area-inset-bottom, 0px))}
 <div class="footer-bottom"><span>© 2026 Berke Deniz Yüksekdağ · Tüm hakları saklıdır.</span><a href="#anasayfa">Başa dön ↑</a></div>
 </div>
 </footer>
-<aside class="academy-announcement" role="region" aria-label="Son dakika duyurusu">
-<div class="academy-breaking-label" aria-hidden="true">SON DAKİKA</div>
+<aside class="academy-announcement" role="region" aria-label="İyi Yol Akademi indirme duyurusu">
 <div class="academy-ticker-window">
 <span class="academy-ticker-accessible">İyi Yol Akademi 10.000 indirmeye ulaştı!</span>
 <div class="academy-announcement-track" aria-hidden="true">
