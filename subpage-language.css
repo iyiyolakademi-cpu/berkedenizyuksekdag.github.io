@@ -1,0 +1,7 @@
+/* Shared secondary-page language selector */
+.global-language-switcher{position:fixed;right:16px;bottom:16px;z-index:10000;display:flex;gap:3px;align-items:center;background:#fff;border:1px solid #e1e5ea;padding:4px;border-radius:10px;box-shadow:0 4px 18px rgba(0,0,0,.15)}
+.global-language-switcher button{border:0;display:block;padding:8px 11px;min-height:32px;border-radius:7px;background:transparent;color:#414956;font:800 11px/1 Arial,sans-serif;cursor:pointer}
+.global-language-switcher button.is-active,.global-language-switcher button[aria-pressed="true"]{background:#191f29;color:#fff}
+.global-language-switcher button:focus-visible{outline:2px solid #b08e63;outline-offset:1px}
+@media(max-width:600px){.global-language-switcher{right:10px;bottom:10px}}
+@media print{.global-language-switcher{display:none}}
