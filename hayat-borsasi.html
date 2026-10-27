@@ -3,129 +3,126 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f7f8fa">
-<meta name="description" content="Hayat Borsası ile alışkanlıklarını ve kişisel gelişimini puanla, ilerleme grafiğini takip et.">
-<link rel="icon" href="favicon.ico">
-<title>Hayat Borsası | Berke Deniz Yüksekdağ</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="theme-color" content="#fcfaf8">
+<meta name="description" content="Hayat Borsası: Alışkanlıklarını günlük işaretle, gelişim alanlarını takip et. Puan yok, yalnızca küçük adımlar.">
+<link rel="icon" href="favicon.ico"><title>Hayat Borsası | Berke Deniz Yüksekdağ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:light;--ink:#18202b;--sub:#637082;--line:#e5e9ee;--bg:#f7f8fa;--card:#fff;--plus:#16825f;--minus:#c34856;--blue:#26364b}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 Manrope,system-ui,sans-serif}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #93b8ef;outline-offset:3px}
-.shell{width:min(1120px,calc(100% - 38px));margin:auto}.top{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:14px}.brand{font-size:13px;font-weight:800;letter-spacing:-.02em}.top-right{font-weight:700;font-size:12px;color:var(--sub)}.back{display:inline-flex;gap:9px;align-items:center}.back i{display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--line);border-radius:9px;font-size:18px;font-style:normal}.intro{padding:42px 0 28px}.kicker{text-transform:uppercase;letter-spacing:.14em;color:var(--sub);font-weight:800;font-size:10px}.intro h1{font-size:clamp(33px,5vw,52px);letter-spacing:-.052em;line-height:1.13;margin:11px 0 10px;font-weight:800}.intro p{max-width:640px;color:var(--sub);font-size:14px;margin:0}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:14px}.metric{border:1px solid var(--line);background:var(--card);padding:21px 22px;border-radius:18px}.metric small{color:var(--sub);font-weight:700;font-size:11px}.metric strong{display:block;font-size:clamp(23px,3vw,34px);font-weight:800;letter-spacing:-.055em;margin-top:7px;line-height:1.2}.metric span{display:block;color:var(--sub);font-size:11px;margin-top:9px}.green{color:var(--plus)!important}.red{color:var(--minus)!important}
-.layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.95fr);gap:14px;align-items:start}.stack{display:grid;gap:14px;min-width:0}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:23px;min-width:0}.card h2{font-size:16px;letter-spacing:-.025em;line-height:1.4;margin:0;font-weight:800}.card .desc{color:var(--sub);margin:7px 0 0;font-size:12px}.card-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.card-head span{color:var(--sub);font-size:11px}.chart{width:100%;height:212px;display:block;margin-top:23px;overflow:visible}.axis{font-size:10px;fill:#8793a0}.chart-grid{stroke:#edf0f2;stroke-width:1}.chart-area{fill:#e9f0f4}.chart-line{fill:none;stroke:#26364b;stroke-width:2.7;stroke-linecap:round;stroke-linejoin:round}.chart-dot{fill:#26364b;stroke:#fff;stroke-width:2}.areas{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:18px}.area{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#fbfcfd;border:1px solid var(--line);padding:12px;border-radius:12px;text-align:left;min-width:0}.area:hover{border-color:#9bacbc;background:#f5f7f9}.area-name{font-weight:800;font-size:12px;overflow-wrap:anywhere}.area-sub{font-size:10px;color:var(--sub);display:block;margin-top:3px}.area-value{white-space:nowrap;font-size:13px;font-weight:800}.badge{font-size:10px;padding:4px 8px;border-radius:30px;background:#edf1f4;color:var(--sub);font-weight:800}
-label{display:block;font-size:12px;font-weight:800;margin-bottom:7px}.field{margin-top:15px}.input{width:100%;border:1px solid #dfe5eb;background:#fff;border-radius:11px;padding:12px 13px;min-height:46px;color:var(--ink);outline:none;font-size:14px}.input:focus{border-color:#6d829e;box-shadow:0 0 0 3px #dce5ef}textarea.input{resize:vertical;min-height:86px}.split{display:grid;grid-template-columns:1fr 1fr;gap:11px}.primary{width:100%;border:0;background:#202d40;color:#fff;padding:13px;border-radius:11px;font-weight:800;margin-top:18px;min-height:49px}.primary:hover{background:#34455b}.secondary{background:#f5f7f9;border:1px solid var(--line);padding:10px 13px;border-radius:10px;font-size:12px;font-weight:800;color:#324156}.secondary:hover{background:#e9edf2}.note{font-size:11px;color:var(--sub);margin:9px 0 0}.entry{padding:13px 0;display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line)}.entry:last-child{border:0}.entry strong{font-size:12px}.entry p{font-size:11px;color:var(--sub);margin:2px 0 0;overflow-wrap:anywhere}.delta{font-weight:800;white-space:nowrap}.empty{font-size:12px;color:var(--sub);padding:22px 0;text-align:center}.tools{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}.tools input{min-width:0}details.options{margin:14px 0 50px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px}details.options summary{cursor:pointer;font-size:12px;font-weight:800}details.options .options-body{padding-top:15px;display:flex;gap:8px;flex-wrap:wrap}.tiny{font-size:11px;color:var(--sub)}.alert{border-radius:11px;padding:11px 13px;background:#f1f5f7;border:1px solid var(--line);color:#334155;font-size:12px;margin-top:12px}.status{min-height:18px;color:var(--plus);font-weight:800;font-size:12px;margin-top:10px}.status.error{color:var(--minus)}footer{border-top:1px solid var(--line);padding:20px 0 32px;color:var(--sub);font-size:11px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}footer a{font-weight:800;color:#29394d}
-@media(max-width:850px){.layout{grid-template-columns:1fr}.stats{gap:8px}.metric{padding:17px}.areas{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:480px){.shell{width:calc(100% - 26px)}.top{height:64px}.top-right{font-size:10px}.brand{font-size:11px}.intro{padding:30px 2px 23px}.intro p{font-size:12px}.metric{padding:14px 12px;border-radius:13px}.metric small{font-size:10px}.metric strong{font-size:21px}.metric span{font-size:9px}.card{padding:17px;border-radius:14px}.areas{gap:7px}.area{padding:10px 9px;align-items:flex-start;flex-direction:column}.area-value{font-size:12px}.chart{height:180px}.split{gap:8px}}
+:root{--bg:#fcfaf8;--ink:#262938;--muted:#797482;--line:#ebe6e6;--card:#fff;--purple:#735b9a;--purple-soft:#f1ebf9;--green:#267e63;--green-soft:#e9f5ef;--rose:#ffefea;--shadow:0 14px 40px rgba(50,37,56,.035)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:13px/1.65 Manrope,system-ui,sans-serif}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.56;cursor:not-allowed}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #b59fe1;outline-offset:3px}
+.wrap{max-width:1170px;margin:auto;padding:0 25px}.top{height:75px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:800;letter-spacing:-.02em}.brand i{display:grid;place-items:center;width:32px;height:32px;border-radius:11px;background:#fff;border:1px solid var(--line);font-size:18px;font-style:normal}.top-right{font-size:11px;color:var(--muted);font-weight:800}.intro{background:linear-gradient(115deg,#fff1e8 0%,#f9f3ff 80%);border:1px solid #f0e5ea;border-radius:27px;margin:27px 0 17px;padding:35px 42px;display:flex;justify-content:space-between;gap:18px;align-items:center}.kicker{color:#7c6299;font-weight:800;letter-spacing:.13em;font-size:10px}.intro h1{font-size:clamp(32px,4.5vw,47px);line-height:1.15;letter-spacing:-.055em;font-weight:800;margin:8px 0 10px}.intro p{margin:0;max-width:650px;color:#756f7f;font-size:13px}.hero-flower{display:grid;place-items:center;font-size:42px;width:100px;height:100px;flex:none;border-radius:29px;background:#ffffffaa;box-shadow:0 12px 28px #9076a40d;transform:rotate(7deg)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 15px}.stat{background:#fff;border:1px solid var(--line);padding:20px 23px;border-radius:19px;box-shadow:var(--shadow)}.stat span{color:#888290;font-size:11px;font-weight:800}.stat strong{display:block;font-size:clamp(23px,3vw,30px);letter-spacing:-.05em;line-height:1.2;margin:5px 0 4px}.stat small{font-size:10px;color:var(--muted)}.stat:nth-child(2) strong{color:var(--purple)}.stat:nth-child(3) strong{color:var(--green)}
+.columns{display:grid;grid-template-columns:minmax(0,1.22fr) minmax(320px,.78fr);gap:15px;align-items:start;margin-bottom:20px}.stack{display:grid;gap:15px;min-width:0}.card{background:var(--card);border:1px solid var(--line);border-radius:21px;padding:23px;box-shadow:var(--shadow);min-width:0}.card h2{font-size:16px;letter-spacing:-.03em;margin:0}.card p.desc{color:var(--muted);font-size:11px;margin:6px 0 0}.card-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.pill{background:var(--purple-soft);color:var(--purple);border-radius:99px;padding:5px 10px;font-size:10px;font-weight:800;white-space:nowrap}
+.graph{height:191px;margin:23px 0 1px;width:100%;display:block;overflow:visible}.graph-grid{stroke:#f0eaf0;stroke-width:1}.graph-fill{fill:#f4edf9}.graph-line{stroke:#9274ae;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.graph-dot{fill:#9274ae;stroke:#fff;stroke-width:3}.axis{font:11px Manrope,system-ui,sans-serif;fill:#a49ba7}
+.areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:17px}.area{display:flex;align-items:center;gap:11px;background:#fdfcfd;border:1px solid #f0eaf0;padding:12px;border-radius:14px;text-align:left;min-width:0;transition:background .16s,border .16s}.area:hover{border-color:#d5c1ea;background:#fcf9ff}.area.done{background:#f1faf5;border-color:#cdebd9}.area-icon{display:grid;place-items:center;flex:none;width:35px;height:35px;border-radius:12px;background:#f7edf5;font-size:17px}.area.done .area-icon{background:#e1f4e9}.area-label{min-width:0;flex:1}.area-label strong{display:block;font-size:11px;overflow-wrap:anywhere}.area-label small{display:block;font-size:10px;color:var(--muted);margin-top:1px}.area-mark{color:#aa91bc;font-size:15px;font-weight:800}.area.done .area-mark{color:var(--green)}
+label{display:block;font-size:11px;font-weight:800;margin:15px 0 6px}.input{width:100%;display:block;min-height:47px;padding:12px 13px;border:1px solid #e6e0e7;background:#fff;border-radius:12px;outline:none;color:var(--ink);font-size:13px}.input:focus{border-color:#b9a4d0;box-shadow:0 0 0 3px #f5effb}textarea.input{resize:vertical;min-height:84px}.choice{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:7px}.choice label{margin:0;display:block;cursor:pointer}.choice input{position:absolute;opacity:0;pointer-events:none}.choice span{display:flex;align-items:center;justify-content:center;gap:7px;min-height:45px;border:1px solid #eae3ed;border-radius:12px;color:#766780;background:#fff;font-size:11px;font-weight:800}.choice input:checked+span{color:#6b4e8c;background:var(--purple-soft);border-color:#d4c5e8}.choice input:focus-visible+span{outline:3px solid #c9b3ec;outline-offset:3px}.submit{width:100%;min-height:48px;border:0;border-radius:12px;color:#fff;background:var(--purple);font-weight:800;font-size:12px;margin-top:17px}.submit:hover{background:#604683}.status{min-height:19px;color:var(--green);font-size:11px;font-weight:800;margin-top:9px}.status.error{color:#c5495e}.entries{margin-top:11px}.entry{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}.entry:last-child{border-bottom:0}.entry b{display:block;font-size:11px}.entry small{display:block;color:var(--muted);font-size:10px;margin-top:3px;overflow-wrap:anywhere}.entry-flag{font-size:10px;font-weight:800;flex:none;background:var(--green-soft);color:var(--green);padding:6px 8px;border-radius:99px}.entry-flag.pause{background:#faf1eb;color:#ad7865}.empty{padding:25px 10px;text-align:center;color:#978d9e;font-size:11px}.add-area{border:1px solid var(--line);background:#fff;border-radius:17px;padding:15px 20px;margin:0 0 35px}.add-area summary{font-size:11px;font-weight:800;cursor:pointer;color:#73628b}.add-area .field{margin-top:13px;display:flex;gap:10px}.add-area input{min-width:0;flex:1}.add-area button{border:0;background:var(--purple-soft);color:var(--purple);padding:0 17px;border-radius:11px;font-size:11px;font-weight:800}.privacy{font-size:11px;color:#948a97;margin:0 0 16px;padding-left:3px}footer{border-top:1px solid var(--line);padding:20px 0 32px;color:var(--muted);font-size:11px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}footer a{color:var(--purple);font-weight:800}
+@media(max-width:860px){.columns{grid-template-columns:1fr}.intro{padding:30px}.stats{gap:8px}.stat{padding:17px}}@media(max-width:520px){.wrap{padding:0 13px}.top{height:65px}.brand{font-size:11px}.top-right{font-size:9px}.intro{padding:26px 20px;border-radius:20px;margin:17px 0 13px}.intro h1{font-size:34px}.hero-flower{display:none}.stat{padding:12px 10px;border-radius:14px}.stat strong{font-size:23px}.stat span,.stat small{font-size:9px}.card{padding:18px 15px;border-radius:17px}.areas{gap:7px}.area{padding:10px 8px;gap:7px}.area-icon{height:30px;width:30px;font-size:14px}.area-label strong{font-size:10px}.area-label small{font-size:9px}.graph{height:158px}.add-area{padding:15px}.add-area .field{flex-direction:column}.add-area button{min-height:42px}}
 </style>
 </head>
-<body>
-<div class="shell">
-<header class="top"><a class="brand back" href="./"><i aria-hidden="true">←</i><span>BERKE DENİZ YÜKSEKDAĞ</span></a><span class="top-right">KİŞİSEL GELİŞİM ARACI</span></header>
+<body><div class="wrap">
+<header class="top"><a href="./" class="brand"><i aria-hidden="true">←</i><span>BERKE DENİZ YÜKSEKDAĞ</span></a><span class="top-right">HAYAT BORSASI</span></header>
 <main>
-<section class="intro"><div class="kicker">HAYAT BORSASI</div><h1>Gelişimini görünür kıl.</h1><p>Hayatındaki alanları hisse gibi takip et. Bugün yaptıklarını puanla, ilerlemeni tek bir sade ekrandan izle.</p></section>
-<div class="stats" aria-label="Borsa özeti">
-<div class="metric"><small>Hayat endeksin</small><strong id="indexValue">100</strong><span>Başlangıç: 100 puan</span></div>
-<div class="metric"><small>Bugünkü değişim</small><strong id="todayValue">0</strong><span id="todayCount">0 işlem</span></div>
-<div class="metric"><small>Toplam işlem</small><strong id="totalValue">0</strong><span>Kendine yaptığın yatırımlar</span></div>
-</div>
-<div class="layout">
+<section class="intro"><div><span class="kicker">KÜÇÜK ADIMLAR, BÜYÜK DEĞİŞİMLER</span><h1>Bugün kendine ne kattın? 🌸</h1><p>Sağlığına, üretimine, öğrenmene yatırım yap. Puan hesaplamadan, yalnızca günlük adımlarını kaydet ve ilerlemeni gör.</p></div><span class="hero-flower" aria-hidden="true">📈</span></section>
+<section class="stats" aria-label="Gelişim özeti"><div class="stat"><span>Bugün tamamlanan</span><strong id="todayCount">0</strong><small>Küçük ama değerli adım</small></div><div class="stat"><span>Devamlılık</span><strong id="streakCount">0 gün</strong><small>Kendine ayırdığın zaman</small></div><div class="stat"><span>Toplam kayıt</span><strong id="allCount">0</strong><small>Bu cihazda kayıtlı</small></div></section>
+<div class="columns">
 <div class="stack">
-<section class="card" aria-labelledby="chartHeading"><div class="card-head"><h2 id="chartHeading">Gelişim grafiğin</h2><span>Son 14 gün</span></div><p class="desc">Her puan, kaydettiğin bir davranışı temsil eder.</p><svg id="chart" class="chart" viewBox="0 0 600 210" role="img" aria-label="Son 14 gündeki hayat endeksi eğrisi" preserveAspectRatio="none"></svg></section>
-<section class="card" aria-labelledby="areasHeading"><div class="card-head"><h2 id="areasHeading">Gelişim alanların</h2><span id="areasCount">8 alan</span></div><p class="desc">Bir alana dokunarak işlem formunda seçebilirsin.</p><div id="areas" class="areas"></div></section>
+<section class="card" aria-labelledby="progressHeading"><div class="card-head"><h2 id="progressHeading">Gelişim yolculuğun</h2><span class="pill">Son 14 gün</span></div><p class="desc">Her yükseliş, tamamladığın bir adım. Yarış değil, kendi ritmin. 💜</p><svg id="graph" class="graph" role="img" aria-label="Son 14 gün içinde tamamlanan günlük alışkanlıkların grafiği" preserveAspectRatio="none" viewBox="0 0 600 200"></svg></section>
+<section class="card" aria-labelledby="areasHeading"><div class="card-head"><h2 id="areasHeading">Kendi alanların</h2><span id="areaCount" class="pill">8 alan</span></div><p class="desc">Birine dokunup bugünkü durumunu işaretleyebilirsin.</p><div id="areaCards" class="areas"></div></section>
 </div>
 <div class="stack">
-<section class="card" id="islem" aria-labelledby="tradeHeading"><h2 id="tradeHeading">Bugün ne yaptın?</h2><p class="desc">Küçük adımları kaydet. Olumlu ya da olumsuz bir değişim seç.</p>
-<form id="tradeForm">
-<div class="field"><label for="stock">Gelişim alanı</label><select id="stock" class="input" required></select></div>
-<div class="split"><div class="field"><label for="direction">İşlem</label><select id="direction" class="input"><option value="1">Puan ekle (+)</option><option value="-1">Puan düş (−)</option></select></div><div class="field"><label for="points">Puan (1–10)</label><input id="points" class="input" type="number" min="1" max="10" step="1" value="3" required></div></div>
-<div class="field"><label for="memo">Kısa not <span style="font-weight:500;color:#7c8796">(isteğe bağlı)</span></label><textarea id="memo" class="input" maxlength="180" placeholder="Örneğin: 30 dakika yürüyüş yaptım."></textarea></div>
-<button class="primary" type="submit">İşlemi kaydet →</button><p class="note">Bir alanda günde en fazla toplam 10 puanlık işlem yapabilirsin.</p><div id="tradeStatus" class="status" role="status" aria-live="polite"></div>
-</form></section>
-<section class="card"><div class="card-head"><h2>Son işlemlerin</h2><span id="entryCount">0 kayıt</span></div><div id="entries"><div class="empty">Henüz işlem yapmadın.</div></div></section>
-</div>
-</div>
-<details class="options"><summary>Alan ekle ve verilerimi yönet</summary><div class="options-body" style="display:block"><form id="addStockForm"><label for="stockName">Yeni gelişim alanı</label><div class="tools"><input id="stockName" class="input" minlength="2" maxlength="32" placeholder="Örneğin: Yazarlık" required><button class="secondary" type="submit">Alanı ekle</button></div></form><div class="options-body"><button class="secondary" type="button" id="download">JSON yedeğini indir</button><label class="secondary" for="upload" style="margin:0;cursor:pointer">Yedekten geri yükle</label><input id="upload" type="file" accept=".json,application/json" style="position:absolute;width:1px;height:1px;opacity:0" aria-label="JSON yedeği yükle"><button class="secondary" type="button" id="reset">Tüm kayıtları sil</button></div><p class="tiny">Verilerin yalnızca bu tarayıcıda saklanır; başka bir cihazla otomatik eşitlenmez. Düzenli yedek al.</p><div id="optionStatus" class="status" role="status"></div></div></details>
-</main>
-<footer><span>Hayat Borsası bir motivasyon aracıdır; puanların kişisel değerini ölçmez.</span><a href="soru-birak.html">Bana bir soru bırak ↗</a></footer>
+<section class="card" id="islem" aria-labelledby="recordHeading"><h2 id="recordHeading">Bugünün küçük adımı ✨</h2><p class="desc">Bir alan seç ve bugün neler yaptığını yaz. Aynı alandaki kaydını daha sonra güncelleyebilirsin.</p>
+<form id="recordForm"><label for="area">Hangi alanda?</label><select class="input" id="area" required></select>
+<label>Bugünkü durumun</label><div class="choice"><label><input type="radio" name="outcome" value="done" checked><span>✓ Tamamladım</span></label><label><input type="radio" name="outcome" value="pause"><span>☁ Ara verdim</span></label></div>
+<label for="note">Küçük notun <span style="color:#aaa;font-weight:500">(isteğe bağlı)</span></label><textarea id="note" class="input" maxlength="180" placeholder="Örneğin: Bugün 20 dakika kitap okudum."></textarea><button class="submit" type="submit">Günümü kaydet →</button><div class="status" id="recordStatus" role="status" aria-live="polite"></div></form></section>
+<section class="card" aria-labelledby="historyHeading"><div class="card-head"><h2 id="historyHeading">Son günlerin</h2><span class="pill" id="historyCount">0 kayıt</span></div><div id="history" class="entries"><div class="empty">Henüz kayıt yok. İlk adımını bugün at 🌷</div></div></section>
+</div></div>
+<details class="add-area"><summary>＋ Yeni gelişim alanı ekle</summary><form id="addAreaForm" class="field"><input class="input" id="areaName" minlength="2" maxlength="32" required placeholder="Örneğin: Yazarlık"><button type="submit">Alanı ekle</button></form><div class="status" id="areaStatus" role="status"></div></details>
+<p class="privacy">🔒 Kayıtların sadece bu cihazdaki tarayıcıda tutulur. Hesap ve otomatik bulut eşitlemesi bulunmuyor; tarayıcı verilerini silersen kayıtların da silinebilir.</p>
+</main><footer><span>Hayat Borsası, hayatını puanlayan bir sınav değil; günlük gelişim günlüğün.</span><a href="soru-birak.html">Soru &amp; Cevap'a git ↗</a></footer>
 </div>
 <script>
 (function(){
 "use strict";
-const KEY="bdy-life-market-v1";
-const defaults=[["saglik","Sağlık","✦"],["ogrenme","Öğrenme","◈"],["disiplin","Disiplin","◆"],["is","İş ve üretim","▣"],["finans","Finans","◇"],["iliski","İlişkiler","♡"],["huzur","İç huzur","☼"],["hobi","Hobiler","✳"]].map(function(r){return {id:r[0],name:r[1],icon:r[2]};});
-const $=function(id){return document.getElementById(id);};
-let state={stocks:defaults.slice(),entries:[]};
-function dateKey(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
-function today(){return dateKey(new Date());}
-function validStock(s){return !!s&&typeof s.id==="string"&&/^[a-z0-9_-]{1,48}$/.test(s.id)&&typeof s.name==="string"&&s.name.length>1&&s.name.length<=32;}
-function validEntry(e){return !!e&&typeof e.stock==="string"&&typeof e.day==="string"&&/^\d{4}-\d\d-\d\d$/.test(e.day)&&Number.isInteger(e.points)&&Math.abs(e.points)<=10&&e.points!==0&&(!e.note||typeof e.note==="string"&&e.note.length<=180);}
+const KEY="bdy-life-market-v2",OLD_KEY="bdy-life-market-v1";
+const defaults=[["saglik","Sağlık","💚"],["ogrenme","Öğrenme","📚"],["disiplin","Disiplin","🌱"],["is","İş ve üretim","💻"],["finans","Finans","🌷"],["iliski","İlişkiler","💬"],["huzur","İç huzur","☁️"],["hobi","Hobiler","🎨"]].map(v=>({id:v[0],name:v[1],icon:v[2]}));
+const $=id=>document.getElementById(id);const state={areas:defaults.slice(),entries:[]};
+function dateKey(d){return [d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-");}
+function dayBefore(date,days){const d=new Date(date);d.setHours(12,0,0,0);d.setDate(d.getDate()-days);return dateKey(d);}
+function validArea(v){return !!v&&typeof v.id==="string"&&/^[a-z0-9_-]{1,48}$/.test(v.id)&&typeof v.name==="string"&&v.name.trim().length>=2&&v.name.length<=32&&typeof v.icon==="string"&&v.icon.length<=8;}
+function validEntry(e){return !!e&&typeof e.area==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(e.day)&&["done","pause"].includes(e.status)&&typeof e.note==="string"&&e.note.length<=180;}
 function load(){
- try{const obj=JSON.parse(localStorage.getItem(KEY)||"null");if(obj&&Array.isArray(obj.stocks)&&Array.isArray(obj.entries)){const list=obj.stocks.filter(validStock).slice(0,25),ids=new Set(list.map(function(x){return x.id;}));if(list.length&&obj.entries.every(validEntry)){state={stocks:list,entries:obj.entries.filter(function(e){return ids.has(e.stock);}).slice(-3000)};}}}catch(_){}
+ try{const v=JSON.parse(localStorage.getItem(KEY)||"null");if(v&&Array.isArray(v.areas)&&v.areas.length>0&&v.areas.length<=25&&v.areas.every(validArea)&&Array.isArray(v.entries)&&v.entries.every(validEntry)){state.areas=v.areas;const ids=new Set(v.areas.map(s=>s.id));state.entries=v.entries.filter(e=>ids.has(e.area)).slice(-3000);return;}}catch(_){}
+ // Previous version compatibility: convert earlier activities without deleting the original local data.
+ try{const old=JSON.parse(localStorage.getItem(OLD_KEY)||"null");if(!old||!Array.isArray(old.stocks)||!Array.isArray(old.entries))return;
+ const areas=old.stocks.filter(s=>s&&typeof s.id==="string"&&typeof s.name==="string").slice(0,25).map(s=>({id:s.id,name:s.name.slice(0,32),icon:defaults.find(d=>d.id===s.id)?.icon||"✨"})).filter(validArea);
+ if(!areas.length)return;state.areas=areas;const ids=new Set(areas.map(s=>s.id));const map=new Map();
+ old.entries.forEach(e=>{if(e&&ids.has(e.stock)&&typeof e.day==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(e.day)){const entry={area:e.stock,day:e.day,status:Number(e.points)<0?"pause":"done",note:String(e.note||"").slice(0,180)};map.set(entry.area+"|"+entry.day,entry);}});
+ state.entries=Array.from(map.values()).slice(-3000);save();
+ }catch(_){}
 }
-function save(){try{localStorage.setItem(KEY,JSON.stringify(state));return true;}catch(_){status("tradeStatus","Tarayıcı kaydı yapılamadı. Gizli mod veya depolama ayarlarını kontrol et.",true);return false;}}
-function status(id,text,err){const el=$(id);el.textContent=text;el.classList.toggle("error",!!err);}
-function total(){return state.entries.reduce(function(a,e){return a+e.points;},0);}
-function sumFor(id){return state.entries.reduce(function(a,e){return a+(e.stock===id?e.points:0);},0);}
-function showSigned(n){return (n>0?"+":"")+n;}
-function fmt(n){return n.toLocaleString("tr-TR");}
-function el(tag,cls,txt){const x=document.createElement(tag);if(cls)x.className=cls;if(txt!==undefined)x.textContent=txt;return x;}
-function chart(){
- const svg=$("chart");while(svg.firstChild)svg.removeChild(svg.firstChild);
- const days=Array.from({length:14},function(_,i){const d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()-(13-i));return {key:dateKey(d),day:d};});
- const first=days[0].key,base=100+state.entries.reduce(function(n,e){return n+(e.day<first?e.points:0);},0);let rolling=base;
- const vals=days.map(function(d){rolling+=state.entries.reduce(function(n,e){return n+(e.day===d.key?e.points:0);},0);return rolling;});
- const min=Math.min.apply(null,vals)-4,max=Math.max.apply(null,vals)+4;
- const W=600,H=210,L=12,R=12,T=12,B=28;
- const x=function(i){return L+(W-L-R)*i/13;};const y=function(v){return T+(H-T-B)*(max-v)/Math.max(1,max-min);};
- function node(tag,attrs,txt){const n=document.createElementNS("http://www.w3.org/2000/svg",tag);Object.keys(attrs).forEach(function(k){n.setAttribute(k,String(attrs[k]));});if(txt!==undefined)n.textContent=txt;svg.appendChild(n);return n;}
- for(let i=0;i<4;i++){const yy=T+(H-T-B)*i/3;node("line",{x1:L,y1:yy,x2:W-R,y2:yy,class:"chart-grid"});}
- const pts=vals.map(function(v,i){return x(i)+","+y(v);});
- const area="M"+x(0)+","+(H-B)+" L"+pts.join(" L")+" L"+x(13)+","+(H-B)+" Z";
- node("path",{d:area,class:"chart-area"});node("polyline",{points:pts.join(" "),class:"chart-line"});
- node("circle",{cx:x(13),cy:y(vals[13]),r:5,class:"chart-dot"});
- [0,4,8,13].forEach(function(i){node("text",{x:x(i),y:H-6,class:"axis","text-anchor":i===0?"start":i===13?"end":"middle"},days[i].day.toLocaleDateString("tr-TR",{day:"numeric",month:"short"}));});
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));return true;}catch(e){return false;}}
+function show(id,message,error){const x=$(id);x.textContent=message;x.classList.toggle("error",!!error);}
+function dom(tag,cls,value){const n=document.createElement(tag);if(cls)n.className=cls;if(value!==undefined)n.textContent=value;return n;}
+function elSvg(tag,attrs,content){const e=document.createElementNS("http://www.w3.org/2000/svg",tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,String(v)));if(content!==undefined)e.textContent=content;$("graph").appendChild(e);}
+function completedOn(day){return state.entries.filter(e=>e.day===day&&e.status==="done").length;}
+function drawGraph(){
+ $("graph").replaceChildren();const days=Array.from({length:14},(_,i)=>dayBefore(new Date(),13-i));
+ const vals=days.map(completedOn),max=Math.max(3,...vals)+.4,W=600,H=200,L=15,R=15,T=13,B=29;
+ const x=i=>L+i*(W-L-R)/13, y=v=>T+(H-T-B)*(1-v/max);
+ [0,1,2,3].forEach(i=>{let yy=T+i*(H-T-B)/3;elSvg("line",{x1:L,y1:yy,x2:W-R,y2:yy,class:"graph-grid"});});
+ const pts=vals.map((v,i)=>[x(i),y(v)]);
+ elSvg("path",{d:"M"+pts[0][0]+","+(H-B)+" L"+pts.map(p=>p.join(",")).join(" L")+" L"+pts[13][0]+","+(H-B)+" Z",class:"graph-fill"});
+ elSvg("polyline",{points:pts.map(p=>p.join(",")).join(" "),class:"graph-line"});
+ elSvg("circle",{cx:pts[13][0],cy:pts[13][1],r:5,class:"graph-dot"});
+ [0,4,8,13].forEach(i=>{const d=new Date(days[i]+"T12:00:00");elSvg("text",{x:x(i),y:H-6,"text-anchor":i===0?"start":i===13?"end":"middle",class:"axis"},d.toLocaleDateString("tr-TR",{day:"numeric",month:"short"}));});
+}
+function calcStreak(){
+ const now=new Date();let offset=completedOn(dateKey(now))>0?0:1,streak=0;
+ while(offset<366&&completedOn(dayBefore(now,offset))>0){streak++;offset++;}return streak;
 }
 function render(){
- const t=today();const todays=state.entries.filter(function(e){return e.day===t;});const todaysTotal=todays.reduce(function(n,e){return n+e.points;},0);
- $("indexValue").textContent=fmt(100+total());$("todayValue").textContent=showSigned(todaysTotal);$("todayValue").className=todaysTotal>0?"green":todaysTotal<0?"red":"";$("todayCount").textContent=todays.length+" işlem";$("totalValue").textContent=fmt(state.entries.length);$("areasCount").textContent=state.stocks.length+" alan";
- const select=$("stock"),selected=select.value;select.replaceChildren();
- const areas=$("areas");areas.replaceChildren();
- state.stocks.forEach(function(s){
- const o=el("option","",s.name);o.value=s.id;select.appendChild(o);
- const value=100+sumFor(s.id),b=el("button","area");b.type="button";
- const left=el("span");left.appendChild(el("span","area-name",(s.icon||"◌")+" "+s.name));left.appendChild(el("span","area-sub","Başlangıç: 100"));
- const right=el("span","area-value",fmt(value));if(value>100)right.classList.add("green");if(value<100)right.classList.add("red");b.append(left,right);
- b.addEventListener("click",function(){select.value=s.id;$("islem").scrollIntoView({behavior:"smooth",block:"start"});select.focus({preventScroll:true});});areas.appendChild(b);
+ const t=dateKey(new Date()),todays=state.entries.filter(e=>e.day===t&&e.status==="done");
+ $("todayCount").textContent=todays.length;$("streakCount").textContent=calcStreak()+" gün";$("allCount").textContent=state.entries.length;
+ $("areaCount").textContent=state.areas.length+" alan";$("historyCount").textContent=state.entries.length+" kayıt";
+ const select=$("area"),previous=select.value;select.replaceChildren();$("areaCards").replaceChildren();
+ state.areas.forEach(area=>{
+ const opt=dom("option","",area.name);opt.value=area.id;select.append(opt);
+ const record=state.entries.find(e=>e.area===area.id&&e.day===t);const done=record?.status==="done";
+ const b=dom("button","area"+(done?" done":""));b.type="button";
+ b.append(dom("span","area-icon",area.icon));
+ const text=dom("span","area-label");text.append(dom("strong","",area.name),dom("small","",record?(done?"Bugün tamamlandı":"Bugün ara verildi"):"Henüz işaretlenmedi"));b.append(text,dom("span","area-mark",done?"✓":"›"));
+ b.addEventListener("click",()=>{select.value=area.id;const current=state.entries.find(e=>e.area===area.id&&e.day===t);$("note").value=current?.note||"";document.querySelector('input[name="outcome"][value="'+(current?.status||"done")+'"]').checked=true;$("islem").scrollIntoView({behavior:"smooth",block:"start"});});
+ $("areaCards").append(b);
  });
- if(state.stocks.some(function(s){return s.id===selected;}))select.value=selected;
- const entries=$("entries");entries.replaceChildren();$("entryCount").textContent=state.entries.length+" kayıt";
- if(!state.entries.length)entries.appendChild(el("div","empty","Henüz işlem yapmadın."));
- state.entries.slice(-5).reverse().forEach(function(e){const s=state.stocks.find(function(s){return s.id===e.stock;});const row=el("div","entry"),left=el("div"),right=el("span","delta "+(e.points>0?"green":"red"),showSigned(e.points));left.appendChild(el("strong","",s?s.name:"Gelişim alanı"));left.appendChild(el("p","",new Date(e.day+"T12:00:00").toLocaleDateString("tr-TR",{day:"numeric",month:"short",year:"numeric"})+(e.note?" · "+e.note:"")));row.append(left,right);entries.appendChild(row);});
- chart();
+ if(state.areas.some(s=>s.id===previous))select.value=previous;
+ const history=$("history");history.replaceChildren();
+ if(!state.entries.length)history.append(dom("div","empty","Henüz kayıt yok. İlk adımını bugün at 🌷"));
+ const sorted=state.entries.slice().sort((a,b)=>b.day.localeCompare(a.day));
+ sorted.slice(0,6).forEach(e=>{
+ const a=state.areas.find(x=>x.id===e.area);const row=dom("div","entry"),left=dom("div");left.append(dom("b","",(a?.icon||"✨")+" "+(a?.name||"Gelişim")));
+ const date=new Date(e.day+"T12:00:00").toLocaleDateString("tr-TR",{day:"numeric",month:"short",year:"numeric"});left.append(dom("small","",date+(e.note?" · "+e.note:"")));
+ row.append(left,dom("span","entry-flag"+(e.status==="pause"?" pause":""),e.status==="done"?"✓ Tamamlandı":"☁ Ara verildi"));history.append(row);
+ });drawGraph();
 }
-$("tradeForm").addEventListener("submit",function(e){
- e.preventDefault();status("tradeStatus","");
- const stock=$("stock").value;const amount=Number($("points").value);const sign=Number($("direction").value);const note=$("memo").value.trim();
- if(!state.stocks.some(function(s){return s.id===stock;})||!Number.isInteger(amount)||amount<1||amount>10||![1,-1].includes(sign)){status("tradeStatus","Alan ve 1–10 arasında bir puan seç.",true);return;}
- const used=state.entries.reduce(function(n,e){return n+(e.day===today()&&e.stock===stock?Math.abs(e.points):0);},0);
- if(used+amount>10){status("tradeStatus","Bu alanda bugün en fazla "+(10-used)+" puanlık işlem daha yapabilirsin.",true);return;}
- if(note.length>180){status("tradeStatus","Not 180 karakteri geçemez.",true);return;}
- state.entries.push({stock:stock,day:today(),points:sign*amount,note:note});
- if(save()){render();$("memo").value="";status("tradeStatus","İşlemin kaydedildi. Grafiğin güncellendi.");}else{state.entries.pop();}
+$("recordForm").addEventListener("submit",e=>{
+ e.preventDefault();show("recordStatus","");
+ const area=$("area").value,day=dateKey(new Date()),status=document.querySelector('input[name="outcome"]:checked')?.value,note=$("note").value.trim();
+ if(!state.areas.some(a=>a.id===area)||!["done","pause"].includes(status)||note.length>180){show("Günlük kayıt bilgilerini kontrol et.",true);return;}
+ const oldEntry=state.entries.find(x=>x.area===area&&x.day===day);
+ let backup=oldEntry?{...oldEntry}:null;
+ if(oldEntry){oldEntry.status=status;oldEntry.note=note;}else state.entries.push({area,day,status,note});
+ if(!save()){if(oldEntry)Object.assign(oldEntry,backup);else state.entries.pop();show("Kaydedilemedi. Tarayıcı depolama ayarlarını kontrol et.",true);return;}
+ render();show("Bugünkü durumun kaydedildi! 🌷");$("note").value="";
 });
-$("addStockForm").addEventListener("submit",function(e){
- e.preventDefault();const name=$("stockName").value.trim();
- if(name.length<2||name.length>32){status("optionStatus","Alan adı 2–32 karakter olmalı.",true);return;}
- if(state.stocks.length>=25){status("optionStatus","En fazla 25 alan ekleyebilirsin.",true);return;}
- if(state.stocks.some(function(x){return x.name.toLocaleLowerCase("tr-TR")===name.toLocaleLowerCase("tr-TR");})){status("optionStatus","Bu alan zaten var.",true);return;}
- const item={id:"ozel_"+Date.now().toString(36),name:name,icon:"◌"};state.stocks.push(item);
- if(save()){render();$("stock").value=item.id;$("stockName").value="";status("optionStatus","Gelişim alanı eklendi.");}else state.stocks.pop();
+$("addAreaForm").addEventListener("submit",e=>{
+ e.preventDefault();const name=$("areaName").value.trim();
+ if(name.length<2||name.length>32||state.areas.length>=25){show("areaStatus","2–32 karakterlik bir alan adı yaz. En fazla 25 alan eklenebilir.",true);return;}
+ if(state.areas.some(a=>a.name.toLocaleLowerCase("tr-TR")===name.toLocaleLowerCase("tr-TR"))){show("areaStatus","Bu isimde bir alan zaten var.",true);return;}
+ const area={id:"ozel_"+Date.now().toString(36),name,icon:"✨"};state.areas.push(area);
+ if(!save()){state.areas.pop();show("areaStatus","Alan kaydedilemedi.",true);return;}
+ render();$("area").value=area.id;$("areaName").value="";show("areaStatus","Yeni alan eklendi!");
 });
-$("download").addEventListener("click",function(){const b=new Blob([JSON.stringify(state,null,2)],{type:"application/json"});const u=URL.createObjectURL(b);const a=document.createElement("a");a.href=u;a.download="hayat-borsasi-yedek-"+today()+".json";a.click();setTimeout(function(){URL.revokeObjectURL(u);},1000);});
-$("upload").addEventListener("change",async function(e){const f=e.target.files&&e.target.files[0];if(!f)return;try{if(f.size>2000000)throw Error("Yedek dosyası çok büyük.");const obj=JSON.parse(await f.text());if(!obj||!Array.isArray(obj.stocks)||!obj.stocks.length||obj.stocks.length>25||!obj.stocks.every(validStock)||!Array.isArray(obj.entries)||obj.entries.length>3000||!obj.entries.every(validEntry))throw Error("Geçersiz yedek dosyası.");if(!confirm("Mevcut kayıtların bu yedekle değiştirilsin mi?"))return;state={stocks:obj.stocks,entries:obj.entries};if(save()){render();status("optionStatus","Yedek geri yüklendi.");}}catch(err){status("optionStatus",err.message||"Yedek açılamadı.",true);}finally{e.target.value="";}});
-$("reset").addEventListener("click",function(){if(!confirm("Tüm Hayat Borsası kayıtların bu cihazdan silinsin mi?"))return;const old=state;state={stocks:defaults.slice(),entries:[]};if(save()){render();status("optionStatus","Kayıtlar sıfırlandı.");}else state=old;});
 load();render();
 })();
 </script>
