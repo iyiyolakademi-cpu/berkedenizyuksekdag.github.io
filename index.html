@@ -4153,34 +4153,6 @@ body{padding-bottom:calc(43px + env(safe-area-inset-bottom, 0px))}
 @media(max-width:930px){.language-switcher{order:1}.mobile-menu-btn{order:2}.nav-right{gap:9px}}
 @media(max-width:480px){.language-switcher{padding:3px;gap:1px}.language-switcher button{min-height:29px;min-width:31px;padding:5px 7px}.nav-inner{min-height:60px}}
 
-/* Minimal, isolated experience hub */
-.bdy-exp{max-width:1220px;margin:0 auto;padding:74px 30px 82px}
-.bdy-exp-header{margin:0 0 24px;max-width:650px}
-.bdy-exp-kicker{display:block;color:#697484;font-family:var(--sans),sans-serif;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
-.bdy-exp-title{font-family:var(--sans),sans-serif!important;font-size:clamp(28px,3.4vw,40px);line-height:1.2;letter-spacing:-.055em;color:#1a2431!important;font-weight:800!important}
-.bdy-exp-intro{color:#687587;font-size:13px;line-height:1.8;max-width:570px;margin:13px 0 0}
-.bdy-exp-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:16px}
-.bdy-exp-card{position:relative;display:flex;flex-direction:column;align-items:flex-start;min-height:266px;border:1px solid #e5e9ee;border-radius:22px;padding:31px;background:#f8f9fb;overflow:hidden;color:#1c2838}
-.bdy-exp-card.primary{background:#1b2533;color:#fff;border-color:#1b2533}
-.bdy-exp-tag{border-radius:99px;padding:6px 10px;background:#eef2f5;color:#607084;font:800 10px/1.2 var(--sans),sans-serif;letter-spacing:.04em}
-.bdy-exp-card.primary .bdy-exp-tag{background:#ffffff1c;color:#d5dce4}
-.bdy-exp-card h3{font-family:var(--sans),sans-serif!important;font-weight:800;font-size:clamp(25px,2.6vw,33px);letter-spacing:-.05em;line-height:1.25;color:inherit!important;margin:24px 0 9px}
-.bdy-exp-card p{font-size:12px;max-width:380px;line-height:1.8;margin:0;color:#647184}
-.bdy-exp-card.primary p{color:#c2cbd7}
-.bdy-exp-link{display:inline-flex;gap:8px;align-items:center;font-size:12px;font-weight:800;margin-top:auto;padding:18px 0 0;text-decoration:none!important;color:inherit!important}
-.bdy-exp-link:hover{text-decoration:underline!important}
-.bdy-exp-card .bdy-exp-num{position:absolute;top:27px;right:27px;color:#a4afba;font:800 12px var(--mono),monospace}
-.bdy-exp-card.primary .bdy-exp-num{color:#7d8b9d}
-@media(max-width:780px){.bdy-exp{padding:45px 18px 55px}.bdy-exp-grid{grid-template-columns:1fr}.bdy-exp-card{min-height:232px;padding:26px;border-radius:18px}.bdy-exp-card h3{margin-top:23px}}
-@media(max-width:440px){.bdy-exp{padding:40px 14px 45px}.bdy-exp-card{padding:22px;min-height:219px}.bdy-exp-card h3{font-size:27px}.bdy-exp-title{font-size:30px}}
-
-/* Soft, welcoming styling for the two experiences */
-.bdy-exp-card.primary{background:linear-gradient(120deg,#f8f0ff,#fff1ec);border-color:#ede2ed;color:#2a2936}
-.bdy-exp-card.primary p{color:#786f7d}
-.bdy-exp-card.primary .bdy-exp-tag{background:#fff;color:#785e96}
-.bdy-exp-card.primary .bdy-exp-num{color:#a993b2}
-.bdy-exp-card:not(.primary){background:#fffdfd;border-color:#eee8ee}
-.bdy-exp-card:not(.primary) .bdy-exp-tag{background:#fff1e9;color:#9a6c70}
 </style>
 <meta content="#ffffff" name="theme-color"/><meta content="website" property="og:type"/><meta content="tr_TR" property="og:locale"/><meta content="Berke Deniz Yüksekdağ | Girişimci" property="og:title"/><meta content="Berke Deniz Yüksekdağ; İyi Yol Akademi, OynaBak ve Patiyiz girişimlerinin geliştiricisi. Girişimleri, projeleri ve girişimcilik yolculuğu." property="og:description"/><meta content="https://berkedenizyuksekdag.com/" property="og:url"/><meta content="summary" name="twitter:card"/></head>
 <body>
@@ -4190,7 +4162,7 @@ body{padding-bottom:calc(43px + env(safe-area-inset-bottom, 0px))}
 <nav aria-label="Ana menü" class="nav">
 <div class="nav-inner">
 <div class="nav-right">
-<ul class="nav-links" id="navLinks"><li><a href="#projeler" onclick="closeMobileMenu()">Girişimler</a></li><li><a href="#deneyim" onclick="closeMobileMenu()">Deneyim</a></li><li><a href="#yol-haritasi" onclick="closeMobileMenu()">Yol Haritası</a></li><li><a href="#kadin-girisimci-ekibi" onclick="closeMobileMenu()">Girişimci Ekibi</a></li><li><a href="#hakkimda" onclick="closeMobileMenu()">Hakkımda</a></li><li><a href="#kitaplar" onclick="closeMobileMenu()">Yayınlar</a></li></ul>
+<ul class="nav-links" id="navLinks"><li><a href="#projeler" onclick="closeMobileMenu()">Girişimler</a></li><li><a href="#yol-haritasi" onclick="closeMobileMenu()">Yol Haritası</a></li><li><a href="#kadin-girisimci-ekibi" onclick="closeMobileMenu()">Girişimci Ekibi</a></li><li><a href="#hakkimda" onclick="closeMobileMenu()">Hakkımda</a></li><li><a href="#kitaplar" onclick="closeMobileMenu()">Yayınlar</a></li></ul>
 <a class="nav-contact" href="#iletisim">İletişim</a>
 <div class="language-switcher" role="group" aria-label="Site dilini seçin"><button type="button" data-language="tr" class="is-active" aria-pressed="true">TR</button><button type="button" data-language="en" aria-pressed="false">EN</button></div>
 <button aria-controls="navLinks" aria-expanded="false" aria-label="Menüyü aç" class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" type="button">☰</button>
@@ -4237,13 +4209,7 @@ body{padding-bottom:calc(43px + env(safe-area-inset-bottom, 0px))}
 <div class="stat"><span class="stat-value" data-count-target="3" data-count-suffix="">3</span><span class="stat-label">Derleme projesi</span></div>
 </div>
 </div>
-<main><section class="bdy-exp" id="deneyim" aria-labelledby="bdyExpTitle">
-<div class="bdy-exp-header"><span class="bdy-exp-kicker">KEŞFET &amp; DENE</span><h2 class="bdy-exp-title" id="bdyExpTitle">Bu kez sadece okuma, sen de katıl.</h2><p class="bdy-exp-intro">Günlük gelişimini takip et veya merak ettiğin soruyu doğrudan bana ilet. İki sade deneyim, tek bir yerde.</p></div>
-<div class="bdy-exp-grid">
-<article class="bdy-exp-card primary"><span class="bdy-exp-tag">GÜNLÜK GELİŞİM</span><span class="bdy-exp-num" aria-hidden="true">01</span><h3>Hayat Borsası</h3><p>Günlük adımlarını işaretle, gelişim alanlarını takip et ve ilerlemeni gör.</p><a class="bdy-exp-link" href="hayat-borsasi.html">Hayat Borsası'nı aç <span aria-hidden="true">↗</span></a></article>
-<article class="bdy-exp-card"><span class="bdy-exp-tag">SORU &amp; CEVAP</span><span class="bdy-exp-num" aria-hidden="true">02</span><h3>Bir Soru Bırak</h3><p>Sorunu paylaş, başkalarının sorularını keşfet ve verdiğim yanıtları aynı yerde gör.</p><a class="bdy-exp-link" href="soru-birak.html">Soruları gör ve sor <span aria-hidden="true">↗</span></a></article>
-</div>
-</section><section aria-labelledby="featuredTitle" class="section featured-section" id="projeler">
+<main><section aria-labelledby="featuredTitle" class="section featured-section" id="projeler">
 <div class="section-head venture-section-head">
 <span class="eyebrow">SOMUT ÜRÜNLER</span>
 <h2 class="section-title" id="featuredTitle">Öne Çıkan Girişimlerim</h2>
