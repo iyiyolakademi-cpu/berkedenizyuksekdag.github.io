@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f8fa">
+<meta name="description" content="Berke Deniz Yüksekdağ'a girişimcilik, projeleri, kitaplar ve kişisel gelişim konularında soru bırakın.">
+<link rel="icon" href="favicon.ico">
+<title>Bir Soru Bırak | Berke Deniz Yüksekdağ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--ink:#18202b;--muted:#627082;--border:#e4e9ee;--bg:#f7f8fa;--card:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.65 Manrope,system-ui,sans-serif}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{cursor:wait;opacity:.55}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #93b8ef;outline-offset:3px}
+.container{width:min(1050px,calc(100% - 36px));margin:auto}.top{height:78px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:800;letter-spacing:-.02em;font-size:13px;display:inline-flex;align-items:center;gap:9px}.brand i{width:31px;height:31px;display:grid;place-items:center;border-radius:9px;border:1px solid var(--border);font-size:18px;font-style:normal}.top-side{font-size:11px;color:var(--muted);font-weight:800}
+.main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:76px;padding:98px 0 110px;align-items:start}.eyebrow{font-size:11px;letter-spacing:.15em;font-weight:800;color:#657486}.copy h1{font-size:clamp(39px,5.5vw,63px);line-height:1.1;letter-spacing:-.06em;margin:15px 0 19px;font-weight:800}.copy p{font-size:15px;color:var(--muted);max-width:400px;margin:0 0 28px}.topic-list{display:flex;flex-wrap:wrap;gap:8px;max-width:410px}.topic-list span{border:1px solid var(--border);border-radius:24px;background:#fff;padding:8px 12px;font-size:11px;font-weight:800;color:#596979}.small-link{margin-top:40px;color:#293b52;font-size:12px;font-weight:800;display:inline-block}
+.form-card{background:var(--card);border:1px solid var(--border);border-radius:21px;padding:32px;box-shadow:0 20px 46px #14223808}.form-card h2{margin:0 0 7px;font-size:18px;letter-spacing:-.03em}.form-card p{font-size:12px;color:var(--muted);margin:0 0 19px}label{display:block;font-size:12px;font-weight:800;margin:17px 0 7px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:11px}.control{display:block;width:100%;min-height:46px;border:1px solid #dce3ea;border-radius:11px;padding:12px 13px;background:#fff;color:var(--ink);font-size:13px}.control::placeholder{color:#98a3b0}.control:focus{border-color:#647d9b;box-shadow:0 0 0 3px #e8eef4;outline:none}textarea.control{min-height:164px;resize:vertical;line-height:1.6}.field-meta{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:#7b8795;margin-top:6px}.submit{background:#202d40;color:#fff;min-height:51px;border:0;border-radius:11px;font-size:13px;font-weight:800;padding:13px 20px;width:100%;margin-top:23px}.submit:hover{background:#33465d}.legal{font-size:10px!important;color:#7b8795!important;margin:12px 0 0!important}.status{font-size:12px;min-height:20px;margin:12px 0 0;font-weight:800;color:#117f58}.status.error{color:#bd4656}.success{border:1px solid #cdebdc;background:#f4fbf8;border-radius:14px;padding:18px;display:none}.success strong{display:block;font-size:18px;margin-bottom:8px}.success p{margin:0 0 14px}.success a{font-weight:800;font-size:12px}
+footer{border-top:1px solid var(--border);padding:22px 0 30px;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;color:var(--muted);font-size:11px}footer a{font-weight:800;color:#293b52}
+.bot-field{position:absolute!important;left:-99999px!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important}
+@media(max-width:800px){.main{grid-template-columns:1fr;gap:30px;padding:50px 0 65px}.copy h1{font-size:47px}.copy p{max-width:650px}.small-link{margin-top:20px}}
+@media(max-width:500px){.container{width:calc(100% - 28px)}.top{height:65px}.brand{font-size:11px}.top-side{font-size:10px}.main{padding:37px 0 48px;gap:26px}.copy h1{font-size:42px}.copy p{font-size:13px}.form-card{padding:21px 17px;border-radius:15px}.fields{grid-template-columns:1fr;gap:0}.fields label{margin-top:16px}}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="top"><a href="./" class="brand"><i aria-hidden="true">←</i><span>BERKE DENİZ YÜKSEKDAĞ</span></a><span class="top-side">BİR SORU BIRAK</span></header>
+<main class="main">
+<section class="copy">
+<div class="eyebrow">DOĞRUDAN İLETİŞİM</div>
+<h1>Merak ettiğin<br>bir şey mi var?</h1>
+<p>Girişimcilik yolculuğum, geliştirdiğim projeler, kitaplarım ya da hayat üzerine sorunu bırak. Seçtiğim soruları içeriklerimde yanıtlayabilirim.</p>
+<div class="topic-list" aria-label="Soru konuları"><span>Girişimcilik</span><span>Projeler</span><span>Kitaplar</span><span>Kişisel gelişim</span></div>
+<a class="small-link" href="hayat-borsasi.html">Hayat Borsası'nı keşfet ↗</a>
+</section>
+<section class="form-card" aria-labelledby="formTitle">
+<div id="questionFormWrap">
+<h2 id="formTitle">Sorunu gönder</h2><p>İsim ve e-posta zorunlu değil. Sadece sorun yeterli.</p>
+<form id="askForm">
+<div class="fields">
+<div><label for="visitorName">Adın (isteğe bağlı)</label><input class="control" id="visitorName" name="visitorName" autocomplete="name" maxlength="80" placeholder="Adın"></div>
+<div><label for="visitorEmail">E-posta (isteğe bağlı)</label><input class="control" id="visitorEmail" name="visitorEmail" type="email" autocomplete="email" maxlength="160" placeholder="ornek@eposta.com"></div>
+</div>
+<label for="topic">Konu</label><select class="control" id="topic" name="topic" required><option>Girişimcilik</option><option>Projeler</option><option>Kitaplar</option><option>Kişisel gelişim</option><option>Diğer</option></select>
+<label for="question">Sorun</label><textarea class="control" id="question" name="question" minlength="15" maxlength="1500" required placeholder="Merak ettiğin konuyu buraya yaz..."></textarea>
+<div class="field-meta"><span>En az 15 karakter</span><span id="chars">0 / 1500</span></div>
+<div class="bot-field" aria-hidden="true"><label for="website">Web siten</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+<button type="submit" class="submit" id="submitBtn">Sorumu gönder →</button>
+<div id="feedback" class="status" role="status" aria-live="polite"></div>
+<p class="legal">Sorun herkese açık yayımlanmaz. E-posta bırakırsan yalnızca olası geri dönüş için kullanılır; yanıtlama garantisi verilmez. Gereksiz kişisel bilgi paylaşma.</p>
+</form>
+</div>
+<div class="success" id="success" role="status" aria-live="polite"><strong>Teşekkür ederim!</strong><p>Sorun kaydedildi. Yeni soruları değerlendirip uygun olanları içeriklerimde yanıtlamaya çalışıyorum.</p><a href="./">Ana sayfaya dön ↗</a></div>
+</section>
+</main>
+<footer><span>© 2026 Berke Deniz Yüksekdağ</span><a href="./">Ana sayfa ↗</a></footer>
+</div>
+<script>
+(function(){
+"use strict";
+const ENDPOINT="https://tqnvvrgrsxrvzxbjbsgl.supabase.co/rest/v1/personal_site_questions";
+const API_KEY="sb_publishable_94x0ozPL38-3HJer2l5tqQ_BrpQZYH-";
+const input=document.getElementById("question");
+const form=document.getElementById("askForm");
+const feedback=document.getElementById("feedback");
+const button=document.getElementById("submitBtn");
+const started=Date.now();
+const COOLDOWN="bdy-last-question-submitted";
+input.addEventListener("input",function(){document.getElementById("chars").textContent=input.value.length+" / 1500";});
+function show(text,error){feedback.textContent=text;feedback.classList.toggle("error",!!error);}
+form.addEventListener("submit",async function(ev){
+ ev.preventDefault();show("");
+ const name=document.getElementById("visitorName").value.trim(),email=document.getElementById("visitorEmail").value.trim(),topic=document.getElementById("topic").value,question=input.value.trim();
+ if(document.getElementById("website").value||Date.now()-started<1800){show("Lütfen formu normal şekilde tamamlayıp yeniden dene.",true);return;}
+ if(question.length<15||question.length>1500){show("Sorun 15–1500 karakter arasında olmalı.",true);return;}
+ if(name.length>80||email.length>160){show("İsim veya e-posta çok uzun.",true);return;}
+ const topics=["Girişimcilik","Projeler","Kitaplar","Kişisel gelişim","Diğer"];
+ if(!topics.includes(topic)){show("Geçerli bir konu seç.",true);return;}
+ let previous=0;try{previous=Number(localStorage.getItem(COOLDOWN)||0);}catch(_){}
+ if(Date.now()-previous<60000){show("Lütfen yeni soru göndermeden önce bir dakika bekle.",true);return;}
+ button.disabled=true;button.textContent="Gönderiliyor…";
+ try{
+ const response=await fetch(ENDPOINT,{method:"POST",headers:{"apikey":API_KEY,"Content-Type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({visitor_name:name||null,visitor_email:email||null,topic:topic,question:question})});
+ if(!response.ok)throw new Error("Soru gönderilemedi (HTTP "+response.status+").");
+ try{localStorage.setItem(COOLDOWN,String(Date.now()));}catch(_){}
+ form.reset();document.getElementById("questionFormWrap").style.display="none";document.getElementById("success").style.display="block";
+ }catch(err){show("Gönderim tamamlanamadı. Bağlantını kontrol edip yeniden dene. Sorun kaydedildiği doğrulanmadı.",true);}
+ finally{button.disabled=false;button.textContent="Sorumu gönder →";}
+});
+})();
+</script>
+</body>
+</html>
