@@ -3,91 +3,134 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f7f8fa">
-<meta name="description" content="Berke Deniz Yüksekdağ'a girişimcilik, projeleri, kitaplar ve kişisel gelişim konularında soru bırakın.">
-<link rel="icon" href="favicon.ico">
-<title>Bir Soru Bırak | Berke Deniz Yüksekdağ</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="theme-color" content="#fcfaf8">
+<meta name="description" content="Sorunu bırak, diğer ziyaretçilerin sorularını ve Berke Deniz Yüksekdağ'ın yanıtlarını keşfet.">
+<link rel="icon" href="favicon.ico"><title>Soru & Cevap | Berke Deniz Yüksekdağ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:light;--ink:#18202b;--muted:#627082;--border:#e4e9ee;--bg:#f7f8fa;--card:#fff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.65 Manrope,system-ui,sans-serif}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{cursor:wait;opacity:.55}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #93b8ef;outline-offset:3px}
-.container{width:min(1050px,calc(100% - 36px));margin:auto}.top{height:78px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:800;letter-spacing:-.02em;font-size:13px;display:inline-flex;align-items:center;gap:9px}.brand i{width:31px;height:31px;display:grid;place-items:center;border-radius:9px;border:1px solid var(--border);font-size:18px;font-style:normal}.top-side{font-size:11px;color:var(--muted);font-weight:800}
-.main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:76px;padding:98px 0 110px;align-items:start}.eyebrow{font-size:11px;letter-spacing:.15em;font-weight:800;color:#657486}.copy h1{font-size:clamp(39px,5.5vw,63px);line-height:1.1;letter-spacing:-.06em;margin:15px 0 19px;font-weight:800}.copy p{font-size:15px;color:var(--muted);max-width:400px;margin:0 0 28px}.topic-list{display:flex;flex-wrap:wrap;gap:8px;max-width:410px}.topic-list span{border:1px solid var(--border);border-radius:24px;background:#fff;padding:8px 12px;font-size:11px;font-weight:800;color:#596979}.small-link{margin-top:40px;color:#293b52;font-size:12px;font-weight:800;display:inline-block}
-.form-card{background:var(--card);border:1px solid var(--border);border-radius:21px;padding:32px;box-shadow:0 20px 46px #14223808}.form-card h2{margin:0 0 7px;font-size:18px;letter-spacing:-.03em}.form-card p{font-size:12px;color:var(--muted);margin:0 0 19px}label{display:block;font-size:12px;font-weight:800;margin:17px 0 7px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:11px}.control{display:block;width:100%;min-height:46px;border:1px solid #dce3ea;border-radius:11px;padding:12px 13px;background:#fff;color:var(--ink);font-size:13px}.control::placeholder{color:#98a3b0}.control:focus{border-color:#647d9b;box-shadow:0 0 0 3px #e8eef4;outline:none}textarea.control{min-height:164px;resize:vertical;line-height:1.6}.field-meta{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:#7b8795;margin-top:6px}.submit{background:#202d40;color:#fff;min-height:51px;border:0;border-radius:11px;font-size:13px;font-weight:800;padding:13px 20px;width:100%;margin-top:23px}.submit:hover{background:#33465d}.legal{font-size:10px!important;color:#7b8795!important;margin:12px 0 0!important}.status{font-size:12px;min-height:20px;margin:12px 0 0;font-weight:800;color:#117f58}.status.error{color:#bd4656}.success{border:1px solid #cdebdc;background:#f4fbf8;border-radius:14px;padding:18px;display:none}.success strong{display:block;font-size:18px;margin-bottom:8px}.success p{margin:0 0 14px}.success a{font-weight:800;font-size:12px}
-footer{border-top:1px solid var(--border);padding:22px 0 30px;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;color:var(--muted);font-size:11px}footer a{font-weight:800;color:#293b52}
-.bot-field{position:absolute!important;left:-99999px!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important}
-@media(max-width:800px){.main{grid-template-columns:1fr;gap:30px;padding:50px 0 65px}.copy h1{font-size:47px}.copy p{max-width:650px}.small-link{margin-top:20px}}
-@media(max-width:500px){.container{width:calc(100% - 28px)}.top{height:65px}.brand{font-size:11px}.top-side{font-size:10px}.main{padding:37px 0 48px;gap:26px}.copy h1{font-size:42px}.copy p{font-size:13px}.form-card{padding:21px 17px;border-radius:15px}.fields{grid-template-columns:1fr;gap:0}.fields label{margin-top:16px}}
+:root{--bg:#fcfaf8;--ink:#242735;--muted:#767483;--line:#ece7e6;--card:#fff;--purple:#735b9a;--purple-soft:#f1ebf9;--peach:#fff0e5;--shadow:0 15px 42px rgba(60,44,67,.035)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:13px/1.7 Manrope,system-ui,sans-serif}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{cursor:wait;opacity:.6}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #b69fe3;outline-offset:3px}
+.wrap{max-width:1180px;margin:auto;padding:0 25px}.top{height:75px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line)}.brand{display:flex;gap:10px;align-items:center;font-size:12px;font-weight:800;letter-spacing:-.02em}.brand i{display:grid;place-items:center;height:32px;width:32px;border-radius:11px;background:#fff;border:1px solid var(--line);font-style:normal;font-size:18px}.top-tag{font-size:11px;color:var(--muted);font-weight:800}.intro{display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px;border:1px solid #f0e4e8;background:linear-gradient(112deg,#fff3ee,#f9f3ff 78%,#f8f6ff);border-radius:27px;padding:37px 45px;margin:27px 0}.eyebrow{font-size:10px;font-weight:800;color:#84649f;letter-spacing:.14em}.intro h1{font-size:clamp(29px,4.5vw,48px);letter-spacing:-.055em;line-height:1.14;margin:9px 0 10px;font-weight:800}.intro p{max-width:570px;margin:0;color:#746f81;font-size:13px}.hero-symbol{display:grid;place-items:center;width:103px;height:103px;border-radius:32px;background:#ffffff9c;border:1px solid #ffffff;box-shadow:0 12px 33px #b69ac71d;font-size:43px;transform:rotate(-7deg)}
+.columns{display:grid;grid-template-columns:minmax(330px,.84fr) minmax(0,1.16fr);gap:21px;align-items:start;padding:0 0 65px}.paper{border:1px solid var(--line);background:var(--card);border-radius:23px;padding:26px;box-shadow:var(--shadow);min-width:0}.paper h2{font-size:17px;letter-spacing:-.028em;margin:0 0 5px}.paper .subtitle{font-size:12px;color:var(--muted);margin:0 0 22px}.icon-round{display:inline-grid;place-items:center;width:37px;height:37px;border-radius:12px;background:var(--purple-soft);color:var(--purple);font-size:20px;margin-bottom:13px}.field{margin-top:14px}label{display:block;margin-bottom:6px;font-size:11px;font-weight:800}.input{display:block;min-height:47px;width:100%;border:1px solid #e6e1e6;border-radius:13px;padding:12px 14px;background:#fff;color:var(--ink);font-size:13px;outline:none}.input:focus{border-color:#baa9d6;box-shadow:0 0 0 3px #f2edfb}.input::placeholder{color:#ada6ad}textarea.input{min-height:145px;resize:vertical;line-height:1.65}.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field-note{display:flex;justify-content:space-between;gap:10px;color:#99909b;font-size:10px;margin-top:6px}.consent{display:flex;align-items:flex-start;gap:10px;margin-top:19px;padding:13px;border:1px solid #ede7f2;border-radius:13px;background:#faf8ff;font-size:10px;line-height:1.65;color:#6b6277}.consent input{flex:none;width:17px;height:17px;accent-color:var(--purple);margin:2px 0 0}.send{width:100%;min-height:51px;padding:12px 16px;background:var(--purple);border:0;border-radius:13px;color:#fff;font-weight:800;margin-top:15px}.send:hover{background:#614884}.status{min-height:18px;font-size:11px;font-weight:800;color:#238060;margin-top:9px}.status.error{color:#c14359}.hint{font-size:10px;color:#99909b;margin:10px 0 0}.bot-field{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important}.success{display:none;border:1px solid #d5e9df;background:#f4fcf8;border-radius:14px;padding:19px}.success strong{display:block;font-size:16px}.success p{font-size:12px;color:#536959;margin:6px 0 0}.success button{border:0;background:#e5f6ec;color:#25654b;border-radius:10px;padding:8px 12px;margin-top:12px;font-weight:800}
+.feed-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.feed-heading h2{margin:0}.count{background:var(--purple-soft);color:#70548f;padding:5px 10px;border-radius:99px;font-size:10px;font-weight:800;white-space:nowrap}.filters{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:18px 0}.filter{background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 12px;font-weight:800;font-size:10px;color:#6b6876}.filter[aria-pressed="true"]{background:var(--purple-soft);border-color:#e4d9f2;color:#70548f}.refresh{margin-left:auto;border:1px solid var(--line);background:#fff;border-radius:99px;padding:8px 11px;font-size:11px;color:#6c687a}
+.feed{display:grid;gap:12px}.q-card{padding:18px 20px;border:1px solid var(--line);border-radius:17px;background:#fff;box-shadow:0 8px 20px #27253d04}.q-meta{display:flex;gap:10px;align-items:center;min-width:0;flex-wrap:wrap}.avatar{display:grid;place-items:center;width:36px;height:36px;background:#fae7e1;border-radius:12px;color:#955b79;font-weight:800;font-size:14px;flex:none}.author{font-size:12px;font-weight:800;max-width:175px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.date{font-size:10px;color:#9a92a0}.topic{margin-left:auto;background:#f7f3fa;color:#81639a;font-size:10px;padding:4px 9px;border-radius:99px;font-weight:800}.question{font-size:13px;line-height:1.85;margin:15px 0 13px;overflow-wrap:anywhere;white-space:pre-wrap}.q-bottom{font-size:10px;font-weight:800;color:#9c809f}.q-bottom.answered{color:#36836c}.answer{margin-top:14px;background:linear-gradient(120deg,#f8f3fd,#fff9f3);border:1px solid #eee3f0;border-radius:13px;padding:13px 14px}.answer-by{display:flex;gap:8px;align-items:center;font-weight:800;font-size:11px;color:#674d83}.answer-by span{background:#fff;border-radius:9px;width:23px;height:23px;display:grid;place-items:center;font-size:11px}.answer p{font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0 0;line-height:1.85}.state{padding:37px 18px;border:1px dashed #ddd2e5;background:#fdfbff;border-radius:17px;text-align:center;color:#8a8293;font-size:12px}.state b{display:block;color:#5e5269;font-size:14px;margin-bottom:3px}.more{margin-top:14px;border:1px solid #e6dded;background:#faf7ff;color:#70548f;width:100%;padding:12px;border-radius:12px;font-weight:800;font-size:11px}.more[hidden]{display:none}
+footer{border-top:1px solid var(--line);padding:20px 0 32px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;color:var(--muted);font-size:11px}footer a{font-weight:800;color:#725a99}
+@media(max-width:920px){.columns{grid-template-columns:1fr}.intro{padding:31px}.paper{padding:24px}}@media(max-width:560px){.wrap{padding:0 14px}.top{height:66px}.brand{font-size:11px}.top-tag{font-size:9px}.intro{grid-template-columns:1fr;padding:26px 22px;border-radius:20px;margin:17px 0}.intro h1{font-size:34px}.hero-symbol{display:none}.paper{padding:19px 16px;border-radius:17px}.fields{grid-template-columns:1fr;gap:0}.q-card{padding:15px 13px}.question{font-size:12px}.columns{gap:13px}.topic{margin-left:0}.filter{padding:8px 10px}.refresh{margin-left:0}}
 </style>
 </head>
 <body>
-<div class="container">
-<header class="top"><a href="./" class="brand"><i aria-hidden="true">←</i><span>BERKE DENİZ YÜKSEKDAĞ</span></a><span class="top-side">BİR SORU BIRAK</span></header>
-<main class="main">
-<section class="copy">
-<div class="eyebrow">DOĞRUDAN İLETİŞİM</div>
-<h1>Merak ettiğin<br>bir şey mi var?</h1>
-<p>Girişimcilik yolculuğum, geliştirdiğim projeler, kitaplarım ya da hayat üzerine sorunu bırak. Seçtiğim soruları içeriklerimde yanıtlayabilirim.</p>
-<div class="topic-list" aria-label="Soru konuları"><span>Girişimcilik</span><span>Projeler</span><span>Kitaplar</span><span>Kişisel gelişim</span></div>
-<a class="small-link" href="hayat-borsasi.html">Hayat Borsası'nı keşfet ↗</a>
-</section>
-<section class="form-card" aria-labelledby="formTitle">
+<div class="wrap">
+<header class="top"><a href="./" class="brand"><i aria-hidden="true">←</i><span>BERKE DENİZ YÜKSEKDAĞ</span></a><span class="top-tag">SORU &amp; CEVAP</span></header>
+<main>
+<section class="intro"><div><span class="eyebrow">BİRLİKTE KONUŞALIM</span><h1>Bir soru, yeni bir sohbet. ✨</h1><p>Merak ettiğin soruyu paylaş, diğer insanların sorularını oku. Seçtiğim soruları burada yanıtlayacağım.</p></div><span class="hero-symbol" aria-hidden="true">💬</span></section>
+<div class="columns">
+<section class="paper" aria-labelledby="askTitle" id="soru-formu"><span class="icon-round" aria-hidden="true">✍</span><h2 id="askTitle">Sen de bir soru bırak</h2><p class="subtitle">Girişimcilik, projeler, kitaplar veya hayat... Konuyu sen seç.</p>
 <div id="questionFormWrap">
-<h2 id="formTitle">Sorunu gönder</h2><p>İsim ve e-posta zorunlu değil. Sadece sorun yeterli.</p>
 <form id="askForm">
-<div class="fields">
-<div><label for="visitorName">Adın (isteğe bağlı)</label><input class="control" id="visitorName" name="visitorName" autocomplete="name" maxlength="80" placeholder="Adın"></div>
-<div><label for="visitorEmail">E-posta (isteğe bağlı)</label><input class="control" id="visitorEmail" name="visitorEmail" type="email" autocomplete="email" maxlength="160" placeholder="ornek@eposta.com"></div>
-</div>
-<label for="topic">Konu</label><select class="control" id="topic" name="topic" required><option>Girişimcilik</option><option>Projeler</option><option>Kitaplar</option><option>Kişisel gelişim</option><option>Diğer</option></select>
-<label for="question">Sorun</label><textarea class="control" id="question" name="question" minlength="15" maxlength="1500" required placeholder="Merak ettiğin konuyu buraya yaz..."></textarea>
-<div class="field-meta"><span>En az 15 karakter</span><span id="chars">0 / 1500</span></div>
-<div class="bot-field" aria-hidden="true"><label for="website">Web siten</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
-<button type="submit" class="submit" id="submitBtn">Sorumu gönder →</button>
-<div id="feedback" class="status" role="status" aria-live="polite"></div>
-<p class="legal">Sorun herkese açık yayımlanmaz. E-posta bırakırsan yalnızca olası geri dönüş için kullanılır; yanıtlama garantisi verilmez. Gereksiz kişisel bilgi paylaşma.</p>
-</form>
-</div>
-<div class="success" id="success" role="status" aria-live="polite"><strong>Teşekkür ederim!</strong><p>Sorun kaydedildi. Yeni soruları değerlendirip uygun olanları içeriklerimde yanıtlamaya çalışıyorum.</p><a href="./">Ana sayfaya dön ↗</a></div>
+<div class="fields"><div class="field"><label for="visitorName">Adın <span style="font-weight:500;color:#aaa0ad">(isteğe bağlı)</span></label><input id="visitorName" class="input" autocomplete="name" maxlength="80" placeholder="İsmin ya da takma adın"></div>
+<div class="field"><label for="visitorEmail">E-posta <span style="font-weight:500;color:#aaa0ad">(gizli, isteğe bağlı)</span></label><input id="visitorEmail" type="email" class="input" autocomplete="email" maxlength="160" placeholder="ornek@eposta.com"></div></div>
+<div class="field"><label for="topic">Konu</label><select id="topic" class="input" required><option>Girişimcilik</option><option>Projeler</option><option>Kitaplar</option><option>Kişisel gelişim</option><option>Diğer</option></select></div>
+<div class="field"><label for="question">Sorun nedir?</label><textarea id="question" class="input" minlength="15" maxlength="1500" required placeholder="Aklındaki soruyu buraya yaz..."></textarea><div class="field-note"><span>En az 15 karakter</span><span id="chars">0 / 1500</span></div></div>
+<div class="bot-field" aria-hidden="true"><label for="website">Web siten</label><input id="website" autocomplete="off" tabindex="-1"></div>
+<label class="consent"><input type="checkbox" id="publicConsent" required><span>Bu sorunun ve yazdığım adın (ya da “Anonim” ifadesinin) sitede herkese açık görüneceğini biliyorum. E-posta adresim yayımlanmayacak.</span></label>
+<button class="send" id="submitBtn" type="submit">Sorumu paylaş →</button><div class="status" role="status" aria-live="polite" id="feedback"></div>
+<p class="hint">Lütfen telefon numarası, adres veya başkalarına ait özel bilgiler paylaşma. İçerikler gerektiğinde kaldırılabilir.</p>
+</form></div>
+<div class="success" id="success" role="status" aria-live="polite"><strong>Sorun paylaşıldı! 🌷</strong><p>Aşağıdaki soru listesine eklendi. Yanıt verirsem aynı yerde görünecek.</p><button type="button" id="newQuestion">Yeni soru yaz</button></div>
 </section>
-</main>
-<footer><span>© 2026 Berke Deniz Yüksekdağ</span><a href="./">Ana sayfa ↗</a></footer>
+<section class="paper" aria-labelledby="feedTitle" id="sorular">
+<div class="feed-heading"><h2 id="feedTitle">Topluluktan sorular 💭</h2><span class="count" id="questionCount">...</span></div>
+<p class="subtitle">Sorular burada görünür. Cevaplananları ayrı inceleyebilirsin.</p>
+<div class="filters" role="group" aria-label="Soru filtresi"><button type="button" class="filter" data-filter="all" aria-pressed="true">Tümü</button><button type="button" class="filter" data-filter="answered" aria-pressed="false">Yanıtlananlar</button><button type="button" class="filter" data-filter="pending" aria-pressed="false">Yanıt bekleyenler</button><button type="button" class="refresh" id="refresh">↻ Yenile</button></div>
+<div id="questionsList" class="feed" aria-live="polite"><div class="state">Sorular yükleniyor…</div></div>
+<button type="button" class="more" id="showMore" hidden>Daha fazla soru göster ↓</button>
+</section>
+</div>
+</main><footer><span>© 2026 Berke Deniz Yüksekdağ</span><a href="hayat-borsasi.html">Hayat Borsası'nı keşfet ↗</a></footer>
 </div>
 <script>
 (function(){
 "use strict";
-const ENDPOINT="https://tqnvvrgrsxrvzxbjbsgl.supabase.co/rest/v1/personal_site_questions";
+const BASE="https://tqnvvrgrsxrvzxbjbsgl.supabase.co/rest/v1/";
 const API_KEY="sb_publishable_94x0ozPL38-3HJer2l5tqQ_BrpQZYH-";
-const input=document.getElementById("question");
-const form=document.getElementById("askForm");
-const feedback=document.getElementById("feedback");
-const button=document.getElementById("submitBtn");
+const INBOX=BASE+"personal_site_questions";
+const FEED=BASE+"personal_site_qa_public";
+const $=id=>document.getElementById(id);
+const form=$("askForm"),button=$("submitBtn"),status=$("feedback"),list=$("questionsList");
+let questions=[],filter="all",visible=8,requestId=0;
 const started=Date.now();
-const COOLDOWN="bdy-last-question-submitted";
-input.addEventListener("input",function(){document.getElementById("chars").textContent=input.value.length+" / 1500";});
-function show(text,error){feedback.textContent=text;feedback.classList.toggle("error",!!error);}
-form.addEventListener("submit",async function(ev){
- ev.preventDefault();show("");
- const name=document.getElementById("visitorName").value.trim(),email=document.getElementById("visitorEmail").value.trim(),topic=document.getElementById("topic").value,question=input.value.trim();
- if(document.getElementById("website").value||Date.now()-started<1800){show("Lütfen formu normal şekilde tamamlayıp yeniden dene.",true);return;}
- if(question.length<15||question.length>1500){show("Sorun 15–1500 karakter arasında olmalı.",true);return;}
- if(name.length>80||email.length>160){show("İsim veya e-posta çok uzun.",true);return;}
- const topics=["Girişimcilik","Projeler","Kitaplar","Kişisel gelişim","Diğer"];
- if(!topics.includes(topic)){show("Geçerli bir konu seç.",true);return;}
- let previous=0;try{previous=Number(localStorage.getItem(COOLDOWN)||0);}catch(_){}
- if(Date.now()-previous<60000){show("Lütfen yeni soru göndermeden önce bir dakika bekle.",true);return;}
- button.disabled=true;button.textContent="Gönderiliyor…";
+function node(tag,className,text){const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e;}
+function setStatus(message,error){status.textContent=message;status.classList.toggle("error",!!error);}
+function formatDate(s){const d=new Date(s);return isNaN(d.getTime())?"":d.toLocaleDateString("tr-TR",{day:"numeric",month:"short",year:"numeric"});}
+function isAnswered(q){return typeof q.answer==="string"&&q.answer.trim().length>0;}
+function renderFeed(){
+ const selected=questions.filter(q=>filter==="all"||(filter==="answered"?isAnswered(q):!isAnswered(q)));
+ $("questionCount").textContent=questions.length+" soru";list.replaceChildren();
+ if(!selected.length){const wrap=node("div","state"),title=node("b","",filter==="all"?"İlk soruyu sen bırak!":filter==="answered"?"Henüz yanıtlanan soru yok.":"Yanıt bekleyen soru yok.");wrap.append(title,node("span","",filter==="all"?"Sorular gönderildiğinde burada görünecek.":"Diğer soruları görmek için Tümü sekmesine dön."));list.append(wrap);}
+ selected.slice(0,visible).forEach(q=>{
+ const card=node("article","q-card");card.id="soru-"+q.id;const meta=node("div","q-meta");
+ const display=String(q.display_name||"Anonim").slice(0,80);
+ meta.append(node("span","avatar",(Array.from(display)[0]||"A").toLocaleUpperCase("tr-TR")));
+ const authorWrap=node("div");authorWrap.append(node("div","author",display),node("div","date",formatDate(q.created_at)));
+ meta.append(authorWrap,node("span","topic",String(q.topic||"Diğer")));
+ card.append(meta,node("p","question",String(q.question||"")));
+ if(isAnswered(q)){
+  card.append(node("div","q-bottom answered","✓ Yanıtlandı"));
+  const answer=node("div","answer"),by=node("div","answer-by");by.append(node("span","","B"),node("strong","","Berke Deniz Yüksekdağ yanıtladı"));answer.append(by,node("p","",q.answer));card.append(answer);
+ }else card.append(node("div","q-bottom","◌ Yanıt bekliyor"));
+ list.append(card);
+ });
+ $("showMore").hidden=visible>=selected.length;
+}
+async function loadFeed(){
+ const seq=++requestId;
+ $("refresh").disabled=true;
  try{
- const response=await fetch(ENDPOINT,{method:"POST",headers:{"apikey":API_KEY,"Content-Type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({visitor_name:name||null,visitor_email:email||null,topic:topic,question:question})});
- if(!response.ok)throw new Error("Soru gönderilemedi (HTTP "+response.status+").");
- try{localStorage.setItem(COOLDOWN,String(Date.now()));}catch(_){}
- form.reset();document.getElementById("questionFormWrap").style.display="none";document.getElementById("success").style.display="block";
- }catch(err){show("Gönderim tamamlanamadı. Bağlantını kontrol edip yeniden dene. Sorun kaydedildiği doğrulanmadı.",true);}
- finally{button.disabled=false;button.textContent="Sorumu gönder →";}
+ const u=FEED+"?select=id,display_name,topic,question,answer,created_at,answered_at&order=created_at.desc&limit=100";
+ const r=await fetch(u,{headers:{"apikey":API_KEY,"Accept":"application/json"},cache:"no-store"});
+ if(!r.ok)throw Error("HTTP "+r.status);
+ const data=await r.json();if(seq!==requestId)return;
+ if(!Array.isArray(data))throw Error("Beklenmeyen cevap");
+ questions=data;renderFeed();
+ }catch(err){
+ if(seq!==requestId)return;
+ list.replaceChildren(node("div","state","Sorular yüklenemedi. Bağlantını kontrol edip Yenile'ye dokun."));
+ $("questionCount").textContent="—";
+ }finally{if(seq===requestId)$("refresh").disabled=false;}
+}
+document.querySelectorAll("[data-filter]").forEach(btn=>btn.addEventListener("click",()=>{
+ filter=btn.dataset.filter;visible=8;
+ document.querySelectorAll("[data-filter]").forEach(b=>b.setAttribute("aria-pressed",String(b===btn)));
+ renderFeed();
+}));
+$("showMore").addEventListener("click",()=>{visible+=8;renderFeed();});
+$("refresh").addEventListener("click",loadFeed);
+$("question").addEventListener("input",()=>{$("chars").textContent=$("question").value.length+" / 1500";});
+$("newQuestion").addEventListener("click",()=>{
+ $("success").style.display="none";$("questionFormWrap").style.display="block";$("question").focus();
 });
+form.addEventListener("submit",async e=>{
+ e.preventDefault();setStatus("");
+ const name=$("visitorName").value.trim(),email=$("visitorEmail").value.trim(),topic=$("topic").value,question=$("question").value.trim();
+ if($("website").value||Date.now()-started<1800){setStatus("Lütfen formu tamamlayıp yeniden dene.",true);return;}
+ if(question.length<15||question.length>1500||name.length>80||email.length>160||!["Girişimcilik","Projeler","Kitaplar","Kişisel gelişim","Diğer"].includes(topic)){setStatus("Bilgileri ve soru uzunluğunu kontrol et.",true);return;}
+ if(!$("publicConsent").checked){setStatus("Sorunun herkese açık paylaşımını onaylamalısın.",true);return;}
+ let last=0;try{last=Number(localStorage.getItem("bdy-last-question-submitted")||0);}catch(_){}
+ if(Date.now()-last<60000){setStatus("Yeni soru göndermeden önce bir dakika bekle.",true);return;}
+ button.disabled=true;button.textContent="Paylaşılıyor…";
+ try{
+ const r=await fetch(INBOX,{method:"POST",headers:{"apikey":API_KEY,"Content-Type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({visitor_name:name||null,visitor_email:email||null,topic,question})});
+ if(!r.ok)throw Error("HTTP "+r.status);
+ try{localStorage.setItem("bdy-last-question-submitted",String(Date.now()));}catch(_){}
+ form.reset();$("chars").textContent="0 / 1500";
+ $("questionFormWrap").style.display="none";$("success").style.display="block";
+ filter="all";visible=8;document.querySelectorAll("[data-filter]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.filter==="all")));
+ await loadFeed();
+ }catch(err){setStatus("Soru gönderilemedi. Bağlantını kontrol edip yeniden dene.",true);}
+ finally{button.disabled=false;button.textContent="Sorumu paylaş →";}
+});
+loadFeed();
 })();
 </script>
-</body>
-</html>
+</body></html>
