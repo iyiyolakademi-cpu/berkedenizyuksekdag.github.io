@@ -7,7 +7,15 @@
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Yazı | Berke Deniz Yüksekdağ</title>
+<title>Blog ve Kişisel Gelişim Yazıları | Berke Deniz Yüksekdağ</title>
+<meta name="description" content="Berke Deniz Yüksekdağ'ın başarı, kişisel gelişim, girişimcilik ve hayat üzerine yazılarını keşfedin.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Berke Deniz Yüksekdağ">
+<meta property="og:title" content="Blog ve Kişisel Gelişim Yazıları | Berke Deniz Yüksekdağ">
+<meta property="og:description" content="Başarı, kişisel gelişim, girişimcilik ve hayat üzerine düşünceler, deneyimler ve yeni bakış açıları.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Blog ve Kişisel Gelişim Yazıları | Berke Deniz Yüksekdağ">
+<meta name="twitter:description" content="Başarı, kişisel gelişim, girişimcilik ve hayat üzerine yazılar.">
 
 <meta name="robots" content="index,follow">
 
@@ -457,7 +465,8 @@ h1{
 
 </style>
 
-<meta name="i18n-title-en" content="Article | Berke Deniz Yüksekdağ">
+<meta name="i18n-title-en" content="Blog Articles | Berke Deniz Yüksekdağ">
+<meta name="i18n-desc-en" content="Discover articles about personal growth, success, entrepreneurship and life by Berke Deniz Yüksekdağ.">
 <link rel="stylesheet" href="subpage-language.css">
 </head>
 
@@ -481,7 +490,7 @@ h1{
 <article class="article" id="article">
 
   <div class="error">
-    Yazı yükleniyor…
+    Makale hazırlanıyor…
   </div>
 
 </article>
@@ -710,8 +719,40 @@ async function load(){
     snap.data();
 
 
-    document.title =
-    `${x.title} | Berke Deniz Yüksekdağ`;
+    const articleTitle = String(x.title || "Blog Yazısı").trim();
+    const articleSummary = String(x.summary || "").trim() || "Berke Deniz Yüksekdağ'ın kişisel gelişim, başarı ve hayat üzerine yazısı.";
+    const fullTitle = `${articleTitle} | Berke Deniz Yüksekdağ`;
+    document.title = fullTitle;
+    // Her yazının kendi arama sonucu ve sosyal paylaşım bilgilerini güncelle.
+    const setMeta = (key, value, attr = "name") => {
+      let el = document.querySelector(`meta[${attr}="${key}"]`);
+      if (!el) { el = document.createElement("meta"); el.setAttribute(attr, key); document.head.appendChild(el); }
+      el.setAttribute("content", value);
+    };
+    setMeta("description", articleSummary);
+    setMeta("og:title", fullTitle, "property");
+    setMeta("og:description", articleSummary, "property");
+    setMeta("twitter:title", fullTitle);
+    setMeta("twitter:description", articleSummary);
+    const canonicalUrl = new URL(location.pathname, location.origin);
+    canonicalUrl.searchParams.set("id", id);
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
+    canonical.href = canonicalUrl.href;
+    setMeta("og:url", canonicalUrl.href, "property");
+    document.documentElement.dataset.articleTitle = fullTitle;
+    document.documentElement.dataset.articleDescription = articleSummary;
+    const published = x.publishedAt || x.createdAt;
+    const publishedDate = published?.toDate ? published.toDate() : (published ? new Date(published) : null);
+    const schema = { "@context":"https://schema.org", "@type":"BlogPosting", headline:articleTitle,
+      description:articleSummary, mainEntityOfPage:canonicalUrl.href,
+      author:{"@type":"Person",name:"Berke Deniz Yüksekdağ"},
+      publisher:{"@type":"Person",name:"Berke Deniz Yüksekdağ"} };
+    if (publishedDate && !Number.isNaN(publishedDate.getTime())) schema.datePublished = publishedDate.toISOString();
+    let structured = document.getElementById("article-structured-data");
+    if (!structured) { structured=document.createElement("script");structured.type="application/ld+json";structured.id="article-structured-data";document.head.appendChild(structured); }
+    structured.textContent = JSON.stringify(schema);
+    window.dispatchEvent(new CustomEvent("website-article-loaded"));
 
 
 
