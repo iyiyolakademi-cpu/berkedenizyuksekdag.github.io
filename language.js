@@ -52,9 +52,11 @@ function updateLanguageButtons(){
 function setLanguage(next,persist=true){
  language=next==='en'?'en':'tr';
  document.documentElement.lang=language;
- document.title=language==='en'?TITLE_EN:baseTitle;
+ const articleTitle=document.documentElement.dataset.articleTitle;
+ const articleDescription=document.documentElement.dataset.articleDescription;
+ document.title=articleTitle || (language==='en'?TITLE_EN:baseTitle);
  const description=document.querySelector('meta[name="description"]');
- if(description)description.content=language==='en'?META_DESCRIPTION_EN:baseDescription;
+ if(description)description.content=articleDescription || (language==='en'?META_DESCRIPTION_EN:baseDescription);
  if(persist){
    try{localStorage.setItem('bdy-website-language',language)}catch(_){}
    try{const url=new URL(location.href);if(language==='en')url.searchParams.set('lang','en');else url.searchParams.delete('lang');history.replaceState(history.state,'',url.pathname+url.search+url.hash)}catch(_){}
@@ -80,4 +82,11 @@ document.addEventListener('click',ev=>{
  if(choice){ev.preventDefault();setLanguage(choice.dataset.language);return;}
 });
 setLanguage(saved,false);
+window.addEventListener('website-article-loaded',()=>{
+ const articleTitle=document.documentElement.dataset.articleTitle;
+ const articleDescription=document.documentElement.dataset.articleDescription;
+ if(articleTitle)document.title=articleTitle;
+ const meta=document.querySelector('meta[name="description"]');
+ if(meta&&articleDescription)meta.content=articleDescription;
+});
 })();
