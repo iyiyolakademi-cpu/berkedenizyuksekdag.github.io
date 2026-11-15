@@ -4518,6 +4518,25 @@ body{padding-bottom:calc(43px + env(safe-area-inset-bottom, 0px))}
 <h2 class="section-title">Basında ve Yayınlarda</h2>
 <p class="section-desc">Çalışmalarım hakkında yayımlanan haberler, kendi yazılarımın yer aldığı dergiler ve kitaplarımın tanıtıldığı platformlar.</p>
 </div>
+<!-- Mikro Gazetesi · 15 Kasım 2026 · Köşe Yazısı -->
+<article class="press-card" data-type="Gazetede yayımlanan köşe yazısı" style="margin-bottom:24px;">
+  <div class="press-logo-box">
+    <div role="img" aria-label="Mikro Gazetesi" style="font-family:Arial,Helvetica,sans-serif;font-weight:900;font-size:24px;line-height:1.1;letter-spacing:-.9px;color:#202020;text-align:center;">
+      MİKRO<br><span style="font-size:15px;letter-spacing:2px;color:#cf3434;">GAZETESİ</span>
+    </div>
+  </div>
+  <div class="press-content">
+    <div class="press-topline">
+      <span class="press-kind">KÖŞE YAZISI</span>
+      <span class="press-source">Mikro Gazetesi</span>
+      <span class="press-date">15 Kasım 2026</span>
+    </div>
+    <h3 class="press-title">Bir Gün Dünya, İnsanlığın Tek Adresi Olmayacak</h3>
+    <p class="press-description">Mars'ta yaşam, Elon Musk'ın uzay vizyonu, yapay zekâ ve Türkiye'nin gelecekteki rolü üzerine Mikro Gazetesi'nde yayımlanan köşe yazım.</p>
+    <div class="press-author">Yazar · Berke Deniz Yüksekdağ</div>
+  </div>
+  <a class="press-link" href="https://mikrogazete.com/bir-gun-dunya-insanligin-tek-adresi-olmayacak" target="_blank" rel="noopener noreferrer">Mikro Gazetesi'nde Oku <span>↗</span></a>
+</article>
 <!-- Sakura Dergisi · MagPublish · Temmuz 2026 -->
 <article class="press-card" data-type="Dergide yayımlanan yazı" style="margin-bottom:24px;">
 <div class="press-logo-box">
@@ -4843,6 +4862,7 @@ body{padding-bottom:calc(43px + env(safe-area-inset-bottom, 0px))}
       Yazarlık
 
     </button>
+<button class="blog-filter-btn" onclick="filterBlog('gelecek-teknoloji',this)">Gelecek ve Teknoloji</button>
 </div>
 <div class="blog-grid" id="blogGrid">
 <div style="grid-column:1/-1;padding:32px 0;color:var(--muted);">Yazılar yükleniyor…</div>
@@ -5401,6 +5421,14 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const blogGrid = document.getElementById("blogGrid");
 let loadedBlogs = [];
+const externalPublishedBlogs = [{
+  id: "mikro-mars-2026",
+  title: "Bir Gün Dünya, İnsanlığın Tek Adresi Olmayacak",
+  summary: "Mars'ta yaşam, Elon Musk'ın uzay vizyonu, yapay zekâ ve insanlığın geleceği üzerine Mikro Gazetesi köşe yazım.",
+  category: "gelecek-teknoloji",
+  publishedAt: "2026-11-15T23:28:00+03:00",
+  externalUrl: "https://mikrogazete.com/bir-gun-dunya-insanligin-tek-adresi-olmayacak"
+}];
 
 function escapeHTML(value = "") {
   return String(value).replace(/[&<>'"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[ch]));
@@ -5419,6 +5447,7 @@ const categoryLabels = {
   "hayat-uzerine": "Hayat Üzerine",
   "genc-girisimci": "Genç Girişimci",
   "yazarlik": "Yazarlık",
+  "gelecek-teknoloji": "Gelecek ve Teknoloji",
 
   // Eski yazılar için geriye dönük uyumluluk
   "kisisel-gelisim": "Başarı",
@@ -5440,15 +5469,16 @@ function categoryLabel(value = "") {
 }
 
 function renderBlogs(category = "all") {
+  const allBlogs = [...externalPublishedBlogs, ...loadedBlogs];
   const items = category === "all"
-    ? loadedBlogs
-    : loadedBlogs.filter(x => canonicalCategory(x.category) === category);
+    ? allBlogs
+    : allBlogs.filter(x => canonicalCategory(x.category) === category);
   if (!items.length) {
     blogGrid.innerHTML = '<div style="grid-column:1/-1;padding:32px 0;color:var(--muted);">Bu kategoride henüz yayınlanmış yazı yok.</div>';
     return;
   }
   blogGrid.innerHTML = items.map((b, i) => `
-    <a href="blog.html?id=${encodeURIComponent(b.id)}" class="blog-card" data-category="${escapeHTML(canonicalCategory(b.category || ""))}">
+    <a href="${escapeHTML(b.externalUrl || ("blog.html?id=" + encodeURIComponent(b.id)))}" ${b.externalUrl ? 'target="_blank" rel="noopener noreferrer"' : ""} class="blog-card" data-category="${escapeHTML(canonicalCategory(b.category || ""))}">
       <div class="blog-number">${String(i + 1).padStart(2,"0")}</div>
       <div class="blog-content">
         <span class="blog-category">${escapeHTML(categoryLabel(b.category || ""))}</span>
@@ -5477,7 +5507,7 @@ async function loadBlogs() {
     renderBlogs();
   } catch (err) {
     console.error(err);
-    blogGrid.innerHTML = '<div style="grid-column:1/-1;padding:32px 0;color:var(--muted);">Yazılar şu anda yüklenemedi.</div>';
+    renderBlogs();
   }
 }
 loadBlogs();
